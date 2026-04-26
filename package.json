@@ -1,0 +1,9 @@
+{
+  "name": "bar-group-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf .dist && mkdir -p .dist && cp -r index.html marcas.html app.js app-marcas.js styles.css script.js assets .dist/",
+    "start": "python -m http.server ${PORT:-8080} -d .dist"
+  }
+}
