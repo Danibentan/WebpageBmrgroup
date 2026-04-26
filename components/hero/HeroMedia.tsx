@@ -99,7 +99,7 @@ export function HeroMedia({
             className="h-full w-full object-cover [transform:translateZ(0)]"
             muted
             autoPlay
-            loop={false}
+            loop
             playsInline
             preload="metadata"
             poster={slide.poster}

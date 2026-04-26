@@ -35,8 +35,9 @@ export function HeroOverlay({ currentSlide, title, subtitle, ctaLabel, ctaHref }
       </div>
 
       <p
+        key={currentSlide.id}
         aria-live="polite"
-        className="absolute bottom-8 right-6 z-20 text-xs uppercase tracking-[0.2em] text-white/80 transition-opacity delay-300 duration-700 md:bottom-10 md:right-10"
+        className="absolute bottom-8 right-6 z-20 text-xs uppercase tracking-[0.2em] text-white/80 animate-[captionFade_700ms_ease_300ms_both] md:bottom-10 md:right-10"
       >
         {currentSlide.caption}
       </p>

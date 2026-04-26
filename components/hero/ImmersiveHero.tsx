@@ -101,6 +101,17 @@ export default function ImmersiveHero() {
             opacity: 0;
           }
         }
+
+        @keyframes captionFade {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
       `}</style>
     </section>
   );

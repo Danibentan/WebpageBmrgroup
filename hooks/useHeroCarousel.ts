@@ -39,6 +39,7 @@ export function useHeroCarousel({
   const [isReducedMotion, setIsReducedMotion] = useState(false);
 
   const hasPreloadedNext = useRef(false);
+  const hasTriggeredVideoNext = useRef(false);
   const startedAtRef = useRef<number>(0);
   const rafRef = useRef<number | null>(null);
 
@@ -112,8 +113,13 @@ export function useHeroCarousel({
       if (ratio >= 0.7) {
         preloadNext();
       }
+
+      if (ratio >= 0.995 && !hasTriggeredVideoNext.current) {
+        hasTriggeredVideoNext.current = true;
+        nextSlide();
+      }
     },
-    [preloadNext]
+    [nextSlide, preloadNext]
   );
 
   useEffect(() => {
@@ -169,6 +175,7 @@ export function useHeroCarousel({
   useEffect(() => {
     setProgress(0);
     hasPreloadedNext.current = false;
+    hasTriggeredVideoNext.current = false;
     startedAtRef.current = performance.now();
 
     if (activeSlide?.type === 'video') {
