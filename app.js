@@ -1,133 +1,130 @@
-const { useMemo, useState } = React;
+const categories = [
+  'Corredizas Premium',
+  'Línea A40',
+  'Línea Módena',
+  'Ventanales Fijos',
+  'Puertas Ventana',
+  'Frentes Vidriados'
+];
 
-const WINDOW_TYPES = {
-  modena: { label: 'Módena', bars: 'vertical' },
-  a40: { label: 'A40', bars: 'grid' },
-  fijo: { label: 'Ventanal Fijo', bars: 'none' }
-};
+const products = [
+  { name: 'Módena Corrediza 2H', price: '$ 1.250.000', tag: 'Nuevo', img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80' },
+  { name: 'A40 Batiente Térmica', price: '$ 1.490.000', tag: 'Top ventas', img: 'https://images.unsplash.com/photo-1600566752734-1f2f1f2d6bb1?auto=format&fit=crop&w=900&q=80' },
+  { name: 'Ventanal Fijo Panorámico', price: '$ 1.790.000', tag: 'Premium', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80' },
+  { name: 'Corrediza Minimal 3 Guías', price: '$ 2.050.000', tag: 'Arquitectos', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80' }
+];
 
-const COLORS = {
-  blanco: { label: 'Blanco', frame: '#F6F7F8' },
-  roble: { label: 'Madera Roble', frame: '#A87444' },
-  negro: { label: 'Negro Mate', frame: '#1D232B' },
-  verde: { label: 'Verde Country', frame: '#4B6656' }
-};
-
-const MATERIALS = {
-  pvc: { label: 'PVC', finish: 'Satinado' },
-  aluminio: { label: 'Aluminio', finish: 'Microtexturado' },
-  madera: { label: 'Madera', finish: 'Natural Premium' }
-};
-
-function OptionGroup({ title, options, selected, onSelect }) {
+function Header() {
   return (
-    <div className="space-y-2">
-      <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">{title}</h3>
-      <div className="grid gap-2">
-        {Object.entries(options).map(([key, value]) => (
-          <button
-            key={key}
-            onClick={() => onSelect(key)}
-            className={`rounded-xl border px-3 py-2 text-left transition ${
-              selected === key
-                ? 'border-bmrBlue bg-bmrBlue text-white shadow-md'
-                : 'border-slate-200 bg-white text-slate-700 hover:border-bmrOrange hover:text-slate-900'
-            }`}
-          >
-            {value.label}
-          </button>
-        ))}
-      </div>
-    </div>
+    <>
+      <div className="bg-primary py-2 text-center text-xs font-semibold tracking-wide text-white">LÍNEA PREMIUM · ASESORAMIENTO TÉCNICO PERSONALIZADO</div>
+      <header className="sticky top-0 z-40 border-b border-black/10 bg-[#f6f4ef]/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+          <div className="flex items-center gap-3">
+            <img src="assets/bmr-logo.svg" alt="BMR" className="h-11 w-11 rounded-xl" />
+            <div>
+              <p className="text-lg font-bold text-primary">BMR Group Argentina</p>
+              <p className="text-xs text-slate-600">Aberturas de línea premium</p>
+            </div>
+          </div>
+          <nav className="hidden gap-6 text-sm font-semibold lg:flex">
+            <a href="#catalogo" className="hover:text-primary">Tienda</a>
+            <a href="#categorias" className="hover:text-primary">Categorías</a>
+            <a href="#showroom" className="hover:text-primary">Showroom</a>
+            <a href="#nosotros" className="hover:text-primary">Nosotros</a>
+            <a href="#contacto" className="hover:text-primary">Contacto</a>
+          </nav>
+          <button className="rounded-full border border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary hover:text-white">Cotizar ahora</button>
+        </div>
+      </header>
+    </>
   );
 }
 
-function WindowOverlay({ type, color, material }) {
-  const bars = useMemo(() => {
-    if (type === 'modena') {
-      return <div className="absolute inset-y-0 left-1/2 w-[6px] -translate-x-1/2 bg-white/55" />;
-    }
-
-    if (type === 'a40') {
-      return (
-        <>
-          <div className="absolute inset-y-0 left-1/2 w-[4px] -translate-x-1/2 bg-white/55" />
-          <div className="absolute inset-x-0 top-1/2 h-[4px] -translate-y-1/2 bg-white/55" />
-        </>
-      );
-    }
-
-    return null;
-  }, [type]);
-
-  const texture = material === 'madera'
-    ? 'repeating-linear-gradient(90deg, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.03) 6px, rgba(0,0,0,0.08) 8px)'
-    : material === 'aluminio'
-    ? 'linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0.04))'
-    : 'linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.12))';
-
+function Hero() {
   return (
-    <div className="relative h-[320px] w-[280px] rounded-md shadow-premium" style={{ backgroundColor: color, padding: '16px' }}>
-      <div className="relative h-full w-full rounded-[2px] border border-white/30 bg-sky-100/20 backdrop-blur-sm">
-        <div className="absolute inset-0" style={{ backgroundImage: texture, mixBlendMode: 'overlay' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-sky-100/30 to-sky-950/30" />
-        {bars}
+    <section className="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-2 md:py-14 md:px-6">
+      <div className="flex flex-col justify-center">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Roasted fresh to order → now BMR style</p>
+        <h1 className="text-4xl font-black leading-tight text-[#102c4f] md:text-6xl">Aberturas premium hechas a medida.</h1>
+        <p className="mt-4 max-w-xl text-slate-600">Repensamos la experiencia de compra para aberturas: elegí sistema, terminación y tamaño con asesoría experta y entrega de fábrica.</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <button className="rounded-full bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-[#0f3159]">Comprar online</button>
+          <button className="rounded-full border border-black/20 px-6 py-3 text-sm font-bold hover:border-primary hover:text-primary">Ver catálogo técnico</button>
+        </div>
       </div>
-    </div>
+      <div className="overflow-hidden rounded-3xl shadow-soft">
+        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1400&q=80" alt="Fachada premium con aberturas" className="h-full w-full object-cover" />
+      </div>
+    </section>
+  );
+}
+
+function CategoryBar() {
+  return (
+    <section id="categorias" className="mx-auto max-w-7xl px-4 pb-8 md:px-6">
+      <h2 className="mb-4 text-2xl font-extrabold text-[#102c4f]">Comprar por categoría</h2>
+      <div className="flex flex-wrap gap-2">
+        {categories.map((c) => (
+          <button key={c} className="rounded-full border border-black/15 bg-white px-4 py-2 text-sm font-semibold hover:border-primary hover:text-primary">{c}</button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProductCard({ p }) {
+  return (
+    <article className="group rounded-2xl bg-white shadow-soft">
+      <div className="relative overflow-hidden rounded-t-2xl">
+        <img src={p.img} alt={p.name} className="h-64 w-full object-cover transition duration-300 group-hover:scale-105" />
+        <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-bold text-white">{p.tag}</span>
+      </div>
+      <div className="space-y-3 p-4">
+        <h3 className="text-lg font-bold text-[#102c4f]">{p.name}</h3>
+        <p className="text-sm text-slate-600">Perfil premium, herrajes de alto rendimiento y aislación superior.</p>
+        <div className="flex items-center justify-between">
+          <p className="text-base font-extrabold">{p.price}</p>
+          <button className="rounded-full border border-primary px-4 py-2 text-xs font-bold text-primary hover:bg-primary hover:text-white">+ Agregar</button>
+        </div>
+      </div>
+    </article>
   );
 }
 
 function App() {
-  const [windowType, setWindowType] = useState('modena');
-  const [frameColor, setFrameColor] = useState('blanco');
-  const [material, setMaterial] = useState('pvc');
-
   return (
-    <div className="min-h-screen bg-slate-100 p-4 md:p-8">
-      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[360px,1fr]">
-        <aside className="rounded-2xl bg-white p-6 shadow-premium">
-          <img src="assets/bmr-logo.svg" alt="BMR Group" className="mb-5 h-12 w-12 rounded-xl" />
-          <h1 className="text-2xl font-bold text-bmrBlue">Configurador de Ventanas Premium</h1>
-          <p className="mb-6 mt-2 text-sm text-slate-600">Visualizá en tiempo real cómo quedaría tu abertura en una fachada estilo country.</p>
+    <div>
+      <Header />
+      <Hero />
+      <CategoryBar />
 
-          <div className="space-y-6">
-            <OptionGroup title="Tipo de ventana" options={WINDOW_TYPES} selected={windowType} onSelect={setWindowType} />
-            <OptionGroup title="Color del marco" options={COLORS} selected={frameColor} onSelect={setFrameColor} />
-            <OptionGroup title="Material" options={MATERIALS} selected={material} onSelect={setMaterial} />
+      <section id="catalogo" className="mx-auto max-w-7xl px-4 pb-12 md:px-6">
+        <div className="mb-5 flex items-end justify-between">
+          <h2 className="text-2xl font-extrabold text-[#102c4f]">Productos destacados</h2>
+          <a href="#" className="text-sm font-bold text-primary">Ver toda la colección</a>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {products.map((p) => <ProductCard key={p.name} p={p} />)}
+        </div>
+      </section>
+
+      <section id="showroom" className="bg-[#102c4f] py-14 text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-2 md:px-6">
+          <img src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=1200&q=80" alt="Showroom BMR" className="rounded-2xl" />
+          <div className="flex flex-col justify-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-300">Showroom Experience</p>
+            <h3 className="mt-3 text-3xl font-black">Conocé acabados y aperturas en tamaño real.</h3>
+            <p className="mt-4 text-slate-200">Visitá nuestro showroom y compará línea Módena, A40 y ventanales fijos con asesoramiento técnico.</p>
+            <button className="mt-6 w-fit rounded-full bg-white px-6 py-3 text-sm font-bold text-primary">Reservar visita</button>
           </div>
+        </div>
+      </section>
 
-          <div className="mt-6 rounded-xl bg-slate-50 p-4 text-sm text-slate-700">
-            <p><span className="font-semibold">Modelo:</span> {WINDOW_TYPES[windowType].label}</p>
-            <p><span className="font-semibold">Color:</span> {COLORS[frameColor].label}</p>
-            <p><span className="font-semibold">Material:</span> {MATERIALS[material].label} · {MATERIALS[material].finish}</p>
-          </div>
-
-          <button className="mt-5 w-full rounded-xl bg-bmrBlue px-4 py-3 font-semibold text-white transition hover:bg-[#0f335f]">Previsualizar proyecto</button>
-        </aside>
-
-        <section className="relative overflow-hidden rounded-2xl border border-slate-200 shadow-premium">
-          <img
-            src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=2000&q=80"
-            alt="Fachada casa estilo country"
-            className="h-[760px] w-full object-cover"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent" />
-
-          <div className="absolute left-[54%] top-[50%] -translate-x-1/2 -translate-y-1/2">
-            <WindowOverlay
-              type={windowType}
-              color={COLORS[frameColor].frame}
-              material={material}
-            />
-          </div>
-
-          <div className="absolute bottom-5 left-5 rounded-xl bg-white/85 px-4 py-3 backdrop-blur">
-            <p className="text-sm font-semibold text-bmrBlue">Vista previa en tiempo real</p>
-            <p className="text-xs text-slate-600">Línea Premium · {WINDOW_TYPES[windowType].label}</p>
-          </div>
-        </section>
-      </div>
+      <footer id="contacto" className="mx-auto flex max-w-7xl flex-col justify-between gap-4 px-4 py-8 text-sm text-slate-600 md:flex-row md:px-6">
+        <p>© 2026 BMR Group Argentina · Aberturas de línea premium</p>
+        <p>info@bmrgroup.com.ar · +54 9 11 0000 0000</p>
+      </footer>
     </div>
   );
 }
