@@ -22,37 +22,28 @@ function prevSlide() {
 if (nextBtn && prevBtn && slides.length) {
   nextBtn.addEventListener('click', nextSlide);
   prevBtn.addEventListener('click', prevSlide);
-  setInterval(nextSlide, 6500);
+  setInterval(nextSlide, 6000);
 }
 
 if (window.gsap) {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.site-header', {
-    y: -70,
-    opacity: 0,
-    duration: 0.9,
-    ease: 'power3.out'
-  });
-
-  gsap.from('.hero-content', {
-    y: 50,
-    opacity: 0,
-    duration: 1.1,
-    delay: 0.2,
-    ease: 'power3.out'
-  });
+  const introTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  introTl
+    .from('.site-header', { y: -70, opacity: 0, duration: 0.9 })
+    .from('.brand', { x: -50, opacity: 0, duration: 0.6 }, '-=0.4')
+    .from('.nav-list li', { y: -20, opacity: 0, duration: 0.45, stagger: 0.08 }, '-=0.35')
+    .from('.hero-content', { y: 50, opacity: 0, duration: 0.8 }, '-=0.2');
 
   gsap.utils.toArray('.reveal-up').forEach((el) => {
     gsap.from(el, {
-      y: 44,
+      y: 42,
       opacity: 0,
-      duration: 0.85,
+      duration: 0.75,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: el,
-        start: 'top 82%',
-        toggleActions: 'play none none reverse'
+        start: 'top 82%'
       }
     });
   });
@@ -60,17 +51,17 @@ if (window.gsap) {
   gsap.utils.toArray('.btn').forEach((button) => {
     button.addEventListener('mouseenter', () => {
       gsap.to(button, {
-        boxShadow: '0 14px 28px rgba(120, 166, 255, 0.35)',
-        duration: 0.3,
-        scale: 1.02
+        y: -2,
+        duration: 0.25,
+        boxShadow: '0 12px 26px rgba(255, 106, 20, 0.35)'
       });
     });
 
     button.addEventListener('mouseleave', () => {
       gsap.to(button, {
-        boxShadow: '0 0 0 rgba(0,0,0,0)',
-        duration: 0.3,
-        scale: 1
+        y: 0,
+        duration: 0.25,
+        boxShadow: '0 0 0 rgba(0,0,0,0)'
       });
     });
   });

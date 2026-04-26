@@ -6,25 +6,23 @@
     <title>BMR Group Argentina | Aberturas Premium</title>
     <meta
       name="description"
-      content="BMR Group Argentina: aberturas premium con diseño minimalista, moderno y asesoramiento personalizado."
+      content="BMR Group Argentina: aberturas premium en aluminio y vidrio con diseño moderno para proyectos residenciales y corporativos."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header glass" id="inicio">
-      <div class="brand">
-        <span class="brand-mark">BMR</span>
+      <a class="brand" href="#inicio" aria-label="BMR Group Argentina inicio">
+        <img src="assets/bmr-logo.svg" alt="Logo de BMR Group Argentina" class="brand-logo" />
         <div>
           <p class="brand-title">BMR Group Argentina</p>
           <p class="brand-subtitle">Aberturas de línea premium</p>
         </div>
-      </div>
+      </a>
+
       <nav aria-label="Navegación principal">
         <ul class="nav-list">
           <li><a class="nav-link" href="#quienes-somos">Quiénes somos</a></li>
@@ -34,22 +32,23 @@
           <li><a class="nav-link" href="#contacto">Contacto</a></li>
         </ul>
       </nav>
-      <button class="btn btn-ghost">Solicitar asesoramiento</button>
+
+      <a class="btn btn-ghost" href="#contacto">Solicitar asesoramiento</a>
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero" id="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content reveal-up">
-          <p class="eyebrow">Línea Premium para arquitectura contemporánea</p>
-          <h1>BMR Group Argentina</h1>
+          <p class="eyebrow">DISEÑO • TECNOLOGÍA • PRESTACIONES DE ALTA GAMA</p>
+          <h1>Aberturas premium para arquitectura moderna.</h1>
           <p class="hero-text">
-            Diseñamos experiencias en aluminio y vidrio con estética minimalista,
-            máxima aislación y terminaciones de alto nivel.
+            Creamos sistemas de aluminio y vidrio de alto rendimiento, con estética minimalista y
+            soluciones técnicas para proyectos residenciales y corporativos en toda Argentina.
           </p>
           <div class="hero-actions">
             <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
-            <a href="#showroom" class="btn btn-secondary">Visitar showroom</a>
+            <a href="#showroom" class="btn btn-secondary">Recorrer showroom</a>
           </div>
         </div>
       </section>
@@ -57,28 +56,20 @@
       <section id="quienes-somos" class="section">
         <div class="section-head reveal-up">
           <p class="eyebrow">Quiénes somos</p>
-          <h2>Innovación, precisión y diseño en cada abertura.</h2>
+          <h2>Precisión en cada detalle para elevar cada obra.</h2>
         </div>
         <div class="info-grid">
           <article class="glass card reveal-up">
-            <h3>Diseño Premium</h3>
-            <p>
-              Soluciones a medida para residencias y desarrollos de alto estándar,
-              con líneas limpias y estética moderna.
-            </p>
+            <h3>Calidad Premium</h3>
+            <p>Perfiles, herrajes y terminaciones seleccionadas para máxima durabilidad y estética.</p>
           </article>
           <article class="glass card reveal-up">
-            <h3>Instalación Profesional</h3>
-            <p>
-              Equipo técnico especializado para una colocación precisa, segura y
-              con terminaciones impecables.
-            </p>
+            <h3>Asesoramiento Experto</h3>
+            <p>Acompañamos arquitectos, desarrolladores y clientes finales en todo el proceso.</p>
           </article>
           <article class="glass card reveal-up">
-            <h3>Postventa y Garantía</h3>
-            <p>
-              Acompañamiento integral antes, durante y después de cada proyecto.
-            </p>
+            <h3>Ejecución Profesional</h3>
+            <p>Instalación técnica, control de calidad y seguimiento postventa para resultados impecables.</p>
           </article>
         </div>
       </section>
@@ -86,23 +77,25 @@
       <section id="showroom" class="section section-dark">
         <div class="section-head reveal-up">
           <p class="eyebrow">Showroom</p>
-          <h2>Un recorrido visual por nuestras soluciones.</h2>
+          <h2>Experiencias reales, terminaciones reales.</h2>
         </div>
+
         <div class="slideshow glass reveal-up" aria-label="Galería de showroom">
           <div class="slides">
             <figure class="slide is-active">
-              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1600&q=80" alt="Ventanal premium en living moderno" />
-              <figcaption>Ventanales panorámicos con perfilería minimal.</figcaption>
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80" alt="Living moderno con ventanal premium" />
+              <figcaption>Aberturas corredizas de gran paño para integrar interior y exterior.</figcaption>
             </figure>
             <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=80" alt="Puerta corrediza de vidrio de alta gama" />
-              <figcaption>Corredizas de gran apertura para espacios integrados.</figcaption>
+              <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80" alt="Casa de diseño con carpinterías negras" />
+              <figcaption>Diseño minimalista con perfilería negra y alta aislación térmica.</figcaption>
             </figure>
             <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80" alt="Fachada moderna con aberturas de aluminio negro" />
-              <figcaption>Fachadas contemporáneas con alta prestación térmica.</figcaption>
+              <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1600&q=80" alt="Fachada vidriada moderna" />
+              <figcaption>Frentes vidriados premium para proyectos residenciales y comerciales.</figcaption>
             </figure>
           </div>
+
           <div class="controls">
             <button class="btn btn-icon" id="prevSlide" aria-label="Slide anterior">←</button>
             <button class="btn btn-icon" id="nextSlide" aria-label="Slide siguiente">→</button>
@@ -113,23 +106,23 @@
       <section id="catalogo" class="section">
         <div class="section-head reveal-up">
           <p class="eyebrow">Catálogo</p>
-          <h2>Sistemas pensados para proyectos exigentes.</h2>
+          <h2>Sistemas pensados para exigencias reales de obra.</h2>
         </div>
         <div class="catalog-grid">
           <article class="product card reveal-up">
-            <h3>Línea Corrediza BMR-SLIM</h3>
-            <p>Máxima visual, marco ultrafino y deslizamiento suave.</p>
-            <a href="#contacto" class="text-link">Cotizar ahora</a>
+            <h3>BMR SLIM</h3>
+            <p>Corredizas de marco ultrafino para máxima entrada de luz natural.</p>
+            <a href="#contacto" class="text-link">Solicitar ficha técnica</a>
           </article>
           <article class="product card reveal-up">
-            <h3>Línea Batiente BMR-THERM</h3>
-            <p>Ruptura de puente térmico para confort superior.</p>
-            <a href="#contacto" class="text-link">Cotizar ahora</a>
+            <h3>BMR THERM</h3>
+            <p>Sistema batiente con ruptura de puente térmico para mejor confort.</p>
+            <a href="#contacto" class="text-link">Solicitar ficha técnica</a>
           </article>
           <article class="product card reveal-up">
-            <h3>Frente Integral BMR-GLASS</h3>
-            <p>Soluciones para fachadas vidriadas de alta prestación.</p>
-            <a href="#contacto" class="text-link">Cotizar ahora</a>
+            <h3>BMR GLASS</h3>
+            <p>Frentes integrales para fachadas modernas con presencia arquitectónica.</p>
+            <a href="#contacto" class="text-link">Solicitar ficha técnica</a>
           </article>
         </div>
       </section>
@@ -137,13 +130,13 @@
       <section id="compras" class="section section-dark">
         <div class="purchase reveal-up glass">
           <p class="eyebrow">Compras</p>
-          <h2>Proceso ágil y transparente.</h2>
+          <h2>Proceso simple, profesional y transparente.</h2>
           <ol>
-            <li>Reunión técnica y relevamiento.</li>
-            <li>Propuesta personalizada y presupuesto.</li>
-            <li>Fabricación, instalación y seguimiento.</li>
+            <li>Relevamiento técnico inicial del proyecto.</li>
+            <li>Propuesta, presupuesto y validación de detalles.</li>
+            <li>Fabricación, instalación y postventa.</li>
           </ol>
-          <a href="#contacto" class="btn btn-primary">Comenzar proyecto</a>
+          <a href="#contacto" class="btn btn-primary">Iniciar mi proyecto</a>
         </div>
       </section>
     </main>
@@ -151,7 +144,7 @@
     <footer id="contacto" class="footer">
       <div class="footer-content reveal-up">
         <h2>Contacto</h2>
-        <p>Hablemos de tu próximo proyecto premium.</p>
+        <p>Contanos tu proyecto y te asesoramos a medida.</p>
         <a class="btn btn-secondary" href="mailto:info@bmrgroup.com.ar">info@bmrgroup.com.ar</a>
       </div>
     </footer>
