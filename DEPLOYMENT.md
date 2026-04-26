@@ -1,8 +1,17 @@
 # Deploy checklist (Vercel/Railway)
 
+## Canonical production URL
+
+Use **Vercel as the canonical public production URL**:
+
+- Primary: `https://webpage-bmrgroup.vercel.app`
+- Secondary (backup/preview): `https://webpagebmrgroup-production.up.railway.app`
+
+Why: Vercel handles frontend static/Next hosting and domain management more cleanly for this repository.
+
 ## Runtime modes
 
-This repository now supports two modes:
+This repository supports two modes:
 
 1. **Static mode (default, cloud-safe)**
    - `npm run build` copies static files to `.dist/`
