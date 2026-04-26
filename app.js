@@ -41,7 +41,10 @@ const Header = () => (
     <header className="sticky top-0 z-40 border-b border-black/10 bg-[#f7f6f2]/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
         <div className="flex items-center gap-3">
-          <img src="assets/bmr-logo.svg" alt="BMR" className="h-11 w-11 rounded-xl anim-float" />
+          <div className="group relative h-12 w-12">
+            <span className="absolute inset-0 rounded-full border border-accent/40 transition group-hover:scale-110 group-hover:opacity-0" />
+            <img src="assets/bmr-logo.svg" alt="BMR" className="h-12 w-12 rounded-full anim-float transition duration-500 group-hover:rotate-12 group-hover:scale-105" />
+          </div>
           <div>
             <p className="text-lg font-bold text-primary">BMR Group Argentina</p>
             <p className="text-xs text-slate-600">Aberturas de línea premium</p>
