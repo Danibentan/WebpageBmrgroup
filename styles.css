@@ -17,7 +17,10 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  background: radial-gradient(circle at top right, #1a4e79 0%, var(--bg) 58%);
+  background:
+    radial-gradient(circle at 12% -8%, rgba(255, 106, 20, 0.14), transparent 36%),
+    radial-gradient(circle at 90% 0%, #1a4e79 0%, transparent 44%),
+    linear-gradient(180deg, #0b2640 0%, #09253d 100%);
   color: var(--text);
 }
 
@@ -29,62 +32,72 @@ a { color: inherit; }
   z-index: 50;
   width: min(1320px, 96%);
   margin: 1rem auto;
-  padding: 0.9rem 1.1rem;
+  padding: 0.85rem 1.15rem;
   border-radius: 22px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .glass {
-  background: rgba(11, 38, 64, 0.62);
+  background: linear-gradient(180deg, rgba(15, 45, 74, 0.78), rgba(9, 32, 54, 0.72));
   border: 1px solid var(--line);
   backdrop-filter: blur(10px);
 }
 
 .brand {
-  text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
+  line-height: 0;
 }
 
 .brand-logo {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 240px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.28));
 }
-
-.brand-title,
-.brand-subtitle {
-  margin: 0;
-}
-.brand-title { font-size: 1.9rem; font-weight: 700; }
-.brand-subtitle { color: var(--muted); font-size: 1rem; }
 
 .nav-list {
   list-style: none;
   display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  gap: 0.8rem;
+  gap: 1.2rem;
 }
 
 .nav-link {
   text-decoration: none;
-  padding: 0.5rem 0.7rem;
+  padding: 0.5rem 0.25rem;
   border-radius: 10px;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  font-size: 1.08rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  transition: transform 0.3s ease;
 }
 
 .nav-link:hover {
-  background: rgba(255, 255, 255, 0.08);
   color: #fff;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
 }
 
 main,
@@ -107,7 +120,7 @@ main,
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(170deg, rgba(12, 39, 67, 0.3), rgba(12, 39, 67, 0.92));
+  background: linear-gradient(170deg, rgba(12, 39, 67, 0.24), rgba(12, 39, 67, 0.92));
 }
 
 .hero-content {
@@ -121,7 +134,7 @@ main,
   margin: 0 0 1rem;
   color: #c6d4e0;
   font-size: 0.8rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   font-weight: 700;
 }
 
@@ -153,6 +166,11 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.6rem); }
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   padding: 1.25rem;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
 }
 
 .slideshow {
@@ -222,6 +240,11 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.6rem); }
   background: rgba(255, 255, 255, 0.06);
 }
 
+.btn-ghost {
+  padding-inline: 1.8rem;
+  height: 54px;
+}
+
 .btn-icon { width: 44px; height: 44px; padding: 0; }
 .text-link { color: #ffd1b5; text-decoration: none; font-weight: 700; }
 
@@ -234,15 +257,19 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.6rem); }
 }
 .footer-content { padding-top: 2rem; }
 
-@media (max-width: 1100px) {
-  .site-header { flex-wrap: wrap; }
+@media (max-width: 1180px) {
+  .site-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.7rem;
+  }
   .nav-list { flex-wrap: wrap; }
-  .brand-title { font-size: 1.45rem; }
+  .brand-logo { width: 220px; height: 62px; }
 }
 
 @media (max-width: 900px) {
   .info-grid, .catalog-grid { grid-template-columns: 1fr; }
   .hero-content { padding: 2rem; }
-  .brand-logo { width: 58px; height: 58px; }
-  .brand-subtitle { font-size: 0.9rem; }
+  .nav-list { gap: 0.75rem; }
+  .nav-link { font-size: 1rem; }
 }

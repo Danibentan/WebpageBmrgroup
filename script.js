@@ -30,20 +30,32 @@ if (window.gsap) {
 
   const introTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
   introTl
-    .from('.site-header', { y: -70, opacity: 0, duration: 0.9 })
-    .from('.brand', { x: -50, opacity: 0, duration: 0.6 }, '-=0.4')
-    .from('.nav-list li', { y: -20, opacity: 0, duration: 0.45, stagger: 0.08 }, '-=0.35')
-    .from('.hero-content', { y: 50, opacity: 0, duration: 0.8 }, '-=0.2');
+    .from('.site-header', { y: -80, opacity: 0, duration: 0.85 })
+    .from('.brand-logo', { scale: 0.92, opacity: 0, duration: 0.55 }, '-=0.45')
+    .from('.nav-list li', { y: -20, opacity: 0, duration: 0.4, stagger: 0.07 }, '-=0.25')
+    .from('.btn-ghost', { x: 25, opacity: 0, duration: 0.45 }, '-=0.33')
+    .from('.hero-content', { y: 46, opacity: 0, duration: 0.75 }, '-=0.15');
+
+  gsap.to('.hero', {
+    backgroundPosition: '50% 58%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
 
   gsap.utils.toArray('.reveal-up').forEach((el) => {
     gsap.from(el, {
-      y: 42,
+      y: 46,
       opacity: 0,
-      duration: 0.75,
+      duration: 0.72,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: el,
-        start: 'top 82%'
+        start: 'top 84%'
       }
     });
   });
@@ -51,7 +63,7 @@ if (window.gsap) {
   gsap.utils.toArray('.btn').forEach((button) => {
     button.addEventListener('mouseenter', () => {
       gsap.to(button, {
-        y: -2,
+        y: -3,
         duration: 0.25,
         boxShadow: '0 12px 26px rgba(255, 106, 20, 0.35)'
       });
