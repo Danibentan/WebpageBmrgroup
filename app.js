@@ -8,7 +8,7 @@ const categories = [
 ];
 
 const products = [
-  { name: 'Módena Corrediza 2H', price: '$ 1.250.000', sku: 'MOD-2H', img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80' },
+  { name: 'Módena Corrediza 2H', price: '$ 1.250.000', sku: 'MOD-2H', img: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=900&q=80' },
   { name: 'A40 Batiente Térmica', price: '$ 1.490.000', sku: 'A40-BT', img: 'https://images.unsplash.com/photo-1600566752734-1f2f1f2d6bb1?auto=format&fit=crop&w=900&q=80' },
   { name: 'Ventanal Fijo Panorámico', price: '$ 1.790.000', sku: 'FIX-PAN', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80' },
   { name: 'Corrediza Minimal 3 Guías', price: '$ 2.050.000', sku: 'MIN-3G', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80' }
