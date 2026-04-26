@@ -76,10 +76,6 @@ function App() {
           <div className="space-y-4">
             <h1 className="text-4xl font-semibold leading-tight text-[#102c4f] md:text-6xl">Aberturas Premiun para tu proyecto</h1>
             <p className="max-w-xl text-base text-slate-600">Contamos con una amplia gama de modelos con stock fisico y entrega inmediata</p>
-            <div className="flex gap-3">
-              <a href="#tienda" className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white">Ir a tienda</a>
-              <a href="#quienes" className="rounded-full border border-black/20 px-6 py-3 text-sm font-semibold">Conocer BMR</a>
-            </div>
           </div>
           <div className="overflow-hidden rounded-3xl premium-hover shadow-soft">
             <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1400&q=80" alt="Fachada premium" className="h-full w-full object-cover" />
