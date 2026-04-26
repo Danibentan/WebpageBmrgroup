@@ -1,0 +1,14 @@
+{
+  "name": "bar-group-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf .dist && mkdir -p .dist && cp -r index.html marcas.html app.js app-marcas.js styles.css script.js assets .dist/",
+    "start": "python -m http.server ${PORT:-8080} -d .dist",
+    "build:next": "node scripts/run-next-mode.mjs build",
+    "start:next": "node scripts/run-next-mode.mjs start",
+    "dev:next": "node scripts/run-next-mode.mjs dev",
+    "mode:next": "node scripts/set-mode.mjs next",
+    "mode:static": "node scripts/set-mode.mjs static"
+  }
+}
