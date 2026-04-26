@@ -14,6 +14,12 @@ const products = [
   { name: 'Corrediza Minimal 3 Guías', price: '$ 2.050.000', sku: 'MIN-3G', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80' }
 ];
 
+const videoSlides = [
+  { src: 'assets/video-slideshow.mp4', title: 'Diseño vanguardista' },
+  { src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', title: 'Inspiración arquitectónica' },
+  { src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Detalles premium' }
+];
+
 const PremiumLink = ({ children, href = '#' }) => (
   <a href={href} className="group inline-flex items-center gap-1 text-sm font-semibold text-primary transition hover:text-accent">
     <span className="relative">{children}<span className="absolute -bottom-1 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-accent transition group-hover:scale-x-100" /></span>
@@ -67,16 +73,56 @@ function Header() {
   );
 }
 
+function VideoSlideshow() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => setActive((prev) => (prev + 1) % videoSlides.length), 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="rounded-3xl border border-white/60 bg-white p-3 shadow-soft">
+      <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-black">
+        {videoSlides.map((slide, index) => (
+          <video
+            key={slide.src}
+            src={slide.src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${active === index ? 'opacity-100' : 'opacity-0'}`}
+          />
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+        <p className="absolute bottom-4 left-4 text-sm font-semibold text-white">{videoSlides[active].title}</p>
+      </div>
+      <div className="mt-3 flex gap-2">
+        {videoSlides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActive(index)}
+            className={`h-2.5 rounded-full transition-all ${active === index ? 'w-8 bg-primary' : 'w-3 bg-slate-300'}`}
+            aria-label={`Ir al slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function App() {
   return (
     <div>
       <Header />
       <main className="space-y-12 py-8">
-        <section className="mx-auto max-w-7xl px-4 md:px-6">
+        <section className="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-[1fr,1.25fr] md:px-6">
           <div className="space-y-4">
             <h1 className="text-4xl font-semibold leading-tight text-[#102c4f] md:text-6xl">Aberturas Premiun para tu proyecto</h1>
             <p className="max-w-xl text-base text-slate-600">Contamos con una amplia gama de modelos con stock fisico y entrega inmediata</p>
           </div>
+          <VideoSlideshow />
         </section>
 
         <section id="quienes" className="mx-auto max-w-7xl rounded-3xl bg-white px-6 py-8 shadow-soft md:px-8">
