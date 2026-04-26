@@ -1,13 +1,22 @@
 # Deploy checklist (Vercel/Railway)
 
-## Current runtime mode
+## Runtime modes
 
-This repository uses a static build pipeline by default:
+This repository now supports two modes:
 
-- `npm run build` copies static assets into `.dist/`.
-- `npm run start` serves `.dist/` with `python -m http.server`.
+1. **Static mode (default, cloud-safe)**
+   - `npm run build` copies static files to `.dist/`
+   - `npm run start` serves `.dist/` using Python
+   - Works in restricted environments where npm package downloads are blocked
 
-This avoids dependency-install failures in restricted cloud environments.
+2. **Next mode (full App Router stack)**
+   - `npm run mode:next` (switches `package.json` and installs Next dependencies)
+   - `npm run build:next`
+   - `npm run start:next`
+
+To return to static mode:
+
+- `npm run mode:static`
 
 ## Required
 
