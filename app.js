@@ -75,7 +75,7 @@ function App() {
         <section className="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-2 md:px-6">
           <div className="space-y-4">
             <h1 className="text-4xl font-semibold leading-tight text-[#102c4f] md:text-6xl">Aberturas Premiun para tu proyecto</h1>
-            <p className="max-w-xl text-base text-slate-600">Modelos estandarizados con disponibilidad inmediata. Diseñados para arquitectura moderna, confort térmico y durabilidad.</p>
+            <p className="max-w-xl text-base text-slate-600">Contamos con una amplia gama de modelos con stock fisico y entrega inmediata</p>
             <div className="flex gap-3">
               <a href="#tienda" className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white">Ir a tienda</a>
               <a href="#quienes" className="rounded-full border border-black/20 px-6 py-3 text-sm font-semibold">Conocer BMR</a>
