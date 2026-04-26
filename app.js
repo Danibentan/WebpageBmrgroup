@@ -66,7 +66,14 @@ function Header() {
         <div className="flex items-center gap-3">
           <div ref={logoRef} className="relative h-12 w-12">
             <span className="absolute inset-0 rounded-full border border-[#ff6a00]/50" />
-            <img src="assets/bmr-logo.svg" alt="BMR" className="h-12 w-12 rounded-full" />
+            <img
+              src="assets/logos/logo_logo%20fondo%20oscuro.png"
+              alt="Logo Bmr Group"
+              onError={(e) => {
+                e.currentTarget.src = 'assets/bmr-logo.svg';
+              }}
+              className="h-12 w-12 rounded-full object-cover"
+            />
           </div>
           <p ref={titleRef} className="text-2xl leading-none font-semibold text-[#1f3554] md:text-3xl">Bmr Group Argentina</p>
         </div>
