@@ -2,6 +2,10 @@ import type { HeroSlide } from '@/types/hero';
 
 const mediaBaseUrl = process.env.NEXT_PUBLIC_MEDIA_BASE_URL ?? '';
 
+// Ejemplos para producción:
+// const mediaBaseUrl = process.env.NEXT_PUBLIC_MEDIA_BASE_URL ?? 'https://<store>.public.blob.vercel-storage.com';
+// const mediaBaseUrl = process.env.NEXT_PUBLIC_MEDIA_BASE_URL ?? 'https://res.cloudinary.com/<cloud_name>/video/upload';
+
 const withBase = (path: string): string => `${mediaBaseUrl}${path}`;
 
 export const heroContent = {
