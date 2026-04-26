@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMR Aberturas Premium</title>
+    <meta name="description" content="BMR Group Argentina - Aberturas premium para proyectos residenciales y corporativos." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: '#143D70', accent: '#FF6512', ink: '#1B1B1B' },
+            fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+            boxShadow: { soft: '0 15px 35px rgba(0,0,0,0.08)' }
+          }
+        }
+      }
+    </script>
+    <style>
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(22px);} to {opacity:1; transform: translateY(0);} }
+      @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+      @keyframes pulseGlow { 0%,100%{box-shadow:0 0 0 rgba(255,101,18,.15)} 50%{box-shadow:0 12px 32px rgba(255,101,18,.35)} }
+      .reveal { opacity: 0; transform: translateY(22px); transition: all .65s ease; }
+      .reveal.show { opacity: 1; transform: translateY(0); }
+      .anim-float { animation: floaty 5s ease-in-out infinite; }
+      .anim-pulse { animation: pulseGlow 2.7s ease-in-out infinite; }
+      .nav-link { position: relative; }
+      .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; width:100%; height:2px; transform:scaleX(0); transform-origin:left; background:#FF6512; transition:transform .25s ease; }
+      .nav-link:hover::after { transform:scaleX(1); }
+      .premium-hover { transition: transform .25s ease, box-shadow .25s ease; }
+      .premium-hover:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(20,61,112,.14); }
+    </style>
+  </head>
+  <body class="bg-[#f7f6f2] text-ink">
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="app.js"></script>
+  </body>
+</html>
