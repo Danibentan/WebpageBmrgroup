@@ -14,10 +14,11 @@ const products = [
   { name: 'Corrediza Minimal 3 Guías', price: '$ 2.050.000', sku: 'MIN-3G', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80' }
 ];
 
-const imageSlides = [
-  { src: 'assets/BMR_slideshow_profesional_03.jpg', title: 'Vista panorámica al exterior' },
-  { src: 'assets/BMR_slideshow_profesional_05.jpg', title: 'Terminaciones premium en obra' },
-  { src: 'assets/BMR_slideshow_profesional_07.jpg', title: 'Carpintería de alta prestación' }
+const mediaSlides = [
+  { type: 'image', src: 'assets/BMR_slideshow_profesional_03.jpg', title: 'Vista panorámica al exterior' },
+  { type: 'video', src: 'assets/video%20slideshow.mp4', title: 'Video showroom premium' },
+  { type: 'image', src: 'assets/BMR_slideshow_profesional_05.jpg', title: 'Terminaciones premium en obra' },
+  { type: 'image', src: 'assets/BMR_slideshow_profesional_07.jpg', title: 'Carpintería de alta prestación' }
 ];
 
 const PremiumLink = ({ children, href = '#' }) => (
@@ -73,34 +74,48 @@ function Header() {
   );
 }
 
-function ImageSlideshow() {
+function MediaSlideshow() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => setActive((prev) => (prev + 1) % imageSlides.length), 5000);
+    const timer = setInterval(() => setActive((prev) => (prev + 1) % mediaSlides.length), 5000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <div className="rounded-3xl border border-white/60 bg-white p-3 shadow-soft">
       <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-slate-100">
-        {imageSlides.map((slide, index) => (
-          <img
-            key={slide.src}
-            src={slide.src}
-            alt={slide.title}
-            loading="lazy"
-            onError={(e) => {
-              e.currentTarget.src = 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=80';
-            }}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${active === index ? 'opacity-100' : 'opacity-0'}`}
-          />
+        {mediaSlides.map((slide, index) => (
+          slide.type === 'video' ? (
+            <video
+              key={slide.src}
+              src={slide.src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              onError={() => setActive((prev) => (prev + 1) % mediaSlides.length)}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${active === index ? 'opacity-100' : 'opacity-0'}`}
+            />
+          ) : (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={slide.title}
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=80';
+              }}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${active === index ? 'opacity-100' : 'opacity-0'}`}
+            />
+          )
         ))}
         <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-        <p className="absolute bottom-4 left-4 text-sm font-semibold text-white">{imageSlides[active].title}</p>
+        <p className="absolute bottom-4 left-4 text-sm font-semibold text-white">{mediaSlides[active].title}</p>
       </div>
       <div className="mt-3 flex gap-2">
-        {imageSlides.map((_, index) => (
+        {mediaSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => setActive(index)}
@@ -123,7 +138,7 @@ function App() {
             <h1 className="text-4xl font-semibold leading-tight text-[#102c4f] md:text-6xl">Aberturas Premiun para tu proyecto</h1>
             <p className="max-w-xl text-base text-slate-600">Contamos con una amplia gama de modelos con stock fisico y entrega inmediata</p>
           </div>
-          <ImageSlideshow />
+          <MediaSlideshow />
         </section>
 
         <section id="quienes" className="mx-auto max-w-7xl rounded-3xl bg-white px-6 py-8 shadow-soft md:px-8">
