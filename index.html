@@ -3,154 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BMR Group Argentina | Aberturas Premium</title>
-    <meta
-      name="description"
-      content="BMR Group Argentina: aberturas premium en aluminio y vidrio con diseño moderno para proyectos residenciales y corporativos."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <title>BMR Group | Configurador de Ventanas Premium</title>
+    <meta name="description" content="Configurador interactivo de ventanas premium BMR Group." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bmrBlue: '#143D70',
+              bmrOrange: '#FF6512'
+            },
+            boxShadow: {
+              premium: '0 20px 50px rgba(7, 20, 34, 0.35)'
+            }
+          }
+        }
+      };
+    </script>
   </head>
-  <body>
-    <header class="site-header glass" id="inicio">
-      <a class="brand" href="#inicio" aria-label="BMR Group Argentina inicio">
-        <img src="assets/bmr-logo.svg" alt="Logo de BMR Group Argentina" class="brand-logo" />
-        <span class="brand-copy">
-          <strong>BMR Group Argentina</strong>
-          <small>Aberturas de línea premium</small>
-        </span>
-      </a>
+  <body class="bg-slate-100">
+    <div id="root"></div>
 
-      <nav aria-label="Navegación principal">
-        <ul class="nav-list">
-          <li><a class="nav-link" href="#quienes-somos">Quiénes somos</a></li>
-          <li><a class="nav-link" href="#showroom">Showroom</a></li>
-          <li><a class="nav-link" href="#catalogo">Catálogo</a></li>
-          <li><a class="nav-link" href="#compras">Compras</a></li>
-          <li><a class="nav-link" href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <a class="btn btn-ghost" href="#contacto">Solicitar asesoramiento</a>
-    </header>
-
-    <main>
-      <section class="hero" id="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content reveal-up">
-          <p class="eyebrow">DISEÑO • TECNOLOGÍA • PRESTACIONES DE ALTA GAMA</p>
-          <h1>Aberturas premium para arquitectura moderna.</h1>
-          <p class="hero-text">
-            Creamos sistemas de aluminio y vidrio de alto rendimiento, con estética minimalista y
-            soluciones técnicas para proyectos residenciales y corporativos en toda Argentina.
-          </p>
-          <div class="hero-actions">
-            <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
-            <a href="#showroom" class="btn btn-secondary">Recorrer showroom</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="quienes-somos" class="section">
-        <div class="section-head reveal-up">
-          <p class="eyebrow">Quiénes somos</p>
-          <h2>Precisión en cada detalle para elevar cada obra.</h2>
-        </div>
-        <div class="info-grid">
-          <article class="glass card reveal-up">
-            <h3>Calidad Premium</h3>
-            <p>Perfiles, herrajes y terminaciones seleccionadas para máxima durabilidad y estética.</p>
-          </article>
-          <article class="glass card reveal-up">
-            <h3>Asesoramiento Experto</h3>
-            <p>Acompañamos arquitectos, desarrolladores y clientes finales en todo el proceso.</p>
-          </article>
-          <article class="glass card reveal-up">
-            <h3>Ejecución Profesional</h3>
-            <p>Instalación técnica, control de calidad y seguimiento postventa para resultados impecables.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="showroom" class="section section-dark">
-        <div class="section-head reveal-up">
-          <p class="eyebrow">Showroom</p>
-          <h2>Experiencias reales, terminaciones reales.</h2>
-        </div>
-
-        <div class="slideshow glass reveal-up" aria-label="Galería de showroom">
-          <div class="slides">
-            <figure class="slide is-active">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80" alt="Living moderno con ventanal premium" />
-              <figcaption>Aberturas corredizas de gran paño para integrar interior y exterior.</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80" alt="Casa de diseño con carpinterías negras" />
-              <figcaption>Diseño minimalista con perfilería negra y alta aislación térmica.</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1600&q=80" alt="Fachada vidriada moderna" />
-              <figcaption>Frentes vidriados premium para proyectos residenciales y comerciales.</figcaption>
-            </figure>
-          </div>
-
-          <div class="controls">
-            <button class="btn btn-icon" id="prevSlide" aria-label="Slide anterior">←</button>
-            <button class="btn btn-icon" id="nextSlide" aria-label="Slide siguiente">→</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="catalogo" class="section">
-        <div class="section-head reveal-up">
-          <p class="eyebrow">Catálogo</p>
-          <h2>Sistemas pensados para exigencias reales de obra.</h2>
-        </div>
-        <div class="catalog-grid">
-          <article class="product card reveal-up">
-            <h3>BMR SLIM</h3>
-            <p>Corredizas de marco ultrafino para máxima entrada de luz natural.</p>
-            <a href="#contacto" class="text-link">Solicitar ficha técnica</a>
-          </article>
-          <article class="product card reveal-up">
-            <h3>BMR THERM</h3>
-            <p>Sistema batiente con ruptura de puente térmico para mejor confort.</p>
-            <a href="#contacto" class="text-link">Solicitar ficha técnica</a>
-          </article>
-          <article class="product card reveal-up">
-            <h3>BMR GLASS</h3>
-            <p>Frentes integrales para fachadas modernas con presencia arquitectónica.</p>
-            <a href="#contacto" class="text-link">Solicitar ficha técnica</a>
-          </article>
-        </div>
-      </section>
-
-      <section id="compras" class="section section-dark">
-        <div class="purchase reveal-up glass">
-          <p class="eyebrow">Compras</p>
-          <h2>Proceso simple, profesional y transparente.</h2>
-          <ol>
-            <li>Relevamiento técnico inicial del proyecto.</li>
-            <li>Propuesta, presupuesto y validación de detalles.</li>
-            <li>Fabricación, instalación y postventa.</li>
-          </ol>
-          <a href="#contacto" class="btn btn-primary">Iniciar mi proyecto</a>
-        </div>
-      </section>
-    </main>
-
-    <footer id="contacto" class="footer">
-      <div class="footer-content reveal-up">
-        <h2>Contacto</h2>
-        <p>Contanos tu proyecto y te asesoramos a medida.</p>
-        <a class="btn btn-secondary" href="mailto:info@bmrgroup.com.ar">info@bmrgroup.com.ar</a>
-      </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="app.js"></script>
   </body>
 </html>
