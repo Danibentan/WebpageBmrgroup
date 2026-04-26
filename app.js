@@ -14,17 +14,6 @@ const products = [
   { name: 'Corrediza Minimal 3 Guías', price: '$ 2.050.000', sku: 'MIN-3G', img: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80' }
 ];
 
-function useReveal() {
-  const ref = useRef(null);
-  const [show, setShow] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(([entry]) => entry.isIntersecting && setShow(true), { threshold: 0.15 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return [ref, show];
-}
-
 const PremiumLink = ({ children, href = '#' }) => (
   <a href={href} className="group inline-flex items-center gap-1 text-sm font-semibold text-primary transition hover:text-accent">
     <span className="relative">{children}<span className="absolute -bottom-1 left-0 h-[1.5px] w-full origin-left scale-x-0 bg-accent transition group-hover:scale-x-100" /></span>
@@ -33,17 +22,35 @@ const PremiumLink = ({ children, href = '#' }) => (
 );
 
 function Header() {
+  const titleRef = useRef(null);
+  const logoRef = useRef(null);
+
+  useEffect(() => {
+    if (!window.gsap) return;
+    const tl = window.gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.from(logoRef.current, { scale: 0.7, opacity: 0, duration: 0.6 })
+      .from(titleRef.current, { y: 22, opacity: 0, duration: 0.7 }, '-=0.25')
+      .from('.nav-link', { y: -10, opacity: 0, duration: 0.4, stagger: 0.06 }, '-=0.35');
+
+    window.gsap.to(titleRef.current, {
+      y: -3,
+      repeat: -1,
+      yoyo: true,
+      duration: 1.8,
+      ease: 'sine.inOut'
+    });
+  }, []);
+
   return (
     <header className="sticky top-0 z-40 border-b border-black/10 bg-[#f7f6f2]/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
         <div className="flex items-center gap-3">
-          <div className="group relative h-12 w-12">
+          <div ref={logoRef} className="group relative h-12 w-12">
             <span className="absolute inset-0 rounded-full border border-accent/40 transition group-hover:scale-110 group-hover:opacity-0" />
             <img src="assets/bmr-logo.svg" alt="BMR" className="h-12 w-12 rounded-full anim-float transition duration-500 group-hover:rotate-12 group-hover:scale-105" />
           </div>
           <div>
-            <p className="text-2xl leading-none font-semibold text-primary md:text-3xl">BMR Group Argentina</p>
-            <p className="text-sm text-slate-600">Aberturas de línea premium</p>
+            <p ref={titleRef} className="text-2xl leading-none font-semibold text-primary md:text-3xl">BMR Group Argentina</p>
           </div>
         </div>
 
@@ -69,7 +76,7 @@ function App() {
       <main className="space-y-12 py-8">
         <section className="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-2 md:px-6">
           <div className="space-y-4">
-                        <h1 className="text-4xl font-semibold leading-tight text-[#102c4f] md:text-6xl">Aberturas premium estándar listas para comprar.</h1>
+            <h1 className="text-4xl font-semibold leading-tight text-[#102c4f] md:text-6xl">Aberturas premium estándar listas para comprar.</h1>
             <p className="max-w-xl text-base text-slate-600">Modelos estandarizados con disponibilidad inmediata. Diseñados para arquitectura moderna, confort térmico y durabilidad.</p>
             <div className="flex gap-3">
               <a href="#tienda" className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white">Ir a tienda</a>
