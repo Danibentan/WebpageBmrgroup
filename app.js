@@ -28,7 +28,7 @@ const PremiumLink = ({ children, href = '#' }) => (
   </a>
 );
 
-function Header() {
+function Header({ scrollProgress }) {
   const titleRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
@@ -42,11 +42,21 @@ function Header() {
       .from('.nav-link', { y: -10, opacity: 0, duration: 0.4, stagger: 0.06 }, '-=0.35');
 
     window.gsap.fromTo(shineRef.current, { xPercent: -120, opacity: 0.15 }, { xPercent: 120, opacity: 0.35, duration: 3.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-    window.gsap.to(headerRef.current, { boxShadow: '0 10px 28px rgba(147,197,253,0.25)', duration: 1.8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
   }, []);
 
+  const bgOpacity = 0.62 + scrollProgress * 0.25;
+  const blur = 10 + Math.round(scrollProgress * 10);
+
   return (
-    <header ref={headerRef} className="sticky top-2 z-40 mx-auto mt-2 w-[min(1280px,96%)] overflow-hidden rounded-2xl border border-[#d8e3f0] bg-[#eef3f9]/80 backdrop-blur">
+    <header
+      ref={headerRef}
+      style={{
+        backgroundColor: `rgba(224,236,250,${bgOpacity})`,
+        boxShadow: `0 8px 30px rgba(20,61,112,${0.10 + scrollProgress * 0.2})`,
+        backdropFilter: `blur(${blur}px)`
+      }}
+      className="sticky top-2 z-40 mx-auto mt-2 w-[min(1280px,96%)] overflow-hidden rounded-2xl border border-[#d8e3f0]"
+    >
       <div ref={shineRef} className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
       <div className="flex items-center justify-between px-4 py-3 md:px-6">
         <div className="flex items-center gap-3">
@@ -54,9 +64,7 @@ function Header() {
             <span className="absolute inset-0 rounded-full border border-accent/40 transition group-hover:scale-110 group-hover:opacity-0" />
             <img src="assets/bmr-logo.svg" alt="BMR" className="h-12 w-12 rounded-full anim-float transition duration-500 group-hover:rotate-12 group-hover:scale-105" />
           </div>
-          <div>
-            <p ref={titleRef} className="text-2xl leading-none font-semibold text-primary md:text-3xl">Bmr Group Argentina</p>
-          </div>
+          <p ref={titleRef} className="text-2xl leading-none font-semibold text-primary md:text-3xl">Bmr Group Argentina</p>
         </div>
 
         <nav className="hidden gap-6 text-sm font-semibold lg:flex">
@@ -76,7 +84,6 @@ function Header() {
 
 function MediaSlideshow() {
   const [active, setActive] = useState(0);
-
   useEffect(() => {
     const timer = setInterval(() => setActive((prev) => (prev + 1) % mediaSlides.length), 5000);
     return () => clearInterval(timer);
@@ -85,7 +92,7 @@ function MediaSlideshow() {
   return (
     <div className="rounded-3xl border border-[#d6e2f0] bg-[#f1f6fb] p-3 shadow-soft">
       <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-slate-100">
-        {mediaSlides.map((slide, index) => (
+        {mediaSlides.map((slide, index) =>
           slide.type === 'video' ? (
             <video
               key={slide.src}
@@ -110,7 +117,7 @@ function MediaSlideshow() {
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${active === index ? 'opacity-100' : 'opacity-0'}`}
             />
           )
-        ))}
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
         <p className="absolute bottom-4 left-4 text-sm font-semibold text-white">{mediaSlides[active].title}</p>
       </div>
@@ -129,9 +136,30 @@ function MediaSlideshow() {
 }
 
 function App() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const max = 420;
+      const progress = Math.min(window.scrollY / max, 1);
+      setScrollProgress(progress);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div>
-      <Header />
+      <div
+        className="fixed inset-0 -z-10"
+        style={{
+          background: `radial-gradient(circle at 12% 8%, rgba(183,214,246,${0.45 + scrollProgress * 0.2}), transparent 45%), radial-gradient(circle at 85% 10%, rgba(255,255,255,${0.3 + scrollProgress * 0.2}), transparent 40%), #f4f6f8`
+        }}
+      />
+
+      <Header scrollProgress={scrollProgress} />
+
       <main className="space-y-12 py-10">
         <section className="mx-auto grid max-w-7xl gap-8 rounded-3xl bg-gradient-to-r from-[#eef3f9] to-[#f5f8fc] px-6 py-8 md:grid-cols-[1fr,1.25fr] md:px-8">
           <div className="space-y-4">
