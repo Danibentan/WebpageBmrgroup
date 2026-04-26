@@ -46,9 +46,9 @@ function Header() {
   }, []);
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-40 overflow-hidden border-b border-black/10 bg-[#f7f6f2]/95 backdrop-blur">
+    <header ref={headerRef} className="sticky top-2 z-40 mx-auto mt-2 w-[min(1280px,96%)] overflow-hidden rounded-2xl border border-[#d8e3f0] bg-[#eef3f9]/80 backdrop-blur">
       <div ref={shineRef} className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+      <div className="flex items-center justify-between px-4 py-3 md:px-6">
         <div className="flex items-center gap-3">
           <div ref={logoRef} className="group relative h-12 w-12">
             <span className="absolute inset-0 rounded-full border border-accent/40 transition group-hover:scale-110 group-hover:opacity-0" />
@@ -83,7 +83,7 @@ function MediaSlideshow() {
   }, []);
 
   return (
-    <div className="rounded-3xl border border-white/60 bg-white p-3 shadow-soft">
+    <div className="rounded-3xl border border-[#d6e2f0] bg-[#f1f6fb] p-3 shadow-soft">
       <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-slate-100">
         {mediaSlides.map((slide, index) => (
           slide.type === 'video' ? (
@@ -132,8 +132,8 @@ function App() {
   return (
     <div>
       <Header />
-      <main className="space-y-12 py-8">
-        <section className="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-[1fr,1.25fr] md:px-6">
+      <main className="space-y-12 py-10">
+        <section className="mx-auto grid max-w-7xl gap-8 rounded-3xl bg-gradient-to-r from-[#eef3f9] to-[#f5f8fc] px-6 py-8 md:grid-cols-[1fr,1.25fr] md:px-8">
           <div className="space-y-4">
             <h1 className="text-4xl font-semibold leading-tight text-[#102c4f] md:text-6xl">Aberturas Premiun para tu proyecto</h1>
             <p className="max-w-xl text-base text-slate-600">Contamos con una amplia gama de modelos con stock fisico y entrega inmediata</p>
