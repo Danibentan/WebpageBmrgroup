@@ -15,9 +15,9 @@ const products = [
 ];
 
 const videoSlides = [
-  { src: 'assets/video-slideshow.mp4', title: 'Diseño vanguardista' },
-  { src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', title: 'Inspiración arquitectónica' },
-  { src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Detalles premium' }
+  { src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', title: 'Diseño vanguardista' },
+  { src: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Inspiración arquitectónica' },
+  { src: 'assets/video-slideshow.mp4', title: 'Detalles premium' }
 ];
 
 const PremiumLink = ({ children, href = '#' }) => (
@@ -81,6 +81,8 @@ function VideoSlideshow() {
     return () => clearInterval(timer);
   }, []);
 
+  const handleVideoError = () => setActive((prev) => (prev + 1) % videoSlides.length);
+
   return (
     <div className="rounded-3xl border border-white/60 bg-white p-3 shadow-soft">
       <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-black">
@@ -92,6 +94,9 @@ function VideoSlideshow() {
             muted
             loop
             playsInline
+            preload="auto"
+            poster="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80"
+            onError={handleVideoError}
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${active === index ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
