@@ -1,0 +1,6 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="4" width="132" height="132" rx="30" fill="#E3E4E6"/>
+  <rect x="4" y="4" width="132" height="132" rx="30" stroke="#FFFFFF" stroke-opacity="0.24" stroke-width="2"/>
+  <text x="28" y="84" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="44" fill="#143D70">BMR</text>
+  <path d="M69 28L76 40L62 40L69 28Z" fill="#FF6512"/>
+</svg>
