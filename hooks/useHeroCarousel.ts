@@ -76,6 +76,12 @@ export function useHeroCarousel({
       img.src = nextSlideData.src;
     }
 
+    if (nextSlideData.type === 'video') {
+      const video = document.createElement('video');
+      video.preload = 'metadata';
+      video.src = nextSlideData.videoSources?.mp4 ?? nextSlideData.src;
+    }
+
     hasPreloadedNext.current = true;
   }, [activeIndex, slides]);
 

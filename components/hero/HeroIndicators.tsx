@@ -31,7 +31,7 @@ export function HeroIndicators({
             key={index}
             type="button"
             onClick={() => onSelect(index)}
-            className="group relative h-2 w-8 overflow-hidden rounded-full bg-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="group relative h-[2px] w-8 overflow-hidden rounded-full bg-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             aria-label={`Ir al slide ${index + 1}`}
           >
             <span
