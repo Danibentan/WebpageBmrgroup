@@ -42,29 +42,36 @@ function Header() {
       .from('.nav-link', { y: -10, opacity: 0, duration: 0.4, stagger: 0.06 }, '-=0.35');
 
     window.gsap.fromTo(shineRef.current, { xPercent: -120, opacity: 0.15 }, { xPercent: 120, opacity: 0.35, duration: 3.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    window.gsap.to('.cta-shadow', {
+      boxShadow: '0 10px 26px rgba(255,106,0,0.22)',
+      duration: 1.4,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
   }, []);
 
   return (
     <header
       ref={headerRef}
       style={{
-        backgroundColor: 'rgba(236,241,247,0.96)',
-        boxShadow: '0 6px 24px rgba(15,31,61,0.08)',
+        backgroundColor: 'rgba(236,236,236,0.95)',
+        boxShadow: '0 10px 30px rgba(31,53,84,0.10)',
         backdropFilter: 'blur(8px)'
       }}
-      className="relative z-40 mx-auto mt-4 w-[min(1280px,96%)] overflow-hidden rounded-2xl border border-[#d5dfeb]"
+      className="relative z-40 mx-auto mt-4 w-[min(1280px,96%)] overflow-hidden rounded-2xl border border-[#d4d7dc]"
     >
-      <div ref={shineRef} className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+      <div ref={shineRef} className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
       <div className="flex items-center justify-between px-4 py-3 md:px-6">
         <div className="flex items-center gap-3">
-          <div ref={logoRef} className="group relative h-12 w-12">
-            <span className="absolute inset-0 rounded-full border border-accent/40 transition group-hover:scale-110 group-hover:opacity-0" />
-            <img src="assets/bmr-logo.svg" alt="BMR" className="h-12 w-12 rounded-full transition duration-500 group-hover:scale-105" />
+          <div ref={logoRef} className="relative h-12 w-12">
+            <span className="absolute inset-0 rounded-full border border-[#ff6a00]/50" />
+            <img src="assets/bmr-logo.svg" alt="BMR" className="h-12 w-12 rounded-full" />
           </div>
-          <p ref={titleRef} className="text-2xl leading-none font-semibold text-primary md:text-3xl">Bmr Group Argentina</p>
+          <p ref={titleRef} className="text-2xl leading-none font-semibold text-[#1f3554] md:text-3xl">Bmr Group Argentina</p>
         </div>
 
-        <nav className="hidden gap-6 text-sm font-semibold lg:flex">
+        <nav className="hidden gap-6 text-sm font-semibold text-[#2f3743] lg:flex">
           <a href="#tienda" className="nav-link">Tienda</a>
           <a href="#quienes" className="nav-link">Quiénes somos</a>
           <a href="#categorias" className="nav-link">Categorías</a>
@@ -73,7 +80,7 @@ function Header() {
           <a href="#contacto" className="nav-link">Contacto</a>
         </nav>
 
-        <a href="#contacto" className="rounded-full border border-primary px-4 py-2 text-sm font-semibold text-primary hover:bg-primary hover:text-white">Cotizar ahora</a>
+        <a href="#contacto" className="cta-shadow rounded-full border border-[#1f3554] bg-[#ececec] px-4 py-2 text-sm font-semibold text-[#1f3554] hover:bg-[#1f3554] hover:text-white">Cotizar ahora</a>
       </div>
     </header>
   );
@@ -115,8 +122,8 @@ function MediaSlideshow() {
             />
           )
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1f3d]/85 via-[#0f1f3d]/45 to-transparent md:bg-[linear-gradient(90deg,rgba(15,31,61,0.85)_0%,rgba(15,31,61,0.45)_50%,transparent_72%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(15,31,61,0.75)_65%,rgba(15,31,61,0.95)_100%)] md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1f3554]/76 via-[#1f3554]/38 to-transparent md:bg-[linear-gradient(90deg,rgba(31,53,84,0.78)_0%,rgba(31,53,84,0.38)_50%,transparent_72%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(31,53,84,0.66)_65%,rgba(31,53,84,0.9)_100%)] md:hidden" />
         <p className="absolute bottom-7 right-6 text-xs font-semibold tracking-[0.16em] text-white/85 uppercase">{mediaSlides[active].title}</p>
       </div>
       <div className="absolute bottom-8 left-6 z-10 flex gap-2">
@@ -124,7 +131,7 @@ function MediaSlideshow() {
           <button
             key={index}
             onClick={() => setActive(index)}
-            className={`h-[2px] rounded-full transition-all ${active === index ? 'w-8 bg-white' : 'w-3 bg-white/35'}`}
+            className={`h-[2px] rounded-full transition-all ${active === index ? 'w-8 bg-[#ff6a00]' : 'w-3 bg-white/35'}`}
             aria-label={`Ir al slide ${index + 1}`}
           />
         ))}
@@ -152,7 +159,7 @@ function App() {
       <div
         className="fixed inset-0 -z-10"
         style={{
-          background: `radial-gradient(circle at 12% 8%, rgba(183,214,246,${0.45 + scrollProgress * 0.2}), transparent 45%), radial-gradient(circle at 85% 10%, rgba(255,255,255,${0.3 + scrollProgress * 0.2}), transparent 40%), #f4f6f8`
+          background: `radial-gradient(circle at 12% 8%, rgba(220,225,231,${0.55 + scrollProgress * 0.15}), transparent 45%), radial-gradient(circle at 85% 10%, rgba(255,255,255,${0.26 + scrollProgress * 0.15}), transparent 40%), #e6e7e9`
         }}
       />
 
@@ -230,10 +237,10 @@ function App() {
 
       <footer id="contacto" className="mx-auto max-w-7xl border-t border-black/10 px-4 py-10 text-sm text-slate-600 md:px-6">
         <div className="mb-6 flex items-center gap-4">
-          <img src="assets/bmr-logo.svg" alt="Logo Bmr Group" className="h-14 w-14 rounded-full" />
+          <img src="assets/bmr-logo.svg" alt="Logo Bmr Group" className="h-16 w-16 rounded-full border border-[#ff6a00]/40 bg-[#d9d9d9]" />
           <div>
-            <h3 className="text-2xl font-semibold text-[#102c4f]">Bmr Group Argentina</h3>
-            <span className="mt-1 block h-[2px] w-44 bg-[#ff6a00]/70" />
+            <h3 className="text-2xl font-semibold text-[#1f3554]">Bmr Group Argentina</h3>
+            <span className="mt-1 block h-[2px] w-44 bg-[#ff6a00]" />
           </div>
         </div>
         <h4 className="text-lg font-semibold text-[#102c4f]">Contacto</h4>
