@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMR Aberturas Premium</title>
+    <meta name="description" content="BMR Group Argentina - Aberturas premium para proyectos residenciales y corporativos." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#143D70',
+              accent: '#FF6512',
+              ink: '#1B1B1B'
+            },
+            boxShadow: {
+              soft: '0 15px 35px rgba(0,0,0,0.08)'
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#f6f4ef] text-ink">
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="app.js"></script>
+  </body>
+</html>
