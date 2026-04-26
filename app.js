@@ -90,8 +90,8 @@ function MediaSlideshow() {
   }, []);
 
   return (
-    <div className="rounded-3xl border border-[#d6e2f0] bg-[#f1f6fb] p-3 shadow-soft">
-      <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-slate-100">
+    <div className="absolute inset-0">
+      <div className="relative h-full w-full overflow-hidden bg-slate-100">
         {mediaSlides.map((slide, index) =>
           slide.type === 'video' ? (
             <video
@@ -118,15 +118,16 @@ function MediaSlideshow() {
             />
           )
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-        <p className="absolute bottom-4 left-4 text-sm font-semibold text-white">{mediaSlides[active].title}</p>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1f3d]/85 via-[#0f1f3d]/45 to-transparent md:bg-[linear-gradient(90deg,rgba(15,31,61,0.85)_0%,rgba(15,31,61,0.45)_50%,transparent_72%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(15,31,61,0.75)_65%,rgba(15,31,61,0.95)_100%)] md:hidden" />
+        <p className="absolute bottom-7 right-6 text-xs font-semibold tracking-[0.16em] text-white/85 uppercase">{mediaSlides[active].title}</p>
       </div>
-      <div className="mt-3 flex gap-2">
+      <div className="absolute bottom-8 left-6 z-10 flex gap-2">
         {mediaSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => setActive(index)}
-            className={`h-2.5 rounded-full transition-all ${active === index ? 'w-8 bg-primary' : 'w-3 bg-slate-300'}`}
+            className={`h-[2px] rounded-full transition-all ${active === index ? 'w-8 bg-white' : 'w-3 bg-white/35'}`}
             aria-label={`Ir al slide ${index + 1}`}
           />
         ))}
@@ -161,12 +162,21 @@ function App() {
       <Header scrollProgress={scrollProgress} />
 
       <main className="space-y-12 py-10">
-        <section className="mx-auto grid max-w-7xl gap-8 rounded-3xl bg-gradient-to-r from-[#eef3f9] to-[#f5f8fc] px-6 py-8 md:grid-cols-[1fr,1.25fr] md:px-8">
-          <div className="space-y-4">
-            <h1 className="text-4xl font-semibold leading-tight text-[#102c4f] md:text-6xl">Aberturas Premiun para tu proyecto</h1>
-            <p className="max-w-xl text-base text-slate-600">Contamos con una amplia gama de modelos con stock fisico y entrega inmediata</p>
-          </div>
+        <section className="relative mx-auto h-[75vh] max-h-[720px] min-h-[520px] w-[min(1400px,100%)] overflow-hidden rounded-3xl md:h-[80vh] lg:h-[85vh]">
           <MediaSlideshow />
+          <div className="relative z-10 flex h-full items-end px-6 pb-14 pt-10 md:items-center md:px-10 lg:px-16">
+            <div className="max-w-[600px] space-y-4">
+              <h1 className="text-white font-bold tracking-[-0.02em] leading-[0.95]" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
+                Aberturas Premium para tu proyecto
+              </h1>
+              <p className="text-white/90" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)' }}>
+                Contamos con una amplia gama de modelos con stock físico y entrega inmediata.
+              </p>
+              <a href="#contacto" className="inline-flex items-center rounded-full border border-white px-5 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0f1f3d]">
+                Solicitar asesoramiento
+              </a>
+            </div>
+          </div>
         </section>
 
         <section id="quienes" className="mx-auto max-w-7xl rounded-3xl bg-white px-6 py-8 shadow-soft md:px-8">
