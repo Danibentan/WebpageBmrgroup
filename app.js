@@ -24,6 +24,8 @@ const PremiumLink = ({ children, href = '#' }) => (
 function Header() {
   const titleRef = useRef(null);
   const logoRef = useRef(null);
+  const headerRef = useRef(null);
+  const shineRef = useRef(null);
 
   useEffect(() => {
     if (!window.gsap) return;
@@ -32,17 +34,13 @@ function Header() {
       .from(titleRef.current, { y: 22, opacity: 0, duration: 0.7 }, '-=0.25')
       .from('.nav-link', { y: -10, opacity: 0, duration: 0.4, stagger: 0.06 }, '-=0.35');
 
-    window.gsap.to(titleRef.current, {
-      y: -3,
-      repeat: -1,
-      yoyo: true,
-      duration: 1.8,
-      ease: 'sine.inOut'
-    });
+    window.gsap.fromTo(shineRef.current, { xPercent: -120, opacity: 0.15 }, { xPercent: 120, opacity: 0.35, duration: 3.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    window.gsap.to(headerRef.current, { boxShadow: '0 10px 28px rgba(147,197,253,0.25)', duration: 1.8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-black/10 bg-[#f7f6f2]/95 backdrop-blur">
+    <header ref={headerRef} className="sticky top-0 z-40 overflow-hidden border-b border-black/10 bg-[#f7f6f2]/95 backdrop-blur">
+      <div ref={shineRef} className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
         <div className="flex items-center gap-3">
           <div ref={logoRef} className="group relative h-12 w-12">
@@ -50,7 +48,7 @@ function Header() {
             <img src="assets/bmr-logo.svg" alt="BMR" className="h-12 w-12 rounded-full anim-float transition duration-500 group-hover:rotate-12 group-hover:scale-105" />
           </div>
           <div>
-            <p ref={titleRef} className="text-2xl leading-none font-semibold text-primary md:text-3xl">BMR Group Argentina</p>
+            <p ref={titleRef} className="text-2xl leading-none font-semibold text-primary md:text-3xl">Bmr Group Argentina</p>
           </div>
         </div>
 
@@ -90,7 +88,7 @@ function App() {
 
         <section id="quienes" className="mx-auto max-w-7xl rounded-3xl bg-white px-6 py-8 shadow-soft md:px-8">
           <h2 className="text-2xl font-semibold text-[#102c4f]">Quiénes somos</h2>
-          <p className="mt-3 text-slate-600">BMR Group Argentina nació para elevar el estándar de las aberturas en proyectos residenciales y comerciales. Nos fundamos con el objetivo de combinar diseño minimalista, rendimiento técnico y atención personalizada, acercando soluciones premium de forma simple y confiable.</p>
+          <p className="mt-3 text-slate-600">Bmr Group Argentina nació para elevar el estándar de las aberturas en proyectos residenciales y comerciales. Nos fundamos con el objetivo de combinar diseño minimalista, rendimiento técnico y atención personalizada, acercando soluciones premium de forma simple y confiable.</p>
         </section>
 
         <section id="categorias" className="mx-auto max-w-7xl px-4 md:px-6">
