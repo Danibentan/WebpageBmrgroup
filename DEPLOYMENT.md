@@ -62,3 +62,7 @@ Return to static:
    - `HTTPS_PROXY`
 2. Remove invalid values.
 3. Redeploy.
+
+## Asset organization
+
+Use `docs/ASSET_WORKFLOW.md` as the single source of truth for naming, folders and upload process for hero images/videos/logos.
