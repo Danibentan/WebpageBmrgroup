@@ -12,7 +12,7 @@ const categories = [
 
 export default function CategoriasPage() {
   return (
-    <main className="min-h-screen bg-[linear-gradient(165deg,#f1f4f9_0%,#e9eef7_35%,#f8f9fc_100%)] text-[#0F1F3D]">
+    <main className="min-h-screen bg-transparent text-[#e6edf8]">
       <ProfessionalHeader />
       <section className="mx-auto mt-10 max-w-6xl px-6 pb-12">
         <h1 className="text-3xl font-bold text-[#102c4f]">Categorías</h1>

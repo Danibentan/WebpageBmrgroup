@@ -3,7 +3,7 @@ import { SiteFooter } from '@/components/layout/SiteFooter';
 
 export default function QuienesSomosPage() {
   return (
-    <main className="min-h-screen bg-[linear-gradient(165deg,#f1f4f9_0%,#e9eef7_35%,#f8f9fc_100%)] text-[#0F1F3D]">
+    <main className="min-h-screen bg-transparent text-[#e6edf8]">
       <ProfessionalHeader />
       <section className="mx-auto mt-10 max-w-5xl rounded-3xl border border-[#d4dcea] bg-white/90 px-6 py-8 shadow-[0_14px_34px_rgba(16,44,79,0.08)] md:px-10">
         <h1 className="text-3xl font-bold text-[#102c4f]">Quiénes somos</h1>

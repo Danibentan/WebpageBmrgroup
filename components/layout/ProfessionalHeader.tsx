@@ -49,29 +49,30 @@ export function ProfessionalHeader() {
   return (
     <header
       ref={headerRef}
-      className="relative z-40 mx-auto mt-4 w-[min(1320px,96%)] overflow-hidden rounded-[28px] border border-[#c4d4e8] bg-[linear-gradient(135deg,rgba(239,243,249,0.96)_0%,rgba(232,238,247,0.95)_62%,rgba(224,233,245,0.95)_100%)] shadow-[0_20px_45px_rgba(15,31,61,0.14)] backdrop-blur-md"
+      className="relative z-40 mx-auto mt-5 w-[min(1320px,96%)] overflow-hidden rounded-[30px] border border-[#4d6f97] bg-[linear-gradient(120deg,rgba(9,33,60,0.92)_0%,rgba(18,59,109,0.88)_48%,rgba(27,85,151,0.86)_100%)] shadow-[0_24px_54px_rgba(2,10,22,0.45)] backdrop-blur-md"
     >
-      <div className="flex flex-wrap items-center gap-4 px-4 py-3 md:px-6">
+      <div className="pointer-events-none absolute inset-y-0 right-[-12%] w-1/3 bg-[radial-gradient(circle_at_center,rgba(255,106,0,0.28)_0%,rgba(255,106,0,0)_72%)]" />
+      <div className="relative flex flex-wrap items-center gap-4 px-4 py-3 md:px-7">
         <div className="flex items-center gap-3 pr-3">
           <Link href="/" aria-label="Ir al inicio">
-          <img
-            ref={logoRef}
-            src="/assets/logos/logo_logo%20fondo%20gris.png"
-            alt="Logo Bmr Group"
-            className="h-12 w-12 rounded-full border border-[#ff6a00]/50 object-contain bg-[#d9d9d9]"
-          />
+            <img
+              ref={logoRef}
+              src="/assets/logos/bmr-icon-blue.svg"
+              alt="Logo Bmr Group"
+              className="h-16 w-16 rounded-full border border-[#ff6a00]/80 object-contain bg-[#123b6d] shadow-[0_0_0_4px_rgba(12,39,72,0.45)] md:h-[72px] md:w-[72px]"
+            />
           </Link>
-          <p ref={titleRef} className="text-2xl font-bold tracking-[-0.015em] leading-none text-[#1f3554] md:text-3xl">
+          <p ref={titleRef} className="text-2xl font-bold tracking-[-0.015em] leading-none text-[#ecf3ff] md:text-4xl">
             Bmr Group Argentina
           </p>
         </div>
 
-        <nav className="flex flex-1 flex-wrap items-center gap-2 text-sm font-semibold text-[#2f3743]">
+        <nav className="flex flex-1 flex-wrap items-center gap-2 text-sm font-semibold text-[#dbe9ff]">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="site-nav-link rounded-lg border border-transparent bg-white/70 px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-[#aac4e3] hover:bg-white hover:text-[#16345a]"
+              className="site-nav-link rounded-lg border border-[#5f85b3] bg-[#163f6f]/70 px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-[#9ab8df] hover:bg-[#1f4f89] hover:text-white"
             >
               {label}
             </Link>
@@ -80,7 +81,7 @@ export function ProfessionalHeader() {
 
         <Link
           href="/cotizar"
-          className="header-cta rounded-full border border-[#1f3554] bg-[#ececec] px-4 py-2 text-sm font-semibold text-[#1f3554] transition hover:bg-[#1f3554] hover:text-white"
+          className="header-cta rounded-full border border-[#ff8937] bg-[#ff6a00] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#ff7c1f] hover:text-white"
         >
           Cotizar ahora
         </Link>

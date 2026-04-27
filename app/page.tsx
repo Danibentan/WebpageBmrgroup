@@ -13,13 +13,13 @@ const quickLinks = [
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[linear-gradient(165deg,#f1f4f9_0%,#e9eef7_35%,#f8f9fc_100%)] text-[#0F1F3D]">
+    <main className="min-h-screen bg-transparent text-[#e6edf8]">
       <ProfessionalHeader />
       <ImmersiveHero />
 
       <section className="mx-auto mt-10 max-w-7xl px-6 pb-12">
-        <h2 className="text-3xl font-bold text-[#102c4f]">Navegación principal</h2>
-        <p className="mt-2 text-slate-600">Ahora cada botón del header abre una página dedicada con contenido específico.</p>
+        <h2 className="text-3xl font-bold text-[#eef5ff]">Navegación principal</h2>
+        <p className="mt-2 text-[#c8d9ee]">Ahora cada botón del header abre una página dedicada con contenido específico.</p>
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {quickLinks.map((item) => (
             <Link

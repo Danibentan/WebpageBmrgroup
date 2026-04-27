@@ -4,9 +4,16 @@
 
 :root {
   color-scheme: light;
+  --bmr-navy: #123b6d;
+  --bmr-navy-dark: #0b2848;
+  --bmr-accent: #ff6a00;
+  --bmr-mist: #e7eef7;
 }
 
 body {
   margin: 0;
-  background: #f4f6f8;
+  background: radial-gradient(circle at 12% 10%, #1f4f89 0%, transparent 40%),
+    radial-gradient(circle at 90% 0%, #2b619f 0%, transparent 30%),
+    linear-gradient(165deg, #081b31 0%, #0b2848 45%, #123b6d 100%);
+  color: #e6edf8;
 }
