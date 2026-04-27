@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
@@ -55,7 +56,15 @@ export function ProfessionalHeader() {
       if (!isActive || !navRef.current) return;
 
       const gsap = gsapModule.gsap;
+      const desktopLinks = Array.from(navRef.current.querySelectorAll<HTMLElement>('.site-nav-link-desktop'));
+      const logo = navRef.current.querySelector<HTMLElement>('.site-nav-logo');
+
       gsap.fromTo(navRef.current, { autoAlpha: 0, y: -14 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: 'power3.out', clearProps: 'all' });
+      gsap.fromTo(desktopLinks, { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.35, stagger: 0.06, delay: 0.05, ease: 'power3.out', clearProps: 'all' });
+
+      if (logo) {
+        gsap.fromTo(logo, { autoAlpha: 0, x: 20 }, { autoAlpha: 1, x: 0, duration: 0.35, delay: 0.1, ease: 'power3.out', clearProps: 'all' });
+      }
     };
 
     void runAnimation();
@@ -74,35 +83,46 @@ export function ProfessionalHeader() {
       }`}
     >
       <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex w-full max-w-7xl items-center justify-between">
-        <div className="font-editorial text-2xl font-semibold tracking-wide text-[#c9a961]">BmR</div>
+        <div className="flex items-center gap-2 md:gap-4 lg:gap-8">
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-md p-2 text-[#f2f4f8] transition hover:text-[#c9a961] md:hidden"
+            aria-label={isMobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
 
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-[#f2f4f8] transition hover:text-[#c9a961] md:hidden"
-          aria-label={isMobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
-          aria-expanded={isMobileMenuOpen}
-          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <div className="hidden items-center gap-4 md:flex lg:gap-8">
+            {navLinks.map(({ href, label }) => {
+              const active = isActiveLink(href);
 
-        <div className="hidden items-center gap-4 md:flex lg:gap-8">
-          {navLinks.map(({ href, label }) => {
-            const active = isActiveLink(href);
-
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={`pb-1 text-sm font-medium tracking-wide transition-colors duration-300 ${
-                  active ? 'border-b-2 border-[#c9a961] text-[#c9a961]' : 'text-white/80 hover:text-[#c9a961]'
-                }`}
-              >
-                {label}
-              </Link>
-            );
-          })}
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`site-nav-link-desktop pb-1 text-sm font-medium tracking-wide transition-colors duration-300 ${
+                    active ? 'border-b-2 border-[#c9a961] text-[#c9a961]' : 'text-white/80 hover:text-[#c9a961]'
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </div>
         </div>
+
+        <Link href="/" aria-label="Ir al inicio" className="site-nav-logo cursor-pointer transition-opacity duration-300 hover:opacity-80">
+          <Image
+            src="/logo/bmr-logo.svg"
+            alt="BmR Group Argentina"
+            width={120}
+            height={40}
+            priority
+            className="h-8 w-auto md:h-10"
+          />
+        </Link>
       </nav>
 
       <div
