@@ -4,10 +4,11 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 const navLinks = [
-  { href: '/quienes-somos', label: 'Quiénes somos' },
-  { href: '/categorias', label: 'Categorías' },
+  { href: '/quienes-somos', label: 'Quienes somos' },
   { href: '/tienda', label: 'Tienda' },
-  { href: '/contacto', label: 'Contacto' }
+  { href: '/nuestras-obras', label: 'Nuestras obras' },
+  { href: '/contacto', label: 'Contacto' },
+  { href: '/catalogo', label: 'Catalogo' }
 ];
 
 export function ProfessionalHeader() {
@@ -38,13 +39,13 @@ export function ProfessionalHeader() {
         ease: 'sine.inOut'
       });
 
-      gsap.to('.site-nav-link', {
-        backgroundColor: 'rgba(214, 198, 151, 0.18)',
-        duration: 1.4,
-        repeat: -1,
-        yoyo: true,
-        stagger: 0.08,
-        ease: 'sine.inOut'
+      gsap.utils.toArray<HTMLElement>('.site-nav-link').forEach((button) => {
+        button.addEventListener('mouseenter', () => {
+          gsap.to(button, { y: -3, scale: 1.04, duration: 0.2, ease: 'power2.out' });
+        });
+        button.addEventListener('mouseleave', () => {
+          gsap.to(button, { y: 0, scale: 1, duration: 0.2, ease: 'power2.out' });
+        });
       });
     };
 
@@ -71,17 +72,17 @@ export function ProfessionalHeader() {
               className="h-16 w-16 rounded-full border border-[#c9ab66]/80 object-contain bg-[#07142f] shadow-[0_0_0_4px_rgba(7,20,47,0.55)] md:h-[72px] md:w-[72px]"
             />
           </Link>
-          <p ref={titleRef} className="font-editorial text-3xl font-semibold tracking-[-0.015em] leading-none text-[#f2f4f8] md:text-5xl">
+          <p ref={titleRef} className="font-editorial text-3xl font-semibold leading-none tracking-[-0.015em] text-[#f2f4f8] md:text-5xl">
             Bmr Group Argentina
           </p>
         </div>
 
-        <nav className="flex flex-1 flex-wrap items-center gap-2 text-sm font-semibold text-[#f2f4f8]">
+        <nav className="flex flex-1 flex-wrap items-center justify-end gap-2 text-sm font-semibold text-[#f2f4f8]">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="site-nav-link rounded-lg border border-[#4f658f] bg-[#0b1f43]/75 px-3 py-1.5 tracking-[0.08em] transition hover:-translate-y-0.5 hover:border-[#c9ab66] hover:bg-[#122d5d] hover:text-[#f2f4f8]"
+              className="site-nav-link rounded-full border border-[#4f658f] bg-[#0b1f43]/75 px-3 py-1.5 tracking-[0.05em] transition hover:border-[#c9ab66] hover:bg-[#122d5d] hover:text-[#f2f4f8]"
             >
               {label}
             </Link>

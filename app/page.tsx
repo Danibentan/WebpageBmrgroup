@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
+import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 
 const caseStudies = [
@@ -61,6 +62,7 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-transparent text-[#e6edf8]">
+      <ProfessionalHeader />
       <ImmersiveHero />
 
       <section className="mx-auto max-w-7xl px-6 pb-10 pt-20 md:pt-32">
@@ -74,7 +76,7 @@ export default function HomePage() {
         <span className="mixd-divider mt-12 block h-px w-full bg-[#87a7cc]/40" />
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-8">
+      <section id="nuestras-obras" className="mx-auto max-w-7xl px-6 pb-8">
         <div className="space-y-10">
           {caseStudies.map((item) => (
             <article key={item.id} className="case-study-row rounded-2xl border border-[#6d8eb6]/55 bg-[linear-gradient(135deg,rgba(8,28,52,0.88)_0%,rgba(15,48,84,0.86)_100%)] p-6 md:p-10">
