@@ -1,48 +1,68 @@
-# Asset workflow (estructura ordenada pro)
+# Asset workflow en la nube (Vercel + Chat)
 
 ## Objetivo
 
-Tener una convención única para imágenes, videos y logos en ambos modos del proyecto:
+Flujo **simple y automatizado** para trabajar sin entorno local: vos subís archivos por chat y yo los integro al repo Next.js en la ruta correcta para Vercel.
 
-- **Next mode** (rutas desde `/public`)
-- **Static mode** (rutas relativas desde `assets/`)
+---
 
-## Estructura recomendada
+## Cómo lo hacemos (paso a paso)
+
+### 1) Vos subís el archivo por chat
+
+Puede ser imagen (`.png`, `.jpg`, `.webp`, `.svg`) o video (`.mp4`, `.webm`).
+
+### 2) Me pasás este bloque (copiar/pegar)
 
 ```text
-/public
-  /assets
-    /hero        # imágenes usadas por hero en Next mode
-    /logos       # logos para header/footer en Next mode
-  /videos        # videos hero (mp4/webm)
-
-/assets
-  /hero          # fallback estático (index.html/app.js)
-  /logos         # fallback estático (index.html/app.js)
+TIPO: logo | hero-image | hero-video | pagina
+ARCHIVO: nombre-del-archivo.ext
+DESTINO: /public/assets/logos/...  o  /public/assets/hero/...  o  /public/videos/...
+USO EN: archivo a editar (ej: components/layout/ProfessionalHeader.tsx)
+REEMPLAZA: ruta anterior (opcional)
 ```
 
-## Convención de nombres
+### 3) Yo lo automatizo en el repo
 
-- Hero imágenes: `hero-01.jpg`, `hero-02.jpg`, `hero-03.jpg`
-- Posters de video: `hero-video-01-poster.jpg`
-- Videos: `hero-video-01.mp4`, `hero-video-01.webm`
-- Logos: `logo-bmr-header.svg`, `logo-bmr-footer.svg`
+- ubico el archivo en la ruta indicada,
+- actualizo referencias en código,
+- hago commit,
+- dejo PR listo para deploy.
 
-## Flujo de carga (siempre igual)
+---
 
-1. Preparar archivos (sin espacios, minúsculas, guiones).
-2. Optimizar antes de subir:
-   - imágenes: webp/jpg livianas
-   - videos: máximo 2 MB, 1920x1080
-3. Copiar en carpetas:
-   - Next: `/public/assets/...` y `/public/videos/...`
-   - Static: `/assets/...`
-4. Actualizar rutas en:
-   - `content/hero-slides.ts` (Next mode)
-   - `app.js` (Static mode)
-5. Commit + push + redeploy.
+## Rutas oficiales del proyecto (Next.js)
 
-## Regla simple
+```text
+/public/assets/logos   -> logos de header/footer/marca
+/public/assets/hero    -> imágenes de hero o secciones
+/public/videos         -> videos de hero
+```
 
-- Si se cambia media del hero, se actualiza **Next + Static** en el mismo commit.
-- Si no querés mantener duplicado, usar CDN con `NEXT_PUBLIC_MEDIA_BASE_URL` para Next y dejar static como backup mínimo.
+> Regla: todo asset nuevo para Vercel entra por `public/` para que quede accesible por URL.
+
+---
+
+## Convención de nombres recomendada
+
+- minúsculas
+- sin espacios
+- separado por guiones
+
+Ejemplos:
+
+- `logo-bmr-icono-azul.svg`
+- `hero-showroom-01.webp`
+- `hero-showroom-01.mp4`
+
+---
+
+## Mensaje corto sugerido para cada asset
+
+```text
+Subo: logo-bmr-icono-azul.svg
+Destino: /public/assets/logos/logo-bmr-icono-azul.svg
+Uso en: header y footer
+```
+
+Con eso ya puedo dejarlo integrado sin vueltas.
