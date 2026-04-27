@@ -38,18 +38,30 @@ Optional: use a custom domain later and point it to Vercel.
 
 ## Runtime modes in repository
 
-1. **Static mode (default, cloud-safe)**
-   - `npm run build` copies static files to `.dist/`
-   - `npm run start` serves `.dist/` using Python
+1. **Next mode (default for Vercel)**
+   - `npm run build`
+   - `npm run start`
 
-2. **Next mode (optional)**
-   - `npm run mode:next`
-   - `npm run build:next`
-   - `npm run start:next`
+2. **Static mode (backup mode)**
+   - `npm run mode:static`
+   - `npm run build`
+   - `npm run start`
 
-Return to static:
+Return to Next mode:
 
-- `npm run mode:static`
+- `npm run mode:next`
+
+---
+
+## Why changes may not appear
+
+- **Vercel URL** shows **Next mode** code (`app/`, `components/`, `hooks/`, `content/`).
+- **Railway URL** shows **static mode** code (`index.html`, `app.js`, `styles.css`, `assets/`) because Railway deploy uses Docker static server.
+
+If you edit:
+
+- `app/page.tsx` or `components/layout/ProfessionalHeader.tsx` → check **Vercel URL**.
+- `app.js` / `index.html` → check **Railway URL**.
 
 ---
 
