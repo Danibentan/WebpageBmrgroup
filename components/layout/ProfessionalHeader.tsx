@@ -56,16 +56,31 @@ export function ProfessionalHeader() {
 
   return (
     <header className="relative z-50 mx-auto mt-5 w-full px-4 md:px-8">
-      <nav ref={navRef} className="flex flex-wrap items-center justify-center gap-2 text-sm font-semibold text-[#f2f4f8] md:justify-end">
-        {navLinks.map(({ href, label }) => (
-          <Link
-            key={href}
-            href={href}
-            className="site-nav-link rounded-full border border-[#4f658f] bg-[#0b1f43]/75 px-3 py-1.5 tracking-[0.05em] transition hover:border-[#c9ab66] hover:bg-[#122d5d] hover:text-[#f2f4f8]"
-          >
-            {label}
-          </Link>
-        ))}
+      <nav ref={navRef} className="flex flex-wrap items-center justify-between gap-4 text-sm font-semibold text-[#f2f4f8]">
+        <div className="flex flex-wrap items-center gap-2 md:justify-start">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="site-nav-link rounded-full border border-[#4f658f] bg-[#0b1f43]/75 px-3 py-1.5 tracking-[0.05em] transition hover:border-[#c9ab66] hover:bg-[#122d5d] hover:text-[#f2f4f8]"
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-3">
+          <img
+            src="/assets/logos/logo-bmr-fallback.svg"
+            alt="Bmr Group"
+            className="h-10 w-auto rounded-full border border-[#4f658f] bg-[#0b1f43]/75 p-1"
+          />
+          <img
+            src="/assets/logos/bmr-icon-blue.svg"
+            alt="Ícono Bmr Group"
+            className="h-10 w-10 rounded-full border border-[#4f658f] bg-[#0b1f43]/75 p-1"
+          />
+        </div>
       </nav>
     </header>
   );
