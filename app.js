@@ -39,7 +39,7 @@ function Header({ activeModal, onOpenModal }) {
     const tl = window.gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.from(logoRef.current, { scale: 0.7, opacity: 0, duration: 0.6 })
       .from(titleRef.current, { y: 22, opacity: 0, duration: 0.7 }, '-=0.25')
-      .from('.nav-link', { y: -10, opacity: 0, duration: 0.4, stagger: 0.06 }, '-=0.35');
+      .from('.nav-button', { y: -12, opacity: 0, duration: 0.45, stagger: 0.08 }, '-=0.35');
 
     window.gsap.fromTo(shineRef.current, { xPercent: -120, opacity: 0.15 }, { xPercent: 120, opacity: 0.35, duration: 3.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
     window.gsap.to('.cta-shadow', {
@@ -48,6 +48,15 @@ function Header({ activeModal, onOpenModal }) {
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut'
+    });
+
+    window.gsap.utils.toArray('.nav-button').forEach((button) => {
+      button.addEventListener('mouseenter', () => {
+        window.gsap.to(button, { y: -3, scale: 1.04, duration: 0.2, ease: 'power2.out' });
+      });
+      button.addEventListener('mouseleave', () => {
+        window.gsap.to(button, { y: 0, scale: 1, duration: 0.22, ease: 'power2.out' });
+      });
     });
   }, []);
 
@@ -75,21 +84,21 @@ function Header({ activeModal, onOpenModal }) {
           <p ref={titleRef} className="text-2xl leading-none font-bold tracking-[-0.015em] text-[#1f3554] md:text-3xl">Bmr Group Argentina</p>
         </div>
 
-        <nav className="hidden gap-3 text-sm font-semibold text-[#2f3743] lg:flex">
+        <nav className="hidden gap-2 text-sm font-semibold text-[#2f3743] md:flex">
           {[
-            ['quienes', 'Quiénes somos'],
-            ['categorias', 'Categorías'],
-            ['tienda', 'Tienda'],
-            ['contacto', 'Contacto']
-          ].map(([key, label]) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => onOpenModal(key)}
-              className={`nav-link rounded-md px-3 py-1.5 transition ${activeModal === key ? 'bg-[#A8D2FF] text-[#16345a]' : 'hover:bg-[#dfe8f4]'}`}
+            ['quienes-somos.html', 'Quienes somos'],
+            ['tienda.html', 'Tienda'],
+            ['nuestras-obras.html', 'Nuestras obras'],
+            ['contacto.html', 'Contacto'],
+            ['catalogo.html', 'Catalogo']
+          ].map(([href, label]) => (
+            <a
+              key={href}
+              href={href}
+              className="nav-link nav-button rounded-full border border-[#bcc8d8] bg-white/80 px-3 py-1.5 transition hover:border-[#ff6a00] hover:bg-white"
             >
               {label}
-            </button>
+            </a>
           ))}
         </nav>
 
