@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "sync:assets": "node scripts/sync-assets.mjs",
+    "audit": "node scripts/audit.mjs",
     "predev": "npm run sync:assets",
     "prebuild": "npm run sync:assets",
     "prestart": "npm run sync:assets",
