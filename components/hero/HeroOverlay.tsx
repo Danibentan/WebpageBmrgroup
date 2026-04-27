@@ -16,9 +16,14 @@ export function HeroOverlay({ currentSlide, title, subtitle, ctaLabel, ctaHref }
       <div className="absolute inset-0 z-10 hidden md:block" style={{ background: 'linear-gradient(90deg, rgba(15,31,61,0.85) 0%, rgba(15,31,61,0.4) 50%, transparent 70%)' }} />
       <div className="absolute inset-0 z-10 md:hidden" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(15,31,61,0.7) 60%, rgba(15,31,61,0.95) 100%)' }} />
 
+      <div className="absolute left-6 top-6 z-20 flex items-center gap-3 rounded-2xl border border-white/25 bg-[#0b2848]/55 px-4 py-2 backdrop-blur-md md:left-10 md:top-8">
+        <img src="/assets/logos/bmr-icon-blue.svg" alt="Logo Bmr Group" className="h-12 w-12 rounded-full border border-[#ff6a00]/80 bg-[#123b6d] p-1" />
+        <p className="text-xl font-bold tracking-[-0.015em] text-white md:text-3xl">Bmr Group Argentina</p>
+      </div>
+
       <div className="absolute inset-0 z-20 flex items-end md:items-center">
         <div className="w-full px-6 pb-14 pt-10 md:max-w-[720px] md:px-12 md:pb-12 lg:px-16">
-          <div className="rounded-2xl border border-white/20 bg-[#081b31]/30 p-6 backdrop-blur-[2px] md:p-8">
+          <div className="rounded-2xl border border-white/20 bg-[#081b31]/25 p-6 backdrop-blur-[2px] md:p-8">
             <h1 className="max-w-[15ch] font-semibold tracking-[-0.015em] text-white" style={{ fontSize: 'clamp(2rem, 4.2vw, 4.1rem)', lineHeight: 1.02 }}>
               {title}
             </h1>
@@ -36,14 +41,6 @@ export function HeroOverlay({ currentSlide, title, subtitle, ctaLabel, ctaHref }
         </div>
       </div>
 
-      <p
-        key={currentSlide.id}
-        aria-live="polite"
-        className="absolute bottom-8 right-6 z-20 text-xs uppercase tracking-[0.2em] text-white/80 animate-[captionFade_700ms_ease_300ms_both] md:bottom-10 md:right-10"
-      >
-        {currentSlide.caption}
-      </p>
-
       <img
         src="/assets/bmr-logo.svg"
         alt=""
@@ -58,6 +55,10 @@ export function HeroOverlay({ currentSlide, title, subtitle, ctaLabel, ctaHref }
           <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-white animate-[heroScroll_1.8s_ease-in-out_infinite]" />
         </div>
       </div>
+
+      <p className="absolute bottom-8 left-6 z-20 text-[11px] uppercase tracking-[0.22em] text-white/65 md:left-10">
+        {currentSlide.caption}
+      </p>
     </>
   );
 }
