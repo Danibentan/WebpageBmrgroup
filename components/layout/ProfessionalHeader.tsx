@@ -49,22 +49,17 @@ export function ProfessionalHeader() {
             ref={logoRef}
             src="/assets/logos/logo_logo%20fondo%20gris.png"
             alt="Logo Bmr Group"
-            onError={(event) => {
-              event.currentTarget.src = '/assets/logos/logo-bmr-fallback.svg';
-            }}
-            className="h-12 w-12 rounded-full border border-[#ff6a00]/50 object-cover"
+            className="h-12 w-12 rounded-full border border-[#ff6a00]/50 object-contain bg-[#d9d9d9]"
           />
-          <p ref={titleRef} className="text-2xl font-semibold leading-none text-[#1f3554] md:text-3xl">
+          <p ref={titleRef} className="text-2xl font-bold tracking-[-0.015em] leading-none text-[#1f3554] md:text-3xl">
             Bmr Group Argentina
           </p>
         </div>
 
         <nav className="hidden gap-6 text-sm font-semibold text-[#2f3743] lg:flex">
-          <a href="#tienda" className="site-nav-link">Tienda</a>
           <a href="#quienes" className="site-nav-link">Quiénes somos</a>
           <a href="#categorias" className="site-nav-link">Categorías</a>
-          <a href="#showroom" className="site-nav-link">Showroom</a>
-          <a href="/marcas.html" className="site-nav-link">Marcas</a>
+          <a href="#tienda" className="site-nav-link">Tienda</a>
           <a href="#contacto" className="site-nav-link">Contacto</a>
         </nav>
 

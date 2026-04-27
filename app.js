@@ -67,23 +67,18 @@ function Header() {
           <div ref={logoRef} className="relative h-12 w-12">
             <span className="absolute inset-0 rounded-full border border-[#ff6a00]/50" />
             <img
-              src="assets/logos/logo_logo%20fondo%20oscuro.png"
+              src="assets/logos/logo_logo%20fondo%20gris.png"
               alt="Logo Bmr Group"
-              onError={(e) => {
-                e.currentTarget.src = 'assets/bmr-logo.svg';
-              }}
-              className="h-12 w-12 rounded-full object-cover"
+              className="h-12 w-12 rounded-full object-contain bg-[#d9d9d9]"
             />
           </div>
-          <p ref={titleRef} className="text-2xl leading-none font-semibold text-[#1f3554] md:text-3xl">Bmr Group Argentina</p>
+          <p ref={titleRef} className="text-2xl leading-none font-bold tracking-[-0.015em] text-[#1f3554] md:text-3xl">Bmr Group Argentina</p>
         </div>
 
         <nav className="hidden gap-6 text-sm font-semibold text-[#2f3743] lg:flex">
-          <a href="#tienda" className="nav-link">Tienda</a>
           <a href="#quienes" className="nav-link">Quiénes somos</a>
           <a href="#categorias" className="nav-link">Categorías</a>
-          <a href="#showroom" className="nav-link">Showroom</a>
-          <a href="marcas.html" className="nav-link">Marcas</a>
+          <a href="#tienda" className="nav-link">Tienda</a>
           <a href="#contacto" className="nav-link">Contacto</a>
         </nav>
 
@@ -245,15 +240,12 @@ function App() {
       <footer id="contacto" className="mx-auto max-w-7xl border-t border-black/10 px-4 py-10 text-sm text-slate-600 md:px-6">
         <div className="mb-6 flex items-center gap-4">
           <img
-            src="assets/logos/logo_logo%20fondo%20oscuro.png"
+            src="assets/logos/logo_logo%20fondo%20gris.png"
             alt="Logo Bmr Group"
-            onError={(e) => {
-              e.currentTarget.src = 'assets/bmr-logo.svg';
-            }}
-            className="h-16 w-16 rounded-full border border-[#ff6a00]/40 bg-[#d9d9d9] object-cover"
+            className="h-16 w-16 rounded-full border border-[#ff6a00]/40 bg-[#d9d9d9] object-contain"
           />
           <div>
-            <h3 className="text-2xl font-semibold text-[#1f3554]">Bmr Group Argentina</h3>
+            <h3 className="text-2xl font-bold tracking-[-0.015em] text-[#1f3554]">Bmr Group Argentina</h3>
             <span className="mt-1 block h-[2px] w-44 bg-[#ff6a00]" />
           </div>
         </div>
