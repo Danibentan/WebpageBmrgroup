@@ -39,12 +39,6 @@ export function HeroOverlay({ currentSlide, title, subtitle, ctaLabel, ctaHref }
 
       <div className="pointer-events-none absolute inset-0 z-20 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 160 160%27%3E%3Cfilter id=%27n%27 x=%270%27 y=%270%27 width=%27100%25%27 height=%27100%25%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.8%27 numOctaves=%272%27/%3E%3C/filter%3E%3Crect width=%27160%27 height=%27160%27 filter=%27url(%23n)%27 opacity=%271%27/%3E%3C/svg%3E")' }} />
 
-      <div className="absolute bottom-3 left-1/2 z-20 hidden -translate-x-1/2 md:block">
-        <div className="relative h-12 w-[1px] bg-white/40">
-          <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-white animate-[heroScroll_1.8s_ease-in-out_infinite]" />
-        </div>
-      </div>
-
       <p className="absolute bottom-10 right-8 z-20 text-[11px] uppercase tracking-[0.22em] text-[#c9ab66] md:right-12">
         {currentSlide.caption}
       </p>
