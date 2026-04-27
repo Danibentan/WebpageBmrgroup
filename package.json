@@ -6,11 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "mode:next": "node scripts/set-mode.mjs next",
-    "mode:static": "node scripts/set-mode.mjs static",
-    "build:static": "npm run mode:static && npm run build",
-    "start:static": "npm run mode:static && npm run start"
+    "lint": "next lint"
   },
   "dependencies": {
     "lucide-react": "^0.469.0",
