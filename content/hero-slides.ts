@@ -18,39 +18,35 @@ export const heroContent = {
 
 export const heroSlides: HeroSlide[] = [
   {
-    id: 'panoramica-exterior',
+    id: 'showroom-interior-negro',
     type: 'image',
-    src: withBase('/assets/BMR_slideshow_profesional_03.jpg'),
-    caption: 'Vista panorámica al exterior',
-    alt: 'Living moderno con ventanales de aluminio y vista abierta al jardín.',
+    src: withBase('/assets/hero/bmr-slide-01.jpg'),
+    caption: 'Interior con paños modulares negros',
+    alt: 'Interior con cerramiento de hierro y vidrio negro.',
     duration: 6000
   },
   {
-    id: 'showroom-video',
-    type: 'video',
-    src: withBase('/videos/showroom-hero.mp4'),
-    poster: withBase('/assets/BMR_slideshow_profesional_05.jpg'),
-    caption: 'Recorrido de showroom premium',
-    alt: 'Detalle de showroom con aberturas premium en uso real.',
-    videoSources: {
-      webm: withBase('/videos/showroom-hero.webm'),
-      mp4: withBase('/videos/showroom-hero.mp4')
-    }
-  },
-  {
-    id: 'terminaciones-premium',
+    id: 'vista-laguna',
     type: 'image',
-    src: withBase('/assets/BMR_slideshow_profesional_07.jpg'),
-    caption: 'Terminaciones de alta prestación',
-    alt: 'Primer plano de perfilería minimalista con terminación premium.',
+    src: withBase('/assets/hero/bmr-slide-02.jpg'),
+    caption: 'Vista abierta con carpintería premium',
+    alt: 'Vista exterior a laguna a través de abertura.',
     duration: 6000
   },
   {
-    id: 'carpinteria-tecnica',
+    id: 'fachada-detalle-vertical',
     type: 'image',
-    src: withBase('/assets/BMR_slideshow_profesional_05.jpg'),
-    caption: 'Carpintería técnica para proyectos exigentes',
-    alt: 'Fachada contemporánea con grandes paños vidriados.',
+    src: withBase('/assets/hero/bmr-slide-03.jpg'),
+    caption: 'Detalle vertical de fachada',
+    alt: 'Plano detalle de abertura en fachada clara.',
+    duration: 6000
+  },
+  {
+    id: 'fachada-principal',
+    type: 'image',
+    src: withBase('/assets/hero/bmr-slide-04.jpg'),
+    caption: 'Fachada principal con correderas',
+    alt: 'Fachada residencial con correderas de gran formato.',
     duration: 6000
   }
 ];

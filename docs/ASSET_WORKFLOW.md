@@ -41,6 +41,15 @@ REEMPLAZA: ruta anterior (opcional)
 
 > Regla: todo asset nuevo para Vercel entra por `public/` para que quede accesible por URL.
 
+### Compatibilidad rápida (si subís en `assets/`)
+
+Si subís por error a:
+
+- `assets/hero`
+- `assets/logos`
+
+el proyecto ahora los sincroniza automáticamente a `public/assets/...` en `dev`, `build` y `start` con `npm run sync:assets`.
+
 ---
 
 ## Convención de nombres recomendada
