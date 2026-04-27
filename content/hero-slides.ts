@@ -9,11 +9,11 @@ const mediaBaseUrl = process.env.NEXT_PUBLIC_MEDIA_BASE_URL ?? '';
 const withBase = (path: string): string => `${mediaBaseUrl}${path}`;
 
 export const heroContent = {
-  title: 'Aberturas Premium para tu proyecto',
+  title: 'Aberturas premium para tu proyecto',
   subtitle:
-    'Diseño minimalista, rendimiento técnico y entrega inmediata para obras residenciales y comerciales.',
+    'Estética limpia, precisión técnica y ejecución profesional para residencias y espacios corporativos.',
   ctaLabel: 'Solicitar asesoramiento',
-  ctaHref: '#contacto'
+  ctaHref: '/contacto'
 };
 
 export const heroSlides: HeroSlide[] = [

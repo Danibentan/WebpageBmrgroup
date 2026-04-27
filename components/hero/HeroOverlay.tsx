@@ -17,16 +17,18 @@ export function HeroOverlay({ currentSlide, title, subtitle, ctaLabel, ctaHref }
       <div className="absolute inset-0 z-10 md:hidden" style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(15,31,61,0.7) 60%, rgba(15,31,61,0.95) 100%)' }} />
 
       <div className="absolute inset-0 z-20 flex items-end md:items-center">
-        <div className="w-full px-6 pb-14 pt-10 md:max-w-[600px] md:px-12 md:pb-12 lg:px-16">
-          <h1 className="text-balance font-bold tracking-[-0.02em] text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
-            {title}
-          </h1>
-          <p className="mt-5 text-white/90" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.25rem)' }}>
-            {subtitle}
-          </p>
+        <div className="w-full px-6 pb-14 pt-10 md:max-w-[720px] md:px-12 md:pb-12 lg:px-16">
+          <div className="rounded-2xl border border-white/20 bg-[#081b31]/30 p-6 backdrop-blur-[2px] md:p-8">
+            <h1 className="max-w-[15ch] font-semibold tracking-[-0.015em] text-white" style={{ fontSize: 'clamp(2rem, 4.2vw, 4.1rem)', lineHeight: 1.02 }}>
+              {title}
+            </h1>
+            <p className="mt-4 max-w-[48ch] text-white/85" style={{ fontSize: 'clamp(1rem, 1.2vw, 1.15rem)' }}>
+              {subtitle}
+            </p>
+          </div>
           <a
             href={ctaHref}
-            className="mt-8 inline-flex items-center gap-2 border border-white px-5 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0F1F3D]"
+            className="mt-7 inline-flex items-center gap-2 rounded-full border border-white/80 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0F1F3D]"
           >
             {ctaLabel}
             <ArrowRight size={18} aria-hidden="true" />

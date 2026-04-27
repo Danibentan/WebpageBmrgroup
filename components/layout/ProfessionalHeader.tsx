@@ -37,6 +37,15 @@ export function ProfessionalHeader() {
         yoyo: true,
         ease: 'sine.inOut'
       });
+
+      gsap.to('.site-nav-link', {
+        backgroundColor: 'rgba(214, 219, 226, 0.98)',
+        duration: 1.4,
+        repeat: -1,
+        yoyo: true,
+        stagger: 0.08,
+        ease: 'sine.inOut'
+      });
     };
 
     void runAnimation();
@@ -67,12 +76,12 @@ export function ProfessionalHeader() {
           </p>
         </div>
 
-        <nav className="flex flex-1 flex-wrap items-center gap-2 text-sm font-semibold text-[#dbe9ff]">
+        <nav className="flex flex-1 flex-wrap items-center gap-2 text-sm font-semibold text-[#102c4f]">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="site-nav-link rounded-lg border border-[#5f85b3] bg-[#163f6f]/70 px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-[#9ab8df] hover:bg-[#1f4f89] hover:text-white"
+              className="site-nav-link rounded-lg border border-[#b9c3d1] bg-[#cdd2db] px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-[#d8dce3] hover:bg-[#e0e4eb] hover:text-[#0d2544]"
             >
               {label}
             </Link>
