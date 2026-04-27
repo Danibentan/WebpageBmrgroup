@@ -2,12 +2,69 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Instagram, MapPin } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 
 const logoPath = '/assets/logos/logosvg_logo%20fondo%20blanco.svg';
 
+const leftColumnVariants = {
+  hidden: { opacity: 0, x: -60, filter: 'blur(8px)' },
+  visible: {
+    opacity: 1,
+    x: 0,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 1,
+      ease: [0.25, 0.1, 0.25, 1],
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const rightColumnVariants = {
+  hidden: { opacity: 0, x: 60, filter: 'blur(8px)' },
+  visible: {
+    opacity: 1,
+    x: 0,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 1,
+      ease: [0.25, 0.1, 0.25, 1],
+      staggerChildren: 0.12,
+      delayChildren: 0.4
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }
+  }
+};
+
+const reducedColumnVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.2 } }
+};
+
+const reducedItemVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.2 } }
+};
+
 export default function QuienesSomosPage() {
   const [isLogoBroken, setIsLogoBroken] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+
+  const activeLeftVariants = prefersReducedMotion ? reducedColumnVariants : leftColumnVariants;
+  const activeRightVariants = prefersReducedMotion ? reducedColumnVariants : rightColumnVariants;
+  const activeItemVariants = prefersReducedMotion ? reducedItemVariants : itemVariants;
 
   return (
     <main className="min-h-screen bg-[#0a1733] text-[#e6edf8]">
@@ -45,50 +102,99 @@ export default function QuienesSomosPage() {
         </article>
       </section>
 
-      <section className="mx-auto w-full max-w-5xl px-4 pb-16 text-center md:px-6 md:pb-20">
-        {isLogoBroken ? (
-          <div
-            className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-[#c9a961]/70 bg-[#07142f] text-xs font-semibold text-[#c9a961]"
-            aria-hidden="true"
+      <footer className="w-full border-t border-white/10 bg-[#0a1733] px-8 py-16 md:px-16 md:py-28">
+        <div className="grid grid-cols-1 items-end gap-12 md:grid-cols-2">
+          <motion.div
+            variants={activeLeftVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="text-left"
+            aria-hidden="false"
           >
-            BMR
-          </div>
-        ) : (
-          <Image
-            src={logoPath}
-            alt="BMR Group Argentina"
-            width={88}
-            height={88}
-            className="mx-auto mb-6 h-20 w-auto"
-            onError={() => {
-              console.warn(`[BMR] Logo no encontrado en ${logoPath}. Verificá que exista en public/assets/logos.`);
-              setIsLogoBroken(true);
-            }}
-          />
-        )}
+            <motion.div variants={activeItemVariants}>
+              <Link
+                href="/"
+                aria-label="Ir al inicio"
+                className="inline-flex cursor-pointer transition-all duration-500 ease-out hover:scale-105 hover:opacity-80"
+              >
+                <motion.div whileHover={prefersReducedMotion ? undefined : { scale: 1.05, rotate: 1 }}>
+                  {isLogoBroken ? (
+                    <div
+                      className="flex h-16 w-44 items-center justify-center rounded border border-[#c9a961]/70 bg-[#07142f] text-sm font-semibold tracking-wide text-[#c9a961] md:h-20"
+                      aria-hidden="true"
+                    >
+                      BMR GROUP
+                    </div>
+                  ) : (
+                    <Image
+                      src={logoPath}
+                      alt="BMR Group Argentina"
+                      width={220}
+                      height={80}
+                      className="h-16 w-auto md:h-20"
+                      onError={() => {
+                        console.warn(`[BMR] Logo no encontrado en ${logoPath}. Verificá que exista en public/assets/logos.`);
+                        setIsLogoBroken(true);
+                      }}
+                    />
+                  )}
+                </motion.div>
+              </Link>
+            </motion.div>
 
-        <h2 className="font-editorial text-3xl font-semibold tracking-[-0.015em] text-[#c9a961] md:text-4xl">BMR Group Argentina</h2>
-        <p className="mt-4 font-editorial text-2xl leading-tight text-[#f2f4f8] md:text-3xl">Diseño, ingeniería y experiencia premium.</p>
+            <motion.h2 variants={activeItemVariants} className="mt-6 font-editorial text-3xl text-[#c9a961] md:text-4xl">
+              BMR Group Argentina
+            </motion.h2>
+            <motion.p variants={activeItemVariants} className="mt-3 font-editorial text-xl leading-relaxed text-white/90 md:text-2xl">
+              Diseño, ingeniería y experiencia premium.
+            </motion.p>
+          </motion.div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="https://instagram.com/bmrgroupar"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full border border-[#c9a961] px-6 py-3 font-semibold text-[#c9a961] transition-colors duration-300 hover:bg-[#c9a961] hover:text-[#0a1733]"
+          <motion.div
+            variants={activeRightVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="flex flex-col items-start justify-end gap-6 md:items-end"
+            aria-hidden="false"
           >
-            @bmrgroupar
-          </a>
-          <a
-            href="https://www.google.com/maps/dir/?api=1&destination=Colectora+Este+Ramal+Escobar+1871,+Bel%C3%A9n+de+Escobar+1625"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-full border border-[#c9a961] px-6 py-3 font-semibold text-[#c9a961] transition-colors duration-300 hover:bg-[#c9a961] hover:text-[#0a1733]"
-          >
-            Cómo llegar
-          </a>
+            <motion.span variants={activeItemVariants} className="text-xs uppercase tracking-[0.25em] text-[#c9a961]">
+              CONECTÁ CON NOSOTROS
+            </motion.span>
+
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                variants={activeItemVariants}
+                href="https://instagram.com/bmrgroupar"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ir al Instagram de BMR Group Argentina"
+                className="flex items-center gap-2 rounded-full border border-[#c9a961] px-6 py-3 text-sm tracking-wide text-[#c9a961] transition-all duration-300 hover:bg-[#c9a961] hover:text-[#0a1733]"
+                whileHover={prefersReducedMotion ? undefined : { scale: 1.03 }}
+                whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+              >
+                <Instagram size={16} />
+                @bmrgroupar
+              </motion.a>
+
+              <motion.a
+                variants={activeItemVariants}
+                href="https://maps.google.com/?q=BMR+Group+Escobar"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir ubicación de BMR Group Escobar en Google Maps"
+                className="flex items-center gap-2 rounded-full border border-[#c9a961] px-6 py-3 text-sm tracking-wide text-[#c9a961] transition-all duration-300 hover:bg-[#c9a961] hover:text-[#0a1733]"
+                whileHover={prefersReducedMotion ? undefined : { scale: 1.03 }}
+                whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+              >
+                <MapPin size={16} />
+                Cómo llegar
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
-      </section>
+      </footer>
     </main>
   );
 }
