@@ -5,18 +5,18 @@ import { useEffect } from 'react';
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 
-const experienceBlocks = [
+const caseStudies = [
   {
-    title: '01 · Estrategia espacial',
-    text: 'Diseñamos aperturas como parte de una narrativa arquitectónica integral: luz, escala y fluidez en equilibrio.'
+    id: '01',
+    title: 'Casa Patio Norte',
+    subtitle: 'Flujo de luz + minimal frame system',
+    text: 'Sistema corredizo de gran formato con transición interior-exterior continua. Ingeniería térmica y visual limpia.'
   },
   {
-    title: '02 · Precisión técnica',
-    text: 'Cada sistema se define con criterio de ingeniería, performance térmica y durabilidad real para obras exigentes.'
-  },
-  {
-    title: '03 · Ejecución premium',
-    text: 'Gestionamos asesoría, fabricación e instalación con un estándar profesional que cuida detalle, tiempos y acabados.'
+    id: '02',
+    title: 'Oficinas Costanera',
+    subtitle: 'Performance corporativa + identidad',
+    text: 'Piel vidriada y aberturas técnicas para operación intensiva. Resolución acústica, control solar y presencia de marca.'
   }
 ];
 
@@ -43,6 +43,15 @@ export default function HomePage() {
         ease: 'power2.out',
         delay: 0.35
       });
+
+      gsap.from('.case-study-row', {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.24,
+        ease: 'power3.out',
+        delay: 0.45
+      });
     };
     void runAnimation();
     return () => {
@@ -54,37 +63,39 @@ export default function HomePage() {
     <main className="min-h-screen bg-transparent text-[#e6edf8]">
       <ImmersiveHero />
 
-      <section className="mx-auto max-w-7xl px-6 pb-6 pt-20 md:pt-28">
-        <p className="mixd-inspired-block text-xs uppercase tracking-[0.36em] text-[#c1d6ef]">BMR GROUP ARGENTINA</p>
-        <h2 className="mixd-inspired-block mt-5 max-w-[14ch] text-4xl font-semibold leading-[1.04] text-white md:text-6xl">
-          Minimalismo técnico para arquitectura contemporánea.
+      <section className="mx-auto max-w-7xl px-6 pb-10 pt-20 md:pt-32">
+        <p className="mixd-inspired-block text-xs uppercase tracking-[0.36em] text-[#c1d6ef]">BMR GROUP ARGENTINA · CASE STUDIES</p>
+        <h2 className="mixd-inspired-block mt-5 max-w-[12ch] text-5xl font-semibold leading-[0.98] text-white md:text-7xl">
+          Aperturas premium para arquitectura de alto impacto.
         </h2>
         <p className="mixd-inspired-block mt-8 max-w-[52ch] text-lg leading-relaxed text-[#c7d8ee]">
-          Desarrollamos sistemas de aberturas premium para proyectos residenciales y corporativos con una dirección estética clara y una ejecución
-          de alta precisión.
+          Un enfoque editorial y técnico: menos ruido visual, más precisión en materiales, proporciones y performance para obras contemporáneas.
         </p>
         <span className="mixd-divider mt-12 block h-px w-full bg-[#87a7cc]/40" />
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-10 pt-8 md:pt-12">
-        <div className="grid gap-10 md:grid-cols-3">
-          {experienceBlocks.map((block) => (
-            <article
-              key={block.title}
-              className="mixd-inspired-block border-t border-[#8ca9cc]/50 pt-6"
-            >
-              <h3 className="text-lg font-semibold uppercase tracking-[0.08em] text-[#eaf2ff]">{block.title}</h3>
-              <p className="mt-5 text-base leading-relaxed text-[#c8d9ee]">{block.text}</p>
+      <section className="mx-auto max-w-7xl px-6 pb-8">
+        <div className="space-y-10">
+          {caseStudies.map((item) => (
+            <article key={item.id} className="case-study-row rounded-2xl border border-[#6d8eb6]/55 bg-[linear-gradient(135deg,rgba(8,28,52,0.88)_0%,rgba(15,48,84,0.86)_100%)] p-6 md:p-10">
+              <div className="grid gap-8 md:grid-cols-[120px,1fr]">
+                <span className="text-7xl font-semibold leading-none text-[#7da0ca] md:text-8xl">{item.id}</span>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.32em] text-[#bfd3ed]">{item.subtitle}</p>
+                  <h3 className="mt-3 max-w-[16ch] text-4xl font-semibold leading-[1.02] text-white md:text-5xl">{item.title}</h3>
+                  <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-[#d2e0f2]">{item.text}</p>
+                </div>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto mb-10 max-w-7xl px-6 pt-12 md:pt-20">
-        <div className="mixd-inspired-block rounded-2xl border border-[#6c8db4]/60 bg-[#0b2848]/55 p-8 md:flex md:items-end md:justify-between md:p-10">
+      <section className="mx-auto mb-12 max-w-7xl px-6 pt-8 md:pt-14">
+        <div className="mixd-inspired-block rounded-2xl border border-[#6c8db4]/60 bg-[#0b2848]/55 p-8 md:flex md:items-end md:justify-between md:p-12">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-[#c1d6ef]">Project readiness</p>
-            <h3 className="mt-4 max-w-[16ch] text-3xl font-semibold leading-[1.08] text-white md:text-5xl">Tu proyecto merece una experiencia superior.</h3>
+            <h3 className="mt-4 max-w-[14ch] text-4xl font-semibold leading-[1.02] text-white md:text-6xl">Iniciemos tu próximo caso de referencia.</h3>
           </div>
           <a href="/contacto" className="mt-6 inline-flex rounded-full border border-[#c6d4e6] px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#0f2745] md:mt-0">
             Iniciar proyecto
