@@ -31,7 +31,7 @@ export function ProfessionalHeader() {
         .from('.header-cta', { y: 8, opacity: 0, duration: 0.35 }, '-=0.2');
 
       gsap.to('.header-cta', {
-        boxShadow: '0 10px 24px rgba(255,106,0,0.22)',
+        boxShadow: '0 10px 24px rgba(201,171,102,0.28)',
         duration: 1.4,
         repeat: -1,
         yoyo: true,
@@ -39,7 +39,7 @@ export function ProfessionalHeader() {
       });
 
       gsap.to('.site-nav-link', {
-        backgroundColor: 'rgba(214, 219, 226, 0.98)',
+        backgroundColor: 'rgba(214, 198, 151, 0.18)',
         duration: 1.4,
         repeat: -1,
         yoyo: true,
@@ -58,9 +58,9 @@ export function ProfessionalHeader() {
   return (
     <header
       ref={headerRef}
-      className="relative z-40 mx-auto mt-5 w-[min(1320px,96%)] overflow-hidden rounded-[30px] border border-[#4d6f97] bg-[linear-gradient(120deg,rgba(9,33,60,0.92)_0%,rgba(18,59,109,0.88)_48%,rgba(27,85,151,0.86)_100%)] shadow-[0_24px_54px_rgba(2,10,22,0.45)] backdrop-blur-md"
+      className="relative z-40 mx-auto mt-5 w-[min(1320px,96%)] overflow-hidden rounded-[30px] border border-[#40567f] bg-[linear-gradient(120deg,rgba(5,14,35,0.92)_0%,rgba(8,23,52,0.9)_52%,rgba(18,40,79,0.88)_100%)] shadow-[0_24px_54px_rgba(2,10,22,0.45)] backdrop-blur-md"
     >
-      <div className="pointer-events-none absolute inset-y-0 right-[-12%] w-1/3 bg-[radial-gradient(circle_at_center,rgba(255,106,0,0.28)_0%,rgba(255,106,0,0)_72%)]" />
+      <div className="pointer-events-none absolute inset-y-0 right-[-12%] w-1/3 bg-[radial-gradient(circle_at_center,rgba(201,171,102,0.24)_0%,rgba(201,171,102,0)_72%)]" />
       <div className="relative flex flex-wrap items-center gap-4 px-4 py-3 md:px-7">
         <div className="flex items-center gap-3 pr-3">
           <Link href="/" aria-label="Ir al inicio">
@@ -68,20 +68,20 @@ export function ProfessionalHeader() {
               ref={logoRef}
               src="/assets/logos/bmr-icon-blue.svg"
               alt="Logo Bmr Group"
-              className="h-16 w-16 rounded-full border border-[#ff6a00]/80 object-contain bg-[#123b6d] shadow-[0_0_0_4px_rgba(12,39,72,0.45)] md:h-[72px] md:w-[72px]"
+              className="h-16 w-16 rounded-full border border-[#c9ab66]/80 object-contain bg-[#07142f] shadow-[0_0_0_4px_rgba(7,20,47,0.55)] md:h-[72px] md:w-[72px]"
             />
           </Link>
-          <p ref={titleRef} className="text-2xl font-bold tracking-[-0.015em] leading-none text-[#ecf3ff] md:text-4xl">
+          <p ref={titleRef} className="font-editorial text-3xl font-semibold tracking-[-0.015em] leading-none text-[#f2f4f8] md:text-5xl">
             Bmr Group Argentina
           </p>
         </div>
 
-        <nav className="flex flex-1 flex-wrap items-center gap-2 text-sm font-semibold text-[#102c4f]">
+        <nav className="flex flex-1 flex-wrap items-center gap-2 text-sm font-semibold text-[#f2f4f8]">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
-              className="site-nav-link rounded-lg border border-[#b9c3d1] bg-[#cdd2db] px-3 py-1.5 transition hover:-translate-y-0.5 hover:border-[#d8dce3] hover:bg-[#e0e4eb] hover:text-[#0d2544]"
+              className="site-nav-link rounded-lg border border-[#4f658f] bg-[#0b1f43]/75 px-3 py-1.5 tracking-[0.08em] transition hover:-translate-y-0.5 hover:border-[#c9ab66] hover:bg-[#122d5d] hover:text-[#f2f4f8]"
             >
               {label}
             </Link>
@@ -90,7 +90,7 @@ export function ProfessionalHeader() {
 
         <Link
           href="/cotizar"
-          className="header-cta rounded-full border border-[#ff8937] bg-[#ff6a00] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#ff7c1f] hover:text-white"
+          className="header-cta rounded-full border border-[#c9ab66] bg-[#c9ab66]/95 px-5 py-2 text-sm font-semibold tracking-[0.08em] text-[#08152f] transition hover:bg-[#dcc084] hover:text-[#08152f]"
         >
           Cotizar ahora
         </Link>

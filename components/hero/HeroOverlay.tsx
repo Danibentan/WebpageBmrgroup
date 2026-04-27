@@ -18,17 +18,18 @@ export function HeroOverlay({ currentSlide, title, subtitle, ctaLabel, ctaHref }
 
       <div className="absolute inset-0 z-20 flex items-end justify-end md:items-center">
         <div className="w-full px-6 pb-14 pt-10 md:max-w-[760px] md:px-12 md:pb-12 lg:px-16">
-          <div className="rounded-2xl border border-white/20 bg-[#081b31]/25 p-6 backdrop-blur-[2px] md:p-8">
-            <h1 className="max-w-[15ch] font-semibold tracking-[-0.015em] text-white" style={{ fontSize: 'clamp(2rem, 4.2vw, 4.1rem)', lineHeight: 1.02 }}>
+          <div className="rounded-2xl border border-[#bba066]/35 bg-[#040b1f]/45 p-6 backdrop-blur-[2px] md:p-8">
+            <p className="kicker mb-3 text-xs">Presentación comercial</p>
+            <h1 className="font-editorial max-w-[14ch] font-semibold text-[#f2f4f8]" style={{ fontSize: 'clamp(2.2rem, 4.6vw, 4.8rem)', lineHeight: 0.98 }}>
               {title}
             </h1>
-            <p className="mt-4 max-w-[48ch] text-white/85" style={{ fontSize: 'clamp(1rem, 1.2vw, 1.15rem)' }}>
+            <p className="mt-4 max-w-[48ch] text-[#d0d8e8]" style={{ fontSize: 'clamp(1rem, 1.2vw, 1.15rem)' }}>
               {subtitle}
             </p>
           </div>
           <a
             href={ctaHref}
-            className="mt-7 inline-flex items-center gap-2 rounded-full border border-white/80 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0F1F3D]"
+            className="mt-7 inline-flex items-center gap-2 rounded-full border border-[#c9ab66] px-5 py-2.5 text-sm font-semibold text-[#f2f4f8] transition hover:bg-[#c9ab66] hover:text-[#08152f]"
           >
             {ctaLabel}
             <ArrowRight size={18} aria-hidden="true" />
@@ -44,7 +45,7 @@ export function HeroOverlay({ currentSlide, title, subtitle, ctaLabel, ctaHref }
         </div>
       </div>
 
-      <p className="absolute bottom-10 right-8 z-20 text-[11px] uppercase tracking-[0.22em] text-white/70 md:right-12">
+      <p className="absolute bottom-10 right-8 z-20 text-[11px] uppercase tracking-[0.22em] text-[#c9ab66] md:right-12">
         {currentSlide.caption}
       </p>
     </>

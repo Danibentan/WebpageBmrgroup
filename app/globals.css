@@ -4,16 +4,41 @@
 
 :root {
   color-scheme: light;
-  --bmr-navy: #123b6d;
-  --bmr-navy-dark: #0b2848;
-  --bmr-accent: #ff6a00;
-  --bmr-mist: #e7eef7;
+  --bmr-ink: #030a1c;
+  --bmr-navy: #07142f;
+  --bmr-navy-soft: #0f2248;
+  --bmr-gold: #c9ab66;
+  --bmr-silver: #96a3be;
+  --bmr-white: #f2f4f8;
 }
 
 body {
   margin: 0;
-  background: radial-gradient(circle at 12% 10%, #1f4f89 0%, transparent 40%),
-    radial-gradient(circle at 90% 0%, #2b619f 0%, transparent 30%),
-    linear-gradient(165deg, #081b31 0%, #0b2848 45%, #123b6d 100%);
-  color: #e6edf8;
+  font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  background:
+    linear-gradient(rgba(33, 56, 96, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 56, 96, 0.12) 1px, transparent 1px),
+    radial-gradient(circle at 72% 10%, rgba(40, 63, 109, 0.44) 0%, transparent 42%),
+    linear-gradient(160deg, var(--bmr-ink) 0%, var(--bmr-navy) 50%, var(--bmr-navy-soft) 100%);
+  background-size: 80px 80px, 80px 80px, auto, auto;
+  color: var(--bmr-white);
+}
+
+h1,
+h2,
+h3,
+.font-editorial {
+  font-family: var(--font-cormorant), 'Times New Roman', serif;
+  letter-spacing: -0.01em;
+}
+
+.kicker {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--bmr-gold);
+}
+
+.text-gold {
+  color: var(--bmr-gold);
 }
