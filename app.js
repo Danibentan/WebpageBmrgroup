@@ -28,7 +28,7 @@ const PremiumLink = ({ children, href = '#' }) => (
   </a>
 );
 
-function Header() {
+function Header({ activeModal, onOpenModal }) {
   const titleRef = useRef(null);
   const logoRef = useRef(null);
   const headerRef = useRef(null);
@@ -75,16 +75,114 @@ function Header() {
           <p ref={titleRef} className="text-2xl leading-none font-bold tracking-[-0.015em] text-[#1f3554] md:text-3xl">Bmr Group Argentina</p>
         </div>
 
-        <nav className="hidden gap-6 text-sm font-semibold text-[#2f3743] lg:flex">
-          <a href="#quienes" className="nav-link">Quiénes somos</a>
-          <a href="#categorias" className="nav-link">Categorías</a>
-          <a href="#tienda" className="nav-link">Tienda</a>
-          <a href="#contacto" className="nav-link">Contacto</a>
+        <nav className="hidden gap-3 text-sm font-semibold text-[#2f3743] lg:flex">
+          {[
+            ['quienes', 'Quiénes somos'],
+            ['categorias', 'Categorías'],
+            ['tienda', 'Tienda'],
+            ['contacto', 'Contacto']
+          ].map(([key, label]) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => onOpenModal(key)}
+              className={`nav-link rounded-md px-3 py-1.5 transition ${activeModal === key ? 'bg-[#A8D2FF] text-[#16345a]' : 'hover:bg-[#dfe8f4]'}`}
+            >
+              {label}
+            </button>
+          ))}
         </nav>
 
-        <a href="#contacto" className="cta-shadow rounded-full border border-[#1f3554] bg-[#ececec] px-4 py-2 text-sm font-semibold text-[#1f3554] hover:bg-[#1f3554] hover:text-white">Cotizar ahora</a>
+        <button type="button" onClick={() => onOpenModal('cotizar')} className="cta-shadow rounded-full border border-[#1f3554] bg-[#ececec] px-4 py-2 text-sm font-semibold text-[#1f3554] hover:bg-[#1f3554] hover:text-white">Cotizar ahora</button>
       </div>
     </header>
+  );
+}
+
+function ModalWindow({ modalKey, onClose }) {
+  if (!modalKey) return null;
+
+  const modalData = {
+    quienes: {
+      title: 'Quiénes somos',
+      subtitle: 'Historia y visión de Bmr Group Argentina.',
+      body: (
+        <div className="space-y-3 text-sm text-slate-600">
+          <p>Bmr Group Argentina se fundó en 2014 para profesionalizar la experiencia de obra premium en el mercado local, integrando diseño, ingeniería y ejecución.</p>
+          <p>Hoy somos una marca integral: además de aberturas, ofrecemos asesoramiento técnico, planificación de proyectos, soluciones arquitectónicas y postventa.</p>
+          <p>Nuestra misión es transformar cada proyecto en una experiencia eficiente, estética y confiable.</p>
+        </div>
+      )
+    },
+    categorias: {
+      title: 'Categorías',
+      subtitle: 'Soluciones destacadas para cada tipo de proyecto.',
+      body: (
+        <div className="grid gap-3 sm:grid-cols-2">
+          {categories.map((category) => (
+            <article key={category.name} className="rounded-xl border border-[#d2d9e7] bg-[#f8fbff] p-4 text-sm text-[#1f3554]">{category.name}: {category.desc}</article>
+          ))}
+        </div>
+      )
+    },
+    tienda: {
+      title: 'Tienda virtual',
+      subtitle: 'Catálogo disponible para compra y cotización rápida.',
+      body: (
+        <div className="grid gap-3 md:grid-cols-2">
+          {products.slice(0, 2).map((product) => (
+            <article key={product.sku} className="rounded-xl border border-[#d2d9e7] bg-white p-4">
+              <h4 className="font-semibold text-[#1f3554]">{product.name}</h4>
+              <p className="mt-1 text-sm text-slate-600">{product.price}</p>
+            </article>
+          ))}
+        </div>
+      )
+    },
+    contacto: {
+      title: 'Contacto',
+      subtitle: 'Canales de atención Bmr Group Argentina.',
+      body: (
+        <div className="space-y-2 text-sm text-slate-600">
+          <p>Teléfonos: +54 9 11 4321 6789 · +54 9 11 6123 4590</p>
+          <p>Horarios: Lunes a Viernes 09:00 a 18:30 · Sábados 09:30 a 13:00</p>
+          <p>Ubicación: Av. del Libertador 6710, CABA</p>
+          <p>Instagram: @bmrgroupargentina · Email: info@bmrgroup.com.ar</p>
+        </div>
+      )
+    },
+    cotizar: {
+      title: 'Cotizar ahora',
+      subtitle: 'Completá el formulario para que te contactemos.',
+      body: (
+        <form className="grid gap-3 md:grid-cols-2">
+          <label className="text-sm font-medium text-[#1f3554]">Nombre<input required className="mt-1 w-full rounded-lg border border-[#c8d1e0] px-3 py-2" /></label>
+          <label className="text-sm font-medium text-[#1f3554]">Apellido<input required className="mt-1 w-full rounded-lg border border-[#c8d1e0] px-3 py-2" /></label>
+          <label className="text-sm font-medium text-[#1f3554]">Número de teléfono<input type="tel" required className="mt-1 w-full rounded-lg border border-[#c8d1e0] px-3 py-2" /></label>
+          <label className="text-sm font-medium text-[#1f3554]">Horario preferido<input type="time" required className="mt-1 w-full rounded-lg border border-[#c8d1e0] px-3 py-2" /></label>
+          <label className="text-sm font-medium text-[#1f3554] md:col-span-2">Día de visita (lunes a sábado)<input type="date" required className="mt-1 w-full rounded-lg border border-[#c8d1e0] px-3 py-2" /></label>
+          <button type="submit" className="md:col-span-2 rounded-lg bg-[#1f3554] px-4 py-2 text-sm font-semibold text-white">Enviar solicitud</button>
+        </form>
+      )
+    }
+  };
+
+  const data = modalData[modalKey];
+  if (!data) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#091324]/55 p-4">
+      <div className="modal-card w-full max-w-3xl rounded-2xl border border-[#bfd0e8] bg-[#f5f8fd] p-6 shadow-[0_30px_80px_rgba(5,24,46,0.35)] md:p-8">
+        <div className="mb-4 flex items-start justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold text-[#102c4f]">{data.title}</h2>
+            <p className="mt-1 text-sm text-slate-600">{data.subtitle}</p>
+          </div>
+          <button type="button" onClick={onClose} className="rounded-lg border border-[#b7c8df] bg-white px-3 py-1.5 text-sm font-semibold text-[#1f3554]">Cerrar</button>
+        </div>
+        {data.body}
+      </div>
+    </div>
   );
 }
 
@@ -144,6 +242,7 @@ function MediaSlideshow() {
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeModal, setActiveModal] = useState(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -156,6 +255,11 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!activeModal || !window.gsap) return;
+    window.gsap.fromTo('.modal-card', { y: 30, opacity: 0, scale: 0.98 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: 'power3.out' });
+  }, [activeModal]);
+
   return (
     <div>
       <div
@@ -165,7 +269,7 @@ function App() {
         }}
       />
 
-      <Header />
+      <Header activeModal={activeModal} onOpenModal={setActiveModal} />
 
       <main className="space-y-12 py-10">
         <section className="relative mx-auto h-[75vh] max-h-[720px] min-h-[520px] w-[min(1400px,100%)] overflow-hidden rounded-3xl md:h-[80vh] lg:h-[85vh]">
@@ -257,6 +361,7 @@ function App() {
           <a className="font-semibold text-primary" href="mailto:info@bmrgroup.com.ar">Email institucional</a>
         </div>
       </footer>
+      <ModalWindow modalKey={activeModal} onClose={() => setActiveModal(null)} />
     </div>
   );
 }

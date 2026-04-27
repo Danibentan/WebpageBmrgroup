@@ -2,7 +2,14 @@
 
 import { useEffect, useRef } from 'react';
 
-export function ProfessionalHeader() {
+type HeaderPanel = 'quienes' | 'categorias' | 'tienda' | 'contacto' | 'cotizar';
+
+type ProfessionalHeaderProps = {
+  activePanel: HeaderPanel | null;
+  onOpenPanel: (panel: HeaderPanel) => void;
+};
+
+export function ProfessionalHeader({ activePanel, onOpenPanel }: ProfessionalHeaderProps) {
   const headerRef = useRef<HTMLElement | null>(null);
   const logoRef = useRef<HTMLImageElement | null>(null);
   const titleRef = useRef<HTMLParagraphElement | null>(null);
@@ -56,19 +63,33 @@ export function ProfessionalHeader() {
           </p>
         </div>
 
-        <nav className="hidden gap-6 text-sm font-semibold text-[#2f3743] lg:flex">
-          <a href="#quienes" className="site-nav-link">Quiénes somos</a>
-          <a href="#categorias" className="site-nav-link">Categorías</a>
-          <a href="#tienda" className="site-nav-link">Tienda</a>
-          <a href="#contacto" className="site-nav-link">Contacto</a>
+        <nav className="hidden gap-3 text-sm font-semibold text-[#2f3743] lg:flex">
+          {[
+            ['quienes', 'Quiénes somos'],
+            ['categorias', 'Categorías'],
+            ['tienda', 'Tienda'],
+            ['contacto', 'Contacto']
+          ].map(([panel, label]) => (
+            <button
+              key={panel}
+              type="button"
+              onClick={() => onOpenPanel(panel as HeaderPanel)}
+              className={`site-nav-link rounded-md px-3 py-1.5 transition ${
+                activePanel === panel ? 'bg-[#A8D2FF] text-[#16345a]' : 'hover:bg-[#dfe8f4]'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
         </nav>
 
-        <a
-          href="#contacto"
+        <button
+          type="button"
+          onClick={() => onOpenPanel('cotizar')}
           className="header-cta rounded-full border border-[#1f3554] bg-[#ececec] px-4 py-2 text-sm font-semibold text-[#1f3554] transition hover:bg-[#1f3554] hover:text-white"
         >
           Cotizar ahora
-        </a>
+        </button>
       </div>
     </header>
   );
