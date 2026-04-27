@@ -115,7 +115,7 @@ export function ProfessionalHeader() {
 
         <Link href="/" aria-label="Ir al inicio" className="site-nav-logo cursor-pointer transition-opacity duration-300 hover:opacity-80">
           <Image
-            src="/logo/bmr-logo.svg"
+            src="/assets/logos/logosvg_logo%20fondo%20blanco.svg"
             alt="BmR Group Argentina"
             width={120}
             height={40}
