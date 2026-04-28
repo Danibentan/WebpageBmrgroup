@@ -17,20 +17,8 @@ const navLinks = [
 export function ProfessionalHeader() {
   const navRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHeaderLogoBroken, setIsHeaderLogoBroken] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setIsScrolled(window.scrollY > 8);
-    };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
@@ -78,19 +66,8 @@ export function ProfessionalHeader() {
   const isActiveLink = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header
-      className="fixed left-0 right-0 top-0 z-50 w-full border-b px-4 py-3 md:px-8 md:py-4"
-      style={{
-        height: 'var(--nav-height)',
-        background: isScrolled ? 'rgba(34, 61, 90, 0.96)' : 'rgba(34, 61, 90, 0.9)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        borderBottomColor: isScrolled ? 'rgba(212, 175, 111, 0.18)' : 'rgba(212, 175, 111, 0.08)',
-        boxShadow: isScrolled ? '0 4px 20px rgba(0,0,0,0.25)' : 'none',
-        transition: 'box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease'
-      }}
-    >
-      <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex h-full w-full max-w-7xl items-center justify-between">
+    <header className="relative w-full border-b border-[#d4af6f14] bg-[var(--bg-primary)] px-4 py-3 md:px-8 md:py-4">
+      <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex w-full max-w-7xl items-center justify-between">
         <div className="flex items-center gap-2 md:gap-4 lg:gap-8">
           <button
             type="button"
