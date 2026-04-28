@@ -1,5 +1,4 @@
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
-import { SiteFooter } from '@/components/layout/SiteFooter';
 
 export default function ContactoPage() {
   return (
@@ -24,7 +23,6 @@ export default function ContactoPage() {
           </article>
         </div>
       </section>
-      <SiteFooter />
     </main>
   );
 }
