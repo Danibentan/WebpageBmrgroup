@@ -47,9 +47,9 @@ export default function QuienesSomosPage() {
         </article>
       </section>
 
-      <footer className="w-full border-t border-white/10 bg-[#0a1733] px-8 py-20 md:px-16 md:py-28 lg:px-24">
-        <div className="grid min-h-[420px] grid-cols-1 items-stretch gap-12 md:min-h-[480px] md:grid-cols-2">
-          <div className="flex h-full flex-col justify-between text-left">
+      <footer className="w-full border-t border-white/10 bg-[#0a1733] px-8 py-16 md:px-16 md:py-20 lg:px-24">
+        <div className="grid min-h-[320px] grid-cols-1 items-stretch gap-12 md:min-h-[360px] md:grid-cols-2">
+          <div className="flex h-full flex-col gap-12 text-left md:justify-end">
             <div>
               <p className="editorial-eyebrow-reveal mb-4 text-xs uppercase tracking-[0.3em] text-[#c9a961]/80 md:text-sm">BMR · ESCOBAR · DESDE 2023</p>
               <h2 className="editorial-name-reveal mt-3 mb-4 text-2xl font-editorial font-normal leading-[1.05] tracking-[-0.02em] text-gold-gradient md:text-4xl">
@@ -62,7 +62,7 @@ export default function QuienesSomosPage() {
               <div className="editorial-line-reveal mt-8 h-px w-16 bg-[#c9a961]/50" />
             </div>
 
-            <div className="mt-12">
+            <div>
               <Link
                 href="/"
                 aria-label="Ir al inicio"
@@ -92,7 +92,7 @@ export default function QuienesSomosPage() {
             </div>
           </div>
 
-          <div className="flex h-full flex-col justify-between items-start text-left md:items-end md:text-right">
+          <div className="flex h-full flex-col gap-12 items-start text-left md:items-end md:justify-end md:text-right">
             <div className="flex flex-col items-start gap-6 md:items-end">
               <span className="text-xs uppercase tracking-[0.3em] text-[#c9a961]">CONECTÁ CON NOSOTROS</span>
 
@@ -121,7 +121,7 @@ export default function QuienesSomosPage() {
               </div>
             </div>
 
-            <div className="mt-12 text-left text-sm text-white/70 md:text-right">
+            <div className="text-left text-sm text-white/70 md:text-right">
               <p className="text-xs uppercase tracking-[0.3em] text-[#c9a961]/80">VISITANOS</p>
               <p className="mt-3 font-editorial text-base text-white/80">Escobar, Buenos Aires</p>
               <p className="mt-1 text-sm text-white/60">Lunes a Viernes · 9 a 18hs</p>
