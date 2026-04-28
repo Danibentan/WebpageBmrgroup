@@ -8,10 +8,10 @@ export const contactInfo = {
     scheduleSaturday: 'Sábados · 09:30 a 13:00'
   },
   whatsapp: {
-    href: 'https://wa.me/5491143216789?text=Hola%2C%20me%20interesa%20cotizar%20aberturas%20BMR'
+    href: 'https://wa.me/54911301227950?text=Hola%2C%20me%20interesa%20cotizar%20aberturas%20BMR'
   },
   location: {
-    label: 'Av. del Libertador 6710, CABA, Argentina',
+    label: 'Colectora Este Ramal Escobar 1871 ramal, B1625 Belén de Escobar, Provincia de Buenos Aires',
     mapsHref: 'https://maps.google.com/?q=Av.+del+Libertador+6710,+CABA,+Argentina'
   },
   social: {
