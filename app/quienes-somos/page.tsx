@@ -50,34 +50,7 @@ export default function QuienesSomosPage() {
       <footer className="w-full border-t border-white/10 bg-[#0a1733] px-8 py-20 md:px-16 md:py-28 lg:px-24">
         <div className="grid min-h-[400px] grid-cols-1 gap-12 items-stretch md:min-h-[480px] md:grid-cols-2">
           <div className="flex h-full flex-col justify-between text-left opacity-100">
-            <div className="mb-10">
-              <Link
-                href="/"
-                aria-label="Ir al inicio"
-                className="inline-flex cursor-pointer transition-all duration-500 ease-out hover:scale-105 hover:opacity-80"
-              >
-                {isLogoBroken ? (
-                  <div
-                    className="flex h-16 w-44 items-center justify-center rounded border border-[#c9a961]/70 bg-[#07142f] text-sm font-semibold tracking-wide text-[#c9a961] md:h-20"
-                    aria-hidden="true"
-                  >
-                    BMR GROUP
-                  </div>
-                ) : (
-                  <Image
-                    src={logoPath}
-                    alt="BMR Group Argentina"
-                    width={220}
-                    height={80}
-                    className="h-16 w-auto md:h-20"
-                    onError={() => {
-                      console.warn(`[BMR] Logo no encontrado en ${logoPath}. Verificá que exista en public/assets/logos.`);
-                      setIsLogoBroken(true);
-                    }}
-                  />
-                )}
-              </Link>
-            </div>
+            <div aria-hidden="true" className="hidden md:block" />
 
             <div>
               <p className="editorial-eyebrow-reveal mb-4 text-xs uppercase tracking-[0.3em] text-[#c9a961]/80 md:text-sm">BMR · ESCOBAR · DESDE 2023</p>
@@ -89,15 +62,40 @@ export default function QuienesSomosPage() {
                 Ingeniería que perdura.
               </p>
               <div className="editorial-line-reveal mt-8 h-px w-16 bg-[#c9a961]/50" />
+
+              <div className="mt-10">
+                <Link
+                  href="/"
+                  aria-label="Ir al inicio"
+                  className="inline-flex cursor-pointer transition-all duration-500 ease-out hover:scale-105 hover:opacity-80"
+                >
+                  {isLogoBroken ? (
+                    <div
+                      className="flex h-16 w-44 items-center justify-center rounded border border-[#c9a961]/70 bg-[#07142f] text-sm font-semibold tracking-wide text-[#c9a961] md:h-20"
+                      aria-hidden="true"
+                    >
+                      BMR GROUP
+                    </div>
+                  ) : (
+                    <Image
+                      src={logoPath}
+                      alt="BMR Group Argentina"
+                      width={220}
+                      height={80}
+                      className="h-16 w-auto md:h-20"
+                      onError={() => {
+                        console.warn(`[BMR] Logo no encontrado en ${logoPath}. Verificá que exista en public/assets/logos.`);
+                        setIsLogoBroken(true);
+                      }}
+                    />
+                  )}
+                </Link>
+              </div>
             </div>
           </div>
 
           <div className="flex h-full flex-col justify-between items-start md:items-end">
-            <div className="text-left text-sm text-white/70 md:text-right">
-              <p className="text-xs uppercase tracking-[0.25em] text-[#c9a961]/80">VISITANOS</p>
-              <p className="mt-3 font-editorial text-base text-white/80">Escobar, Buenos Aires</p>
-              <p className="mt-1 text-sm text-white/60">Lunes a Viernes · 9 a 18hs</p>
-            </div>
+            <div aria-hidden="true" className="hidden md:block" />
 
             <div className="flex flex-col items-start justify-end gap-6 md:items-end">
               <span className="text-xs uppercase tracking-[0.25em] text-[#c9a961]">CONECTÁ CON NOSOTROS</span>
@@ -124,6 +122,12 @@ export default function QuienesSomosPage() {
                   <MapPin size={16} />
                   Cómo llegar
                 </a>
+              </div>
+
+              <div className="pt-4 text-left text-sm text-white/70 md:text-right">
+                <p className="text-xs uppercase tracking-[0.25em] text-[#c9a961]/80">VISITANOS</p>
+                <p className="mt-3 font-editorial text-base text-white/80">Escobar, Buenos Aires</p>
+                <p className="mt-1 text-sm text-white/60">Lunes a Viernes · 9 a 18hs</p>
               </div>
             </div>
           </div>
