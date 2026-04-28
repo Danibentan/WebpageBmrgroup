@@ -12,12 +12,12 @@ export function SiteFooter() {
 
   return (
     <footer className="w-full bg-[#0a1733] px-8 py-20 md:px-16 md:py-24 lg:px-24">
-      <div className="mx-auto grid min-h-[320px] max-w-7xl grid-cols-1 items-stretch gap-12 md:min-h-[360px] md:grid-cols-2">
-        <div className="flex h-full items-start text-left md:justify-end">
+      <div className="mx-auto grid min-h-[280px] max-w-7xl grid-cols-1 items-stretch gap-12 md:min-h-[320px] md:grid-cols-2">
+        <div className="flex h-full flex-col justify-end items-start text-left">
           <Link
             href="/"
             aria-label="Ir al inicio"
-            className="inline-flex cursor-pointer transition-all duration-500 ease-out hover:scale-105 hover:opacity-80"
+            className="inline-block transition-opacity duration-300 hover:opacity-80"
           >
             {isLogoBroken ? (
               <div
@@ -30,9 +30,10 @@ export function SiteFooter() {
               <Image
                 src={logoPath}
                 alt="BMR Group Argentina"
-                width={220}
-                height={80}
-                className="h-16 w-auto md:h-20"
+                width={140}
+                height={56}
+                priority
+                className="h-12 w-auto md:h-14"
                 onError={() => {
                   console.warn(`[BMR] Logo no encontrado en ${logoPath}.`);
                   setIsLogoBroken(true);
