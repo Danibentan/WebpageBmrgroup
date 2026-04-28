@@ -1,5 +1,4 @@
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
-import { SiteFooter } from '@/components/layout/SiteFooter';
 
 export default function CotizarPage() {
   return (
@@ -34,7 +33,6 @@ export default function CotizarPage() {
           </button>
         </form>
       </section>
-      <SiteFooter />
     </main>
   );
 }
