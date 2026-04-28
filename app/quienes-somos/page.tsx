@@ -47,9 +47,9 @@ export default function QuienesSomosPage() {
         </article>
       </section>
 
-      <footer className="w-full border-t border-white/10 bg-[#0a1733] px-8 py-16 md:px-16 md:py-28">
-        <div className="grid grid-cols-1 items-end gap-12 md:grid-cols-2">
-          <div className="text-left opacity-100">
+      <footer className="w-full border-t border-white/10 bg-[#0a1733] px-8 py-20 md:px-16 md:py-28 lg:px-24">
+        <div className="grid min-h-[400px] grid-cols-1 gap-12 items-stretch md:min-h-[480px] md:grid-cols-2">
+          <div className="flex h-full flex-col justify-between text-left opacity-100">
             <div className="mb-10">
               <Link
                 href="/"
@@ -79,40 +79,52 @@ export default function QuienesSomosPage() {
               </Link>
             </div>
 
-            <p className="editorial-eyebrow-reveal mb-4 text-xs uppercase tracking-[0.3em] text-[#c9a961]/80 md:text-sm">BMR · ESCOBAR · DESDE 2023</p>
-            <h2 className="editorial-name-reveal text-3xl font-editorial leading-tight tracking-tight text-gold-gradient md:text-6xl">BmR Group Argentina</h2>
-            <p className="editorial-tagline-reveal mt-6 max-w-2xl font-editorial text-xl leading-relaxed text-white/85 md:text-2xl">
-              Diseño que trasciende. <span className="mx-3 text-[#c9a961]">·</span>
-              Ingeniería que perdura.
-            </p>
-            <div className="editorial-line-reveal mt-8 h-px w-24 bg-[#c9a961]/60" />
+            <div>
+              <p className="editorial-eyebrow-reveal mb-4 text-xs uppercase tracking-[0.3em] text-[#c9a961]/80 md:text-sm">BMR · ESCOBAR · DESDE 2023</p>
+              <h2 className="editorial-name-reveal mt-3 mb-4 text-3xl font-editorial font-normal leading-[1.05] tracking-[-0.02em] text-gold-gradient md:text-5xl">
+                BmR Group <span className="italic font-light">Argentina</span>
+              </h2>
+              <p className="editorial-tagline-reveal mt-6 max-w-2xl font-editorial text-base italic font-light tracking-[0.01em] text-white/75 md:text-lg">
+                Diseño que trasciende. <span className="mx-3 text-[#c9a961]">·</span>
+                Ingeniería que perdura.
+              </p>
+              <div className="editorial-line-reveal mt-8 h-px w-16 bg-[#c9a961]/50" />
+            </div>
           </div>
 
-          <div className="flex flex-col items-start justify-end gap-6 md:items-end">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#c9a961]">CONECTÁ CON NOSOTROS</span>
+          <div className="flex h-full flex-col justify-between items-start md:items-end">
+            <div className="text-left text-sm text-white/70 md:text-right">
+              <p className="text-xs uppercase tracking-[0.25em] text-[#c9a961]/80">VISITANOS</p>
+              <p className="mt-3 font-editorial text-base text-white/80">Escobar, Buenos Aires</p>
+              <p className="mt-1 text-sm text-white/60">Lunes a Viernes · 9 a 18hs</p>
+            </div>
 
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="https://instagram.com/bmrgroupar"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Ir al Instagram de BMR Group Argentina"
-                className="flex items-center gap-2 rounded-full border border-[#c9a961] px-6 py-3 text-sm tracking-wide text-[#c9a961] transition-all duration-300 hover:scale-[1.03] hover:bg-[#c9a961] hover:text-[#0a1733] active:scale-[0.97]"
-              >
-                <Instagram size={16} />
-                @bmrgroupar
-              </a>
+            <div className="flex flex-col items-start justify-end gap-6 md:items-end">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#c9a961]">CONECTÁ CON NOSOTROS</span>
 
-              <a
-                href="https://maps.google.com/?q=BMR+Group+Escobar"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Abrir ubicación de BMR Group Escobar en Google Maps"
-                className="flex items-center gap-2 rounded-full border border-[#c9a961] px-6 py-3 text-sm tracking-wide text-[#c9a961] transition-all duration-300 hover:scale-[1.03] hover:bg-[#c9a961] hover:text-[#0a1733] active:scale-[0.97]"
-              >
-                <MapPin size={16} />
-                Cómo llegar
-              </a>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://instagram.com/bmrgroupar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Ir al Instagram de BMR Group Argentina"
+                  className="flex items-center gap-2 rounded-full border border-[#c9a961] px-6 py-3 text-sm tracking-wide text-[#c9a961] transition-all duration-300 hover:scale-[1.03] hover:bg-[#c9a961] hover:text-[#0a1733] active:scale-[0.97]"
+                >
+                  <Instagram size={16} />
+                  @bmrgroupar
+                </a>
+
+                <a
+                  href="https://maps.google.com/?q=BMR+Group+Escobar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Abrir ubicación de BMR Group Escobar en Google Maps"
+                  className="flex items-center gap-2 rounded-full border border-[#c9a961] px-6 py-3 text-sm tracking-wide text-[#c9a961] transition-all duration-300 hover:scale-[1.03] hover:bg-[#c9a961] hover:text-[#0a1733] active:scale-[0.97]"
+                >
+                  <MapPin size={16} />
+                  Cómo llegar
+                </a>
+              </div>
             </div>
           </div>
         </div>
