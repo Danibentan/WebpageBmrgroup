@@ -1,6 +1,14 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Instagram, MapPin } from 'lucide-react';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 
 export default function QuienesSomosPage() {
+  const [isLogoBroken, setIsLogoBroken] = useState(false);
+
   return (
     <main className="min-h-screen bg-[#0a1733] text-[#e6edf8]">
       <ProfessionalHeader />
