@@ -17,20 +17,8 @@ const navLinks = [
 export function ProfessionalHeader() {
   const navRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHeaderLogoBroken, setIsHeaderLogoBroken] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
@@ -78,11 +66,7 @@ export function ProfessionalHeader() {
   const isActiveLink = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b border-white/5 px-4 py-3 transition-colors duration-300 md:px-8 md:py-4 ${
-        isScrolled ? 'bg-[var(--bg-primary)]/95' : 'bg-[var(--bg-primary)]/70 backdrop-blur-md'
-      }`}
-    >
+    <header className="relative w-full border-b border-[#d4af6f14] bg-[var(--bg-primary)] px-4 py-3 md:px-8 md:py-4">
       <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex w-full max-w-7xl items-center justify-between">
         <div className="flex items-center gap-2 md:gap-4 lg:gap-8">
           <button
@@ -137,7 +121,7 @@ export function ProfessionalHeader() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-40 flex transform flex-col items-center justify-center bg-[var(--bg-primary)]/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
+        className={`fixed inset-0 z-[60] flex transform flex-col items-center justify-center bg-[var(--bg-primary)]/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
           isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'
         }`}
       >
