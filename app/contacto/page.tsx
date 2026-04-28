@@ -269,7 +269,7 @@ export default function ContactoPage() {
                       value={formState.telefono}
                       onChange={(event) => setFormState((prev) => ({ ...prev, telefono: event.target.value }))}
                       className="w-full bg-transparent px-3 py-3 text-white placeholder:text-white/40 focus:outline-none"
-                      placeholder="11 4321 6789"
+                      placeholder="11 XXXX XXXX"
                     />
                   </div>
                 </Field>

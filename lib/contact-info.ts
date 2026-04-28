@@ -7,8 +7,8 @@ export const contactInfo = {
     scheduleWeekdays: 'Lunes a Viernes · 09:00 a 18:30',
     scheduleSaturday: 'Sábados · 09:30 a 13:00'
   },
-  whatsapp: https:/
-    href: 'https://wa.me/5491130127950?text=Hola%2C%20me%20interesa%20cotizar%20aberturas%20BMR'
+  whatsapp: {
+    href: 'https://wa.me/541165253473?text=Hola%2C%20me%20interesa%20cotizar%20aberturas%20BMR'
   },
   location: {
     label: 'Colectora Este Ramal Escobar 1871 ramal, B1625 Belén de Escobar, Provincia de Buenos Aires',
