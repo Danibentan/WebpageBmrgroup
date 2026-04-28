@@ -11,14 +11,7 @@ export function SiteFooter() {
   const [isLogoBroken, setIsLogoBroken] = useState(false);
 
   return (
-    <footer
-      className="w-full border-t border-[#c9a961]/15 bg-[#0a1733] px-8 py-20 md:px-16 md:py-24 lg:px-24"
-      style={{
-        backgroundImage:
-          'linear-gradient(rgba(201, 169, 97, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(201, 169, 97, 0.02) 1px, transparent 1px)',
-        backgroundSize: '60px 60px'
-      }}
-    >
+    <footer className="w-full bg-[#0a1733] px-8 py-20 md:px-16 md:py-24 lg:px-24">
       <div className="mx-auto grid min-h-[320px] max-w-7xl grid-cols-1 items-stretch gap-12 md:min-h-[360px] md:grid-cols-2">
         <div className="flex h-full flex-col gap-12 text-left md:justify-end">
           <div>
