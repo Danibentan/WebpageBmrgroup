@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ExternalLink, Minus, Plus, Trash2, X } from 'lucide-react';
 import { useCart } from '@/lib/cart-store';
+import type { CartItem } from '@/types/product';
 
 export function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, updateMetros, getTotal, hasConsultaItems, clearCart } = useCart();
@@ -63,7 +64,7 @@ export function CartDrawer() {
               {items.length === 0 ? (
                 <p className="py-12 text-center font-editorial text-sm italic text-white/50">Tu carrito está vacío.</p>
               ) : (
-                items.map((item) => (
+                items.map((item: CartItem) => (
                   <div key={item.id} className="flex gap-4 border-b border-white/5 pb-4">
                     <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md bg-gradient-to-br from-[#1a2d4a] to-[#0a1733]">
                       <Image src={item.image} alt={item.name} fill className="object-cover" />
