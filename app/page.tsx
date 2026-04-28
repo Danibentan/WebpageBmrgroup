@@ -47,14 +47,19 @@ export default function HomePage() {
         delay: 0.35
       });
 
-      gsap.from('.case-study-row', {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.24,
-        ease: 'power3.out',
-        delay: 0.45
-      });
+      gsap.fromTo(
+        '.case-study-row',
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.24,
+          ease: 'power3.out',
+          delay: 0.45,
+          clearProps: 'all'
+        }
+      );
     };
     void runAnimation();
     return () => {
@@ -84,7 +89,7 @@ export default function HomePage() {
             <Link
               key={item.id}
               href="/nuestras-obras"
-              className="case-study-row block rounded-2xl border border-[#6d8eb6]/55 bg-[linear-gradient(135deg,var(--bg-elevated-2)_0%,var(--bg-elevated-1)_100%)] p-6 transition hover:border-[#9eb8d9]/60 md:p-10"
+              className="case-study-row block opacity-100 rounded-2xl border border-[#6d8eb6]/55 bg-[linear-gradient(135deg,var(--bg-elevated-2)_0%,var(--bg-elevated-1)_100%)] p-6 transition hover:border-[#9eb8d9]/60 md:p-10"
             >
               <article>
                 <div className="grid gap-8 md:grid-cols-[120px,1fr]">
