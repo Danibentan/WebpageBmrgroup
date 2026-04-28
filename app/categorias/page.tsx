@@ -1,5 +1,4 @@
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
-import { SiteFooter } from '@/components/layout/SiteFooter';
 
 const categories = [
   'Aberturas premium',
@@ -24,7 +23,6 @@ export default function CategoriasPage() {
           ))}
         </div>
       </section>
-      <SiteFooter />
     </main>
   );
 }
