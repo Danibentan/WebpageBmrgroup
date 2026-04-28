@@ -4,13 +4,13 @@ import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 
 export default function CatalogoPage() {
   return (
-    <main className="min-h-screen bg-[linear-gradient(160deg,#07142f_0%,#0f3159_60%,#1e4a74_100%)] pb-12 text-white">
+    <main className="min-h-screen bg-[var(--bg-primary)] pb-12 text-white">
       <ProfessionalHeader />
       <section className="mx-auto mt-10 max-w-5xl px-6">
         <h1 className="text-4xl font-bold md:text-6xl">Catalogo</h1>
         <p className="mt-4 text-lg text-[#d2e0f2]">Descargá o solicitá nuestro catálogo actualizado con líneas de producto, medidas estándar y prestaciones técnicas.</p>
 
-        <div className="mt-8 rounded-2xl border border-[#6d8eb6]/55 bg-[rgba(8,28,52,0.72)] p-6 md:p-8">
+        <div className="mt-8 rounded-2xl border border-[#6d8eb6]/55 bg-[color:var(--bg-elevated-1)]/72 p-6 md:p-8">
           <ul className="space-y-3 text-[#d2e0f2]">
             <li>• Sistemas corredizos y batientes de alto rendimiento.</li>
             <li>• Opciones de vidriado DVH y herrajes premium.</li>

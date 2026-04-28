@@ -7,6 +7,13 @@ import { ExternalLink, Minus, Plus, Trash2, X } from 'lucide-react';
 import { useCart } from '@/lib/cart-store';
 import type { CartItem } from '@/types/product';
 
+type CheckoutResponse = {
+  id?: string;
+  init_point?: string;
+  sandbox_init_point?: string;
+  error?: string;
+};
+
 export function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, updateMetros, getTotal, hasConsultaItems, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
@@ -16,22 +23,46 @@ export function CartDrawer() {
 
   const handleCheckout = async () => {
     setLoading(true);
+
     try {
+      const mpItems = items
+        .filter((item: CartItem) => item.priceUnit !== 'consultar')
+        .map((item: CartItem) => {
+          const unitPrice = item.priceUnit === 'm2' ? item.price * (item.metros || 1) : item.price;
+
+          return {
+            id: item.id,
+            title: item.name,
+            description: item.description,
+            quantity: item.quantity,
+            unit_price: Number(unitPrice.toFixed(2)),
+            currency_id: 'USD'
+          };
+        });
+
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items })
+        body: JSON.stringify({ items: mpItems })
       });
-      const data = await res.json();
+
+      const data = (await res.json()) as CheckoutResponse;
+
+      if (!res.ok) {
+        alert(data.error || 'No se pudo iniciar el checkout con Mercado Pago.');
+        return;
+      }
+
       if (data.init_point) {
         window.location.href = data.init_point;
-      } else {
-        alert(data.error || 'No se pudo procesar el pago');
-        setLoading(false);
+        return;
       }
-    } catch (e) {
-      console.error('Checkout error:', e);
+
+      alert('Mercado Pago no devolvió init_point para continuar el pago.');
+    } catch (error) {
+      console.error('Checkout error:', error);
       alert('Error al conectar con Mercado Pago');
+    } finally {
       setLoading(false);
     }
   };
@@ -48,7 +79,7 @@ export function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.4 }}
-            className="fixed bottom-0 right-0 top-0 z-50 flex w-full max-w-md flex-col border-l border-[#c9a961]/20 bg-[#0a1733]"
+            className="fixed bottom-0 right-0 top-0 z-50 flex w-full max-w-md flex-col border-l border-[#c9a961]/20 bg-[var(--bg-elevated-2)]"
           >
             <div className="flex items-center justify-between border-b border-white/10 p-6">
               <div>
@@ -66,7 +97,7 @@ export function CartDrawer() {
               ) : (
                 items.map((item: CartItem) => (
                   <div key={item.id} className="flex gap-4 border-b border-white/5 pb-4">
-                    <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md bg-gradient-to-br from-[#1a2d4a] to-[#0a1733]">
+                    <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-md bg-gradient-to-br from-[var(--bg-elevated-1)] to-[var(--bg-elevated-2)]">
                       <Image src={item.image} alt={item.name} fill className="object-cover" />
                     </div>
                     <div className="min-w-0 flex-1">

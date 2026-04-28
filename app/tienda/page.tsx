@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 import { ProductGrid } from '@/components/tienda/ProductGrid';
-import { ShopHeader } from '@/components/tienda/ShopHeader';
 import { ShopSidebar } from '@/components/tienda/ShopSidebar';
 
 export const metadata: Metadata = {
@@ -23,11 +22,10 @@ export const metadata: Metadata = {
 
 export default function TiendaPage() {
   return (
-    <main className="min-h-screen bg-[#0a1733] pb-20 pt-32">
+    <main className="min-h-screen bg-[var(--bg-primary)] pb-20 pt-32">
       <ProfessionalHeader />
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <ShopHeader />
-        <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-[200px_1fr]">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[200px_1fr]">
           <ShopSidebar />
           <ProductGrid />
         </div>

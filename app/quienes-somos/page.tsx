@@ -10,11 +10,11 @@ export default function QuienesSomosPage() {
   const [isLogoBroken, setIsLogoBroken] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[#0a1733] text-[#e6edf8]">
+    <main className="min-h-screen bg-[var(--bg-primary)] text-[#e6edf8]">
       <ProfessionalHeader />
 
       <section className="mx-auto w-full max-w-4xl px-4 pt-32 pb-14 md:px-6 md:pt-40">
-        <article className="rounded-2xl border border-white/10 bg-[#0a1733]/60 p-8 text-white/90 backdrop-blur-md md:p-12">
+        <article className="rounded-2xl border border-white/10 bg-[var(--bg-elevated-1)]/60 p-8 text-white/90 backdrop-blur-md md:p-12">
           <p className="font-editorial text-xs uppercase tracking-[0.25em] text-[#c9a961] md:text-sm">NUESTRA HISTORIA</p>
           <h1 className="mt-3 font-editorial text-4xl font-semibold tracking-[-0.015em] text-[#c9a961] md:text-5xl">Quiénes somos</h1>
 

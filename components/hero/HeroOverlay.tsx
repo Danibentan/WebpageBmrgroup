@@ -10,11 +10,11 @@ type HeroOverlayProps = {
 export function HeroOverlay({ title, subtitle, ctaLabel, ctaHref }: HeroOverlayProps) {
   return (
     <>
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0a1733]/90 via-[#0a1733]/70 to-[#0a1733]/40" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-[var(--bg-primary)]/90 via-[var(--bg-primary)]/70 to-[var(--bg-primary)]/40" />
 
       <div className="absolute inset-0 z-20 flex items-end justify-end md:items-center">
         <div className="w-full px-6 pb-14 pt-10 md:max-w-[760px] md:px-12 md:pb-12 lg:px-16">
-          <div className="rounded-2xl border border-[#bba066]/35 bg-[#0a1733]/60 p-6 backdrop-blur-sm md:p-8">
+          <div className="rounded-2xl border border-[#bba066]/35 bg-[var(--bg-primary)]/60 p-6 backdrop-blur-sm md:p-8">
             <p className="kicker mb-3 text-xs">Presentación comercial</p>
             <h1 className="font-editorial max-w-[14ch] font-semibold text-[#f2f4f8]" style={{ fontSize: 'clamp(2.2rem, 4.6vw, 4.8rem)', lineHeight: 0.98 }}>
               {title}
