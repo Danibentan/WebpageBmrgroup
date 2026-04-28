@@ -80,7 +80,7 @@ export function ShopSidebar() {
       <motion.aside
         initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -20 }}
         animate={reduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+        transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
         className="hidden md:block"
       >
         <SidebarContent categoria={categoria} setCategoria={setCategoria} />
@@ -93,7 +93,7 @@ export function ShopSidebar() {
             initial={reduceMotion ? { opacity: 0 } : { x: '-100%' }}
             animate={reduceMotion ? { opacity: 1 } : { x: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { x: '-100%' }}
-            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             className="relative h-full w-[86%] max-w-xs border-r border-[#c9a961]/20 bg-[#0a1733] p-6"
           >
             <div className="mb-6 flex items-center justify-between">
