@@ -50,7 +50,7 @@ export default function QuienesSomosPage() {
       <footer className="w-full border-t border-white/10 bg-[#0a1733] px-8 py-16 md:px-16 md:py-28">
         <div className="grid grid-cols-1 items-end gap-12 md:grid-cols-2">
           <div className="text-left opacity-100">
-            <div>
+            <div className="mb-10">
               <Link
                 href="/"
                 aria-label="Ir al inicio"
@@ -79,8 +79,13 @@ export default function QuienesSomosPage() {
               </Link>
             </div>
 
-            <h2 className="mt-6 font-editorial text-3xl text-[#c9a961] md:text-4xl">BMR Group Argentina</h2>
-            <p className="mt-3 font-editorial text-xl leading-relaxed text-white/90 md:text-2xl">Diseño, ingeniería y experiencia premium.</p>
+            <p className="editorial-eyebrow-reveal mb-4 text-xs uppercase tracking-[0.3em] text-[#c9a961]/80 md:text-sm">BMR · ESCOBAR · DESDE 2023</p>
+            <h2 className="editorial-name-reveal text-3xl font-editorial leading-tight tracking-tight text-gold-gradient md:text-6xl">BmR Group Argentina</h2>
+            <p className="editorial-tagline-reveal mt-6 max-w-2xl font-editorial text-xl leading-relaxed text-white/85 md:text-2xl">
+              Diseño que trasciende. <span className="mx-3 text-[#c9a961]">·</span>
+              Ingeniería que perdura.
+            </p>
+            <div className="editorial-line-reveal mt-8 h-px w-24 bg-[#c9a961]/60" />
           </div>
 
           <div className="flex flex-col items-start justify-end gap-6 md:items-end">
