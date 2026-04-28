@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
-import { SiteFooter } from '@/components/layout/SiteFooter';
 
 const caseStudies = [
   {
@@ -105,7 +104,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }
