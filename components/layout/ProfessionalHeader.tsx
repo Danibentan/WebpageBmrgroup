@@ -19,6 +19,7 @@ export function ProfessionalHeader() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHeaderLogoBroken, setIsHeaderLogoBroken] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -114,14 +115,24 @@ export function ProfessionalHeader() {
         </div>
 
         <Link href="/" aria-label="Ir al inicio" className="site-nav-logo cursor-pointer transition-opacity duration-300 hover:opacity-80">
-          <Image
-            src="/logo/bmr-logo.svg"
-            alt="BmR Group Argentina"
-            width={120}
-            height={40}
-            priority
-            className="h-8 w-auto md:h-10"
-          />
+          {isHeaderLogoBroken ? (
+            <div className="flex h-8 w-[120px] items-center justify-center rounded border border-[#c9a961]/70 bg-[#07142f] text-xs font-semibold tracking-wide text-[#c9a961] md:h-10" aria-hidden="true">
+              BMR
+            </div>
+          ) : (
+            <Image
+              src="/assets/logos/logosvg_logo%20fondo%20blanco.svg"
+              alt="BMR Group Argentina"
+              width={120}
+              height={40}
+              priority
+              className="h-8 w-auto md:h-10"
+              onError={() => {
+                console.warn('[BMR] Logo de header no encontrado en /assets/logos/logosvg_logo%20fondo%20blanco.svg');
+                setIsHeaderLogoBroken(true);
+              }}
+            />
+          )}
         </Link>
       </nav>
 
