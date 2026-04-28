@@ -94,7 +94,7 @@ export function ShopSidebar() {
             animate={reduceMotion ? { opacity: 1 } : { x: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { x: '-100%' }}
             transition={{ duration: 0.35 }}
-            className="relative h-full w-[86%] max-w-xs border-r border-[#c9a961]/20 bg-[#0a1733] p-6"
+            className="relative h-full w-[86%] max-w-xs border-r border-[#c9a961]/20 bg-[var(--bg-elevated-1)] p-6"
           >
             <div className="mb-6 flex items-center justify-between">
               <p className="text-xs uppercase tracking-[0.2em] text-[#c9a961]">Filtros</p>
