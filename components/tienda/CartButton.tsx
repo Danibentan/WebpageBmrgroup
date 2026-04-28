@@ -11,7 +11,6 @@ export function CartButton() {
 
   useEffect(() => {
     setMounted(true);
-    console.log('[BMR] CartButton montado');
   }, []);
 
   const count = mounted ? getItemCount() : 0;
@@ -21,7 +20,7 @@ export function CartButton() {
       type="button"
       onClick={toggleCart}
       aria-label={`Carrito (${count} items)`}
-      className="fixed top-28 right-6 z-40 w-12 h-12 rounded-full bg-[var(--bg-primary)]/80 backdrop-blur-md border border-[#c9a961]/30 flex items-center justify-center text-[#c9a961] hover:bg-[#c9a961] hover:text-[#0a1733] transition-all duration-300 shadow-lg shadow-black/20"
+      className="fixed right-4 top-[calc(var(--nav-height)+1rem)] z-40 flex h-12 w-12 items-center justify-center rounded-full border border-[#c9a961]/30 bg-[var(--bg-primary)]/80 text-[#c9a961] shadow-lg shadow-black/20 backdrop-blur-md transition-all duration-300 hover:bg-[#c9a961] hover:text-[#0a1733] md:right-8 md:top-[calc(var(--nav-height)+1.5rem)]"
     >
       <ShoppingBag size={18} />
       <AnimatePresence>
