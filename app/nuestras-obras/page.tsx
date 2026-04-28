@@ -50,10 +50,10 @@ const metrics = [
 
 export default function NuestrasObrasPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 pt-32 text-white">
+    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 text-white">
       <ProfessionalHeader />
 
-      <section className="mx-auto max-w-7xl px-6 md:px-10">
+      <section className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
         <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#D4AF6F]">PORTFOLIO · 4 PROYECTOS</p>
         <h1 className="text-4xl font-bold md:text-6xl">Nuestras obras</h1>
         <p className="mt-4 max-w-3xl text-lg text-[#d2e0f2]">
