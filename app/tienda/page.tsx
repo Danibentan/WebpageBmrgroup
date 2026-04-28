@@ -1,5 +1,4 @@
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
-import { SiteFooter } from '@/components/layout/SiteFooter';
 
 const storeItems = [
   { name: 'Línea Residencial', description: 'Puertas, ventanas y cerramientos para vivienda premium.' },
@@ -23,7 +22,6 @@ export default function TiendaPage() {
           ))}
         </div>
       </section>
-      <SiteFooter />
     </main>
   );
 }
