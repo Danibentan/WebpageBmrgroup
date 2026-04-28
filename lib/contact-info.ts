@@ -1,9 +1,9 @@
 export const contactInfo = {
   commercial: {
-    phonePrimaryDisplay: '+54 9 11 4321 6789',
-    phoneSecondaryDisplay: '+54 9 11 6123 4590',
-    phonePrimaryHref: 'tel:+5491143216789',
-    phoneSecondaryHref: 'tel:+5491161234590',
+    phonePrimaryDisplay: '+54 9 11 6525 3473',
+    phoneSecondaryDisplay: '+54 9 11 2754 1214',
+    phonePrimaryHref: 'tel:+5491165253473',
+    phoneSecondaryHref: 'tel:+5491127541214',
     scheduleWeekdays: 'Lunes a Viernes · 09:00 a 18:30',
     scheduleSaturday: 'Sábados · 09:30 a 13:00'
   },
