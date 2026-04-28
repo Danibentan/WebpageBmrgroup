@@ -54,7 +54,7 @@ export default function QuienesSomosPage() {
 
             <div>
               <p className="editorial-eyebrow-reveal mb-4 text-xs uppercase tracking-[0.3em] text-[#c9a961]/80 md:text-sm">BMR · ESCOBAR · DESDE 2023</p>
-              <h2 className="editorial-name-reveal mt-3 mb-4 text-3xl font-editorial font-normal leading-[1.05] tracking-[-0.02em] text-gold-gradient md:text-5xl">
+              <h2 className="editorial-name-reveal mt-3 mb-4 text-2xl font-editorial font-normal leading-[1.05] tracking-[-0.02em] text-gold-gradient md:text-4xl">
                 BmR Group <span className="italic font-light">Argentina</span>
               </h2>
               <p className="editorial-tagline-reveal mt-6 max-w-2xl font-editorial text-base italic font-light tracking-[0.01em] text-white/75 md:text-lg">
@@ -63,7 +63,7 @@ export default function QuienesSomosPage() {
               </p>
               <div className="editorial-line-reveal mt-8 h-px w-16 bg-[#c9a961]/50" />
 
-              <div className="mt-10">
+              <div className="mt-6">
                 <Link
                   href="/"
                   aria-label="Ir al inicio"
