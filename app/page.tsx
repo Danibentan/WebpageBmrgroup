@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
@@ -23,49 +23,6 @@ const caseStudies = [
 
 export default function HomePage() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-
-  useEffect(() => {
-    let isActive = true;
-    const runAnimation = async () => {
-      const gsapModule = await import('gsap');
-      if (!isActive) return;
-      const gsap = gsapModule.gsap;
-      gsap.from('.mixd-inspired-block', {
-        y: 44,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.18,
-        ease: 'power3.out',
-        delay: 0.2
-      });
-
-      gsap.from('.mixd-divider', {
-        scaleX: 0,
-        transformOrigin: 'left center',
-        duration: 1.2,
-        ease: 'power2.out',
-        delay: 0.35
-      });
-
-      gsap.fromTo(
-        '.case-study-row',
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.24,
-          ease: 'power3.out',
-          delay: 0.45,
-          clearProps: 'all'
-        }
-      );
-    };
-    void runAnimation();
-    return () => {
-      isActive = false;
-    };
-  }, []);
 
   return (
     <main className="-mt-[var(--nav-height)] min-h-screen bg-transparent text-[#e6edf8]">
