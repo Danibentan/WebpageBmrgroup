@@ -133,7 +133,7 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={handleCheckout}
-                  disabled={loading || !items.some((i) => i.priceUnit !== 'consultar')}
+                  disabled={loading || !items.some((i: CartItem) => i.priceUnit !== 'consultar')}
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a961] py-3 text-sm font-medium tracking-wide text-[#0a1733] transition-colors hover:bg-[#d4b876] disabled:opacity-50"
                 >
                   {loading ? 'Redirigiendo...' : <><span>Pagar con Mercado Pago</span><ExternalLink size={14} /></>}
