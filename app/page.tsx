@@ -6,6 +6,9 @@ import { useState } from 'react';
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const caseStudies = [
   {
     id: '01',
