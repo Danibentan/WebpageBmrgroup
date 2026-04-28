@@ -8,7 +8,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   if (!product) notFound();
 
   return (
-    <main className="min-h-screen bg-[#0a1733] px-6 pb-20 pt-32 text-white">
+    <main className="min-h-screen bg-[var(--bg-primary)] px-6 pb-20 pt-32 text-white">
       <ProfessionalHeader />
       <div className="mx-auto max-w-4xl">
         <h1 className="font-editorial text-4xl text-white">{product.name}</h1>

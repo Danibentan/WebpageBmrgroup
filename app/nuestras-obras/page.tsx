@@ -50,7 +50,7 @@ const metrics = [
 
 export default function NuestrasObrasPage() {
   return (
-    <main className="min-h-screen bg-[linear-gradient(160deg,#07142f_0%,#0f3159_60%,#1e4a74_100%)] pb-16 pt-32 text-white">
+    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 pt-32 text-white">
       <ProfessionalHeader />
 
       <section className="mx-auto max-w-7xl px-6 md:px-10">
@@ -67,7 +67,7 @@ export default function NuestrasObrasPage() {
         </div>
       </section>
 
-      <section className="mt-16 bg-[#0b2342]/70 py-20">
+      <section className="mt-16 bg-[color:var(--bg-elevated-1)]/70 py-20">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 md:grid-cols-4 md:px-10">
           {metrics.map((metric) => (
             <article key={metric.label} className="text-center">

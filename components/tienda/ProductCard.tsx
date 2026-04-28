@@ -48,7 +48,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         aria-label={`Ver detalles de ${product.name}`}
         className="group block overflow-hidden rounded-t-md transition-colors hover:border-[#c9a961]/40 focus:outline-none focus:ring-2 focus:ring-[#c9a961]/50"
       >
-        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#1a2d4a] to-[#0a1733]">
+        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[var(--bg-elevated-1)] to-[var(--bg-elevated-2)]">
           {!imageError ? (
             <Image
               src={product.image}
@@ -60,7 +60,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
               onError={() => setImageError(true)}
             />
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1a2d4a] to-[#0a1733]" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--bg-elevated-1)] to-[var(--bg-elevated-2)]" aria-hidden="true" />
           )}
         </div>
       </Link>

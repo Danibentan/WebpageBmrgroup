@@ -21,7 +21,7 @@ export function CartButton() {
       type="button"
       onClick={toggleCart}
       aria-label={`Carrito (${count} items)`}
-      className="fixed top-28 right-6 z-40 w-12 h-12 rounded-full bg-[#0a1733]/80 backdrop-blur-md border border-[#c9a961]/30 flex items-center justify-center text-[#c9a961] hover:bg-[#c9a961] hover:text-[#0a1733] transition-all duration-300 shadow-lg shadow-black/20"
+      className="fixed top-28 right-6 z-40 w-12 h-12 rounded-full bg-[var(--bg-primary)]/80 backdrop-blur-md border border-[#c9a961]/30 flex items-center justify-center text-[#c9a961] hover:bg-[#c9a961] hover:text-[#0a1733] transition-all duration-300 shadow-lg shadow-black/20"
     >
       <ShoppingBag size={18} />
       <AnimatePresence>

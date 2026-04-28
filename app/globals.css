@@ -5,8 +5,11 @@
 :root {
   color-scheme: light;
   --bmr-ink: #030a1c;
-  --bmr-navy: #07142f;
-  --bmr-navy-soft: #0f2248;
+  --bmr-navy: #223D5A;
+  --bmr-navy-soft: #2C4A6B;
+  --bg-primary: #223D5A;
+  --bg-elevated-1: #2C4A6B;
+  --bg-elevated-2: #182E47;
   --bmr-gold: #c9ab66;
   --bmr-silver: #96a3be;
   --bmr-white: #f2f4f8;
@@ -15,12 +18,7 @@
 body {
   margin: 0;
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
-  background:
-    linear-gradient(rgba(33, 56, 96, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(33, 56, 96, 0.12) 1px, transparent 1px),
-    radial-gradient(circle at 72% 10%, rgba(40, 63, 109, 0.44) 0%, transparent 42%),
-    linear-gradient(160deg, var(--bmr-ink) 0%, var(--bmr-navy) 50%, var(--bmr-navy-soft) 100%);
-  background-size: 80px 80px, 80px 80px, auto, auto;
+  background: var(--bg-primary);
   color: var(--bmr-white);
 }
 

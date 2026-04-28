@@ -78,7 +78,7 @@ export default function HomePage() {
       <section id="nuestras-obras" className="mx-auto max-w-7xl px-6 pb-8">
         <div className="space-y-10">
           {caseStudies.map((item) => (
-            <article key={item.id} className="case-study-row rounded-2xl border border-[#6d8eb6]/55 bg-[linear-gradient(135deg,rgba(8,28,52,0.88)_0%,rgba(15,48,84,0.86)_100%)] p-6 md:p-10">
+            <article key={item.id} className="case-study-row rounded-2xl border border-[#6d8eb6]/55 bg-[linear-gradient(135deg,var(--bg-elevated-2)_0%,var(--bg-elevated-1)_100%)] p-6 md:p-10">
               <div className="grid gap-8 md:grid-cols-[120px,1fr]">
                 <span className="text-7xl font-semibold leading-none text-[#7da0ca] md:text-8xl">{item.id}</span>
                 <div>

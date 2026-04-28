@@ -13,8 +13,8 @@ export default function CheckoutSuccessPage({ searchParams }: SuccessProps) {
   const statusCode = searchParams?.status_code ?? searchParams?.status ?? 'N/D';
 
   return (
-    <main className="min-h-screen bg-[#0a1733] px-6 py-20 text-white">
-      <div className="mx-auto max-w-3xl rounded-2xl border border-[#c9a961]/30 bg-[#0d2141]/80 p-8 md:p-12">
+    <main className="min-h-screen bg-[var(--bg-primary)] px-6 py-20 text-white">
+      <div className="mx-auto max-w-3xl rounded-2xl border border-[#c9a961]/30 bg-[color:var(--bg-elevated-1)]/80 p-8 md:p-12">
         <p className="text-xs uppercase tracking-[0.28em] text-[#c9a961]">Pago confirmado</p>
         <h1 className="mt-4 font-editorial text-5xl leading-[1.05] text-white md:text-6xl">Gracias por tu compra</h1>
         <p className="mt-5 text-white/75">Mercado Pago informó que tu pago fue aprobado.</p>

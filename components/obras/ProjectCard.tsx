@@ -20,7 +20,7 @@ export function ProjectCard({ title, description, category, location, meta, imag
   const [currentImage, setCurrentImage] = useState(image);
 
   return (
-    <article className="group overflow-hidden rounded-2xl border border-[#D4AF6F]/25 bg-[rgba(8,28,52,0.72)] transition-all duration-200 ease-in hover:-translate-y-1 hover:border-[#D4AF6F]/55">
+    <article className="group overflow-hidden rounded-2xl border border-[#D4AF6F]/25 bg-[color:var(--bg-elevated-1)]/72 transition-all duration-200 ease-in hover:-translate-y-1 hover:border-[#D4AF6F]/55">
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image
           src={currentImage}
@@ -30,8 +30,8 @@ export function ProjectCard({ title, description, category, location, meta, imag
           className="h-full w-full object-cover"
           onError={() => setCurrentImage(FALLBACK_IMAGE)}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#07142f]/80 via-[#07142f]/25 to-transparent" />
-        <span className="absolute bottom-4 left-4 rounded-full border border-[#D4AF6F]/50 bg-[#0b1f3f]/70 px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-[#D4AF6F]">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg-elevated-2)]/80 via-[var(--bg-elevated-2)]/25 to-transparent" />
+        <span className="absolute bottom-4 left-4 rounded-full border border-[#D4AF6F]/50 bg-[var(--bg-elevated-2)]/70 px-3 py-1 text-[10px] font-semibold tracking-[0.18em] text-[#D4AF6F]">
           {category}
         </span>
       </div>

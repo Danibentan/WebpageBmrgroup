@@ -80,7 +80,7 @@ export function ProfessionalHeader() {
   return (
     <header
       className={`fixed left-0 right-0 top-0 z-50 border-b border-white/5 px-4 py-3 transition-colors duration-300 md:px-8 md:py-4 ${
-        isScrolled ? 'bg-[#0a1733]/95' : 'bg-[#0a1733]/70 backdrop-blur-md'
+        isScrolled ? 'bg-[var(--bg-primary)]/95' : 'bg-[var(--bg-primary)]/70 backdrop-blur-md'
       }`}
     >
       <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex w-full max-w-7xl items-center justify-between">
@@ -116,7 +116,7 @@ export function ProfessionalHeader() {
 
         <Link href="/" aria-label="Ir al inicio" className="site-nav-logo cursor-pointer transition-opacity duration-300 hover:opacity-80">
           {isHeaderLogoBroken ? (
-            <div className="flex h-8 w-[120px] items-center justify-center rounded border border-[#c9a961]/70 bg-[#07142f] text-xs font-semibold tracking-wide text-[#c9a961] md:h-10" aria-hidden="true">
+            <div className="flex h-8 w-[120px] items-center justify-center rounded border border-[#c9a961]/70 bg-[var(--bg-elevated-2)] text-xs font-semibold tracking-wide text-[#c9a961] md:h-10" aria-hidden="true">
               BMR
             </div>
           ) : (
@@ -137,7 +137,7 @@ export function ProfessionalHeader() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-40 flex transform flex-col items-center justify-center bg-[#0a1733]/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 flex transform flex-col items-center justify-center bg-[var(--bg-primary)]/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
           isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'
         }`}
       >
