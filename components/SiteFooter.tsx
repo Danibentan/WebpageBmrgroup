@@ -13,7 +13,7 @@ export function SiteFooter() {
   return (
     <footer className="w-full bg-[#0a1733] px-8 py-20 md:px-16 md:py-24 lg:px-24">
       <div className="mx-auto grid min-h-[320px] max-w-7xl grid-cols-1 items-stretch gap-12 md:min-h-[360px] md:grid-cols-2">
-        <div className="flex h-full items-start text-left md:items-end md:justify-end">
+        <div className="flex h-full items-start text-left md:justify-end">
           <Link
             href="/"
             aria-label="Ir al inicio"
