@@ -7,6 +7,13 @@ import { ExternalLink, Minus, Plus, Trash2, X } from 'lucide-react';
 import { useCart } from '@/lib/cart-store';
 import type { CartItem } from '@/types/product';
 
+type CheckoutResponse = {
+  id?: string;
+  init_point?: string;
+  sandbox_init_point?: string;
+  error?: string;
+};
+
 export function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, updateMetros, getTotal, hasConsultaItems, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
@@ -16,22 +23,46 @@ export function CartDrawer() {
 
   const handleCheckout = async () => {
     setLoading(true);
+
     try {
+      const mpItems = items
+        .filter((item: CartItem) => item.priceUnit !== 'consultar')
+        .map((item: CartItem) => {
+          const unitPrice = item.priceUnit === 'm2' ? item.price * (item.metros || 1) : item.price;
+
+          return {
+            id: item.id,
+            title: item.name,
+            description: item.description,
+            quantity: item.quantity,
+            unit_price: Number(unitPrice.toFixed(2)),
+            currency_id: 'USD'
+          };
+        });
+
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items })
+        body: JSON.stringify({ items: mpItems })
       });
-      const data = await res.json();
+
+      const data = (await res.json()) as CheckoutResponse;
+
+      if (!res.ok) {
+        alert(data.error || 'No se pudo iniciar el checkout con Mercado Pago.');
+        return;
+      }
+
       if (data.init_point) {
         window.location.href = data.init_point;
-      } else {
-        alert(data.error || 'No se pudo procesar el pago');
-        setLoading(false);
+        return;
       }
-    } catch (e) {
-      console.error('Checkout error:', e);
+
+      alert('Mercado Pago no devolvió init_point para continuar el pago.');
+    } catch (error) {
+      console.error('Checkout error:', error);
       alert('Error al conectar con Mercado Pago');
+    } finally {
       setLoading(false);
     }
   };
