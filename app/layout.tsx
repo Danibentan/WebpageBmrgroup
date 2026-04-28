@@ -3,6 +3,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
 
+import { SiteFooter } from '@/components/SiteFooter';
+
 const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-manrope'
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={`${manrope.variable} ${cormorant.variable}`}>{children}</body>
+      <body className={`${manrope.variable} ${cormorant.variable}`}>{children}<SiteFooter /></body>
     </html>
   );
 }
