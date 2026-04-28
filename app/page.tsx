@@ -60,7 +60,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-transparent text-[#e6edf8]">
+    <main className="-mt-[var(--nav-height)] min-h-screen bg-transparent text-[#e6edf8]">
       <ProfessionalHeader />
       <ImmersiveHero />
 
