@@ -24,7 +24,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={`${manrope.variable} ${cormorant.variable}`}>{children}<SiteFooter /></body>
+      <body className={`${manrope.variable} ${cormorant.variable}`}>
+        <div className="pt-[var(--nav-height)]">{children}</div>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

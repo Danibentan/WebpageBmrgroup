@@ -23,7 +23,7 @@ export function ProfessionalHeader() {
 
   useEffect(() => {
     const onScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 8);
     };
 
     onScroll();
@@ -79,11 +79,18 @@ export function ProfessionalHeader() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b border-white/5 px-4 py-3 transition-colors duration-300 md:px-8 md:py-4 ${
-        isScrolled ? 'bg-[var(--bg-primary)]/95' : 'bg-[var(--bg-primary)]/70 backdrop-blur-md'
-      }`}
+      className="fixed left-0 right-0 top-0 z-50 w-full border-b px-4 py-3 md:px-8 md:py-4"
+      style={{
+        height: 'var(--nav-height)',
+        background: isScrolled ? 'rgba(34, 61, 90, 0.96)' : 'rgba(34, 61, 90, 0.9)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottomColor: isScrolled ? 'rgba(212, 175, 111, 0.18)' : 'rgba(212, 175, 111, 0.08)',
+        boxShadow: isScrolled ? '0 4px 20px rgba(0,0,0,0.25)' : 'none',
+        transition: 'box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease'
+      }}
     >
-      <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex w-full max-w-7xl items-center justify-between">
+      <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex h-full w-full max-w-7xl items-center justify-between">
         <div className="flex items-center gap-2 md:gap-4 lg:gap-8">
           <button
             type="button"
@@ -137,7 +144,7 @@ export function ProfessionalHeader() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-40 flex transform flex-col items-center justify-center bg-[var(--bg-primary)]/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
+        className={`fixed inset-0 z-[60] flex transform flex-col items-center justify-center bg-[var(--bg-primary)]/95 backdrop-blur-lg transition-all duration-300 md:hidden ${
           isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'
         }`}
       >
