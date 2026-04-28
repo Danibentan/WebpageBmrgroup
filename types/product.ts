@@ -13,3 +13,15 @@ export interface Product {
   image: string;
   featured?: boolean;
 }
+
+export interface CartItem {
+  id: string;
+  slug: string;
+  name: string;
+  description: string;
+  price: number;
+  priceUnit: 'm2' | 'unidad' | 'consultar';
+  image: string;
+  quantity: number;
+  metros?: number;
+}
