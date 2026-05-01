@@ -32,14 +32,14 @@ export const obras: Obra[] = [
   },
   {
     slug: 'casa-la-inquieta',
-    title: 'Casa La inquieta',
-    description: 'Sistema de carpintería técnica con control acústico y terminación premium para fachada continua.',
+    title: 'casa la inquieta',
+    description: 'aberturas premiun .',
     category: 'RESIDENCIAL',
-    location: 'Escobar, Buenos Aires',
-    meta: '2024 · 1.200 m² · Carpintería técnica',
+    location: 'escobar, Buenos Aires',
+    meta: '2026 · 1.200 m² · trabajo a medida pedido por cliente',
     image: '/obras/la-inquieta-1.jpg',
     detailDescription:
-      'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
+      'se realizo trabajo de colocacion de aberturas en toda la residencia.',
     gallery: [  
       '/obras/la-inquieta-1.jpg',
       '/obras/la-inquieta-2.jpg',
@@ -50,13 +50,13 @@ export const obras: Obra[] = [
      ]
   },
   {
-    slug: 'oficinas-costanera',
-    title: 'Oficinas Costanera',
+    slug: 'Oficina Corporativa',
+    title: 'Oficinas Corporativa',
     description: 'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
     category: 'CORPORATIVO',
-    location: 'Vicente López, Buenos Aires',
-    meta: '2023 · 850 m² · Aberturas hermético',
-    image: '/obras/oficinas-costanera.webp',
+    location: 'Tigre, Buenos Aires',
+    meta: '2025 · 850 m² · Aberturas hermético',
+    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
     gallery: [
       '/obras/casa-la-serena-1.jpg',
