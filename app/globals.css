@@ -18,6 +18,7 @@
   --bg-elevated-1: var(--bmr-cream-2);
   --bg-elevated-2: #EADFC8;
   --bmr-white: #fffaf0;
+  --bmr-soft-white: #F3EDE0;
   --nav-height: 86px;
 }
 
@@ -176,3 +177,13 @@ h3,
 .liquid-glass-btn:active {
   transform: translateY(0) scale(0.99);
 }
+
+
+.text-white { color: var(--bmr-soft-white) !important; }
+.text-white\/95 { color: color-mix(in srgb, var(--bmr-soft-white) 95%, transparent) !important; }
+.text-white\/90 { color: color-mix(in srgb, var(--bmr-soft-white) 90%, transparent) !important; }
+.text-white\/85 { color: color-mix(in srgb, var(--bmr-soft-white) 85%, transparent) !important; }
+.text-white\/80 { color: color-mix(in srgb, var(--bmr-soft-white) 80%, transparent) !important; }
+.text-white\/70 { color: color-mix(in srgb, var(--bmr-soft-white) 70%, transparent) !important; }
+.text-white\/60 { color: color-mix(in srgb, var(--bmr-soft-white) 60%, transparent) !important; }
+.text-white\/50 { color: color-mix(in srgb, var(--bmr-soft-white) 50%, transparent) !important; }
