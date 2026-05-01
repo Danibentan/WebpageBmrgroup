@@ -60,7 +60,7 @@ export const obras: Obra[] = [
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
     gallery: [
       '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
-      '/obras/2d4d2c26-8f40-4212-9a3a-987f7412b4d2.JPG',
+      '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
       '/obras/46fe44fd-bde7-4609-a812-6ed7e17df9f0.JPG',
       '/obras/e397afc8-0855-4f76-b1b9-3c27bc116d3c.JPG'
     ]
