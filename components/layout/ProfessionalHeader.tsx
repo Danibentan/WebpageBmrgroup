@@ -9,10 +9,10 @@ import { Logo } from '@/components/Logo';
 
 const navLinks = [
   { href: '/quienes-somos', label: 'Quiénes somos' },
-  { href: '/tienda', label: 'Tienda' },
   { href: '/nuestras-obras', label: 'Nuestras obras' },
-  { href: '/contacto', label: 'Contacto' },
-  { href: '/catalogo', label: 'Catálogo' }
+  { href: '/tienda', label: 'Tienda' },
+  { href: '/catalogo', label: 'Catálogo' },
+  { href: '/contacto', label: 'Contacto' }
 ];
 
 export function ProfessionalHeader() {
@@ -84,7 +84,7 @@ export function ProfessionalHeader() {
           </span>
         </div>
 
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map(({ href, label }) => {
             const active = isActiveLink(href);
 
@@ -102,14 +102,6 @@ export function ProfessionalHeader() {
             );
           })}
 
-          <Link
-            href="/tienda"
-            aria-label="Ir a la tienda para cotizar"
-            className="group inline-flex items-center rounded-full bg-[#D4AF6F] px-[18px] py-2 text-xs font-semibold text-[#223D5A] transition duration-200 hover:bg-[#E0BC7F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
-          >
-            <span>Cotizar</span>
-            <span className="ml-1 inline-block transition-transform duration-200 group-hover:translate-x-[2px]">→</span>
-          </Link>
         </div>
 
         <button
@@ -158,14 +150,6 @@ export function ProfessionalHeader() {
           })}
         </div>
 
-        <Link
-          href="/tienda"
-          aria-label="Ir a la tienda para cotizar"
-          className="mx-auto inline-flex items-center rounded-full bg-[#D4AF6F] px-7 py-3 text-sm font-semibold text-[#223D5A] transition hover:bg-[#E0BC7F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
-        >
-          <span>Cotizar</span>
-          <span className="ml-1">→</span>
-        </Link>
       </div>
     </header>
   );
