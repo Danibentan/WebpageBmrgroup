@@ -94,7 +94,7 @@ export function ProfessionalHeader() {
                 href={href}
                 aria-current={active ? 'page' : undefined}
                 className={`site-nav-link-desktop pb-[3px] text-[13px] font-normal transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${
-                  active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-slate)]' : 'text-[var(--bmr-text-muted)] hover:text-[var(--bmr-slate)]'
+                  active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-letter-blue)]' : 'text-[var(--bmr-letter-blue)] hover:text-[var(--bmr-letter-blue)]'
                 }`}
               >
                 {label}
@@ -106,7 +106,7 @@ export function ProfessionalHeader() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-[var(--bmr-slate)] transition hover:text-[var(--bmr-terracota)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-[var(--bmr-letter-blue)] transition hover:text-[var(--bmr-letter-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:hidden"
           aria-label={isMobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
           aria-expanded={isMobileMenuOpen}
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -125,7 +125,7 @@ export function ProfessionalHeader() {
             type="button"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Cerrar menú"
-            className="rounded-md p-2 text-[var(--bmr-slate)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
+            className="rounded-md p-2 text-[var(--bmr-letter-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
           >
             <X size={26} />
           </button>
@@ -141,7 +141,7 @@ export function ProfessionalHeader() {
                 href={href}
                 aria-current={active ? 'page' : undefined}
                 className={`pb-1 font-editorial text-3xl transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${
-                  active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-slate)]' : 'text-[var(--bmr-text-muted)] hover:text-[var(--bmr-slate)]'
+                  active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-letter-blue)]' : 'text-[var(--bmr-letter-blue)] hover:text-[var(--bmr-letter-blue)]'
                 }`}
               >
                 {label}
