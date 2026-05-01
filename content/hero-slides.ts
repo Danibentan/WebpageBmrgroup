@@ -16,7 +16,7 @@ export const heroSlides: HeroSlide[] = [
   {
     id: 'showroom-interior-01',
     type: 'image',
-    src: withBase('/assets/hero/hero-1-fachada-clara.webp'),
+    src: withBase('/assets/hero/fachada-la-serena-1.jpg'),
     caption: 'PLANO DETALLE DE ABERTURA EN FACHADA CLARA',
     alt: 'Aberturas premium en fachada residencial clara',
     duration: 5000
@@ -24,7 +24,7 @@ export const heroSlides: HeroSlide[] = [
   {
     id: 'showroom-interior-02',
     type: 'image',
-    src: withBase('/assets/hero/hero-2-detalle-vertical.webp'),
+    src: withBase('/assets/hero/bano-la-serena.jpg'),
     caption: 'DETALLE VERTICAL DE FACHADA',
     alt: 'Detalle vertical de carpintería de aluminio en fachada',
     duration: 5000
@@ -32,7 +32,7 @@ export const heroSlides: HeroSlide[] = [
   {
     id: 'showroom-interior-03',
     type: 'image',
-    src: withBase('/assets/hero/hero-3-corredizas-residencial.webp'),
+    src: withBase('/assets/hero/galeria-la-serena.jpg'),
     caption: 'CORREDIZAS DE GRAN FORMATO EN PROYECTO RESIDENCIAL CONTEMPORÁNEO',
     alt: 'Aberturas corredizas de gran formato en proyecto residencial',
     duration: 5000
