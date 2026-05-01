@@ -7,7 +7,7 @@ export function HeroOverlay() {
         Plano detalle de abertura en fachada clara
       </p>
 
-      <p className="absolute bottom-10 right-8 z-20 text-[11px] uppercase tracking-[0.22em] text-[#c9ab66] md:right-12">DETALLE VERTICAL DE FACHADA</p>
+      <p className="absolute bottom-10 right-8 z-20 text-[11px] uppercase tracking-[0.22em] text-[#c9ab66] md:right-12"></p>
     </>
   );
 }
