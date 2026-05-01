@@ -3,8 +3,8 @@
 Subí en esta carpeta las imágenes usadas por `app/nuestras-obras/page.tsx`.
 
 Nombres actuales esperados por el código:
-- `casa-patio-norte.webp`
-- `edificio-libertador.webp`
+- `casa-la-serena.webp`
+- `casa-la-inquieta.webp`
 - `oficinas-costanera.webp`
 - `casa-bosque-sur.webp`
 
