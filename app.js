@@ -251,9 +251,9 @@ function MediaSlideshow() {
 
 
 function InfiniteMarquee() {
-  const text = 'COMANDAS · STOCK · NOVA ERP · FACTURACIÓN · INSUMOS · RECETAS · CAJA · REPORTES · MULTI-LOCAL · ARCA';
+  const text = 'BMR GROUP ARGENTINA · BMR GROUP ARGENTINA · BMR GROUP ARGENTINA';
   return (
-    <section className="mx-auto w-full bg-[#F7F9FB] py-16 md:py-24">
+    <section className="absolute inset-x-0 bottom-6 z-10">
       <div
         className="overflow-hidden whitespace-nowrap"
         style={{
@@ -262,8 +262,8 @@ function InfiniteMarquee() {
         }}
       >
         <div className="inline-flex min-w-max will-change-transform marquee-track" style={{ animation: 'marqueeScroll 40s linear infinite', transform: 'translate3d(0,0,0)' }}>
-          <p className="pr-16 font-black uppercase tracking-tight text-[#111111] leading-none" style={{ fontSize: 'clamp(80px,14vw,220px)' }}>{text}</p>
-          <p aria-hidden="true" className="pr-16 font-black uppercase tracking-tight text-[#111111] leading-none" style={{ fontSize: 'clamp(80px,14vw,220px)' }}>{text}</p>
+          <p className="pr-12 font-black uppercase tracking-tight text-[#111111]/10 leading-none" style={{ fontSize: 'clamp(42px,8vw,110px)' }}>{text}</p>
+          <p aria-hidden="true" className="pr-12 font-black uppercase tracking-tight text-[#111111]/10 leading-none" style={{ fontSize: 'clamp(42px,8vw,110px)' }}>{text}</p>
         </div>
       </div>
     </section>
@@ -317,9 +317,9 @@ function App() {
               </a>
             </div>
           </div>
+          <InfiniteMarquee />
         </section>
 
-        <InfiniteMarquee />
 
         <section id="quienes" className="mx-auto max-w-7xl rounded-3xl bg-white px-6 py-8 shadow-soft md:px-8">
           <h2 className="text-2xl font-semibold text-[#102c4f]">Quiénes somos</h2>
