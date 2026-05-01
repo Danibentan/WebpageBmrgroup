@@ -13,9 +13,11 @@ const normalize = (value: string) =>
 
 
 const slugAliases: Record<string, string> = {
-  'oficina-corporativa': 'oficinas-costanera',
-  'oficinas-corporativas': 'oficinas-costanera',
-  'oficina-corporativa-bmr': 'oficinas-costanera'
+  'oficina-corporativa': 'oficina-corporativa',
+  'oficinas-corporativas': 'oficina-corporativa',
+  'oficinas-costanera': 'oficina-corporativa',
+  'oficina-corporativa-bmr': 'oficina-corporativa',
+  'oficina-corporativa-tigre': 'oficina-corporativa'
 };
 
 export default function ObraDetailPage({ params }: { params: { slug: string } }) {
@@ -27,6 +29,3 @@ export default function ObraDetailPage({ params }: { params: { slug: string } })
   return <ProjectDetail project={obra} />;
 }
 
-export function generateStaticParams() {
-  return obras.map((obra) => ({ slug: obra.slug }));
-}

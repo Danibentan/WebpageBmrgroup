@@ -50,7 +50,7 @@ export const obras: Obra[] = [
      ]
   },
   {
-    slug: 'Oficina Corporativa',
+    slug: 'oficina-corporativa',
     title: 'Oficinas Corporativa',
     description: 'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
     category: 'CORPORATIVO',
@@ -59,9 +59,9 @@ export const obras: Obra[] = [
     image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
     gallery: [
-      '/obras/casa-la-serena-1.jpg',
-      '/obras/casa-la-serena-2.jpg',
-      '/obras/casa-la-serena-3.jpg'
+      '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
+      '/obras/2d4d2c26-8f40-4212-9a3a-987f7412b4d2.JPG',
+      '/obras/46fe44fd-bde7-4609-a812-6ed7e17df9f0.JPG'
     ]
   },
   {
