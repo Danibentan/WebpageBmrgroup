@@ -4,23 +4,27 @@
 
 :root {
   color-scheme: light;
-  --bmr-ink: #030a1c;
-  --bmr-navy: #223D5A;
-  --bmr-navy-soft: #2C4A6B;
-  --bg-primary: #223D5A;
-  --bg-elevated-1: #2C4A6B;
-  --bg-elevated-2: #182E47;
-  --bmr-gold: #c9ab66;
-  --bmr-silver: #96a3be;
-  --bmr-white: #f2f4f8;
+  --bmr-cream: #FAF4E6;
+  --bmr-cream-2: #F0E6D0;
+  --bmr-slate: #1F4257;
+  --bmr-gold: #C9A961;
+  --bmr-terracota: #C26A3D;
+  --bmr-text: #2A2418;
+  --bmr-text-muted: #5C5446;
+  --bmr-border: #E5DCC4;
+  --bmr-ink: #2A2418;
+  --bg-primary: var(--bmr-cream);
+  --bg-elevated-1: var(--bmr-cream-2);
+  --bg-elevated-2: #EADFC8;
+  --bmr-white: #fffaf0;
   --nav-height: 86px;
 }
 
 body {
   margin: 0;
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
-  background: var(--bg-primary);
-  color: var(--bmr-white);
+  background: var(--bmr-cream);
+  color: var(--bmr-text);
 }
 
 h1,
@@ -44,10 +48,11 @@ h3,
 
 .font-editorial {
   font-feature-settings: 'liga' 1, 'dlig' 1;
+  font-weight: 600;
 }
 
 .text-gold-gradient {
-  background: linear-gradient(180deg, #d4b876 0%, #c9a961 100%);
+  background: linear-gradient(180deg, #e0c289 0%, var(--bmr-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
