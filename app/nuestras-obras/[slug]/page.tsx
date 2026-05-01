@@ -11,9 +11,17 @@ const normalize = (value: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 
+
+const slugAliases: Record<string, string> = {
+  'oficina-corporativa': 'oficinas-costanera',
+  'oficinas-corporativas': 'oficinas-costanera',
+  'oficina-corporativa-bmr': 'oficinas-costanera'
+};
+
 export default function ObraDetailPage({ params }: { params: { slug: string } }) {
   const requested = normalize(params.slug);
-  const obra = obras.find((item) => item.slug === requested || normalize(item.title) === requested);
+  const resolvedSlug = slugAliases[requested] ?? requested;
+  const obra = obras.find((item) => item.slug === resolvedSlug || normalize(item.title) === resolvedSlug);
   if (!obra) notFound();
 
   return <ProjectDetail project={obra} />;
