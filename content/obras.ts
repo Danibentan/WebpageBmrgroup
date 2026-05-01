@@ -21,7 +21,14 @@ export const obras: Obra[] = [
     image: '/obras/casa-patio-norte.webp',
     detailDescription:
       'Se ejecutó un sistema integral de aberturas corredizas de gran formato, priorizando entrada de luz natural, continuidad visual interior-exterior y alta prestación térmica/acústica.',
-    gallery: ['/obras/casa-patio-norte.webp', '/obras/edificio-libertador.webp', '/obras/oficinas-costanera.webp', '/obras/casa-bosque-sur.webp']
+    gallery: [
+      '/obras/casa-la-serena-1.webp',
+      '/obras/casa-la-serena-2.webp',
+      '/obras/casa-la-serena-3.webp',
+      '/obras/casa-la-serena-4.webp',
+      '/obras/casa-la-serena-5.webp',
+      '/obras/casa-la-serena-6.webp'
+    ]
   },
   {
     slug: 'casa-la-inquieta',
@@ -58,4 +65,3 @@ export const obras: Obra[] = [
     gallery: ['/obras/casa-bosque-sur.webp', '/obras/casa-patio-norte.webp', '/obras/edificio-libertador.webp', '/obras/oficinas-costanera.webp']
   }
 ];
-
