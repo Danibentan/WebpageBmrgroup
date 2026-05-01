@@ -46,7 +46,7 @@ export const obras: Obra[] = [
       '/obras/la-inquieta-3.jpg',
       '/obras/la-inquieta-4.jpg',
       '/obras/la-inquieta-5.jpg',
-      '/obras/la-inquieta-6.jpg,
+      '/obras/la-inquieta-6.jpg'
      ]
   },
   {
