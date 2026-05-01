@@ -34,13 +34,20 @@ export const obras: Obra[] = [
     slug: 'casa-la-inquieta',
     title: 'Casa La inquieta',
     description: 'Sistema de carpintería técnica con control acústico y terminación premium para fachada continua.',
-    category: 'CORPORATIVO',
+    category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
     meta: '2024 · 1.200 m² · Carpintería técnica',
-    image: '/obras/edificio-libertador.webp',
+    image: '/obras/la-inquieta-1.jpg',
     detailDescription:
       'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
-    gallery: []
+    gallery: [  
+      '/obras/casa-la-inquieta-1.jpg',
+      '/obras/casa-la-inquieta-2.jpg',
+      '/obras/casa-la-inquieta-3.jpg',
+      '/obras/casa-la-inquieta-4.jpg',
+      '/obras/casa-la-inquieta-5.jpg',
+      '/obras/casa-la-inquieta-6.jpg'
+     ]
   },
   {
     slug: 'oficinas-costanera',
