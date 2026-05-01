@@ -50,15 +50,21 @@ export const obras: Obra[] = [
      ]
   },
   {
-    slug: 'oficinas-costanera',
-    title: 'Oficinas Costanera',
+    slug: 'Oficina Corporativa',
+    title: 'Oficinas Corporativa',
     description: 'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
     category: 'CORPORATIVO',
-    location: 'Vicente López, Buenos Aires',
-    meta: '2023 · 850 m² · Aberturas hermético',
-    image: '/obras/oficinas-costanera.webp',
+    location: 'Tigre, Buenos Aires',
+    meta: '2025 · 850 m² · Aberturas hermético',
+    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
-    gallery: []
+    gallery: [
+      '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
+      '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
+      '/obras/46fe44fd-bde7-4609-a812-4fbbfd407ab8.JPG',
+      '/obras/e397afc8-0855-4f76-b1b9-3c27bc116d3c.JPG',
+      '/obras/e4c1855e-fbc3-465a-8ffd-a4beb32860cf.JPG'
+    ]
   },
   {
     slug: 'casa-bosque-sur',
