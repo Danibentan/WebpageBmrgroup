@@ -46,7 +46,7 @@ export default function NuestrasObrasPage() {
         <p className="mx-auto mt-4 max-w-2xl text-[var(--bmr-silver)]">Coordinamos una visita técnica sin cargo en CABA y GBA.</p>
         <Link
           href="/contacto"
-          className="mt-8 inline-flex rounded-full bg-[var(--bmr-gold)] px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--bmr-ink)] transition hover:bg-[#f0cc8f]"
+          className="liquid-glass-btn mt-8 inline-flex rounded-full px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--bmr-slate)]"
         >
           Solicitar visita técnica
         </Link>
