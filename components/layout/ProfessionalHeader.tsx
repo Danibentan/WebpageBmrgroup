@@ -70,8 +70,8 @@ export function ProfessionalHeader() {
     <header
       className={`fixed inset-x-0 top-0 z-50 h-[var(--nav-height)] w-full border-b px-4 md:px-10 ${
         isHome
-          ? 'border-white/10 bg-gradient-to-b from-[#102d49]/80 via-[#163857]/45 to-transparent backdrop-blur-[6px]'
-          : 'border-[#D4AF6F]/10 bg-[var(--bg-primary)]/95 backdrop-blur-md'
+          ? 'border-[var(--bmr-border)] bg-gradient-to-b from-[rgba(250,244,230,0.94)] via-[rgba(240,230,208,0.86)] to-[rgba(250,244,230,0.35)] backdrop-blur-[6px]'
+          : 'border-[var(--bmr-border)] bg-[rgba(250,244,230,0.95)] backdrop-blur-md'
       }`}
     >
       <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex h-full w-full max-w-7xl items-center justify-between">
@@ -93,8 +93,8 @@ export function ProfessionalHeader() {
                 key={href}
                 href={href}
                 aria-current={active ? 'page' : undefined}
-                className={`site-nav-link-desktop pb-[3px] text-[13px] font-normal transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${
-                  active ? 'border-b border-[#D4AF6F] text-[#D4AF6F]' : 'text-white/85 hover:text-white'
+                className={`site-nav-link-desktop pb-[3px] text-[13px] font-normal transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${
+                  active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-letter-blue)]' : 'text-[var(--bmr-letter-blue)] hover:text-[var(--bmr-letter-blue)]'
                 }`}
               >
                 {label}
@@ -106,7 +106,7 @@ export function ProfessionalHeader() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-[#D4AF6F] transition hover:text-[#E0BC7F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-[var(--bmr-letter-blue)] transition hover:text-[var(--bmr-letter-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:hidden"
           aria-label={isMobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
           aria-expanded={isMobileMenuOpen}
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -116,7 +116,7 @@ export function ProfessionalHeader() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-[60] flex transform flex-col bg-[var(--bg-primary)] px-6 py-8 transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed inset-0 z-[60] flex transform flex-col bg-[var(--bmr-cream)] px-6 py-8 transition-transform duration-300 ease-out md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
         }`}
       >
@@ -125,7 +125,7 @@ export function ProfessionalHeader() {
             type="button"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Cerrar menú"
-            className="rounded-md p-2 text-[#D4AF6F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
+            className="rounded-md p-2 text-[var(--bmr-letter-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
           >
             <X size={26} />
           </button>
@@ -140,8 +140,8 @@ export function ProfessionalHeader() {
                 key={href}
                 href={href}
                 aria-current={active ? 'page' : undefined}
-                className={`pb-1 font-editorial text-3xl transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${
-                  active ? 'border-b border-[#D4AF6F] text-[#D4AF6F]' : 'text-white/90 hover:text-white'
+                className={`pb-1 font-editorial text-3xl transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${
+                  active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-letter-blue)]' : 'text-[var(--bmr-letter-blue)] hover:text-[var(--bmr-letter-blue)]'
                 }`}
               >
                 {label}
