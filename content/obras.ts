@@ -31,15 +31,15 @@ export const obras: Obra[] = [
     ]
   },
   {
-    slug: 'Trabajos en altura',
-    title: 'oficina corporativa',
-    description: 'colocacion de vidrio en fachada .',
+    slug: 'casa-la-inquieta',
+    title: 'casa la inquieta',
+    description: 'aberturas premiun .',
     category: 'RESIDENCIAL',
-    location: 'tigre, Buenos Aires',
+    location: 'escobar, Buenos Aires',
     meta: '2026 · 1.200 m² · trabajo a medida pedido por cliente',
     image: '/obras/la-inquieta-1.jpg',
     detailDescription:
-      'se realizo trabajo en altura con correspondiente colocacion de vidrio templado.',
+      'se realizo trabajo de colocacion de aberturas en toda la residencia.',
     gallery: [  
       '/obras/la-inquieta-1.jpg',
       '/obras/la-inquieta-2.jpg',
