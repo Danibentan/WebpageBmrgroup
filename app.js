@@ -249,6 +249,27 @@ function MediaSlideshow() {
   );
 }
 
+
+function InfiniteMarquee() {
+  const text = 'COMANDAS · STOCK · NOVA ERP · FACTURACIÓN · INSUMOS · RECETAS · CAJA · REPORTES · MULTI-LOCAL · ARCA';
+  return (
+    <section className="mx-auto w-full bg-[#F7F9FB] py-16 md:py-24">
+      <div
+        className="overflow-hidden whitespace-nowrap"
+        style={{
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
+        }}
+      >
+        <div className="inline-flex min-w-max will-change-transform marquee-track" style={{ animation: 'marqueeScroll 40s linear infinite', transform: 'translate3d(0,0,0)' }}>
+          <p className="pr-16 font-black uppercase tracking-tight text-[#111111] leading-none" style={{ fontSize: 'clamp(80px,14vw,220px)' }}>{text}</p>
+          <p aria-hidden="true" className="pr-16 font-black uppercase tracking-tight text-[#111111] leading-none" style={{ fontSize: 'clamp(80px,14vw,220px)' }}>{text}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeModal, setActiveModal] = useState(null);
@@ -297,6 +318,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <InfiniteMarquee />
 
         <section id="quienes" className="mx-auto max-w-7xl rounded-3xl bg-white px-6 py-8 shadow-soft md:px-8">
           <h2 className="text-2xl font-semibold text-[#102c4f]">Quiénes somos</h2>

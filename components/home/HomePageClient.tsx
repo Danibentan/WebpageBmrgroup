@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
+import { InfiniteMarquee } from '@/components/marquee/InfiniteMarquee';
 
 const caseStudies = [
   {
@@ -28,6 +29,10 @@ export function HomePageClient() {
     <main className="-mt-[var(--nav-height)] min-h-screen bg-transparent text-[var(--bmr-text)]">
       <ProfessionalHeader />
       <ImmersiveHero />
+
+      <section className="bg-[#F7F9FB] py-16 md:py-24">
+        <InfiniteMarquee />
+      </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-10 pt-20 md:pt-32">
         <p className="mixd-inspired-block text-xs uppercase tracking-[0.36em] text-[var(--bmr-terracota)]">BMR GROUP ARGENTINA · CASE STUDIES</p>

@@ -116,7 +116,7 @@ export function ProfessionalHeader() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-[60] flex transform flex-col bg-[var(--bmr-cream)] px-6 py-8 transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed inset-0 z-[60] flex transform flex-col border-l border-[var(--bmr-border)] bg-[linear-gradient(180deg,rgba(250,244,230,0.98)_0%,rgba(240,230,208,0.98)_100%)] px-6 py-8 shadow-[-14px_0_40px_rgba(42,36,24,0.14)] transition-transform duration-300 ease-out md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
         }`}
       >
@@ -125,7 +125,7 @@ export function ProfessionalHeader() {
             type="button"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Cerrar menú"
-            className="rounded-md p-2 text-[var(--bmr-letter-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
+            className="rounded-md border border-[var(--bmr-border)] bg-[var(--bmr-cream-2)] p-2 text-[var(--bmr-letter-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
           >
             <X size={26} />
           </button>
