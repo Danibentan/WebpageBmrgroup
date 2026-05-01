@@ -2,44 +2,7 @@ import Link from 'next/link';
 
 import { ProjectCard } from '@/components/obras/ProjectCard';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
-
-const projects = [
-  {
-    title: 'Casa La serena',
-    description:
-      'Corredizas de gran formato con perfiles de baja visual y DVH para máxima entrada de luz.',
-    category: 'RESIDENCIAL' as const,
-    location: 'Escobar, Buenos Aires',
-    meta: '2024 · 280 m² · Corredizas DVH',
-    image: '/obras/casa-patio-norte.webp'
-  },
-  {
-    title: 'Casa La inquieta',
-    description:
-      'Sistema de carpintería técnica con control acústico y terminación premium para fachada continua.',
-    category: 'CORPORATIVO' as const,
-    location: 'Escobar, Buenos Aires',
-    meta: '2024 · 1.200 m² · Carpintería técnica',
-    image: '/obras/edificio-libertador.webp'
-  },
-  {
-    title: 'Oficinas Costanera',
-    description:
-      'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
-    category: 'CORPORATIVO' as const,
-    location: 'Vicente López, Buenos Aires',
-    meta: '2023 · 850 m² · Aberturas hermético',
-    image: '/obras/oficinas-costanera.webp'
-  },
-  {
-    title: 'Casa Bosque Sur',
-    description: 'Puertas ventana y paños fijos panorámicos para integración interior-exterior.',
-    category: 'RESIDENCIAL' as const,
-    location: 'Bariloche, Río Negro',
-    meta: '2024 · 420 m² · Paños fijos panorámicos',
-    image: '/obras/casa-bosque-sur.webp'
-  }
-];
+import { obras } from '@/content/obras';
 
 const metrics = [
   { value: '+150', label: 'Proyectos entregados' },
@@ -61,7 +24,7 @@ export default function NuestrasObrasPage() {
         </p>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {projects.map((project) => (
+          {obras.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
         </div>

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { MapPin } from 'lucide-react';
 
 type ProjectCardProps = {
+  slug: string;
   title: string;
   description: string;
   category: 'RESIDENCIAL' | 'CORPORATIVO';
@@ -16,7 +17,7 @@ type ProjectCardProps = {
 
 const FALLBACK_IMAGE = '/products/bmr-product-placeholder.svg';
 
-export function ProjectCard({ title, description, category, location, meta, image }: ProjectCardProps) {
+export function ProjectCard({ slug, title, description, category, location, meta, image }: ProjectCardProps) {
   const [currentImage, setCurrentImage] = useState(image);
 
   return (
@@ -48,7 +49,7 @@ export function ProjectCard({ title, description, category, location, meta, imag
 
         <p className="text-sm text-white/60">{meta}</p>
 
-        <Link href="/contacto" className="inline-flex items-center gap-2 text-sm font-semibold text-[#D4AF6F] transition-colors hover:text-[#e0be82]">
+        <Link href={`/nuestras-obras/${slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-[#D4AF6F] transition-colors hover:text-[#e0be82]">
           Ver proyecto
           <span aria-hidden="true">→</span>
         </Link>
