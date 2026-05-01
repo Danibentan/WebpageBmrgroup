@@ -41,12 +41,12 @@ export const obras: Obra[] = [
     detailDescription:
       'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
     gallery: [  
-      '/obras/casa-la-inquieta-1.jpg',
-      '/obras/casa-la-inquieta-2.jpg',
-      '/obras/casa-la-inquieta-3.jpg',
-      '/obras/casa-la-inquieta-4.jpg',
-      '/obras/casa-la-inquieta-5.jpg',
-      '/obras/casa-la-inquieta-6.jpg'
+      '/obras/la-inquieta-1.jpg',
+      '/obras/la-inquieta-2.jpg',
+      '/obras/la-inquieta-3.jpg',
+      '/obras/la-inquieta-4.jpg',
+      '/obras/la-inquieta-5.jpg',
+      '/obras/la-inquieta-6.jpg'
      ]
   },
   {
