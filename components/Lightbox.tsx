@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
@@ -29,7 +28,7 @@ export function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProp
   const openerRef = useRef<HTMLElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const imageWrapRef = useRef<HTMLDivElement | null>(null);
-  const imageInnerRef = useRef<HTMLDivElement | null>(null);
+  const imageInnerRef = useRef<HTMLImageElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const prevButtonRef = useRef<HTMLButtonElement | null>(null);
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -109,7 +108,8 @@ export function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProp
       if (!imageInnerRef.current || !isVisible) return;
       setIsAnimating(true);
       const tl = gsap.timeline({ onComplete: () => setIsAnimating(false) });
-      tl.fromTo(imageInnerRef.current, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.out' });
+      tl.to(imageInnerRef.current, { opacity: 0, duration: 0.15, ease: 'power2.out' });
+      tl.to(imageInnerRef.current, { opacity: 1, duration: 0.2, ease: 'power2.out' }, '-=0.02');
     },
     { dependencies: [currentIndex], scope: imageWrapRef }
   );
@@ -212,15 +212,15 @@ export function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProp
         →
       </button>
 
-      <div ref={imageWrapRef} className="absolute inset-0 flex items-center justify-center p-4 sm:p-6">
-        <div ref={imageInnerRef} className="relative h-full w-full">
-          <Image
+      <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4">
+        <div ref={imageWrapRef} className="flex h-full w-full items-center justify-center">
+          <img
+            key={currentImage.src}
+            ref={imageInnerRef}
             src={currentImage.src}
             alt={currentImage.alt ?? `Imagen ${currentIndex + 1}`}
-            fill
-            unoptimized
-            sizes="95vw"
-            className="!relative !h-auto !max-h-[95vh] !w-auto !max-w-[95vw] object-contain"
+            className="max-h-[95vh] max-w-[95vw] object-contain"
+            draggable={false}
           />
         </div>
       </div>
