@@ -9,16 +9,17 @@ import { Logo } from '@/components/Logo';
 
 const navLinks = [
   { href: '/quienes-somos', label: 'Quiénes somos' },
-  { href: '/tienda', label: 'Tienda' },
   { href: '/nuestras-obras', label: 'Nuestras obras' },
-  { href: '/contacto', label: 'Contacto' },
-  { href: '/catalogo', label: 'Catálogo' }
+  { href: '/tienda', label: 'Tienda' },
+  { href: '/catalogo', label: 'Catálogo' },
+  { href: '/contacto', label: 'Contacto' }
 ];
 
 export function ProfessionalHeader() {
   const navRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isHome = pathname === '/';
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
@@ -66,8 +67,14 @@ export function ProfessionalHeader() {
   const isActiveLink = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="relative w-full border-b border-[#D4AF6F]/10 bg-[var(--bg-primary)] px-4 py-[22px] md:px-10">
-      <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex w-full max-w-7xl items-center justify-between">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 h-[var(--nav-height)] w-full border-b px-4 md:px-10 ${
+        isHome
+          ? 'border-white/10 bg-gradient-to-b from-[#102d49]/80 via-[#163857]/45 to-transparent backdrop-blur-[6px]'
+          : 'border-[#D4AF6F]/10 bg-[var(--bg-primary)]/95 backdrop-blur-md'
+      }`}
+    >
+      <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex h-full w-full max-w-7xl items-center justify-between">
         <div className="site-nav-logo">
           <span className="md:hidden">
             <Logo compact />
@@ -77,7 +84,7 @@ export function ProfessionalHeader() {
           </span>
         </div>
 
-        <div className="hidden items-center gap-7 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map(({ href, label }) => {
             const active = isActiveLink(href);
 
@@ -95,14 +102,6 @@ export function ProfessionalHeader() {
             );
           })}
 
-          <Link
-            href="/tienda"
-            aria-label="Ir a la tienda para cotizar"
-            className="group inline-flex items-center rounded-full bg-[#D4AF6F] px-[18px] py-2 text-xs font-semibold text-[#223D5A] transition duration-200 hover:bg-[#E0BC7F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
-          >
-            <span>Cotizar</span>
-            <span className="ml-1 inline-block transition-transform duration-200 group-hover:translate-x-[2px]">→</span>
-          </Link>
         </div>
 
         <button
@@ -151,14 +150,6 @@ export function ProfessionalHeader() {
           })}
         </div>
 
-        <Link
-          href="/tienda"
-          aria-label="Ir a la tienda para cotizar"
-          className="mx-auto inline-flex items-center rounded-full bg-[#D4AF6F] px-7 py-3 text-sm font-semibold text-[#223D5A] transition hover:bg-[#E0BC7F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
-        >
-          <span>Cotizar</span>
-          <span className="ml-1">→</span>
-        </Link>
       </div>
     </header>
   );

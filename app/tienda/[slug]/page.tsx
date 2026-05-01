@@ -8,9 +8,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   if (!product) notFound();
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] px-6 pb-20 pt-32 text-white">
+    <main className="min-h-screen bg-[var(--bg-primary)] px-6 pb-20 text-white">
       <ProfessionalHeader />
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-4xl pt-12 md:pt-16">
         <h1 className="font-editorial text-4xl text-white">{product.name}</h1>
         <p className="mt-4 text-white/60">{product.description}</p>
         <p className="mt-6 font-editorial text-lg text-[#c9a961]">Detalle completo en construcción</p>
