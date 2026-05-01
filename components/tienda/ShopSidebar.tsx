@@ -26,7 +26,7 @@ function SidebarContent({ categoria, setCategoria }: { categoria: string; setCat
                 aria-pressed={categoria === cat.id}
                 onClick={() => setCategoria(cat.id)}
                 className={`pl-2 text-left transition-colors focus:outline-none focus:ring-2 focus:ring-[#c9a961]/50 ${
-                  categoria === cat.id ? 'border-l-2 border-[#c9a961] text-[#c9a961]' : 'text-white/65 hover:text-white'
+                  categoria === cat.id ? 'border-l-2 border-[#c9a961] text-[#c9a961]' : 'text-[var(--bmr-soft-white)]/75 hover:text-[var(--bmr-soft-white)]'
                 }`}
               >
                 {cat.label} ({cat.count})
@@ -43,7 +43,7 @@ function SidebarContent({ categoria, setCategoria }: { categoria: string; setCat
             <li key={mat}>
               <button
                 type="button"
-                className="pl-2 text-white/65 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-[#c9a961]/50"
+                className="pl-2 text-[var(--bmr-soft-white)]/75 transition-colors hover:text-[var(--bmr-soft-white)] focus:outline-none focus:ring-2 focus:ring-[#c9a961]/50"
               >
                 {mat}
               </button>
@@ -54,7 +54,7 @@ function SidebarContent({ categoria, setCategoria }: { categoria: string; setCat
 
       <div>
         <p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-[#c9a961]">Precio</p>
-        <p className="text-xs text-white/55">USD 200 — USD 2.500</p>
+        <p className="text-xs text-[var(--bmr-soft-white)]/70">USD 200 — USD 2.500</p>
       </div>
     </div>
   );
