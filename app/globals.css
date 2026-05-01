@@ -4,26 +4,27 @@
 
 :root {
   color-scheme: light;
-  --bmr-ink: #071321;
-  --bmr-navy: #1c3551;
-  --bmr-navy-soft: #264564;
-  --bg-primary: #1c3551;
-  --bg-elevated-1: #264564;
-  --bg-elevated-2: #142b44;
-  --bmr-gold: #d4af6f;
-  --bmr-silver: #aebfd4;
-  --bmr-white: #f4f7fb;
+  --bmr-cream: #FAF4E6;
+  --bmr-cream-2: #F0E6D0;
+  --bmr-slate: #1F4257;
+  --bmr-gold: #C9A961;
+  --bmr-terracota: #C26A3D;
+  --bmr-text: #2A2418;
+  --bmr-text-muted: #5C5446;
+  --bmr-border: #E5DCC4;
+  --bmr-ink: #2A2418;
+  --bg-primary: var(--bmr-cream);
+  --bg-elevated-1: var(--bmr-cream-2);
+  --bg-elevated-2: #EADFC8;
+  --bmr-white: #fffaf0;
   --nav-height: 86px;
 }
 
 body {
   margin: 0;
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
-  background:
-    radial-gradient(circle at 10% -5%, rgba(212, 175, 111, 0.14), transparent 35%),
-    radial-gradient(circle at 90% 0%, rgba(58, 99, 139, 0.18), transparent 40%),
-    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-elevated-2) 100%);
-  color: var(--bmr-white);
+  background: var(--bmr-cream);
+  color: var(--bmr-text);
 }
 
 h1,
