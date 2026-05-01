@@ -34,7 +34,7 @@ export const obras: Obra[] = [
     slug: 'casa-la-inquieta',
     title: 'Casa La inquieta',
     description: 'Se realizo trabajo de abertuas ,pergola de jardin en galeria se trabajo con vetanas ,dandole modernidad y estetica al exterior.',
-    category: 'CORPORATIVO',
+    category: 'Residencial',
     location: 'Escobar, Buenos Aires',
     meta: '2024 · 1.200 m² · Aberturas dvh de alta prestacion',
     image: '/obras/edificio-libertador.webp',
@@ -50,18 +50,18 @@ export const obras: Obra[] = [
      ]
   },
   {
-    slug: 'oficinas-costanera',
-    title: 'Oficinas Costanera',
+    slug: 'Casa en Puertos Escobar',
+    title: 'Puertos Escobar',
     description: 'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
-    category: 'CORPORATIVO',
-    location: 'Vicente López, Buenos Aires',
+    category: 'Residencial',
+    location: 'Escobar, Buenos Aires',
     meta: '2023 · 850 m² · Aberturas hermético',
     image: '/obras/oficinas-costanera.webp',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
     gallery: []
   },
   {
-    slug: 'casa-bosque-sur',
+    slug: 'Casa Proyecto sur',
     title: 'Casa Bosque Sur',
     description: 'Puertas ventana y paños fijos panorámicos para integración interior-exterior.',
     category: 'RESIDENCIAL',
