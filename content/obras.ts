@@ -31,15 +31,15 @@ export const obras: Obra[] = [
     ]
   },
   {
-    slug: 'casa-la-inquieta',
-    title: 'Casa La inquieta',
-    description: 'Sistema de carpintería técnica con control acústico y terminación premium para fachada continua.',
+    slug: 'Trabajos en altura',
+    title: 'oficina corporativa',
+    description: 'colocacion de vidrio en fachada .',
     category: 'RESIDENCIAL',
-    location: 'Escobar, Buenos Aires',
-    meta: '2024 · 1.200 m² · Carpintería técnica',
+    location: 'tigre, Buenos Aires',
+    meta: '2026 · 1.200 m² · trabajo a medida pedido por cliente',
     image: '/obras/la-inquieta-1.jpg',
     detailDescription:
-      'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
+      'se realizo trabajo en altura con correspondiente colocacion de vidrio templado.',
     gallery: [  
       '/obras/la-inquieta-1.jpg',
       '/obras/la-inquieta-2.jpg',
