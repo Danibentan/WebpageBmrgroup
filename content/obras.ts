@@ -37,9 +37,9 @@ export const obras: Obra[] = [
     category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
     meta: '2024 · 1.200 m² · Aberturas dvh de alta prestacion',
-    image: '/obras/edificio-libertador.webp',
+    image: '/obras/la-inquieta-1.jpg',
     detailDescription:
-      'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
+      'aberturas en frente de casa galeria y pergola de calidad premiun',
     gallery: [
       '/obras/la-inquieta-1.jpg',
       '/obras/la-inquieta-2.jpg',
