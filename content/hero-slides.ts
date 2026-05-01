@@ -9,7 +9,7 @@ export const heroContent = {
   subtitle:
     '',
   ctaLabel: '',
-  ctaHref: '/contacto'
+  ctaHref: ''
 };
 
 export const heroSlides: HeroSlide[] = [
