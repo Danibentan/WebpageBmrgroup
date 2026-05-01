@@ -24,7 +24,7 @@ export const heroSlides: HeroSlide[] = [
   {
     id: 'showroom-interior-02',
     type: 'image',
-    src: withBase('/assets/hero/baño-la-serena.jpg'),
+    src: withBase('/assets/hero/bano-la-serena.jpg'),
     caption: 'DETALLE VERTICAL DE FACHADA',
     alt: 'Detalle vertical de carpintería de aluminio en fachada',
     duration: 5000
