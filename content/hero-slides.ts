@@ -17,7 +17,7 @@ export const heroSlides: HeroSlide[] = [
     id: 'showroom-interior-01',
     type: 'image',
     src: withBase('/assets/hero/fachada-la-serena-1.jpg'),
-    caption: 'FACHADA CON ABERTURA PREMIUN',
+    caption: 'FRENTE CON ABERTURA PREMIUN',
     alt: 'Aberturas premium en fachada residencial clara',
     duration: 5000
   },
@@ -33,7 +33,7 @@ export const heroSlides: HeroSlide[] = [
     id: 'showroom-interior-03',
     type: 'image',
     src: withBase('/assets/hero/baño-la-serena.jpg'),
-    caption: 'CORREDIZAS DE GRAN FORMATO EN PROYECTO RESIDENCIAL CONTEMPORÁNEO',
+    caption: 'MAMPARA DE BAÑO PREMIUN',
     alt: 'Aberturas corredizas de gran formato en proyecto residencial',
     duration: 5000
   }
