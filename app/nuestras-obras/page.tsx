@@ -5,20 +5,20 @@ import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 
 const projects = [
   {
-    title: 'Casa Patio Norte',
+    title: 'Casa La serena',
     description:
       'Corredizas de gran formato con perfiles de baja visual y DVH para máxima entrada de luz.',
     category: 'RESIDENCIAL' as const,
-    location: 'Buenos Aires, Argentina',
+    location: 'Escobar, Buenos Aires',
     meta: '2024 · 280 m² · Corredizas DVH',
     image: '/obras/casa-patio-norte.webp'
   },
   {
-    title: 'Edificio Libertador',
+    title: 'Casa La inquieta',
     description:
       'Sistema de carpintería técnica con control acústico y terminación premium para fachada continua.',
     category: 'CORPORATIVO' as const,
-    location: 'CABA, Argentina',
+    location: 'Escobar, Buenos Aires',
     meta: '2024 · 1.200 m² · Carpintería técnica',
     image: '/obras/edificio-libertador.webp'
   },
