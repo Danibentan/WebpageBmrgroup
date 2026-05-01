@@ -18,16 +18,16 @@ export const obras: Obra[] = [
     category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
     meta: '2024 · 280 m² · Corredizas DVH',
-    image: '/obras/casa-patio-norte.webp',
+    image: '/obras/casa-la-serena-1.jpg',
     detailDescription:
       'Se ejecutó un sistema integral de aberturas corredizas de gran formato, priorizando entrada de luz natural, continuidad visual interior-exterior y alta prestación térmica/acústica.',
     gallery: [
-      '/obras/casa-la-serena-1.webp',
-      '/obras/casa-la-serena-2.webp',
-      '/obras/casa-la-serena-3.webp',
-      '/obras/casa-la-serena-4.webp',
-      '/obras/casa-la-serena-5.webp',
-      '/obras/casa-la-serena-6.webp'
+      '/obras/casa-la-serena-1.jpg',
+      '/obras/casa-la-serena-2.jpg',
+      '/obras/casa-la-serena-3.jpg',
+      '/obras/casa-la-serena-4.jpg',
+      '/obras/casa-la-serena-5.jpg',
+      '/obras/casa-la-serena-6.jpg'
     ]
   },
   {

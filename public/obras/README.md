@@ -17,9 +17,9 @@ Rutas públicas resultantes:
 ## Casa La Serena (slideshow de 6 fotos)
 
 Para la galería de `Casa La serena`, subir:
-- `casa-la-serena-1.webp`
-- `casa-la-serena-2.webp`
-- `casa-la-serena-3.webp`
-- `casa-la-serena-4.webp`
-- `casa-la-serena-5.webp`
-- `casa-la-serena-6.webp`
+- `casa-la-serena-1.jpg`
+- `casa-la-serena-2.jpg`
+- `casa-la-serena-3.jpg`
+- `casa-la-serena-4.jpg`
+- `casa-la-serena-5.jpg`
+- `casa-la-serena-6.jpg`
