@@ -17,7 +17,7 @@ export const obras: Obra[] = [
     description: 'Corredizas de gran formato con perfiles de baja visual y DVH para máxima entrada de luz.',
     category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
-    meta: '2025 · 280 m² · Corredizas DVH',
+    meta: '2024 · 280 m² · Corredizas DVH',
     image: '/obras/casa-la-serena-1.jpg',
     detailDescription:
       'Se ejecutó un sistema integral de aberturas corredizas de gran formato, priorizando entrada de luz natural, continuidad visual interior-exterior y alta prestación térmica/acústica.',
@@ -33,35 +33,28 @@ export const obras: Obra[] = [
   {
     slug: 'casa-la-inquieta',
     title: 'Casa La inquieta',
-    description: 'Se realizo trabajo de abertuas ,pergola de jardin en galeria se trabajo con vetanas ,dandole modernidad y estetica al exterior.',
-    category: 'RESIDENCIAL',
+    description: 'Sistema de carpintería técnica con control acústico y terminación premium para fachada continua.',
+    category: 'CORPORATIVO',
     location: 'Escobar, Buenos Aires',
-    meta: '2024 · 1.200 m² · Aberturas dvh de alta prestacion',
-    image: '/obras/la-inquieta-1.jpg',
+    meta: '2024 · 1.200 m² · Carpintería técnica',
+    image: '/obras/edificio-libertador.webp',
     detailDescription:
-      'aberturas en frente de casa galeria y pergola de calidad premiun',
-    gallery: [
-      '/obras/la-inquieta-1.jpg',
-      '/obras/la-inquieta-2.jpg',
-      '/obras/la-inquieta-3.jpg',
-      '/obras/la-inquieta-4.jpg',
-      '/obras/la-inquieta-5.jpg',
-      '/obras/la-inquieta-6.jpg'
-     ]
+      'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
+    gallery: []
   },
   {
-    slug: 'Casa en Puertos Escobar',
-    title: 'Puertos Escobar',
+    slug: 'oficinas-costanera',
+    title: 'Oficinas Costanera',
     description: 'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
-    category: 'RESIDENCIAL',
-    location: 'Escobar, Buenos Aires',
+    category: 'CORPORATIVO',
+    location: 'Vicente López, Buenos Aires',
     meta: '2023 · 850 m² · Aberturas hermético',
     image: '/obras/oficinas-costanera.webp',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
     gallery: []
   },
   {
-    slug: 'Casa Proyecto sur',
+    slug: 'casa-bosque-sur',
     title: 'Casa Bosque Sur',
     description: 'Puertas ventana y paños fijos panorámicos para integración interior-exterior.',
     category: 'RESIDENCIAL',
