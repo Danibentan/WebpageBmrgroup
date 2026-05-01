@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { heroContent, heroSlides } from '@/content/hero-slides';
+import { heroSlides } from '@/content/hero-slides';
 
 import { HeroIndicators } from './HeroIndicators';
 import { HeroMedia } from './HeroMedia';
@@ -40,7 +40,7 @@ export default function ImmersiveHero() {
         ))}
       </div>
 
-      <HeroOverlay title={heroContent.title} subtitle={heroContent.subtitle} ctaLabel={heroContent.ctaLabel} ctaHref={heroContent.ctaHref} />
+      <HeroOverlay />
 
       <HeroIndicators count={heroSlides.length} activeIndex={activeIndex} onSelect={handleSelect} />
 
