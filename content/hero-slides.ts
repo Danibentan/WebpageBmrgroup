@@ -5,10 +5,10 @@ const mediaBaseUrl = process.env.NEXT_PUBLIC_MEDIA_BASE_URL ?? '';
 const withBase = (path: string): string => `${mediaBaseUrl}${path}`;
 
 export const heroContent = {
-  title: 'Aberturas premium para tu proyecto',
+  title: '',
   subtitle:
-    'Estética limpia, precisión técnica y ejecución profesional para residencias y espacios corporativos.',
-  ctaLabel: 'Solicitar asesoramiento',
+    '',
+  ctaLabel: '',
   ctaHref: '/contacto'
 };
 
