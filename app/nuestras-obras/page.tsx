@@ -5,20 +5,20 @@ import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 
 const projects = [
   {
-    title: 'Casa Patio Norte',
+    title: 'Casa La serena',
     description:
       'Corredizas de gran formato con perfiles de baja visual y DVH para máxima entrada de luz.',
     category: 'RESIDENCIAL' as const,
-    location: 'Buenos Aires, Argentina',
+    location: 'Escobar, Buenos Aires',
     meta: '2024 · 280 m² · Corredizas DVH',
     image: '/obras/casa-patio-norte.webp'
   },
   {
-    title: 'Edificio Libertador',
+    title: 'Casa La inquieta',
     description:
       'Sistema de carpintería técnica con control acústico y terminación premium para fachada continua.',
     category: 'CORPORATIVO' as const,
-    location: 'CABA, Argentina',
+    location: 'Escobar, Buenos Aires',
     meta: '2024 · 1.200 m² · Carpintería técnica',
     image: '/obras/edificio-libertador.webp'
   },
@@ -50,10 +50,10 @@ const metrics = [
 
 export default function NuestrasObrasPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 pt-32 text-white">
+    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 text-white">
       <ProfessionalHeader />
 
-      <section className="mx-auto max-w-7xl px-6 md:px-10">
+      <section className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
         <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#D4AF6F]">PORTFOLIO · 4 PROYECTOS</p>
         <h1 className="text-4xl font-bold md:text-6xl">Nuestras obras</h1>
         <p className="mt-4 max-w-3xl text-lg text-[#d2e0f2]">
