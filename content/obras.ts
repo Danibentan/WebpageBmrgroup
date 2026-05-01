@@ -40,7 +40,7 @@ export const obras: Obra[] = [
     image: '/obras/edificio-libertador.webp',
     detailDescription:
       'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
-    gallery: ['/obras/edificio-libertador.webp', '/obras/casa-patio-norte.webp', '/obras/oficinas-costanera.webp', '/obras/casa-bosque-sur.webp']
+    gallery: []
   },
   {
     slug: 'oficinas-costanera',
@@ -51,7 +51,7 @@ export const obras: Obra[] = [
     meta: '2023 · 850 m² · Aberturas hermético',
     image: '/obras/oficinas-costanera.webp',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
-    gallery: ['/obras/oficinas-costanera.webp', '/obras/edificio-libertador.webp', '/obras/casa-patio-norte.webp', '/obras/casa-bosque-sur.webp']
+    gallery: []
   },
   {
     slug: 'casa-bosque-sur',
@@ -62,6 +62,6 @@ export const obras: Obra[] = [
     meta: '2024 · 420 m² · Paños fijos panorámicos',
     image: '/obras/casa-bosque-sur.webp',
     detailDescription: 'Se instalaron paños panorámicos y puertas ventana para ampliar vistas, mejorar iluminación natural y reforzar el vínculo con el entorno.',
-    gallery: ['/obras/casa-bosque-sur.webp', '/obras/casa-patio-norte.webp', '/obras/edificio-libertador.webp', '/obras/oficinas-costanera.webp']
+    gallery: []
   }
 ];
