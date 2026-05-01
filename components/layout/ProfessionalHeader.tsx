@@ -19,6 +19,7 @@ export function ProfessionalHeader() {
   const navRef = useRef<HTMLElement | null>(null);
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isHome = pathname === '/';
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
@@ -66,8 +67,14 @@ export function ProfessionalHeader() {
   const isActiveLink = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="relative w-full border-b border-[#D4AF6F]/10 bg-[var(--bg-primary)] px-4 py-[22px] md:px-10">
-      <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex w-full max-w-7xl items-center justify-between">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 h-[var(--nav-height)] w-full border-b px-4 md:px-10 ${
+        isHome
+          ? 'border-white/10 bg-gradient-to-b from-[#102d49]/80 via-[#163857]/45 to-transparent backdrop-blur-[6px]'
+          : 'border-[#D4AF6F]/10 bg-[var(--bg-primary)]/95 backdrop-blur-md'
+      }`}
+    >
+      <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex h-full w-full max-w-7xl items-center justify-between">
         <div className="site-nav-logo">
           <span className="md:hidden">
             <Logo compact />
