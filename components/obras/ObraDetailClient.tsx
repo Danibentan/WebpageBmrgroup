@@ -2,15 +2,18 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { Lightbox } from '@/components/Lightbox';
 
 type ObraDetailClientProps = {
   title: string;
   description: string;
   gallery: string[];
+  aspectRatio?: string;
 };
 
-export function ObraDetailClient({ title, description, gallery }: ObraDetailClientProps) {
+export function ObraDetailClient({ title, description, gallery, aspectRatio = '16 / 10' }: ObraDetailClientProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const currentImage = gallery[activeIndex] ?? '/products/bmr-product-placeholder.svg';
 
   const prev = () => setActiveIndex((prevIndex) => (prevIndex - 1 + gallery.length) % gallery.length);
@@ -19,8 +22,17 @@ export function ObraDetailClient({ title, description, gallery }: ObraDetailClie
   return (
     <section className="mx-auto max-w-6xl px-6 pb-16 pt-10 md:px-10">
       <div className="overflow-hidden rounded-2xl border border-[#D4AF6F]/30 bg-[var(--bg-elevated-1)]/60">
-        <div className="relative aspect-[16/9]">
-          <Image src={currentImage} alt={`${title} - imagen ${activeIndex + 1}`} fill className="object-cover" />
+        <button
+          type="button"
+          className="relative block w-full cursor-zoom-in overflow-hidden"
+          style={{ aspectRatio }}
+          onClick={() => setIsLightboxOpen(true)}
+          aria-label={`Abrir imagen ${activeIndex + 1} en pantalla completa`}
+        >
+          <Image src={currentImage} alt={`${title} - imagen ${activeIndex + 1}`} fill sizes="(max-width: 768px) 100vw, 1200px" className="object-cover object-center" />
+        </button>
+        <div className="sr-only" aria-live="polite">
+          Imagen {activeIndex + 1} de {gallery.length}
         </div>
 
         <div className="flex items-center justify-between gap-3 border-t border-[#D4AF6F]/20 px-4 py-4 md:px-6">
@@ -40,7 +52,16 @@ export function ObraDetailClient({ title, description, gallery }: ObraDetailClie
         <h1 className="font-editorial text-4xl text-white md:text-5xl">{title}</h1>
         <p className="mt-4 max-w-4xl text-lg text-[#d2e0f2]">{description}</p>
       </article>
+
+      <Lightbox
+        images={gallery.map((src, index) => ({
+          src,
+          alt: `${title} - imagen ${index + 1}`
+        }))}
+        initialIndex={activeIndex}
+        isOpen={isLightboxOpen}
+        onClose={() => setIsLightboxOpen(false)}
+      />
     </section>
   );
 }
-
