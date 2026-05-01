@@ -10,7 +10,7 @@ type InfiniteMarqueeProps = {
   className?: string;
 };
 
-const defaultWords = ['ABERTURAS', 'ALUMINIO', 'PVC', 'COLOCACION', 'BMR', 'GROUP', 'ARGENTINA', 'OBRAS RESINDECIALES', 'PRESPUESTO A MEDIDA', 'ESPEJOS'];
+const defaultWords = ['COMANDAS', 'STOCK', 'NOVA ERP', 'FACTURACIÓN', 'INSUMOS', 'RECETAS', 'CAJA', 'REPORTES', 'MULTI-LOCAL', 'ARCA'];
 
 function buildMarqueeText(words: string[]) {
   return words.join(' · ');
@@ -18,12 +18,12 @@ function buildMarqueeText(words: string[]) {
 
 export function InfiniteMarquee({
   words = defaultWords,
-  speed = 50,
+  speed = 40,
   pauseOnHover = true,
   fadeWidth = 15,
   className
 }: InfiniteMarqueeProps) {
-  const safeSpeed = Number.isFinite(speed) && speed > 0 ? speed : 50;
+  const safeSpeed = Number.isFinite(speed) && speed > 0 ? speed : 40;
   const responsiveFade = `clamp(10%, ${fadeWidth}%, ${fadeWidth}%)`;
   const text = buildMarqueeText(words);
 
