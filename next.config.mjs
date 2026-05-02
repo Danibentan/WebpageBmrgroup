@@ -9,9 +9,8 @@ const nextConfig = {
       { source: '/quienes-somos.html', destination: '/quienes-somos', permanent: true },
       { source: '/tienda.html', destination: '/tienda', permanent: true },
       { source: '/nuestras-obras.html', destination: '/nuestras-obras', permanent: true },
-      { source: '/nuestras-obras/Oficina%20Corporativa', destination: '/nuestras-obras/oficinas-costanera', permanent: true },
-      { source: '/nuestras-obras/Oficina-Corporativa', destination: '/nuestras-obras/oficinas-costanera', permanent: true },
-      { source: '/nuestras-obras/oficina-corporativa', destination: '/nuestras-obras/oficinas-costanera', permanent: true },
+      { source: '/nuestras-obras/Oficina%20Corporativa', destination: '/nuestras-obras/oficina-corporativa', permanent: true },
+      { source: '/nuestras-obras/Oficina-Corporativa', destination: '/nuestras-obras/oficina-corporativa', permanent: true },
       { source: '/contacto.html', destination: '/contacto', permanent: true },
       { source: '/catalogo.html', destination: '/catalogo', permanent: true },
       { source: '/marcas.html', destination: '/categorias', permanent: true }
