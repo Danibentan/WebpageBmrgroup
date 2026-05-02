@@ -36,13 +36,13 @@ export function ObraDetailClient({ title, description, gallery, aspectRatio = '1
         </div>
 
         <div className="flex items-center justify-between gap-3 border-t border-[#D4AF6F]/20 px-4 py-4 md:px-6">
-          <button type="button" onClick={prev} className="rounded-full border border-[#D4AF6F]/50 px-4 py-2 text-sm font-semibold text-[#D4AF6F] hover:bg-[#D4AF6F]/10">
+          <button type="button" onClick={prev} className="liquid-glass-btn rounded-full px-4 py-2 text-sm font-semibold text-[var(--bmr-slate)]">
             Anterior
           </button>
           <p className="text-sm text-white/80">
             {activeIndex + 1} / {gallery.length}
           </p>
-          <button type="button" onClick={next} className="rounded-full border border-[#D4AF6F]/50 px-4 py-2 text-sm font-semibold text-[#D4AF6F] hover:bg-[#D4AF6F]/10">
+          <button type="button" onClick={next} className="liquid-glass-btn rounded-full px-4 py-2 text-sm font-semibold text-[var(--bmr-slate)]">
             Siguiente
           </button>
         </div>
