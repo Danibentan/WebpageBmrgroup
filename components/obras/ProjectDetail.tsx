@@ -33,7 +33,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
     <main ref={rootRef} className="min-h-screen bg-[var(--bg-primary)] pb-16 text-white">
       <ProfessionalHeader />
       <section className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 pt-12 md:px-10 md:pt-16">
-        <Link href="/nuestras-obras" className="project-back-link inline-flex items-center gap-2 text-sm font-semibold text-[#D4AF6F] hover:text-[#e0be82]">
+        <Link href="/nuestras-obras" className="project-back-link inline-flex items-center gap-2 text-sm font-semibold text-[var(--bmr-gold)] hover:text-[#f0cc8f]">
           ← Volver a Nuestras obras
         </Link>
       </section>
@@ -41,7 +41,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
       <section className="mx-auto max-w-6xl px-6 md:px-10">
         <div className="project-intro mt-3">
           <h1 className="font-editorial text-4xl text-white md:text-5xl">{project.title}</h1>
-          <p className="mt-2 text-sm uppercase tracking-[0.24em] text-[#D4AF6F]">{project.meta}</p>
+          <p className="mt-2 text-sm uppercase tracking-[0.24em] text-[var(--bmr-gold)]">{project.meta}</p>
         </div>
 
         <div className="project-media mt-6">
@@ -52,7 +52,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               <ProjectComingSoon projectName={project.title} />
               <article className="mt-8 rounded-2xl border border-white/10 bg-[var(--bg-elevated-1)]/40 p-6">
                 <h2 className="font-editorial text-3xl text-white md:text-4xl">{project.title}</h2>
-                <p className="mt-4 max-w-4xl text-lg text-[#d2e0f2]">{project.detailDescription}</p>
+                <p className="mt-4 max-w-4xl text-lg text-[var(--bmr-silver)]">{project.detailDescription}</p>
               </article>
             </div>
           )}

@@ -1,3 +1,5 @@
+import { getPublicGalleryPaths } from '@/lib/publicGallery';
+
 export type Obra = {
   slug: string;
   title: string;
@@ -18,14 +20,13 @@ export const obras: Obra[] = [
     category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
     meta: '2024 · 280 m² · Corredizas DVH',
-    image: '/obras/casa-la-serena-1.jpg',
+    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
     detailDescription:
       'Se ejecutó un sistema integral de aberturas corredizas de gran formato, priorizando entrada de luz natural, continuidad visual interior-exterior y alta prestación térmica/acústica.',
     gallery: [
-      '/obras/casa-la-serena-1.jpg',
-      '/obras/casa-la-serena-2.jpg',
-      '/obras/casa-la-serena-3.jpg',
-      '/obras/casa-la-serena-4.jpg',
+      '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
+      '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
+      '/obras/46fe44fd-bde7-4609-a812-4fbbfd407ab8.JPG',
       '/obras/casa-la-serena-5.jpg',
       '/obras/casa-la-serena-6.jpg'
     ]
@@ -41,34 +42,38 @@ export const obras: Obra[] = [
     detailDescription:
       'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
     gallery: [  
-      '/obras/casa-la-inquieta-1.jpg',
-      '/obras/casa-la-inquieta-2.jpg',
-      '/obras/casa-la-inquieta-3.jpg',
-      '/obras/casa-la-inquieta-4.jpg',
-      '/obras/casa-la-inquieta-5.jpg',
-      '/obras/casa-la-inquieta-6.jpg'
+      '/obras/la-inquieta-1.jpg',
+      '/obras/la-inquieta-2.jpg',
+      '/obras/la-inquieta-3.jpg',
+      '/obras/la-inquieta-4.jpg',
+      '/obras/la-inquieta-5.jpg',
+      '/obras/la-inquieta-6.jpg'
      ]
   },
   {
-    slug: 'oficinas-costanera',
-    title: 'Oficinas Costanera',
+    slug: 'oficina-corporativa',
+    title: 'Oficinas Corporativa',
     description: 'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
     category: 'CORPORATIVO',
-    location: 'Vicente López, Buenos Aires',
-    meta: '2023 · 850 m² · Aberturas hermético',
-    image: '/obras/oficinas-costanera.webp',
+    location: 'Tigre, Buenos Aires',
+    meta: '2025 · 850 m² · Aberturas hermético',
+    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
-    gallery: []
+    gallery: [
+      '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
+      '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
+      '/obras/46fe44fd-bde7-4609-a812-4fbbfd407ab8.JPG'
+    ]
   },
   {
-    slug: 'casa-bosque-sur',
-    title: 'Casa Bosque Sur',
-    description: 'Puertas ventana y paños fijos panorámicos para integración interior-exterior.',
+    slug: 'obras-varias',
+    title: 'Obras Varias',
+    description: 'Trabajos varios de aluminio/pvc/Acristalamiento en distintas obras.',
     category: 'RESIDENCIAL',
-    location: 'Bariloche, Río Negro',
-    meta: '2024 · 420 m² · Paños fijos panorámicos',
-    image: '/obras/casa-bosque-sur.webp',
-    detailDescription: 'Se instalaron paños panorámicos y puertas ventana para ampliar vistas, mejorar iluminación natural y reforzar el vínculo con el entorno.',
-    gallery: []
+    location: 'Buenos aires',
+    meta: 'Trabajos varios',
+    image: '/obras/obras-varias/cover.webp',
+    detailDescription: 'Selección de trabajos realizados en distintas obras: paños fijos, puertas ventana, ventanas y cerramientos.',
+    gallery: getPublicGalleryPaths('obras/obras-varias', { exclude: ['cover.webp'] })
   }
 ];
