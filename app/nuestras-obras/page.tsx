@@ -17,9 +17,9 @@ export default function NuestrasObrasPage() {
       <ProfessionalHeader />
 
       <section className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
-        <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#D4AF6F]">PORTFOLIO · 4 PROYECTOS</p>
-        <h1 className="text-4xl font-bold md:text-6xl">Nuestras obras</h1>
-        <p className="mt-4 max-w-3xl text-lg text-[#d2e0f2]">
+        <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[var(--bmr-gold)]">PORTFOLIO · 4 PROYECTOS</p>
+        <h1 className="font-editorial text-4xl md:text-6xl">Nuestras obras</h1>
+        <p className="mt-4 max-w-3xl text-lg text-[var(--bmr-silver)]">
           Explorá una selección de proyectos residenciales y corporativos donde combinamos diseño minimalista, aislación térmica y precisión técnica.
         </p>
 
@@ -34,7 +34,7 @@ export default function NuestrasObrasPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 md:grid-cols-4 md:px-10">
           {metrics.map((metric) => (
             <article key={metric.label} className="text-center">
-              <p className="font-editorial text-4xl text-[#D4AF6F] md:text-5xl">{metric.value}</p>
+              <p className="font-editorial text-4xl text-[var(--bmr-gold)] md:text-5xl">{metric.value}</p>
               <p className="mt-3 text-sm text-white/80">{metric.label}</p>
             </article>
           ))}
@@ -43,10 +43,10 @@ export default function NuestrasObrasPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-20 text-center md:px-10">
         <h2 className="font-editorial text-4xl text-white md:text-6xl">¿Tu proyecto es el próximo?</h2>
-        <p className="mx-auto mt-4 max-w-2xl text-[#d2e0f2]">Coordinamos una visita técnica sin cargo en CABA y GBA.</p>
+        <p className="mx-auto mt-4 max-w-2xl text-[var(--bmr-silver)]">Coordinamos una visita técnica sin cargo en CABA y GBA.</p>
         <Link
           href="/contacto"
-          className="mt-8 inline-flex rounded-full bg-[#D4AF6F] px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#0f2745] transition hover:bg-[#e0be82]"
+          className="liquid-glass-btn mt-8 inline-flex rounded-full px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--bmr-slate)]"
         >
           Solicitar visita técnica
         </Link>
