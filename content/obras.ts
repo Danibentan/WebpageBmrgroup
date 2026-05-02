@@ -1,3 +1,5 @@
+import { getPublicGalleryPaths } from '@/lib/publicGallery';
+
 export type Obra = {
   slug: string;
   title: string;
@@ -56,25 +58,24 @@ export const obras: Obra[] = [
     category: 'CORPORATIVO',
     location: 'Tigre, Buenos Aires',
     meta: '2025 · 850 m² · Aberturas hermético',
-    image: '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
+    image: '/obras/casa-la-serena-1.jpg',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
     gallery: [
-      '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
-      '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
-      '/obras/46fe44fd-bde7-4609-a812-4fbbfd407ab8.JPG',
-      '/obras/e4c1855e-fbc3-465a-8ffd-a4beb32860cf.JPG'
-
+      '/obras/casa-la-serena-1.jpg',
+      '/obras/casa-la-serena-2.jpg',
+      '/obras/casa-la-serena-3.jpg',
+      '/obras/casa-la-serena-4.jpg'
     ]
   },
   {
-    slug: 'casa-boseque-sur',
-    title: 'Casa Bosque Sur',
-    description: 'Puertas ventana y paños fijos panorámicos para integración interior-exterior.',
+    slug: 'obras-varias',
+    title: 'Obras Varias',
+    description: 'Trabajos varios de aluminio/pvc/Acristalamiento en distintas obras.',
     category: 'RESIDENCIAL',
-    location: 'Bariloche, Río Negro',
-    meta: '2024 · 420 m² · Paños fijos panorámicos',
-    image: '/obras/casa-bosque-sur.webp',
-    detailDescription: 'Se instalaron paños panorámicos y puertas ventana para ampliar vistas, mejorar iluminación natural y reforzar el vínculo con el entorno.',
-    gallery: []
+    location: 'Buenos aires',
+    meta: 'Trabajos varios',
+    image: '/obras/obras-varias/cover.webp',
+    detailDescription: 'Selección de trabajos realizados en distintas obras: paños fijos, puertas ventana, ventanas y cerramientos.',
+    gallery: getPublicGalleryPaths('obras/obras-varias', { exclude: ['cover.webp'] })
   }
 ];
