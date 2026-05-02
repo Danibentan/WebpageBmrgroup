@@ -44,11 +44,17 @@ export function HomePageClient() {
 
       <section id="nuestras-obras" className="mx-auto max-w-7xl px-6 pb-8">
         <div className="space-y-10">
-          {caseStudies.map((item) => (
+          {caseStudies.map((item) => {
+            const isCorporateCard = item.id === '02';
+            const href = isCorporateCard ? '/nuestras-obras/oficina-corporativa' : '/nuestras-obras';
+            const ariaLabel = isCorporateCard ? 'Ver obra Oficinas Corporativa' : `Ver sección ${item.title}`;
+
+            return (
             <Link
               key={item.id}
-              href="/nuestras-obras"
-              className="case-study-row block opacity-100 rounded-2xl border border-[var(--bmr-border)] bg-[linear-gradient(135deg,var(--bg-elevated-2)_0%,var(--bg-elevated-1)_100%)] p-6 transition hover:border-[var(--bmr-gold)]/60 md:p-10"
+              href={href}
+              aria-label={ariaLabel}
+              className="case-study-row block cursor-pointer opacity-100 rounded-2xl border border-[var(--bmr-border)] bg-[linear-gradient(135deg,var(--bg-elevated-2)_0%,var(--bg-elevated-1)_100%)] p-6 transition duration-300 hover:-translate-y-[2px] hover:border-[var(--bmr-gold)]/60 hover:shadow-[0_14px_30px_rgba(42,36,24,0.12)] md:p-10"
             >
               <article>
                 <div className="grid gap-8 md:grid-cols-[120px,1fr]">
@@ -61,7 +67,8 @@ export function HomePageClient() {
                 </div>
               </article>
             </Link>
-          ))}
+          );
+          })}
         </div>
       </section>
 
