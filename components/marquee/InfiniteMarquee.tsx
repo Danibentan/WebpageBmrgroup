@@ -10,7 +10,7 @@ type InfiniteMarqueeProps = {
   className?: string;
 };
 
-const defaultWords = ['ABERTURAS', 'CERRAMIENTOS', 'VENTA', 'COLOCACION EN OBRA', 'CRISTALERIA', 'BMR', 'GROUP', 'ARGENTINA', '', ''];
+const defaultWords = ['COMANDAS', 'STOCK', 'NOVA ERP', 'FACTURACIÓN', 'INSUMOS', 'RECETAS', 'CAJA', 'REPORTES', 'MULTI-LOCAL', 'ARCA'];
 
 function buildMarqueeText(words: string[]) {
   return words.join(' · ');
