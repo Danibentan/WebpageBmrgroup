@@ -6,9 +6,9 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          DEFAULT: "#223D5A",
-          elevated: "#2C4A6B",
-          deep: "#182E47"
+          DEFAULT: "#1c3551",
+          elevated: "#264564",
+          deep: "#142b44"
         }
       }
     }
