@@ -17,8 +17,6 @@ export const contactInfo = {
   social: {
     instagramLabel: '@bmrgroupargentina',
     instagramHref: 'https://instagram.com/bmrgroupargentina',
-    facebookLabel: '',
-    facebookHref: '',
     emailLabel: 'panamericanglass@gmail.com',
     emailHref: 'mailto:panamericanglass@gmail.com'
   }
