@@ -17,8 +17,8 @@ type ContactInfo = {
   social: {
     instagramLabel: string;
     instagramHref: string;
-    facebookLabel: string;
-    facebookHref: string;
+    facebookLabel?: string;
+    facebookHref?: string;
     emailLabel: string;
     emailHref: string;
   };

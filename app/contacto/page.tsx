@@ -170,9 +170,11 @@ export default function ContactoPage() {
               <a className="flex items-center gap-2 transition hover:text-[#D4AF6F]" href={contactInfo.social.instagramHref} target="_blank" rel="noopener noreferrer">
                 <Instagram size={14} className="text-[#D4AF6F]" /> Instagram · {contactInfo.social.instagramLabel}
               </a>
-              <a className="flex items-center gap-2 transition hover:text-[#D4AF6F]" href={contactInfo.social.facebookHref} target="_blank" rel="noopener noreferrer">
-                <Facebook size={14} className="text-[#D4AF6F]" /> Facebook · {contactInfo.social.facebookLabel}
-              </a>
+              {contactInfo.social.facebookHref && contactInfo.social.facebookLabel ? (
+                <a className="flex items-center gap-2 transition hover:text-[#D4AF6F]" href={contactInfo.social.facebookHref} target="_blank" rel="noopener noreferrer">
+                  <Facebook size={14} className="text-[#D4AF6F]" /> Facebook · {contactInfo.social.facebookLabel}
+                </a>
+              ) : null}
               <a className="flex items-center gap-2 transition hover:text-[#D4AF6F]" href={contactInfo.social.emailHref}>
                 <Mail size={14} className="text-[#D4AF6F]" /> Mail · {contactInfo.social.emailLabel}
               </a>
