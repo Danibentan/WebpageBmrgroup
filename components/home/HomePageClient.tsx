@@ -90,27 +90,27 @@ export function HomePageClient() {
 
       {isContactModalOpen && (
         <div className="fixed inset-0 z-[80] flex items-center justify-center bg-[#061325]/70 p-4 backdrop-blur-sm">
-          <div className="w-full max-w-xl rounded-2xl border border-[#7d9cc1]/40 bg-[#0f2c4c] p-6 md:p-8">
+          <div className="w-full max-w-xl rounded-2xl border border-[var(--bmr-border)] bg-[var(--bg-primary)] p-6 md:p-8">
             <div className="mb-5 flex items-center justify-between">
-              <h4 className="text-2xl font-semibold text-[var(--bmr-slate)] md:text-3xl">Contacto corporativo</h4>
-              <button type="button" onClick={() => setIsContactModalOpen(false)} className="rounded-md px-2 py-1 text-[var(--bmr-slate)]/70 hover:bg-white/10 hover:text-[var(--bmr-slate)]">
+              <h4 className="text-2xl font-semibold text-[#1a1a1a] md:text-3xl">Contacto corporativo</h4>
+              <button type="button" onClick={() => setIsContactModalOpen(false)} className="rounded-md px-2 py-1 text-[#1a1a1a]/70 hover:bg-black/5 hover:text-[#1a1a1a]">
                 ✕
               </button>
             </div>
 
             <form className="space-y-4">
-              <label className="block text-sm text-[var(--bmr-slate)]/85">
+              <label className="block text-sm text-[#1a1a1a]/85">
                 Nombre De empresa
                 <input
                   type="text"
-                  className="mt-2 w-full rounded-lg border border-white/25 bg-transparent px-3 py-2 text-[var(--bmr-slate)] placeholder:text-[var(--bmr-slate)]/45 focus:border-[#c9a961] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-black/20 bg-transparent px-3 py-2 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:border-[#c9a961] focus:outline-none"
                   placeholder="Ingresá el nombre de la empresa"
                 />
               </label>
 
-              <label className="block text-sm text-[var(--bmr-slate)]/85">
+              <label className="block text-sm text-[#1a1a1a]/85">
                 SI son constructoras,arquitectos, corporativos,otros
-                <select className="mt-2 w-full rounded-lg border border-white/25 bg-[#0f2c4c] px-3 py-2 text-[var(--bmr-slate)] focus:border-[#c9a961] focus:outline-none">
+                <select className="mt-2 w-full rounded-lg border border-black/20 bg-[var(--bg-primary)] px-3 py-2 text-[#1a1a1a] focus:border-[#c9a961] focus:outline-none">
                   <option>Constructoras</option>
                   <option>Arquitectos</option>
                   <option>Corporativos</option>
@@ -118,17 +118,17 @@ export function HomePageClient() {
                 </select>
               </label>
 
-              <label className="block text-sm text-[var(--bmr-slate)]/85">
+              <label className="block text-sm text-[#1a1a1a]/85">
                 Mail
                 <input
                   type="email"
-                  className="mt-2 w-full rounded-lg border border-white/25 bg-transparent px-3 py-2 text-[var(--bmr-slate)] placeholder:text-[var(--bmr-slate)]/45 focus:border-[#c9a961] focus:outline-none"
+                  className="mt-2 w-full rounded-lg border border-black/20 bg-transparent px-3 py-2 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:border-[#c9a961] focus:outline-none"
                   placeholder="nombre@empresa.com"
                 />
               </label>
 
               <div className="pt-2">
-                <button type="button" onClick={() => setIsContactModalOpen(false)} className="inline-flex rounded-full bg-[var(--bmr-gold)] px-6 py-2 text-sm font-semibold text-[var(--bmr-slate)] transition hover:bg-[#d4b876]">
+                <button type="button" onClick={() => setIsContactModalOpen(false)} className="inline-flex rounded-full bg-[var(--bmr-gold)] px-6 py-2 text-sm font-semibold text-[#1a1a1a] transition hover:bg-[#d4b876]">
                   Enviar
                 </button>
               </div>
