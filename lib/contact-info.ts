@@ -1,4 +1,30 @@
-export const contactInfo = {
+type ContactInfo = {
+  commercial: {
+    phonePrimaryDisplay: string;
+    phoneSecondaryDisplay: string;
+    phonePrimaryHref: string;
+    phoneSecondaryHref: string;
+    scheduleWeekdays: string;
+    scheduleSaturday: string;
+  };
+  whatsapp: {
+    href: string;
+  };
+  location: {
+    label: string;
+    mapsHref: string;
+  };
+  social: {
+    instagramLabel: string;
+    instagramHref: string;
+    facebookLabel?: string;
+    facebookHref?: string;
+    emailLabel: string;
+    emailHref: string;
+  };
+};
+
+export const contactInfo: ContactInfo = {
   commercial: {
     phonePrimaryDisplay: '+54 9 11 6525 3473',
     phoneSecondaryDisplay: '+54 9 11 2754 1214',
@@ -22,4 +48,4 @@ export const contactInfo = {
     emailLabel: 'info@bmrgroup.com.ar',
     emailHref: 'mailto:info@bmrgroup.com.ar'
   }
-} as const;
+};

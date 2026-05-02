@@ -1,3 +1,5 @@
+import { getPublicGalleryPaths } from '@/lib/publicGallery';
+
 export type Obra = {
   slug: string;
   title: string;
@@ -41,34 +43,39 @@ export const obras: Obra[] = [
     detailDescription:
       'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
     gallery: [  
-      '/obras/casa-la-inquieta-1.jpg',
-      '/obras/casa-la-inquieta-2.jpg',
-      '/obras/casa-la-inquieta-3.jpg',
-      '/obras/casa-la-inquieta-4.jpg',
-      '/obras/casa-la-inquieta-5.jpg',
-      '/obras/casa-la-inquieta-6.jpg'
+      '/obras/la-inquieta-1.jpg',
+      '/obras/la-inquieta-2.jpg',
+      '/obras/la-inquieta-3.jpg',
+      '/obras/la-inquieta-4.jpg',
+      '/obras/la-inquieta-5.jpg',
+      '/obras/la-inquieta-6.jpg'
      ]
   },
   {
-    slug: 'oficinas-costanera',
-    title: 'Oficinas Costanera',
+    slug: 'oficina-corporativa',
+    title: 'Oficinas Corporativa',
     description: 'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
     category: 'CORPORATIVO',
-    location: 'Vicente López, Buenos Aires',
-    meta: '2023 · 850 m² · Aberturas hermético',
-    image: '/obras/oficinas-costanera.webp',
+    location: 'Tigre, Buenos Aires',
+    meta: '2025 · 850 m² · Aberturas hermético',
+    image: '/obras/casa-la-serena-1.jpg',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
-    gallery: []
+    gallery: [
+      '/obras/casa-la-serena-1.jpg',
+      '/obras/casa-la-serena-2.jpg',
+      '/obras/casa-la-serena-3.jpg',
+      '/obras/casa-la-serena-4.jpg'
+    ]
   },
   {
-    slug: 'casa-bosque-sur',
-    title: 'Casa Bosque Sur',
-    description: 'Puertas ventana y paños fijos panorámicos para integración interior-exterior.',
+    slug: 'obras-varias',
+    title: 'Obras Varias',
+    description: 'Trabajos varios de aluminio/pvc/Acristalamiento en distintas obras.',
     category: 'RESIDENCIAL',
-    location: 'Bariloche, Río Negro',
-    meta: '2024 · 420 m² · Paños fijos panorámicos',
-    image: '/obras/casa-bosque-sur.webp',
-    detailDescription: 'Se instalaron paños panorámicos y puertas ventana para ampliar vistas, mejorar iluminación natural y reforzar el vínculo con el entorno.',
-    gallery: []
+    location: 'Buenos aires',
+    meta: 'Trabajos varios',
+    image: '/obras/obras-varias/cover.webp',
+    detailDescription: 'Selección de trabajos realizados en distintas obras: paños fijos, puertas ventana, ventanas y cerramientos.',
+    gallery: getPublicGalleryPaths('obras/obras-varias', { exclude: ['cover.webp'] })
   }
 ];
