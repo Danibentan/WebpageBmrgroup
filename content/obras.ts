@@ -58,13 +58,12 @@ export const obras: Obra[] = [
     category: 'CORPORATIVO',
     location: 'Tigre, Buenos Aires',
     meta: '2025 · 850 m² · Aberturas hermético',
-    image: '/obras/casa-la-serena-1.jpg',
+    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
     detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
     gallery: [
-      '/obras/casa-la-serena-1.jpg',
-      '/obras/casa-la-serena-2.jpg',
-      '/obras/casa-la-serena-3.jpg',
-      '/obras/casa-la-serena-4.jpg'
+      '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
+      '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
+      '/obras/46fe44fd-bde7-4609-a812-4fbbfd407ab8.JPG',
     ]
   },
   {
