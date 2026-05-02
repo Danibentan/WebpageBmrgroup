@@ -8,7 +8,7 @@ export const contactInfo = {
     scheduleSaturday: 'Sábados · 09:30 a 13:00'
   },
   whatsapp: {
-    href: 'https://wa.me/5491165253473?text=Hola%2C%20bmr group me%20interesa%20cotizar%20aberturas%20'
+    href: 'https://wa.me/5491165253473?text=Hola%2C%20bmrgroupme%20interesa%20cotizar%20aberturas%20'
   },
   location: {
     label: 'Colectora Este Ramal Escobar 1871 ramal, B1625 Belén de Escobar, Provincia de Buenos Aires',
@@ -16,7 +16,7 @@ export const contactInfo = {
   },
   social: {
     instagramLabel: '@bmrgroupargentina',
-    instagramHref: 'https://instagram.com/bmrgroupargentina',
+    instagramHref: 'https://www.instagram.com/bmrgroupar',
     emailLabel: 'panamericanglass@gmail.com',
     emailHref: 'mailto:panamericanglass@gmail.com'
   }
