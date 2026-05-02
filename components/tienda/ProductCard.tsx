@@ -1,8 +1,6 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, ShoppingBag } from 'lucide-react';
 
@@ -18,8 +16,7 @@ const cardVariants = {
   }
 };
 
-export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
-  const [imageError, setImageError] = useState(false);
+export function ProductCard({ product }: { product: Product; priority?: boolean }) {
   const reduceMotion = useReducedMotion();
 
   const priceLabel =
@@ -48,25 +45,13 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         aria-label={`Ver detalles de ${product.name}`}
         className="group block overflow-hidden rounded-t-md transition-colors hover:border-[#c9a961]/40 focus:outline-none focus:ring-2 focus:ring-[#c9a961]/50"
       >
-        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[var(--bg-elevated-1)] to-[var(--bg-elevated-2)]">
-          {!imageError ? (
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              priority={priority}
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-              onError={() => setImageError(true)}
-            />
-          ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--bg-elevated-1)] to-[var(--bg-elevated-2)]" aria-hidden="true" />
-          )}
+        <div className="relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br from-[var(--bg-elevated-1)] to-[var(--bg-elevated-2)]">
+          <p className="font-editorial text-2xl text-[var(--bmr-soft-white)]">Próximamente</p>
         </div>
       </Link>
       <div className="p-4">
-        <h3 className="font-editorial text-base leading-tight text-white">{product.name}</h3>
-        <p className="mb-2 mt-1 text-[10px] text-white/50">{product.description}</p>
+        <h3 className="font-editorial text-base leading-tight text-[var(--bmr-soft-white)]">{product.name}</h3>
+        <p className="mb-2 mt-1 text-[10px] text-[var(--bmr-soft-white)]/50">{product.description}</p>
         <div className="flex items-center justify-between border-t border-white/5 pt-2">
           <span className="font-editorial text-sm text-[#c9a961]">{priceLabel}</span>
           <ArrowRight size={14} className="text-[#c9a961]" />
