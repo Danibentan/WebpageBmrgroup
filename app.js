@@ -298,6 +298,7 @@ function App() {
               </a>
             </div>
           </div>
+          <InfiniteMarquee />
         </section>
 
 
