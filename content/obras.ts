@@ -73,7 +73,7 @@ export const obras: Obra[] = [
     category: 'RESIDENCIAL',
     location: 'Buenos aires',
     meta: 'Trabajos varios',
-    image: '/obras/obras-varias/cover.webp',
+    image: '/obras/obras-varias/frente casa.JPG',
     detailDescription: 'Selección de trabajos realizados en distintas obras: paños fijos, puertas ventana, ventanas y cerramientos.',
     gallery: getPublicGalleryPaths('obras/obras-varias', { exclude: ['cover.webp'] })
   }
