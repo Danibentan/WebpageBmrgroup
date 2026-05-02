@@ -4,11 +4,11 @@ export const contactInfo = {
     phoneSecondaryDisplay: '+54 9 11 2754 1214',
     phonePrimaryHref: 'tel:+5491165253473',
     phoneSecondaryHref: 'tel:+5491127541214',
-    scheduleWeekdays: 'Lunes a Viernes · 09:00 a 18:30',
+    scheduleWeekdays: 'Lunes a Viernes · 08:00 a 17:00',
     scheduleSaturday: 'Sábados · 09:30 a 13:00'
   },
   whatsapp: {
-    href: 'https://wa.me/5491165253473?text=Hola%2C%20me%20interesa%20cotizar%20aberturas%20BMR'
+    href: 'https://wa.me/5491165253473?text=Hola%2C%20bmrgroupme%20interesa%20cotizar%20aberturas%20'
   },
   location: {
     label: 'Colectora Este Ramal Escobar 1871 ramal, B1625 Belén de Escobar, Provincia de Buenos Aires',
@@ -16,10 +16,8 @@ export const contactInfo = {
   },
   social: {
     instagramLabel: '@bmrgroupargentina',
-    instagramHref: 'https://instagram.com/bmrgroupargentina',
-    facebookLabel: 'BMR Group Argentina',
-    facebookHref: 'https://facebook.com',
-    emailLabel: 'info@bmrgroup.com.ar',
-    emailHref: 'mailto:info@bmrgroup.com.ar'
+    instagramHref: 'https://www.instagram.com/bmrgroupar',
+    emailLabel: 'panamericanglass@gmail.com',
+    emailHref: 'mailto:panamericanglass@gmail.com'
   }
 } as const;
