@@ -14,6 +14,7 @@ const normalize = (value: string) =>
 
 const slugAliases: Record<string, string> = {
   'oficina-corporativa': 'oficina-corporativa',
+  'oficinas-corporativa': 'oficina-corporativa',
   'oficinas-corporativas': 'oficina-corporativa',
   'oficinas-costanera': 'oficina-corporativa',
   'oficina-corporativa-bmr': 'oficina-corporativa',
@@ -23,7 +24,7 @@ const slugAliases: Record<string, string> = {
 export default function ObraDetailPage({ params }: { params: { slug: string } }) {
   const requested = normalize(params.slug);
   const resolvedSlug = slugAliases[requested] ?? requested;
-  const obra = obras.find((item) => item.slug === resolvedSlug || normalize(item.title) === resolvedSlug);
+  const obra = obras.find((item) => normalize(item.slug) === resolvedSlug || normalize(item.title) === resolvedSlug);
   if (!obra) notFound();
 
   return <ProjectDetail project={obra} />;
