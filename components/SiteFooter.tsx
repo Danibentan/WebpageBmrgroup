@@ -77,7 +77,7 @@ export function SiteFooter() {
           <div className="text-left text-sm text-white/70 md:text-right">
             <p className="text-xs uppercase tracking-[0.3em] text-[#c9a961]/80">VISITANOS</p>
             <p className="mt-3 font-editorial text-base text-white/80">Escobar, Buenos Aires</p>
-            <p className="mt-1 text-sm text-white/60">Lunes a Viernes · 9 a 18hs</p>
+            <p className="mt-1 text-sm text-white/60">Lunes a Viernes · 08 a 17 hs</p>
           </div>
         </div>
       </div>

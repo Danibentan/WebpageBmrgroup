@@ -19,8 +19,8 @@ export const obras: Obra[] = [
     description: 'Aberturas de gran calidad y porte para generar espacios luminosos aprovechando la luz natural.',
     category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
-    meta: '2025 · 280 m² · Corredizas DVH',
-    image: '/obras/casa-la-serena-1.jpg',
+    meta: '2024 · 280 m² · Corredizas DVH',
+    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
     detailDescription:
       'Se ejecutó un sistema integral de aberturas corredizas de gran formato, priorizando entrada de luz natural, continuidad visual interior-exterior y alta prestación térmica/acústica.',
     gallery: [
