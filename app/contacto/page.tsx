@@ -170,9 +170,11 @@ export default function ContactoPage() {
               <a className="flex items-center gap-2 transition hover:text-[#D4AF6F]" href={contactInfo.social.instagramHref} target="_blank" rel="noopener noreferrer">
                 <Instagram size={14} className="text-[#D4AF6F]" /> Instagram · {contactInfo.social.instagramLabel}
               </a>
-              <a className="flex items-center gap-2 transition hover:text-[#D4AF6F]" href={contactInfo.social.facebookHref} target="_blank" rel="noopener noreferrer">
-                <Facebook size={14} className="text-[#D4AF6F]" /> Facebook · {contactInfo.social.facebookLabel}
-              </a>
+              {contactInfo.social.facebookHref && contactInfo.social.facebookLabel ? (
+                <a className="flex items-center gap-2 transition hover:text-[#D4AF6F]" href={contactInfo.social.facebookHref} target="_blank" rel="noopener noreferrer">
+                  <Facebook size={14} className="text-[#D4AF6F]" /> Facebook · {contactInfo.social.facebookLabel}
+                </a>
+              ) : null}
               <a className="flex items-center gap-2 transition hover:text-[#D4AF6F]" href={contactInfo.social.emailHref}>
                 <Mail size={14} className="text-[#D4AF6F]" /> Mail · {contactInfo.social.emailLabel}
               </a>
@@ -246,7 +248,7 @@ export default function ContactoPage() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 pt-6">
               <h3 className="font-editorial text-3xl text-white">Formulario de asesoramiento</h3>
-              <p className="text-sm text-white/65">Completá tus datos y coordinamos una visita técnica.</p>
+              <p className="text-sm text-[#1a1a1a]">Completá tus datos y coordinamos una visita técnica.</p>
 
               <div className="grid gap-4 md:grid-cols-2">
                 <Field label="Nombre" id="nombre" required>
@@ -260,7 +262,7 @@ export default function ContactoPage() {
               <div className="grid gap-4 md:grid-cols-2">
                 <Field label="Teléfono" id="telefono" required>
                   <div className="flex overflow-hidden rounded-lg border border-white/15 bg-white/5">
-                    <span className="inline-flex items-center border-r border-white/15 px-3 text-sm text-white/70">+54</span>
+                    <span className="inline-flex items-center border-r border-white/15 px-3 text-sm text-[#1a1a1a]">+54</span>
                     <input
                       id="telefono"
                       type="tel"
@@ -268,7 +270,7 @@ export default function ContactoPage() {
                       minLength={8}
                       value={formState.telefono}
                       onChange={(event) => setFormState((prev) => ({ ...prev, telefono: event.target.value }))}
-                      className="w-full bg-transparent px-3 py-3 text-white placeholder:text-white/40 focus:outline-none"
+                      className="w-full bg-transparent px-3 py-3 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:outline-none"
                       placeholder="11 XXXX XXXX"
                     />
                   </div>
@@ -321,7 +323,7 @@ export default function ContactoPage() {
                   rows={4}
                   value={formState.comentarios}
                   onChange={(event) => setFormState((prev) => ({ ...prev, comentarios: event.target.value }))}
-                  className="w-full rounded-lg border border-white/15 bg-white/5 px-3 py-3 text-white placeholder:text-white/40 focus:border-[#D4AF6F] focus:bg-white/10 focus:outline-none"
+                  className="w-full rounded-lg border border-white/15 bg-white/5 px-3 py-3 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:border-[#D4AF6F] focus:bg-white/10 focus:outline-none"
                   placeholder="Contanos brevemente sobre tu proyecto"
                 />
               </Field>
@@ -382,7 +384,7 @@ function Input({
       required
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="w-full rounded-lg border border-white/15 bg-white/5 px-3 py-3 text-white placeholder:text-white/40 focus:border-[#D4AF6F] focus:bg-white/10 focus:outline-none"
+      className="w-full rounded-lg border border-white/15 bg-white/5 px-3 py-3 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:border-[#D4AF6F] focus:bg-white/10 focus:outline-none"
     />
   );
 }
