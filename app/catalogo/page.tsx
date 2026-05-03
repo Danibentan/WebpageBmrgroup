@@ -18,7 +18,7 @@ export default function CatalogoPage() {
       <section className="mx-auto max-w-7xl px-6 pb-10 pt-12 md:px-10 md:pt-16">
         <p className="text-xs uppercase tracking-[0.32em] text-[#D4AF6F]">DOCUMENTACIÓN TÉCNICA</p>
         <h1 className="mt-4 font-editorial text-5xl leading-[0.98] text-[#111111] md:text-7xl">
-          Catálogo <em className="text-[#D4AF6F] not-italic italic">BMR Premium</em>
+          Catálogo
         </h1>
       </section>
 
