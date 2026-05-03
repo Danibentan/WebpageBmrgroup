@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -187,9 +188,9 @@ export function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProp
         type="button"
         aria-label="Cerrar"
         onClick={startCloseAnimation}
-        className="absolute right-4 top-4 z-20 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-black/35 text-2xl text-white hover:bg-black/55 sm:h-11 sm:w-11"
+        className="absolute right-4 top-4 z-20 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-black/70 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.35)] hover:bg-black/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/90 sm:h-11 sm:w-11"
       >
-        ×
+        <X size={24} strokeWidth={2.6} aria-hidden="true" />
       </button>
 
       <button
@@ -197,9 +198,9 @@ export function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProp
         type="button"
         aria-label="Imagen anterior"
         onClick={goPrev}
-        className="absolute left-4 top-1/2 z-20 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/35 text-2xl text-white hover:bg-black/55 sm:h-11 sm:w-11"
+        className="absolute left-4 top-1/2 z-20 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/70 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.35)] hover:bg-black/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/90 sm:h-11 sm:w-11"
       >
-        ←
+        <ChevronLeft size={24} strokeWidth={2.6} aria-hidden="true" />
       </button>
 
       <button
@@ -207,9 +208,9 @@ export function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProp
         type="button"
         aria-label="Imagen siguiente"
         onClick={goNext}
-        className="absolute right-4 top-1/2 z-20 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/35 text-2xl text-white hover:bg-black/55 sm:h-11 sm:w-11"
+        className="absolute right-4 top-1/2 z-20 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/70 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.35)] hover:bg-black/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/90 sm:h-11 sm:w-11"
       >
-        →
+        <ChevronRight size={24} strokeWidth={2.6} aria-hidden="true" />
       </button>
 
       <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4">
