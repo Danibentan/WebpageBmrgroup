@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Instagram, MapPin } from 'lucide-react';
+import { InfiniteMarquee } from '@/components/marquee/InfiniteMarquee';
 
 const logoPath = '/logo/bmr-logo.svg';
 
