@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
+import { InfiniteMarquee } from '@/components/marquee/InfiniteMarquee';
 
 const caseStudies = [
   {
