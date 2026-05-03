@@ -36,21 +36,21 @@ export function ObraDetailClient({ title, description, gallery, aspectRatio = '1
         </div>
 
         <div className="flex items-center justify-between gap-3 border-t border-[#D4AF6F]/20 px-4 py-4 md:px-6">
-          <button type="button" onClick={prev} className="rounded-full border border-[#D4AF6F]/50 px-4 py-2 text-sm font-semibold text-[#D4AF6F] hover:bg-[#D4AF6F]/10">
+          <button type="button" onClick={prev} className="liquid-glass-btn rounded-full px-4 py-2 text-sm font-semibold text-[var(--bmr-slate)]">
             Anterior
           </button>
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-[#111111]">
             {activeIndex + 1} / {gallery.length}
           </p>
-          <button type="button" onClick={next} className="rounded-full border border-[#D4AF6F]/50 px-4 py-2 text-sm font-semibold text-[#D4AF6F] hover:bg-[#D4AF6F]/10">
+          <button type="button" onClick={next} className="liquid-glass-btn rounded-full px-4 py-2 text-sm font-semibold text-[var(--bmr-slate)]">
             Siguiente
           </button>
         </div>
       </div>
 
       <article className="mt-8 rounded-2xl border border-white/10 bg-[var(--bg-elevated-1)]/40 p-6">
-        <h1 className="font-editorial text-4xl text-white md:text-5xl">{title}</h1>
-        <p className="mt-4 max-w-4xl text-lg text-[#d2e0f2]">{description}</p>
+        <h1 className="font-editorial text-4xl text-[#111111] md:text-5xl">{title}</h1>
+        <p className="mt-4 max-w-4xl text-lg text-[#111111]">{description}</p>
       </article>
 
       <Lightbox
