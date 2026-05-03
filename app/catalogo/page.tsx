@@ -1,188 +1,85 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight, FileText } from 'lucide-react';
 
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 import { catalogPdfChecklist, featuredCatalog, lineCatalogs } from '@/lib/catalogos';
 
-const MAIL_BASE = 'mailto:info@bmrgroup.com.ar';
-
-function buildCatalogMailto(subject: string) {
-  return `${MAIL_BASE}?subject=${encodeURIComponent(subject)}`;
-}
-
-async function openPdfWithFallback(pdfPath: string, fallbackSubject: string) {
-  const fallbackHref = buildCatalogMailto(fallbackSubject);
-
-  try {
-    const response = await fetch(pdfPath, { method: 'HEAD' });
-
-    if (response.ok) {
-      window.open(pdfPath, '_blank', 'noopener,noreferrer');
-      return;
-    }
-  } catch {
-    // Si falla la verificación de archivo, usamos fallback a email.
-  }
-
-  window.location.href = fallbackHref;
-}
+export const metadata: Metadata = {
+  title: 'Catálogo · BMR Group',
+  description: 'Nuestro catálogo técnico está en preparación. Próximamente disponible para descarga.'
+};
 
 export default function CatalogoPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 text-white">
+    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 text-[#111111]">
       <ProfessionalHeader />
 
       <section className="mx-auto max-w-7xl px-6 pb-10 pt-12 md:px-10 md:pt-16">
         <p className="text-xs uppercase tracking-[0.32em] text-[#D4AF6F]">DOCUMENTACIÓN TÉCNICA</p>
-        <h1 className="mt-4 font-editorial text-5xl leading-[0.98] text-white md:text-7xl">
+        <h1 className="mt-4 font-editorial text-5xl leading-[0.98] text-[#111111] md:text-7xl">
           Catálogo <em className="text-[#D4AF6F] not-italic italic">BMR Premium</em>
         </h1>
-        <p className="mt-6 max-w-4xl text-lg leading-relaxed text-white/75">
-          Descargá o solicitá nuestro catálogo actualizado con líneas de producto, medidas estándar, prestaciones técnicas y opciones de
-          terminación.
-        </p>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 md:px-10">
-        <article className="rounded-[14px] border border-[#D4AF6F]/20 bg-[var(--bg-elevated-1)] p-7 md:p-8">
-          <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-            <div className="mx-auto w-full max-w-[320px]">
-              <div
-                className="relative aspect-[3/4] overflow-hidden rounded-[8px] border border-[#D4AF6F]/25 px-6 py-7 shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
-                style={{
-                  background: 'linear-gradient(160deg, #1A2E47, #2C4A6B)',
-                  transform: 'perspective(800px) rotateY(-2deg)',
-                  transformOrigin: 'left center'
-                }}
-                aria-hidden="true"
-              >
-                <span className="absolute inset-y-0 left-0 w-1 bg-[#D4AF6F]" />
-                <p className="text-[11px] uppercase tracking-[0.24em] text-[#D4AF6F]">CATÁLOGO GENERAL</p>
-                <h2 className="mt-6 font-editorial text-4xl leading-tight text-white md:text-5xl">
-                  Aberturas <em className="text-[#D4AF6F] not-italic italic">premium</em>
-                </h2>
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <span className="text-xs uppercase tracking-[0.24em] text-white/70">2026 · ED. 04</span>
-                  <span className="font-editorial text-2xl text-[#D4AF6F]">BMR</span>
-                </div>
-              </div>
-            </div>
+      <section className="mx-auto max-w-4xl px-6 py-20 md:px-10 md:py-[120px]" aria-labelledby="catalogo-proximamente-title">
+        <article className="rounded-[14px] border border-[#D4AF6F]/20 bg-[var(--bg-elevated-1)]/70 px-8 py-12 text-center md:px-14 md:py-16">
+          <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#D4AF6F]/35 bg-[#D4AF6F]/10 text-[#D4AF6F]" aria-hidden="true">
+            <FileText size={20} />
+          </div>
+          <p className="mt-6 text-xs uppercase tracking-[0.32em] text-[#D4AF6F]">EN PREPARACIÓN</p>
+          <h2 id="catalogo-proximamente-title" className="mt-4 font-editorial text-4xl leading-tight text-[#111111] md:text-6xl">
+            Catálogo próximamente disponible
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-[#1F4257] md:text-lg">
+            Estamos finalizando la nueva edición de nuestro catálogo técnico con todas las líneas, prestaciones y opciones de terminación.
+            Muy pronto vas a poder descargarlo.
+          </p>
+          <p className="mt-5 text-sm font-semibold text-[#D4AF6F]">Mientras tanto, podés solicitarlo por contacto directo.</p>
 
-            <div>
-              <span className="inline-flex rounded-full border border-[#D4AF6F]/40 bg-[#D4AF6F]/10 px-4 py-1 text-[11px] uppercase tracking-[0.24em] text-[#D4AF6F]">
-                DESTACADO · NUEVA EDICIÓN
-              </span>
-              <h3 className="mt-4 font-editorial text-4xl text-white md:text-5xl">{featuredCatalog.title}</h3>
-              <p className="mt-4 max-w-3xl text-white/80">{featuredCatalog.description}</p>
-
-              <div className="mt-7 grid grid-cols-1 gap-4 border-y border-white/15 py-5 sm:grid-cols-3">
-                {featuredCatalog.meta.map((meta) => (
-                  <div key={meta.label}>
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/55">{meta.label}</p>
-                    <p className="mt-2 font-editorial text-3xl text-[#D4AF6F]">{meta.value}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <button
-                  type="button"
-                  onClick={() => openPdfWithFallback(featuredCatalog.pdfPath, 'Solicito catalogo general 2026')}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF6F] px-6 py-3 text-sm font-semibold text-[#223D5A] transition hover:bg-[#e3c488] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-elevated-1)]"
-                  aria-label="Descargar catálogo general en PDF, 18 MB"
-                >
-                  <Download size={16} />
-                  <span>Descargar PDF</span>
-                </button>
-                <a
-                  href={buildCatalogMailto('Solicito catalogo impreso')}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D4AF6F]/65 px-6 py-3 text-sm font-semibold text-[#D4AF6F] transition hover:bg-[#D4AF6F]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-elevated-1)]"
-                  aria-label="Solicitar versión impresa del catálogo"
-                >
-                  <span>Versión impresa</span>
-                  <ArrowRight size={16} />
-                </a>
-              </div>
-            </div>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="/contacto"
+              aria-label="Solicitar catálogo por contacto"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF6F] px-6 py-3 text-sm font-semibold text-[#223D5A] transition hover:bg-[#e3c488] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-elevated-1)]"
+            >
+              <span>Solicitar catálogo por contacto</span>
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/nuestras-obras"
+              aria-label="Ver nuestras obras"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D4AF6F]/65 px-6 py-3 text-sm font-semibold text-[#1F4257] transition hover:bg-[#D4AF6F]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-elevated-1)]"
+            >
+              <span>Ver nuestras obras</span>
+            </Link>
           </div>
         </article>
       </section>
 
+      {/* TODO: descomentar cuando esté el catálogo final
+      <section className="mx-auto max-w-7xl px-6 md:px-10">
+        <article className="rounded-[14px] border border-[#D4AF6F]/20 bg-[var(--bg-elevated-1)] p-7 md:p-8">...</article>
+      </section>
+
       <section className="mx-auto mt-14 max-w-7xl px-6 md:px-10">
         <h2 className="font-editorial text-4xl text-white md:text-5xl">Catálogos por línea</h2>
-
-        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {lineCatalogs.map((catalog) => (
-            <article
-              key={catalog.slug}
-              className="group rounded-xl border border-[#D4AF6F]/15 bg-[var(--bg-elevated-1)] p-5 transition duration-300 hover:-translate-y-[3px] hover:border-[#D4AF6F]/45"
-            >
-              <div
-                className="relative aspect-[4/5] overflow-hidden rounded-lg border border-[#D4AF6F]/20 p-5"
-                style={{ background: catalog.coverGradient }}
-                aria-hidden="true"
-              >
-                <p className="text-[11px] uppercase tracking-[0.24em] text-[#D4AF6F]">LÍNEA</p>
-                <h3 className="mt-8 font-editorial text-3xl leading-tight text-white">
-                  {catalog.coverTitle.split(' ')[0]} <em className="text-[#D4AF6F] not-italic italic">premium</em>
-                </h3>
-                <p className="absolute bottom-5 left-5 text-xs uppercase tracking-[0.2em] text-white/70">{catalog.systems}</p>
-              </div>
-
-              <h4 className="mt-5 font-editorial text-3xl text-white">{catalog.name}</h4>
-              <p className="mt-3 min-h-[70px] text-sm leading-relaxed text-white/75">{catalog.description}</p>
-              <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-white/60">
-                {catalog.pages} · {catalog.size}
-              </p>
-
-              <button
-                type="button"
-                onClick={() => openPdfWithFallback(catalog.pdfPath, `Solicito catalogo ${catalog.name}`)}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#D4AF6F] transition hover:text-[#e3c488] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-elevated-1)]"
-                aria-label={`Descargar catálogo de ${catalog.name} en PDF, ${catalog.size}`}
-              >
-                <Download size={15} />
-                <span>Descargar PDF</span>
-              </button>
-            </article>
-          ))}
-        </div>
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">...</div>
       </section>
-
-      <section className="mx-auto mt-14 max-w-7xl px-6 md:px-10">
-        <div className="flex flex-col gap-8 rounded-[14px] border border-[#D4AF6F]/20 bg-[linear-gradient(110deg,#2C4A6B,#1F3858)] px-8 py-8 md:flex-row md:items-end md:justify-between md:px-9">
-          <div>
-            <h3 className="font-editorial text-4xl leading-tight text-white md:text-5xl">
-              ¿Necesitás algo <em className="text-[#D4AF6F] not-italic italic">a medida</em>?
-            </h3>
-            <p className="mt-4 max-w-3xl text-white/75">
-              Si tu proyecto requiere especificaciones particulares, coordinamos una visita técnica con asesoramiento personalizado.
-            </p>
-          </div>
-          <Link
-            href="/contacto"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF6F] px-6 py-3 text-sm font-semibold text-[#223D5A] transition hover:bg-[#e3c488] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
-          >
-            <span>Solicitar asesoramiento</span>
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
-
-      {/* Subir PDFs en /public/catalogos/:
-          - bmr-catalogo-general-2026.pdf
-          - bmr-aluminio-2026.pdf
-          - bmr-pvc-2026.pdf
-          - bmr-madera-2026.pdf
       */}
+
+      {/* TODO: descomentar cuando esté el catálogo final */}
       <section className="sr-only" aria-label="Checklist de PDFs de catálogo">
         <ul>
           {catalogPdfChecklist.map((pdf) => (
             <li key={pdf}>{pdf}</li>
           ))}
         </ul>
+      </section>
+
+      {/* Referencias reservadas para reactivar catálogo final sin perder imports */}
+      <section className="sr-only" aria-hidden="true">
+        <pre>{JSON.stringify({ featuredCatalog: featuredCatalog.title, lineCatalogs: lineCatalogs.length })}</pre>
       </section>
     </main>
   );
