@@ -45,9 +45,8 @@ export function HomePageClient() {
       <section id="nuestras-obras" className="mx-auto max-w-7xl px-6 pb-8">
         <div className="space-y-10">
           {caseStudies.map((item) => {
-            const isCorporateCard = item.id === '02';
-            const href = isCorporateCard ? '/nuestras-obras/oficina-corporativa' : '/nuestras-obras';
-            const ariaLabel = isCorporateCard ? 'Ver obra Oficinas Corporativa' : `Ver sección ${item.title}`;
+            const href = '/nuestras-obras';
+            const ariaLabel = `Ver sección ${item.title}`;
 
             return (
             <Link

@@ -49,31 +49,5 @@ export const obras: Obra[] = [
       '/obras/la-inquieta-5.jpg',
       '/obras/la-inquieta-6.jpg'
      ]
-  },
-  {
-    slug: 'oficina-corporativa',
-    title: 'Oficinas Corporativa',
-    description: 'Aberturas de operación intensiva para uso corporativo con foco en hermeticidad y durabilidad.',
-    category: 'CORPORATIVO',
-    location: 'Tigre, Buenos Aires',
-    meta: '2025 · 850 m² · Aberturas hermético',
-    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
-    detailDescription: 'Proyecto corporativo con soluciones de uso intensivo, enfocadas en durabilidad, control solar y confort acústico para operación diaria.',
-    gallery: [
-      '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
-      '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
-      '/obras/46fe44fd-bde7-4609-a812-4fbbfd407ab8.JPG'
-    ]
-  },
-  {
-    slug: 'obras-varias',
-    title: 'Obras Varias',
-    description: 'Trabajos varios de aluminio/pvc/Acristalamiento en distintas obras.',
-    category: 'RESIDENCIAL',
-    location: 'Buenos aires',
-    meta: 'Trabajos varios',
-    image: '/obras/obras-varias/cover.webp',
-    detailDescription: 'Selección de trabajos realizados en distintas obras: paños fijos, puertas ventana, ventanas y cerramientos.',
-    gallery: getPublicGalleryPaths('obras/obras-varias', { exclude: ['cover.webp'] })
   }
 ];
