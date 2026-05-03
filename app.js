@@ -250,25 +250,6 @@ function MediaSlideshow() {
 }
 
 
-function InfiniteMarquee() {
-  const text = 'BMR GROUP ARGENTINA · BMR GROUP ARGENTINA · BMR GROUP ARGENTINA';
-  return (
-    <section className="absolute inset-x-0 bottom-6 z-10">
-      <div
-        className="overflow-hidden whitespace-nowrap"
-        style={{
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
-          maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)'
-        }}
-      >
-        <div className="inline-flex min-w-max will-change-transform marquee-track" style={{ animation: 'marqueeScroll 40s linear infinite', transform: 'translate3d(0,0,0)' }}>
-          <p className="pr-12 font-black uppercase tracking-tight text-[#111111]/10 leading-none" style={{ fontSize: 'clamp(42px,8vw,110px)' }}>{text}</p>
-          <p aria-hidden="true" className="pr-12 font-black uppercase tracking-tight text-[#111111]/10 leading-none" style={{ fontSize: 'clamp(42px,8vw,110px)' }}>{text}</p>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);

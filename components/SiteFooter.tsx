@@ -13,9 +13,6 @@ export function SiteFooter() {
 
   return (
     <footer className="w-full">
-      <div className="bg-[#F7F9FB] py-20 md:py-28">
-        <InfiniteMarquee />
-      </div>
       <div className="bg-[var(--bg-primary)] px-8 py-20 md:px-16 md:py-24 lg:px-24">
       <div className="mx-auto grid min-h-[280px] max-w-7xl grid-cols-1 items-stretch gap-12 md:min-h-[320px] md:grid-cols-2">
         <div className="flex h-full flex-col justify-end items-start text-left">
