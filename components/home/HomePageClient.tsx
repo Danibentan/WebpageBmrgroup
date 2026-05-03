@@ -13,12 +13,6 @@ const caseStudies = [
     title: 'Obras Residenciales',
     subtitle: 'Flujo de luz + minimal frame system',
     text: 'Sistema corredizo de gran formato con transición interior-exterior continua. Ingeniería térmica y visual limpia.'
-  },
-  {
-    id: '02',
-    title: 'Obras corporativas',
-    subtitle: 'Performance corporativa + identidad',
-    text: 'Piel vidriada y aberturas técnicas para operación intensiva. Resolución acústica, control solar y presencia de marca.'
   }
 ];
 
