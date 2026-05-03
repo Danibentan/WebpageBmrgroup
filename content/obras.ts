@@ -16,17 +16,17 @@ export const obras: Obra[] = [
   {
     slug: 'casa-la-serena',
     title: 'Casa La serena',
-    description: 'Corredizas de gran formato con perfiles de baja visual y DVH para máxima entrada de luz.',
+    description: 'Aberturas de gran tama;o y porte para generar espacios luminosos aprovechando la luz natural.',
     category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
-    meta: '2024 · 280 m² · Corredizas DVH',
-    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
+    meta: '2025 · 280 m² · Corredizas DVH',
+    image: '/obras/casa-la-serena-1.jpg',
     detailDescription:
       'Se ejecutó un sistema integral de aberturas corredizas de gran formato, priorizando entrada de luz natural, continuidad visual interior-exterior y alta prestación térmica/acústica.',
     gallery: [
-      '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
-      '/obras/2d4d2c26-8f40-4212-9a3a-cf1906bad348.JPG',
-      '/obras/46fe44fd-bde7-4609-a812-4fbbfd407ab8.JPG',
+      '/obras/casa-la-serena-1.jpg',
+      '/obras/casa-la-serena-2.jpg',
+      '/obras/casa-la-serena-3.jpg',
       '/obras/casa-la-serena-5.jpg',
       '/obras/casa-la-serena-6.jpg'
     ]
