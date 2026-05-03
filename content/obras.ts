@@ -1,3 +1,5 @@
+import { getPublicGalleryPaths } from '@/lib/publicGallery';
+
 export type Obra = {
   slug: string;
   title: string;
@@ -14,11 +16,11 @@ export const obras: Obra[] = [
   {
     slug: 'casa-la-serena',
     title: 'Casa La serena',
-    description: 'Corredizas de gran formato con perfiles de baja visual y DVH para máxima entrada de luz.',
+    description: 'Aberturas de gran calidad y porte para generar espacios luminosos aprovechando la luz natural.',
     category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
-    meta: '2024 · 280 m² · Corredizas DVH',
-    image: '/obras/1dabeacb-8518-4320-ab34-56790934185c.JPG',
+    meta: '2025 · 280 m² · Corredizas DVH',
+    image: '/obras/casa-la-serena-1.jpg',
     detailDescription:
       'Se ejecutó un sistema integral de aberturas corredizas de gran formato, priorizando entrada de luz natural, continuidad visual interior-exterior y alta prestación térmica/acústica.',
     gallery: [
@@ -31,14 +33,14 @@ export const obras: Obra[] = [
   },
   {
     slug: 'casa-la-inquieta',
-    title: 'Casa La inquieta',
-    description: 'Sistema de carpintería técnica con control acústico y terminación premium para fachada continua.',
+    title: 'casa la inquieta',
+    description: 'aberturas premiun .',
     category: 'RESIDENCIAL',
-    location: 'Escobar, Buenos Aires',
-    meta: '2024 · 1.200 m² · Carpintería técnica',
+    location: 'escobar, Buenos Aires',
+    meta: '2026 · 1.200 m² · trabajo a medida pedido por cliente',
     image: '/obras/la-inquieta-1.jpg',
     detailDescription:
-      'Se desarrolló una envolvente con carpintería técnica de alta exigencia, optimizando hermeticidad, aislación acústica y terminaciones premium para una imagen arquitectónica contemporánea.',
+      'se realizo trabajo de colocacion de aberturas en toda la residencia.',
     gallery: [  
       '/obras/la-inquieta-1.jpg',
       '/obras/la-inquieta-2.jpg',
