@@ -11,7 +11,8 @@ export function SiteFooter() {
   const [isLogoBroken, setIsLogoBroken] = useState(false);
 
   return (
-    <footer className="w-full bg-[var(--bg-primary)] px-8 py-20 md:px-16 md:py-24 lg:px-24">
+    <footer className="w-full">
+      <div className="bg-[var(--bg-primary)] px-8 py-20 md:px-16 md:py-24 lg:px-24">
       <div className="mx-auto grid min-h-[280px] max-w-7xl grid-cols-1 items-stretch gap-12 md:min-h-[320px] md:grid-cols-2">
         <div className="flex h-full flex-col justify-end items-start text-left">
           <Link
@@ -75,9 +76,10 @@ export function SiteFooter() {
           <div className="text-left text-sm text-white/70 md:text-right">
             <p className="text-xs uppercase tracking-[0.3em] text-[#c9a961]/80">VISITANOS</p>
             <p className="mt-3 font-editorial text-base text-white/80">Escobar, Buenos Aires</p>
-            <p className="mt-1 text-sm text-white/60">Lunes a Viernes · 9 a 18hs</p>
+            <p className="mt-1 text-sm text-white/60">Lunes a Viernes · 08 a 17 hs</p>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );

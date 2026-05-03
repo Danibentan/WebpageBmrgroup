@@ -249,6 +249,8 @@ function MediaSlideshow() {
   );
 }
 
+
+
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeModal, setActiveModal] = useState(null);
@@ -297,6 +299,7 @@ function App() {
             </div>
           </div>
         </section>
+
 
         <section id="quienes" className="mx-auto max-w-7xl rounded-3xl bg-white px-6 py-8 shadow-soft md:px-8">
           <h2 className="text-2xl font-semibold text-[#102c4f]">Quiénes somos</h2>
