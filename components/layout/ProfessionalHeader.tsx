@@ -69,10 +69,13 @@ export function ProfessionalHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 h-[var(--nav-height)] w-full border-b px-4 md:px-10 ${isMobileMenuOpen ? 'z-[9999]' : 'z-50'} ${
-        isHome
-          ? 'border-[var(--bmr-border)] bg-gradient-to-b from-[rgba(250,244,230,0.94)] via-[rgba(240,230,208,0.86)] to-[rgba(250,244,230,0.35)] backdrop-blur-[6px]'
-          : 'border-[var(--bmr-border)] bg-[rgba(250,244,230,0.95)] backdrop-blur-md'
+        isMobileMenuOpen
+          ? 'border-[var(--bmr-border)] bg-[#FAF4E6]'
+          : isHome
+            ? 'border-[var(--bmr-border)] bg-gradient-to-b from-[rgba(250,244,230,0.94)] via-[rgba(240,230,208,0.86)] to-[rgba(250,244,230,0.35)] backdrop-blur-[6px]'
+            : 'border-[var(--bmr-border)] bg-[rgba(250,244,230,0.95)] backdrop-blur-md'
       }`}
+      style={isMobileMenuOpen ? { backgroundColor: 'var(--bg-primary)' } : undefined}
     >
       <nav ref={navRef} aria-label="Navegación principal" className="mx-auto flex h-full w-full max-w-7xl items-center justify-between">
         <div className="site-nav-logo">
@@ -114,6 +117,10 @@ export function ProfessionalHeader() {
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} strokeWidth={1.8} />}
         </button>
       </nav>
+
+      {isMobileMenuOpen ? (
+        <div className="fixed inset-0 z-[9998] bg-[#FAF4E6] md:hidden" style={{ backgroundColor: 'var(--bg-primary)' }} aria-hidden="true" />
+      ) : null}
 
       <div
         className={`fixed inset-0 z-[9999] flex transform flex-col border-l border-[var(--bmr-border)] bg-[#FAF4E6] px-6 py-8 shadow-[-14px_0_40px_rgba(42,36,24,0.14)] transition-transform duration-300 ease-out md:hidden ${
