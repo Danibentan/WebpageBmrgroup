@@ -68,7 +68,7 @@ export function ProfessionalHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 h-[var(--nav-height)] w-full border-b px-4 md:px-10 ${
+      className={`fixed inset-x-0 top-0 h-[var(--nav-height)] w-full border-b px-4 md:px-10 ${isMobileMenuOpen ? 'z-[9999]' : 'z-50'} ${
         isHome
           ? 'border-[var(--bmr-border)] bg-gradient-to-b from-[rgba(250,244,230,0.94)] via-[rgba(240,230,208,0.86)] to-[rgba(250,244,230,0.35)] backdrop-blur-[6px]'
           : 'border-[var(--bmr-border)] bg-[rgba(250,244,230,0.95)] backdrop-blur-md'
@@ -116,9 +116,10 @@ export function ProfessionalHeader() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-[60] flex transform flex-col border-l border-[var(--bmr-border)] bg-[linear-gradient(180deg,rgba(250,244,230,0.98)_0%,rgba(240,230,208,0.98)_100%)] px-6 py-8 shadow-[-14px_0_40px_rgba(42,36,24,0.14)] transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed inset-0 z-[9999] flex transform flex-col border-l border-[var(--bmr-border)] bg-[#FAF4E6] px-6 py-8 shadow-[-14px_0_40px_rgba(42,36,24,0.14)] transition-transform duration-300 ease-out md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
         }`}
+        style={{ backgroundColor: 'var(--bg-primary)' }}
       >
         <div className="flex justify-end">
           <button

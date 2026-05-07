@@ -1,5 +1,3 @@
-import { getPublicGalleryPaths } from '@/lib/publicGallery';
-
 export type Obra = {
   slug: string;
   title: string;
@@ -20,15 +18,15 @@ export const obras: Obra[] = [
     category: 'RESIDENCIAL',
     location: 'Escobar, Buenos Aires',
     meta: '2024 · 280 m² · Corredizas DVH',
-    image: '/obras/casa/la-serena-3.jpg',
+    image: '/obras/casa-la-serena-3.jpg',
     detailDescription:
       'Se ejecutó un sistema integral de aberturas corredizas de gran formato, priorizando entrada de luz natural, continuidad visual interior-exterior y alta prestación térmica/acústica.',
     gallery: [
-      '/obras/casa/la-serena-1.jpg',
-      '/obras/casa/la-serena-2.jpg',
-      '/obras/casa/la-serena-3.jpg',
-      '/obras/casa/la-serena-4.jpg',
-      '/obras/casa/la-serena-5.jpg'
+      '/obras/casa-la-serena-1.jpg',
+      '/obras/casa-la-serena-2.jpg',
+      '/obras/casa-la-serena-3.jpg',
+      '/obras/casa-la-serena-4.jpg',
+      '/obras/casa-la-serena-5.jpg'
     ]
   },
   {
@@ -48,6 +46,24 @@ export const obras: Obra[] = [
       '/obras/la-inquieta-4.jpg',
       '/obras/la-inquieta-5.jpg',
       '/obras/la-inquieta-6.jpg'
-     ]
+    ]
+  },
+  {
+    slug: 'obras-varias',
+    title: 'Obras varias',
+    description: 'Trabajos varios con terminaciones a medida en aluminio y vidrio.',
+    category: 'RESIDENCIAL',
+    location: 'Buenos Aires',
+    meta: '2026 · Trabajos varios',
+    image: '/obras/obras-varias/frente casa.JPG',
+    detailDescription:
+      'Selección de trabajos realizados en distintas obras, incluyendo frentes, marcos, vidrios y ventiluz.',
+    gallery: [
+      '/obras/obras-varias/frente casa.JPG',
+      '/obras/obras-varias/marco obra varia.JPG',
+      '/obras/obras-varias/vidrios.JPG',
+      '/obras/obras-varias/Trabajos varios.JPG',
+      '/obras/obras-varias/ventiluz.JPG'
+    ]
   }
 ];
