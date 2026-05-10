@@ -217,14 +217,14 @@ export default function ContactoPage() {
           role="dialog"
           aria-modal="true"
           aria-label="Formulario de asesoramiento"
-          className={`relative w-full max-w-[560px] rounded-2xl border border-[#D4AF6F]/20 bg-[var(--bg-elevated-2)] p-6 transition-all duration-200 md:p-8 ${
+          className={`relative w-full max-w-[560px] rounded-2xl border border-[var(--bmr-border)] bg-[var(--bg-primary)] p-6 transition-all duration-200 md:p-8 ${
             isModalOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           } max-h-[92vh] overflow-y-auto`}
         >
           <button
             type="button"
             onClick={() => setIsModalOpen(false)}
-            className="absolute right-4 top-4 rounded-full border border-white/20 p-2 text-white/70 transition hover:text-white"
+            className="absolute right-4 top-4 rounded-md px-2 py-1 text-[#1a1a1a]/70 transition hover:bg-black/5 hover:text-[#1a1a1a]"
             aria-label="Cerrar formulario"
           >
             <X size={16} />
@@ -233,22 +233,22 @@ export default function ContactoPage() {
           {submitSuccess ? (
             <div className="py-8 text-center">
               <p className="text-4xl text-[#D4AF6F]">✓</p>
-              <h3 className="mt-4 font-editorial text-4xl text-white">¡Recibimos tu solicitud!</h3>
-              <p className="mx-auto mt-3 max-w-md text-white/75">
+              <h3 className="mt-4 text-4xl font-bold text-[#1a1a1a]">¡Recibimos tu solicitud!</h3>
+              <p className="mx-auto mt-3 max-w-md text-[#1a1a1a]/85">
                 Te contactamos dentro de las próximas 24hs hábiles al teléfono que dejaste.
               </p>
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="mt-8 rounded-full bg-[#D4AF6F] px-6 py-2.5 font-semibold text-[#223D5A]"
+                className="mt-8 rounded-full bg-[var(--bmr-gold)] px-6 py-2.5 text-sm font-semibold text-[#1a1a1a] transition hover:bg-[#d4b876]"
               >
                 Cerrar
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 pt-6">
-              <h3 className="font-editorial text-3xl text-white">Formulario de asesoramiento</h3>
-              <p className="text-sm text-[#1a1a1a]">Completá tus datos y coordinamos una visita técnica.</p>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] md:text-3xl">Formulario de asesoramiento</h3>
+              <p className="text-base text-[#1a1a1a]/85">Completá tus datos y coordinamos una visita técnica.</p>
 
               <div className="grid gap-4 md:grid-cols-2">
                 <Field label="Nombre" id="nombre" required>
@@ -261,8 +261,8 @@ export default function ContactoPage() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <Field label="Teléfono" id="telefono" required>
-                  <div className="flex overflow-hidden rounded-lg border border-white/15 bg-white/5">
-                    <span className="inline-flex items-center border-r border-white/15 px-3 text-sm text-[#1a1a1a]">+54</span>
+                  <div className="flex overflow-hidden rounded-lg border border-black/20 bg-transparent">
+                    <span className="inline-flex items-center border-r border-black/10 px-3 text-sm text-[#1a1a1a]">+54</span>
                     <input
                       id="telefono"
                       type="tel"
@@ -313,7 +313,7 @@ export default function ContactoPage() {
                   max={maxDate}
                   value={formState.fecha}
                   onChange={(event) => setFormState((prev) => ({ ...prev, fecha: event.target.value }))}
-                  className="w-full rounded-lg border border-white/15 bg-white/5 px-3 py-3 text-white focus:border-[#D4AF6F] focus:bg-white/10 focus:outline-none"
+                  className="w-full rounded-lg border border-black/20 bg-transparent px-3 py-3 text-[#1a1a1a] focus:border-[#c9a961] focus:outline-none"
                 />
               </Field>
 
@@ -323,7 +323,7 @@ export default function ContactoPage() {
                   rows={4}
                   value={formState.comentarios}
                   onChange={(event) => setFormState((prev) => ({ ...prev, comentarios: event.target.value }))}
-                  className="w-full rounded-lg border border-white/15 bg-white/5 px-3 py-3 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:border-[#D4AF6F] focus:bg-white/10 focus:outline-none"
+                  className="w-full rounded-lg border border-black/20 bg-transparent px-3 py-3 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:border-[#c9a961] focus:outline-none"
                   placeholder="Contanos brevemente sobre tu proyecto"
                 />
               </Field>
@@ -331,7 +331,7 @@ export default function ContactoPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full rounded-full bg-[#D4AF6F] px-6 py-3 font-semibold text-[#223D5A] transition hover:bg-[#e3c488] disabled:opacity-70"
+                className="w-full rounded-full bg-[var(--bmr-gold)] px-6 py-3 text-sm font-semibold text-[#1a1a1a] transition hover:bg-[#d4b876] disabled:opacity-70"
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar solicitud →'}
               </button>
@@ -360,7 +360,7 @@ function Field({
 }) {
   return (
     <label htmlFor={id} className="block">
-      <span className="mb-2 block text-[11px] uppercase tracking-[0.1em] text-[#D4AF6F]">
+      <span className="mb-2 block text-sm text-[#1a1a1a]/85">
         {label}
         {required ? ' *' : ''}
       </span>
@@ -384,7 +384,7 @@ function Input({
       required
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="w-full rounded-lg border border-white/15 bg-white/5 px-3 py-3 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:border-[#D4AF6F] focus:bg-white/10 focus:outline-none"
+      className="w-full rounded-lg border border-black/20 bg-transparent px-3 py-3 text-[#1a1a1a] placeholder:text-[#6b6b6b] placeholder:opacity-100 focus:border-[#c9a961] focus:outline-none"
     />
   );
 }
@@ -406,9 +406,9 @@ function Select({
       required
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="w-full rounded-lg border border-white/15 bg-white/5 px-3 py-3 text-white focus:border-[#D4AF6F] focus:bg-white/10 focus:outline-none"
+      className="w-full rounded-lg border border-black/20 bg-[var(--bg-primary)] px-3 py-3 text-[#1a1a1a] focus:border-[#c9a961] focus:outline-none"
     >
-      <option value="" className="text-[#223D5A]">
+      <option value="" className="text-[#6b6b6b]">
         Seleccioná una opción
       </option>
       {options.map((option) => (
