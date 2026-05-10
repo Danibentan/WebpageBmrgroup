@@ -37,7 +37,7 @@ const services = [
   {
     title: 'INSTALACIONES A NIVEL NACIONAL',
     description:
-      'Realizamos obras en todo el país con precios preferenciales para proyectos fuera de Buenos Aires. Logística coordinada y equipos de colocación móviles.'
+      'Realizamos obras en todo el país . Logística coordinada y equipos de colocación móviles.'
   }
 ];
 
