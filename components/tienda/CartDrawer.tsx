@@ -3,69 +3,15 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ExternalLink, Minus, Plus, Trash2, X } from 'lucide-react';
+import { Minus, Plus, Trash2, X } from 'lucide-react';
 import { useCart } from '@/lib/cart-store';
 import type { CartItem } from '@/types/product';
 
-type CheckoutResponse = {
-  id?: string;
-  init_point?: string;
-  sandbox_init_point?: string;
-  error?: string;
-};
-
 export function CartDrawer() {
-  const { items, isOpen, closeCart, removeItem, updateQuantity, updateMetros, getTotal, hasConsultaItems, clearCart } = useCart();
-  const [loading, setLoading] = useState(false);
+  const { items, isOpen, closeCart, removeItem, updateQuantity, updateMetros, clearCart } = useCart();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-
-  const handleCheckout = async () => {
-    setLoading(true);
-
-    try {
-      const mpItems = items
-        .filter((item: CartItem) => item.priceUnit !== 'consultar')
-        .map((item: CartItem) => {
-          const unitPrice = item.priceUnit === 'm2' ? item.price * (item.metros || 1) : item.price;
-
-          return {
-            id: item.id,
-            title: item.name,
-            description: item.description,
-            quantity: item.quantity,
-            unit_price: Number(unitPrice.toFixed(2)),
-            currency_id: 'USD'
-          };
-        });
-
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: mpItems })
-      });
-
-      const data = (await res.json()) as CheckoutResponse;
-
-      if (!res.ok) {
-        alert(data.error || 'No se pudo iniciar el checkout con Mercado Pago.');
-        return;
-      }
-
-      if (data.init_point) {
-        window.location.href = data.init_point;
-        return;
-      }
-
-      alert('Mercado Pago no devolvió init_point para continuar el pago.');
-    } catch (error) {
-      console.error('Checkout error:', error);
-      alert('Error al conectar con Mercado Pago');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   if (!mounted) return null;
 
@@ -139,13 +85,7 @@ export function CartDrawer() {
                       </div>
                     </div>
                     <div className="text-right">
-                      {item.priceUnit === 'consultar' ? (
-                        <span className="text-xs italic text-[#c9a961] font-editorial">Consultar</span>
-                      ) : (
-                        <span className="font-editorial text-sm text-[#c9a961]">
-                          USD {((item.priceUnit === 'm2' ? item.price * (item.metros || 1) : item.price) * item.quantity).toLocaleString('es-AR')}
-                        </span>
-                      )}
+                      <span className="text-xs italic text-[#c9a961] font-editorial">A confirmar</span>
                     </div>
                   </div>
                 ))
@@ -154,20 +94,17 @@ export function CartDrawer() {
 
             {items.length > 0 ? (
               <div className="space-y-4 border-t border-white/10 p-6">
-                {hasConsultaItems() ? (
-                  <div className="text-[10px] italic leading-relaxed text-[#c9a961]/80">* Algunos productos requieren cotización. Te contactaremos después del pago.</div>
-                ) : null}
+                <div className="text-[10px] italic leading-relaxed text-[#c9a961]/80">* La tienda se habilitará próximamente.</div>
                 <div className="flex items-baseline justify-between">
                   <span className="text-xs uppercase tracking-[0.2em] text-white/60">Total estimado</span>
-                  <span className="font-editorial text-2xl text-[#c9a961]">USD {getTotal().toLocaleString('es-AR')}</span>
+                  <span className="font-editorial text-2xl text-[#c9a961]">A confirmar</span>
                 </div>
                 <button
                   type="button"
-                  onClick={handleCheckout}
-                  disabled={loading || !items.some((i: CartItem) => i.priceUnit !== 'consultar')}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a961] py-3 text-sm font-medium tracking-wide text-[#0a1733] transition-colors hover:bg-[#d4b876] disabled:opacity-50"
+                  disabled
+                  className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-[#c9a961] py-3 text-sm font-medium tracking-wide text-[#0a1733] opacity-50"
                 >
-                  {loading ? 'Redirigiendo...' : <><span>Pagar con Mercado Pago</span><ExternalLink size={14} /></>}
+                  Tienda próximamente
                 </button>
                 <button type="button" onClick={clearCart} className="w-full text-[10px] uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-white/70">
                   Vaciar carrito

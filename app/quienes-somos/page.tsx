@@ -1,14 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Instagram, MapPin } from 'lucide-react';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
+import { NuestrosServicios } from '@/components/sections/NuestrosServicios';
 
 export default function QuienesSomosPage() {
-  const [isLogoBroken, setIsLogoBroken] = useState(false);
-
   return (
     <main className="min-h-screen bg-[var(--bg-primary)] text-[#e6edf8]">
       <ProfessionalHeader />
@@ -43,6 +38,8 @@ export default function QuienesSomosPage() {
             </p>
           </div>
         </article>
+
+        <NuestrosServicios />
       </section>
     </main>
   );

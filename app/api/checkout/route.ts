@@ -69,10 +69,11 @@ export async function POST(request: Request) {
     const baseUrl = getBaseUrl();
     const client = new MercadoPagoConfig({ accessToken });
     const preference = new Preference(client);
+    const arsItems = items.map((item) => ({ ...item, currency_id: 'ARS' }));
 
     const preferenceResponse = await preference.create({
       body: {
-        items,
+        items: arsItems,
         payer: payload.payer,
         back_urls: {
           success: `${baseUrl}/checkout/success`,

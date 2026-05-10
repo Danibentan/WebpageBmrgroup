@@ -32,7 +32,7 @@ export default function ImmersiveHero() {
       ref={rootRef}
       className="relative h-[75vh] w-screen overflow-hidden sm:h-[80vh] lg:h-[85vh] lg:max-h-[720px]"
       aria-roledescription="carousel"
-      aria-label="Galería principal de BAR Group"
+      aria-label="Galería principal de BMR Group"
     >
       <div className="absolute inset-0 z-0">
         {heroSlides.map((slide, index) => (
