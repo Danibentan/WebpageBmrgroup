@@ -7,7 +7,7 @@ const services = [
   {
     title: 'SERVICIOS RESIDENCIALES',
     description:
-      'Venta y colocación de aberturas premium para viviendas particulares en aluminio, PVC y madera. Asesoramiento personalizado desde el primer plano hasta el ajuste final.'
+      'Venta y colocación de aberturas premium para viviendas particulares en aluminio, PVC. Asesoramiento personalizado desde el primer plano hasta el ajuste final.'
   },
   {
     title: 'OBRAS CORPORATIVAS',
