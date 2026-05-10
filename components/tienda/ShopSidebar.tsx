@@ -53,8 +53,8 @@ function SidebarContent({ categoria, setCategoria }: { categoria: string; setCat
       </div>
 
       <div>
-        <p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-[#c9a961]">Precio</p>
-        <p className="text-xs text-[var(--bmr-soft-white)]/70">USD 200 — USD 2.500</p>
+        <p className="mb-3 text-[10px] uppercase tracking-[0.2em] text-[#c9a961]">Disponibilidad</p>
+        <p className="text-xs text-[var(--bmr-soft-white)]/70">Disponible próximamente</p>
       </div>
     </div>
   );
