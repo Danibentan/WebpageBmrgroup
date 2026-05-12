@@ -17,7 +17,8 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'BAR Group Argentina',
+  title: 'BMR Group Argentina',
+  applicationName: 'BMR Group Argentina',
   description: 'Aberturas premium para arquitectura contemporánea.'
 };
 
