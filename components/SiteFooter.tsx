@@ -43,6 +43,10 @@ export function SiteFooter() {
               />
             )}
           </Link>
+          <div className="mt-[22px] text-center font-sans font-normal uppercase leading-relaxed text-[var(--bmr-letter-blue)]">
+            <p className="text-[11px] tracking-[0.22em]">BMR GROUP ARGENTINA</p>
+            <p className="mt-1 text-[10px] tracking-[0.18em] opacity-75">UNA EMPRESA DE PAN AMERICAN GLASS S.A.</p>
+          </div>
         </div>
 
         <div className="flex h-full flex-col gap-12 items-start text-left md:items-end md:justify-end md:text-right">
