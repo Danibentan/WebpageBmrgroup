@@ -25,3 +25,27 @@
 - Registrá el webhook en el panel de Mercado Pago apuntando a:
   - `https://TU_DOMINIO/api/mercadopago/webhook`
 - El endpoint está preparado para recibir notificaciones de pagos, validar firma (si `MP_WEBHOOK_SECRET` está configurado) y loguear estado.
+
+
+## Formularios de contacto (mail de consultas)
+
+### 1) Crear remitente en Resend
+- Creá una cuenta en https://resend.com y verificá tu dominio de empresa.
+- Configurá SPF y DKIM en el DNS del dominio para mejorar entregabilidad.
+- Definí un remitente válido (por ejemplo `web@tuempresa.com`).
+
+### 2) Variables de entorno
+Cargá estas variables en local (`.env.local`) y en Vercel (Production/Preview):
+- `RESEND_API_KEY`
+- `CONTACT_FROM_EMAIL` (remitente verificado en Resend)
+- `CONTACT_TO_EMAIL` (mail de la empresa que recibe consultas)
+
+### 3) Qué ya hace el proyecto
+- `POST /api/contact` envía por email tanto el formulario de asesoramiento como el formulario corporativo.
+- El backend valida campos requeridos según tipo de formulario.
+- El `reply-to` se configura con el email del usuario para responder directo desde tu bandeja.
+
+### 4) Probar
+- Completá ambos formularios en la web y enviá.
+- Verificá que llega el correo a `CONTACT_TO_EMAIL`.
+- Revisá en Resend el estado de entrega (delivered/bounced).
