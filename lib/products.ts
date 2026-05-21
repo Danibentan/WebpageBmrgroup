@@ -9,5 +9,6 @@ export const products: Product[] = [
   { id: '5', slug: 'puerta-entrada', name: 'Puerta entrada', category: 'puertas', material: 'mixto', description: 'Madera + acero', priceFrom: 1250000, priceUnit: 'unidad', image: '/products/bmr-product-placeholder.svg' },
   { id: '6', slug: 'mosquitero', name: 'Mosquitero', category: 'accesorios', material: 'aluminio', description: 'Aluminio + tela', priceFrom: 95000, priceUnit: 'm2', image: '/products/bmr-product-placeholder.svg' },
   { id: '7', slug: 'ventana-minimal', name: 'Ventana Minimal', category: 'ventanas', material: 'mixto', description: 'Perfil ultrafino', priceFrom: 740000, priceUnit: 'm2', image: '/products/bmr-product-placeholder.svg' },
-  { id: '8', slug: 'puerta-balcon', name: 'Puerta Balcón', category: 'puertas', material: 'pvc', description: 'Hermeticidad superior', priceFrom: 680000, priceUnit: 'unidad', image: '/products/bmr-product-placeholder.svg' }
+  { id: '8', slug: 'puerta-balcon', name: 'Puerta Balcón', category: 'puertas', material: 'pvc', description: 'Hermeticidad superior', priceFrom: 680000, priceUnit: 'unidad', image: '/products/bmr-product-placeholder.svg' },
+  { id: '9', slug: 'ventana-modena-a30', name: 'Ventana Modena A30', category: 'ventanas', material: 'aluminio', description: 'Producto de prueba', priceFrom: 400000, priceUnit: 'unidad', image: '/products/bmr-product-placeholder.svg', featured: true },
 ];
