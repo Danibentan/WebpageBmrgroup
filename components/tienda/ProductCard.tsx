@@ -6,6 +6,7 @@ import { ArrowRight, ShoppingBag } from 'lucide-react';
 
 import type { Product } from '@/types/product';
 import { useCart } from '@/lib/cart-store';
+import { SHOP_CHECKOUT_ENABLED } from '@/lib/feature-flags';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30, filter: 'blur(4px)' },
@@ -23,6 +24,8 @@ export function ProductCard({ product }: { product: Product; priority?: boolean 
   const { addItem, openCart } = useCart();
 
   const handleAdd = () => {
+    if (!SHOP_CHECKOUT_ENABLED) return;
+
     addItem({
       id: product.id,
       slug: product.slug,
@@ -57,11 +60,11 @@ export function ProductCard({ product }: { product: Product; priority?: boolean 
         <button
           type="button"
           onClick={handleAdd}
-          disabled={product.priceUnit === 'consultar' || product.priceFrom <= 0}
+          disabled={!SHOP_CHECKOUT_ENABLED || product.priceUnit === 'consultar' || product.priceFrom <= 0}
           className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#c9a961]/60 px-3 py-2 text-xs uppercase tracking-[0.12em] text-[#c9a961] transition hover:bg-[#c9a961] hover:text-[#0a1733] disabled:cursor-not-allowed disabled:opacity-50"
         >
           <ShoppingBag size={14} />
-          Agregar al carrito
+          {SHOP_CHECKOUT_ENABLED ? 'Agregar al carrito' : 'Próximamente'}
         </button>
       </div>
     </motion.div>
