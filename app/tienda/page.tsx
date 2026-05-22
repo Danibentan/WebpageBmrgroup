@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 import { ShopClient } from './ShopClient';
@@ -24,7 +25,9 @@ export default function TiendaPage() {
     <main className="min-h-screen bg-transparent pb-20">
       <ProfessionalHeader />
       <div className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
-        <ShopClient />
+        <Suspense fallback={null}>
+          <ShopClient />
+        </Suspense>
       </div>
     </main>
   );
