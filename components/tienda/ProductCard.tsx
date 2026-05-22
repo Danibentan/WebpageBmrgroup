@@ -17,6 +17,8 @@ const cardVariants = {
   }
 };
 
+const formatPrice = (price: number) => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(price);
+
 export function ProductCard({ product }: { product: Product; priority?: boolean }) {
   const reduceMotion = useReducedMotion();
   const { addItem, openCart } = useCart();
