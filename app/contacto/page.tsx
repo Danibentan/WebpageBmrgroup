@@ -76,7 +76,7 @@ export default function ContactoPage() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState)
+        body: JSON.stringify({ formType: 'asesoramiento', ...formState })
       });
 
       if (!response.ok) {
