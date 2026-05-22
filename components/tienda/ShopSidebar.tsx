@@ -11,7 +11,7 @@ const categorias = [
   { id: 'frentes', label: 'Frentes', count: 4 }
 ];
 
-const materiales = ['Aluminio', 'PVC', 'Madera'];
+const materiales = ['Aluminio', 'PVC'];
 
 function SidebarContent({ categoria, setCategoria }: { categoria: string; setCategoria: (value: string) => void }) {
   return (
