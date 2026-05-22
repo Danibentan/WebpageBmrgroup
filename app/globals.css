@@ -147,6 +147,30 @@ h3,
   }
 }
 
+.filter-sidebar { position: relative; }
+.filter-group + .filter-group { margin-top: 36px; }
+.filter-title { margin-bottom: 14px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(15,15,30,.65); }
+.category-group { position: relative; display: grid; gap: 8px; }
+.active-indicator { position: absolute; left: -10px; top: 0; width: 2px; height: 18px; background: #C8A86B; border-radius: 99px; }
+.filter-item { position: relative; display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-radius:99px; font-size:14px; font-weight:500; color:rgba(15,15,30,.75); cursor:pointer; overflow:hidden; isolation:isolate; background:transparent; border:1px solid transparent; transition: color .25s ease, background .25s ease, border-color .25s ease; }
+.filter-item .count { font-size: 11px; color:#C8A86B; opacity:.7; font-variant-numeric: tabular-nums; }
+.filter-item:hover { color:#0F0F1E; background:rgba(245,239,224,.6); backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%); border-color:rgba(200,168,107,.3); box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 4px 16px rgba(15,15,30,.05);}
+.filter-item.active { background:rgba(200,168,107,.85); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border-color:rgba(200,168,107,.5); color:#0F0F1E; box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 -1px 0 rgba(0,0,0,.08) inset,0 8px 24px rgba(200,168,107,.25); }
+.filter-item.active .count { color:#0F0F1E; opacity:1; }
+.filter-item__shimmer { position:absolute; inset:0; background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.5) 50%, transparent 70%); transform: translateX(-120%); pointer-events:none; }
+
+.product-card { position:relative; background:rgba(239,230,210,.72); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border:1px solid rgba(200,168,107,.15); border-radius:18px; overflow:hidden; cursor:pointer; transform-style:preserve-3d; perspective:1200px; transition:border-color .4s ease, box-shadow .4s ease; box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 4px 16px rgba(15,15,30,.03);}
+.product-card:hover { border-color:rgba(200,168,107,.4); box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 24px 60px rgba(15,15,30,.12),0 8px 20px rgba(200,168,107,.08); }
+.product-card__media { position:relative; aspect-ratio:1/1; overflow:hidden; background: var(--bmr-cream-2); }
+.product-card__placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family: var(--font-cormorant), serif; font-size:28px; font-style:italic; color:#0F0F1E; opacity:.4; }
+.product-card__image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1); }
+.product-card__overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(15,15,30,0) 0%,rgba(15,15,30,0) 60%,rgba(15,15,30,.2) 100%); opacity:0; pointer-events:none; }
+.product-card__badge { position:absolute; top:14px; left:14px; background:rgba(200,168,107,.9); color:#0F0F1E; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:6px 12px; border-radius:99px; z-index:2; }
+.product-card__body { padding:20px 22px 22px; position:relative; }
+.product-card__name { font-family: var(--font-cormorant), serif; font-size:22px; font-weight:500; color:#0F0F1E; margin-bottom:4px; letter-spacing:-.3px; }
+.product-card__specs { font-size:13px; color:rgba(15,15,30,.75); margin-bottom:16px; }
+.product-card__cta { width:100%; }
+
 
 .liquid-glass-btn {
   position: relative;

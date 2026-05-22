@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
-import { ProductGrid } from '@/components/tienda/ProductGrid';
-import { ShopSidebar } from '@/components/tienda/ShopSidebar';
+import { ShopClient } from './ShopClient';
 
 export const metadata: Metadata = {
   title: 'Tienda — BMR Group Argentina',
@@ -25,10 +24,7 @@ export default function TiendaPage() {
     <main className="min-h-screen bg-transparent pb-20">
       <ProfessionalHeader />
       <div className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-[200px_1fr]">
-          <ShopSidebar />
-          <ProductGrid />
-        </div>
+        <ShopClient />
       </div>
     </main>
   );
