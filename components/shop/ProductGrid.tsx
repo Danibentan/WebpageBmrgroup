@@ -1,6 +1,6 @@
 'use client';
 import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from '@/lib/useGSAP';
 import { Flip, gsap } from '@/lib/gsap';
 import { ProductCard } from './ProductCard';
 import type { ShopProduct } from '@/lib/shop/product-types';
