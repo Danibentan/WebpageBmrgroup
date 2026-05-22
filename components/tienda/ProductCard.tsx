@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, ShoppingBag } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 
 import type { Product } from '@/types/product';
 import { useCart } from '@/lib/cart-store';
@@ -53,15 +53,11 @@ export function ProductCard({ product }: { product: Product; priority?: boolean 
       <div className="p-4">
         <h3 className="font-editorial text-base leading-tight text-[var(--bmr-soft-white)]">{product.name}</h3>
         <p className="mb-2 mt-1 text-[10px] text-[var(--bmr-soft-white)]/50">{product.description}</p>
-        <div className="flex items-center justify-between border-t border-white/5 pt-2">
-          <span className="font-editorial text-sm text-[#c9a961]">{product.priceUnit === 'consultar' ? 'A confirmar' : `Desde ${formatPrice(product.priceFrom)}`}</span>
-          <ArrowRight size={14} className="text-[#c9a961]" />
-        </div>
         <button
           type="button"
           onClick={handleAdd}
           disabled={!SHOP_CHECKOUT_ENABLED || product.priceUnit === 'consultar' || product.priceFrom <= 0}
-          className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#c9a961]/60 px-3 py-2 text-xs uppercase tracking-[0.12em] text-[#c9a961] transition hover:bg-[#c9a961] hover:text-[#0a1733] disabled:cursor-not-allowed disabled:opacity-50"
+          className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-black/25 px-3 py-2 text-xs uppercase tracking-[0.12em] text-black transition hover:bg-black hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
         >
           <ShoppingBag size={14} />
           {SHOP_CHECKOUT_ENABLED ? 'Agregar al carrito' : 'Próximamente'}
