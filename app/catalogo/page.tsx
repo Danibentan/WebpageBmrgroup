@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function CatalogoPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 text-[#111111]">
+    <main className="min-h-screen bg-transparent pb-16 text-[#111111]">
       <ProfessionalHeader />
 
       <section className="mx-auto max-w-7xl px-6 pb-10 pt-12 md:px-10 md:pt-16">

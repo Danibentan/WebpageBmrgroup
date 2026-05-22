@@ -22,10 +22,15 @@
   --nav-height: 86px;
 }
 
+html,
+body {
+  background-color: #F5EFE0;
+}
+
 body {
   margin: 0;
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
-  background: var(--bmr-cream);
+  background-color: transparent;
   color: var(--bmr-text);
 }
 

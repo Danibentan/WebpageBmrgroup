@@ -101,7 +101,7 @@ export default function ContactoPage() {
   }, [errorToast]);
 
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] text-[#e6edf8]">
+    <main className="min-h-screen bg-transparent text-[#e6edf8]">
       <ProfessionalHeader />
 
       <section className="mx-auto max-w-7xl px-6 pb-16 pt-32 md:px-10">
