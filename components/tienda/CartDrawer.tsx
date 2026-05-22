@@ -1,17 +1,74 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Minus, Plus, Trash2, X } from 'lucide-react';
 import { useCart } from '@/lib/cart-store';
 import type { CartItem } from '@/types/product';
 
+const formatPrice = (price: number) =>
+  new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(price);
+
 export function CartDrawer() {
-  const { items, isOpen, closeCart, removeItem, updateQuantity, updateMetros, clearCart } = useCart();
+  const { items, isOpen, closeCart, removeItem, updateQuantity, updateMetros, clearCart, hasConsultaItems } = useCart();
   const [mounted, setMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => setMounted(true), []);
+
+  const total = useMemo(
+    () =>
+      items.reduce((sum, item) => {
+        if (item.priceUnit === 'consultar') return sum;
+        const unit = item.priceUnit === 'm2' ? item.price * (item.metros || 1) : item.price;
+        return sum + unit * item.quantity;
+      }, 0),
+    [items]
+  );
+
+  const handleCheckout = async () => {
+    try {
+      setErrorMessage('');
+      setIsSubmitting(true);
+
+      const payload = {
+        items: items
+          .filter((item) => item.priceUnit !== 'consultar' && item.price > 0)
+          .map((item) => ({
+            id: item.id,
+            title: item.name,
+            description: item.description,
+            quantity: item.quantity,
+            unit_price: item.priceUnit === 'm2' ? item.price * (item.metros || 1) : item.price,
+            currency_id: 'ARS'
+          }))
+      };
+
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = (await response.json()) as { init_point?: string; sandbox_init_point?: string; error?: string };
+      if (!response.ok) {
+        throw new Error(data.error || 'No se pudo iniciar el checkout.');
+      }
+
+      const checkoutUrl = data.init_point || data.sandbox_init_point;
+      if (!checkoutUrl) {
+        throw new Error('Mercado Pago no devolvió URL de checkout.');
+      }
+
+      window.location.href = checkoutUrl;
+    } catch (error) {
+      console.error('[CHECKOUT] Error', error);
+      setErrorMessage(error instanceof Error ? error.message : 'No se pudo iniciar el pago.');
+      setIsSubmitting(false);
+    }
+  };
 
   if (!mounted) return null;
 
@@ -85,7 +142,7 @@ export function CartDrawer() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs italic text-[#c9a961] font-editorial">A confirmar</span>
+                      <span className="text-xs italic text-[#c9a961] font-editorial">{item.priceUnit === 'consultar' ? 'A confirmar' : formatPrice(item.price)}</span>
                     </div>
                   </div>
                 ))
@@ -94,17 +151,19 @@ export function CartDrawer() {
 
             {items.length > 0 ? (
               <div className="space-y-4 border-t border-white/10 p-6">
-                <div className="text-[10px] italic leading-relaxed text-[#c9a961]/80">* La tienda se habilitará próximamente.</div>
+                {hasConsultaItems() ? <div className="text-[10px] italic leading-relaxed text-[#c9a961]/80">* Ítems "A confirmar" no se incluyen en checkout online.</div> : null}
                 <div className="flex items-baseline justify-between">
                   <span className="text-xs uppercase tracking-[0.2em] text-white/60">Total estimado</span>
-                  <span className="font-editorial text-2xl text-[#c9a961]">A confirmar</span>
+                  <span className="font-editorial text-2xl text-[#c9a961]">{formatPrice(total)}</span>
                 </div>
+                {errorMessage ? <p className="text-xs text-red-300">{errorMessage}</p> : null}
                 <button
                   type="button"
-                  disabled
-                  className="flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-[#c9a961] py-3 text-sm font-medium tracking-wide text-[#0a1733] opacity-50"
+                  onClick={handleCheckout}
+                  disabled={isSubmitting || total <= 0}
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a961] py-3 text-sm font-medium tracking-wide text-[#0a1733] transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  Tienda próximamente
+                  {isSubmitting ? 'Redirigiendo...' : 'Pagar con Mercado Pago'}
                 </button>
                 <button type="button" onClick={clearCart} className="w-full text-[10px] uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-white/70">
                   Vaciar carrito
