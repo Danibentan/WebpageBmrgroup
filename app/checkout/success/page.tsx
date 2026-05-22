@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LiquidButton from '@/components/ui/LiquidButton';
 
 type SuccessProps = {
   searchParams?: {
@@ -29,12 +30,12 @@ export default function CheckoutSuccessPage({ searchParams }: SuccessProps) {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/tienda" className="rounded-full bg-[#c9a961] px-5 py-2.5 text-sm font-semibold text-[#0a1733]">
+          <LiquidButton as={Link} href="/tienda" variant="primary" className="!px-5 !py-2.5 text-sm">
             Seguir comprando
-          </Link>
-          <Link href="/" className="rounded-full border border-[#c9a961]/50 px-5 py-2.5 text-sm text-[#c9a961]">
+          </LiquidButton>
+          <LiquidButton as={Link} href="/" variant="outline" className="!px-5 !py-2.5 text-sm">
             Ir al inicio
-          </Link>
+          </LiquidButton>
         </div>
       </div>
     </main>
