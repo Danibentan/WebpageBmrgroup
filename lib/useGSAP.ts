@@ -10,6 +10,8 @@ interface UseGSAPConfig {
   scope?: GSAPScope;
 }
 
+type UseGSAPOptions = UseGSAPConfig | DependencyList;
+
 const resolveScope = (scope: GSAPScope) => {
   if (!scope) return undefined;
   if (typeof scope === 'object' && 'current' in scope) {
@@ -18,8 +20,14 @@ const resolveScope = (scope: GSAPScope) => {
   return scope;
 };
 
-export function useGSAP(callback: () => void | (() => void), config?: UseGSAPConfig) {
-  const dependencies = config?.dependencies ?? [];
+const isConfig = (value: UseGSAPOptions | undefined): value is UseGSAPConfig => {
+  if (!value || Array.isArray(value)) return false;
+  return 'dependencies' in value || 'scope' in value;
+};
+
+export function useGSAP(callback: () => void | (() => void), options?: UseGSAPOptions) {
+  const config = isConfig(options) ? options : undefined;
+  const dependencies = Array.isArray(options) ? options : (config?.dependencies ?? []);
 
   useLayoutEffect(() => {
     const scope = resolveScope(config?.scope);
