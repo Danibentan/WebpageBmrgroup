@@ -13,7 +13,7 @@ const metrics = [
 
 export default function NuestrasObrasPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 text-white">
+    <main className="min-h-screen bg-transparent pb-16 text-white">
       <ProfessionalHeader />
 
       <section className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
