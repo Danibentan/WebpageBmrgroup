@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
+import LiquidButton from '@/components/ui/LiquidButton';
 import { Logo } from '@/components/Logo';
 
 const navLinks = [
@@ -92,16 +93,18 @@ export function ProfessionalHeader() {
             const active = isActiveLink(href);
 
             return (
-              <Link
+              <LiquidButton
                 key={href}
+                as={Link}
                 href={href}
+                variant="ghost"
                 aria-current={active ? 'page' : undefined}
-                className={`site-nav-link-desktop pb-[3px] text-[13px] font-normal transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${
+                className={`site-nav-link-desktop pb-[3px] !px-3 !py-2 text-[13px] font-normal transition-all duration-200 ${
                   active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-letter-blue)]' : 'text-[var(--bmr-letter-blue)] hover:text-[var(--bmr-letter-blue)]'
                 }`}
               >
                 {label}
-              </Link>
+              </LiquidButton>
             );
           })}
 
@@ -144,16 +147,18 @@ export function ProfessionalHeader() {
             const active = isActiveLink(href);
 
             return (
-              <Link
+              <LiquidButton
                 key={href}
+                as={Link}
                 href={href}
+                variant="ghost"
                 aria-current={active ? 'page' : undefined}
-                className={`pb-1 font-editorial text-3xl transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] ${
+                className={`pb-1 font-editorial !text-3xl transition-colors duration-200 ${
                   active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-letter-blue)]' : 'text-[var(--bmr-letter-blue)] hover:text-[var(--bmr-letter-blue)]'
                 }`}
               >
                 {label}
-              </Link>
+              </LiquidButton>
             );
           })}
         </div>

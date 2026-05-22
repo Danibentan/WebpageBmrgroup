@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Facebook, Mail, MapPin, MessageCircle, Phone, X, Instagram } from 'lucide-react';
 
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
+import LiquidButton from '@/components/ui/LiquidButton';
 import { contactInfo } from '@/lib/contact-info';
 
 type FormState = {
@@ -328,20 +329,18 @@ export default function ContactoPage() {
                 />
               </Field>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full rounded-full bg-[var(--bmr-gold)] px-6 py-3 text-sm font-semibold text-[#1a1a1a] transition hover:bg-[#d4b876] disabled:opacity-70"
-              >
+              <LiquidButton type="submit" variant="primary" disabled={isSubmitting} className="w-full">
                 {isSubmitting ? 'Enviando...' : 'Enviar solicitud →'}
-              </button>
+              </LiquidButton>
             </form>
           )}
         </div>
       </div>
 
       <section className="sr-only">
-        <Link href={contactInfo.whatsapp.href}>WhatsApp directo</Link>
+        <LiquidButton as={Link} href={contactInfo.whatsapp.href} variant="whatsapp">
+          WhatsApp directo
+        </LiquidButton>
       </section>
     </main>
   );
