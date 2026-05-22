@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
+import { useGSAP } from '@gsap/react';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 import { InfiniteMarquee } from '@/components/marquee/InfiniteMarquee';
+import { gsap } from '@/lib/gsap';
 
 const caseStudies = [
   {
@@ -17,6 +19,7 @@ const caseStudies = [
 ];
 
 export function HomePageClient() {
+  const rootRef = useRef<HTMLElement | null>(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isSendingCorporate, setIsSendingCorporate] = useState(false);
   const [corporateSuccess, setCorporateSuccess] = useState(false);
@@ -26,6 +29,27 @@ export function HomePageClient() {
     segmento: 'Constructoras',
     email: ''
   });
+
+  useGSAP(
+    () => {
+      if (!rootRef.current) return;
+
+      gsap.fromTo(
+        '.case-study-row, .reference-row',
+        { y: 22, autoAlpha: 0, scale: 0.985 },
+        {
+          y: 0,
+          autoAlpha: 1,
+          scale: 1,
+          duration: 0.6,
+          ease: 'power3.out',
+          stagger: 0.08,
+          clearProps: 'transform,opacity,visibility'
+        }
+      );
+    },
+    { scope: rootRef }
+  );
 
   const handleCorporateSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -54,7 +78,7 @@ export function HomePageClient() {
   };
 
   return (
-    <main className="-mt-[var(--nav-height)] min-h-screen bg-transparent text-[var(--bmr-text)]">
+    <main ref={rootRef} className="-mt-[var(--nav-height)] min-h-screen bg-transparent text-[var(--bmr-text)]">
       <ProfessionalHeader />
       <ImmersiveHero />
 
@@ -100,7 +124,7 @@ export function HomePageClient() {
       </section>
 
       <section className="mx-auto mb-12 max-w-7xl px-6 pt-8 md:pt-14">
-        <div className="mixd-inspired-block rounded-2xl border border-[var(--bmr-border)] bg-[var(--bmr-cream-2)] p-8 md:flex md:items-end md:justify-between md:p-12">
+        <div className="reference-row rounded-2xl border border-[var(--bmr-border)] bg-[var(--bmr-cream-2)] p-8 md:flex md:items-end md:justify-between md:p-12">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-[var(--bmr-terracota)]">Canal exclusivo corporativos,Arquitectos,Constructoras.</p>
             <h3 className="mt-4 max-w-[14ch] text-4xl font-semibold leading-[1.02] text-[var(--bmr-slate)] md:text-6xl">Iniciemos tu próximo caso de referencia.</h3>
