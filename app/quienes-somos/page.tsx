@@ -5,7 +5,7 @@ import { NuestrosServicios } from '@/components/sections/NuestrosServicios';
 
 export default function QuienesSomosPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] text-[#e6edf8]">
+    <main className="min-h-screen bg-transparent text-[#e6edf8]">
       <ProfessionalHeader />
 
       <section className="mx-auto w-full max-w-4xl px-4 pt-32 pb-14 md:px-6 md:pt-40">

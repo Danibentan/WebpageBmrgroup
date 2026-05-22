@@ -42,12 +42,20 @@ function verifySignature(params: {
 }
 
 export async function POST(request: Request) {
+  const requestUrl = new URL(request.url);
+
   try {
     const payload = (await request.json()) as WebhookBody;
-    const paymentId = payload.data?.id ?? payload.id;
+    const topic = requestUrl.searchParams.get('topic') ?? requestUrl.searchParams.get('type');
+    const resourceId = requestUrl.searchParams.get('id') ?? requestUrl.searchParams.get('data.id');
+    const paymentId = payload.data?.id ?? payload.id ?? resourceId;
+
+    if (topic && topic !== 'payment' && payload.type && payload.type !== 'payment') {
+      return NextResponse.json({ received: true, ignored: true, topic }, { status: 200 });
+    }
 
     if (!paymentId) {
-      return NextResponse.json({ error: 'Webhook payload sin payment id.' }, { status: 400 });
+      return NextResponse.json({ received: true, ignored: true, reason: 'missing_payment_id' }, { status: 200 });
     }
 
     const webhookSecret = process.env.MP_WEBHOOK_SECRET;
@@ -56,6 +64,11 @@ export async function POST(request: Request) {
       const requestId = request.headers.get('x-request-id') ?? '';
 
       if (!signatureHeader || !requestId) {
+        console.error('[MP][webhook] Missing signature headers', {
+          hasSignature: Boolean(signatureHeader),
+          hasRequestId: Boolean(requestId)
+        });
+
         return NextResponse.json({ error: 'Headers de firma incompletos.' }, { status: 401 });
       }
 
@@ -99,6 +112,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ received: true, paymentId: String(paymentId), status: paymentStatus }, { status: 200 });
   } catch (error) {
     console.error('[MP][webhook] Invalid payload', error);
-    return NextResponse.json({ error: 'Payload inválido en webhook.' }, { status: 400 });
+    return NextResponse.json({ received: true, ignored: true, reason: 'invalid_payload' }, { status: 200 });
   }
 }

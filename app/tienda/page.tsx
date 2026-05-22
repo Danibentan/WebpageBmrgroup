@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function TiendaPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pb-20">
+    <main className="min-h-screen bg-transparent pb-20">
       <ProfessionalHeader />
       <div className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[200px_1fr]">

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, FileText } from 'lucide-react';
 
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
+import LiquidButton from '@/components/ui/LiquidButton';
 import { catalogPdfChecklist, featuredCatalog, lineCatalogs } from '@/lib/catalogos';
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CatalogoPage() {
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)] pb-16 text-[#111111]">
+    <main className="min-h-screen bg-transparent pb-16 text-[#111111]">
       <ProfessionalHeader />
 
       <section className="mx-auto max-w-7xl px-6 pb-10 pt-12 md:px-10 md:pt-16">
@@ -38,21 +39,25 @@ export default function CatalogoPage() {
           <p className="mt-5 text-sm font-semibold text-[#D4AF6F]">Mientras tanto, podés solicitarlo por contacto directo.</p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
+            <LiquidButton
+              as={Link}
               href="/contacto"
+              variant="primary"
               aria-label="Solicitar catálogo por contacto"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF6F] px-6 py-3 text-sm font-semibold text-[#223D5A] transition hover:bg-[#e3c488] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-elevated-1)]"
+              className="!px-6 !py-3 text-sm"
             >
               <span>Solicitar catálogo por contacto</span>
               <ArrowRight size={16} />
-            </Link>
-            <Link
+            </LiquidButton>
+            <LiquidButton
+              as={Link}
               href="/nuestras-obras"
+              variant="secondary"
               aria-label="Ver nuestras obras"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D4AF6F]/65 px-6 py-3 text-sm font-semibold text-[#1F4257] transition hover:bg-[#D4AF6F]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF6F] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-elevated-1)]"
+              className="!px-6 !py-3 text-sm"
             >
               <span>Ver nuestras obras</span>
-            </Link>
+            </LiquidButton>
           </div>
         </article>
       </section>

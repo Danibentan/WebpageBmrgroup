@@ -1,4 +1,5 @@
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
+import LiquidButton from '@/components/ui/LiquidButton';
 
 export default function CotizarPage() {
   return (
@@ -28,9 +29,9 @@ export default function CotizarPage() {
             Día de visita (lunes a sábado)
             <input type="date" required className="mt-1 w-full rounded-lg border border-black/20 bg-transparent px-3 py-2 text-[#1a1a1a] focus:border-[#c9a961] focus:outline-none" />
           </label>
-          <button type="submit" className="md:col-span-2 rounded-full bg-[var(--bmr-gold)] px-4 py-2.5 text-sm font-semibold text-[#1a1a1a] transition hover:bg-[#d4b876]">
+          <LiquidButton type="submit" variant="primary" className="md:col-span-2">
             Enviar solicitud
-          </button>
+          </LiquidButton>
         </form>
       </section>
     </main>
