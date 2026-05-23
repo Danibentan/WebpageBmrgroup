@@ -334,3 +334,10 @@ h3,
 .product-card__cta--active i { color: #F5EFE2; }
 .product-card__cta--active:hover { background: #232E50; transform: translateY(-1px); }
 .size-dropdown__trigger:focus-visible,.size-dropdown__opt:focus-visible,.product-card__cta:focus-visible { outline: 2px solid rgba(184, 149, 72, 0.7); outline-offset: 2px; }
+
+/* Ajuste armónico: cuando abre el dropdown, empuja contenido para evitar superposición entre cards */
+.size-dropdown.is-open .size-dropdown__menu {
+  position: static;
+  margin-top: 6px;
+}
+
