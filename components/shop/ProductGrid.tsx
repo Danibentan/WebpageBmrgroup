@@ -1,6 +1,6 @@
 'use client';
 import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from '@/lib/useGSAP';
 import { Flip, gsap } from '@/lib/gsap';
 import { ProductCard } from './ProductCard';
 import type { ShopProduct } from '@/lib/shop/product-types';
@@ -17,5 +17,5 @@ export function ProductGrid({ products }: { products: ShopProduct[] }) {
     requestAnimationFrame(() => { Flip.from(state,{duration:.6,ease:'power3.inOut',stagger:.04,absolute:true}); });
   }, { scope: ref, dependencies: [products.map((p)=>p.id).join(',')] });
 
-  return <div ref={ref} className="grid grid-cols-2 gap-4 lg:grid-cols-3">{products.map((product)=><ProductCard key={product.id} product={product} />)}</div>;
+  return <div ref={ref} className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">{products.map((product)=><ProductCard key={product.id} product={product} />)}</div>;
 }

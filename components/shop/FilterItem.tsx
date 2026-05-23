@@ -15,7 +15,7 @@ export function FilterItem({ label, count, active, onClick }: Props) {
   return (
     <button
       ref={ref}
-      className={`filter-item ${active ? 'active' : ''}`}
+      className={`filter-item sidebar-pill ${active ? 'active sidebar-pill--active' : ''}`}
       aria-pressed={active}
       onMouseEnter={() => {
         if (reduced) return;
@@ -33,7 +33,7 @@ export function FilterItem({ label, count, active, onClick }: Props) {
     >
       <span ref={shimmerRef} className="filter-item__shimmer" aria-hidden />
       <span>{label}</span>
-      {count !== undefined ? <span ref={countRef} className="count">{count}</span> : null}
+      {count !== undefined ? <span ref={countRef} className="count sidebar-pill__count">{count}</span> : null}
     </button>
   );
 }
