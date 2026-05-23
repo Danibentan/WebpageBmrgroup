@@ -1,7 +1,7 @@
 'use client';
 
 import { type ElementType, type MouseEvent, type ReactNode, useRef, useState } from 'react';
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from '@/lib/useGSAP';
 
 import { gsap } from '@/lib/gsap';
 
