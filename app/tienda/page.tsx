@@ -30,9 +30,9 @@ function ShopFallback() {
 
 export default function TiendaPage() {
   return (
-    <main className="min-h-screen bg-transparent pb-20">
+    <main className="min-h-screen bg-transparent pb-24">
       <ProfessionalHeader />
-      <div className="tienda-shell mx-auto max-w-7xl pt-12 md:pt-16">
+      <div className="mx-auto w-full max-w-7xl px-6 pt-12 md:px-10">
         <Suspense fallback={<ShopFallback />}>
           <ShopClient />
         </Suspense>

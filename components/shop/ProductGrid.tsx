@@ -17,5 +17,9 @@ export function ProductGrid({ products }: { products: ShopProduct[] }) {
     requestAnimationFrame(() => { Flip.from(state,{duration:.6,ease:'power3.inOut',stagger:.04,absolute:true}); });
   }, { scope: ref, dependencies: [products.map((p)=>p.id).join(',')] });
 
+<<<<<<< codex/fix-that-error-uukcbp
+  return <div ref={ref} className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">{products.map((product)=><ProductCard key={product.id} product={product} />)}</div>;
+=======
   return <div ref={ref} className="grid [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))] gap-6">{products.map((product)=><ProductCard key={product.id} product={product} />)}</div>;
+>>>>>>> main
 }
