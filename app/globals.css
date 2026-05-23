@@ -241,6 +241,7 @@ h3,
   backdrop-filter: blur(20px) saturate(140%);
   border: 1px solid rgba(60, 45, 20, 0.10);
   border-radius: 18px;
+  width: 100%;
   max-width: 360px;
   overflow: hidden;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 14px 36px -18px rgba(60, 45, 20, 0.16), 0 4px 12px -6px rgba(60, 45, 20, 0.08);
@@ -249,6 +250,8 @@ h3,
   perspective: 1200px;
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 320ms cubic-bezier(0.22, 1, 0.36, 1);
   opacity: 1 !important;
+  margin: 0;
+  transform: none;
 }
 .product-card:hover {
   transform: translateY(-3px);

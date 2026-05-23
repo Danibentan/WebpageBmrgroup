@@ -8,5 +8,5 @@ const shopProducts = products.map((p) => ({ ...p, available: false, specs: p.des
 
 export function ShopClient() {
   const { category, materials, availability, filteredProducts, updateCategory, toggleMaterial, toggleAvailability } = useShopFilters(shopProducts);
-  return <div className="grid grid-cols-1 gap-8 md:grid-cols-[240px_1fr] md:gap-16"><FilterSidebar category={category} materials={materials} availability={availability} onCategory={updateCategory} onMaterial={toggleMaterial} onAvailability={toggleAvailability} /><ProductGrid products={filteredProducts} /></div>;
+  return <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[240px_1fr] md:gap-16"><FilterSidebar category={category} materials={materials} availability={availability} onCategory={updateCategory} onMaterial={toggleMaterial} onAvailability={toggleAvailability} /><ProductGrid products={filteredProducts} /></div>;
 }
