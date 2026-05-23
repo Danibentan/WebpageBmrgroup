@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { FormEvent, useRef, useState } from 'react';
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from '@/lib/useGSAP';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
@@ -86,7 +86,7 @@ export function HomePageClient() {
       <section className="mx-auto max-w-7xl px-6 pb-10 pt-20 md:pt-32">
         <p className="mixd-inspired-block text-xs uppercase tracking-[0.36em] text-[var(--bmr-terracota)]">BMR GROUP ARGENTINA · CASE STUDIES</p>
         <h2 className="mixd-inspired-block mt-5 max-w-[12ch] text-5xl font-semibold leading-[0.98] text-[var(--bmr-slate)] md:text-7xl">
-          Aberturas premiun para tu proyecto.
+          Aberturas de valor para tu proyecto.
         </h2>
         <p className="mixd-inspired-block mt-8 max-w-[52ch] text-lg leading-relaxed text-[var(--bmr-text-muted)]">
           Un enfoque editorial y técnico: menos ruido visual, más precisión en materiales, proporciones y performance para obras contemporáneas.
