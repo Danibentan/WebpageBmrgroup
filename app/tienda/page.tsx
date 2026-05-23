@@ -20,12 +20,20 @@ export const metadata: Metadata = {
   }
 };
 
+function ShopFallback() {
+  return (
+    <div className="rounded-2xl border border-[var(--bmr-border)] bg-[var(--bg-elevated-1)] p-6 text-sm text-[var(--bmr-text-muted)]">
+      Cargando tienda…
+    </div>
+  );
+}
+
 export default function TiendaPage() {
   return (
     <main className="min-h-screen bg-transparent pb-20">
       <ProfessionalHeader />
       <div className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
-        <Suspense fallback={null}>
+        <Suspense fallback={<ShopFallback />}>
           <ShopClient />
         </Suspense>
       </div>
