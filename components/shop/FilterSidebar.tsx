@@ -22,7 +22,7 @@ export function FilterSidebar(props: {
     gsap.fromTo('.filter-item', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out', stagger: 0.04 });
   }, []);
 
-  return <aside className="filter-sidebar hidden md:block">
+  return <aside className="filter-sidebar liquid-glass liquid-glass--subtle liquid-glass--card hidden md:block">
     <FilterGroup title="Categoría">
       <div className="category-group" ref={categoryRef}><div ref={indicatorRef} className="active-indicator" />
         <FilterItem label="Todas" count={24} active={props.category==='all'} onClick={() => props.onCategory('all')} />
