@@ -17,11 +17,11 @@ export function ProductCard({ product }: { product: ShopProduct }) {
   };
   return <article ref={cardRef} className="product-card" onMouseMove={move} onMouseEnter={()=>{ if(!reduced){ gsap.to(imageRef.current,{scale:1.06,duration:.6}); gsap.to(overlayRef.current,{opacity:1,duration:.4}); }}} onMouseLeave={()=>{ gsap.to(cardRef.current,{rotateX:0,rotateY:0,duration:.8,ease:'elastic.out(1,.5)'}); gsap.to(imageRef.current,{x:0,y:0,scale:1,duration:.8,ease:'elastic.out(1,.5)'}); gsap.to(overlayRef.current,{opacity:0,duration:.4}); }} aria-label={product.name}>
     <div className="product-card__media">
-      <div className="product-card__placeholder">Próximamente</div>
       <img ref={imageRef} className="product-card__image" src={product.image} alt={product.name} />
       <div ref={overlayRef} className="product-card__overlay" />
       {product.featured ? <div className="product-card__badge">Nuevo</div> : null}
+      <span className="product-card__category">BMR Premium</span>
     </div>
-    <div className="product-card__body"><h3 className="product-card__name">{product.name}</h3><p className="product-card__specs">{product.description}</p><div style={{transform:'translateZ(20px)'}}><LiquidButton variant="outline" className="product-card__cta"><ShoppingBag size={14} /> {product.available ? 'Cotizar' : 'Próximamente'}</LiquidButton></div></div>
+    <div className="product-card__body"><h3 className="product-card__title">{product.name}</h3><p className="product-card__subtitle">{product.description}</p><div style={{transform:'translateZ(20px)'}}><LiquidButton variant="outline" className="product-card__cta"><ShoppingBag size={14} /> {product.available ? 'Cotizar' : 'Próximamente'}</LiquidButton></div></div>
   </article>;
 }

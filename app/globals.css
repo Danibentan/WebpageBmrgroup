@@ -5,7 +5,11 @@
 
 :root {
   color-scheme: light;
-  --bmr-cream: #FAF4E6;
+  /* Paleta base */
+  --bmr-cream: #F5EFE2;
+  --bmr-ink: #1A1A1A;
+
+  /* Legacy palette kept for non-glass brand surfaces */
   --bmr-cream-2: #F0E6D0;
   --bmr-slate: #1F4257;
   --bmr-gold: #C9A961;
@@ -14,7 +18,21 @@
   --bmr-text-muted: #5C5446;
   --bmr-border: #E5DCC4;
   --bmr-letter-blue: #264A63;
-  --bmr-ink: #2A2418;
+
+  /* Liquid Glass — única superficie del sistema */
+  --glass-bg: rgba(255, 251, 240, 0.40);
+  --glass-bg-hover: rgba(255, 251, 240, 0.55);
+  --glass-bg-active: rgba(255, 251, 240, 0.70);
+  --glass-border: rgba(60, 45, 20, 0.08);
+  --glass-border-hover: rgba(60, 45, 20, 0.14);
+  --glass-border-active: rgba(60, 45, 20, 0.18);
+  --glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 8px 24px -14px rgba(60, 45, 20, 0.12);
+  --glass-shadow-active: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 10px 28px -12px rgba(60, 45, 20, 0.18);
+  --glass-blur: 18px;
+  --glass-saturate: 140%;
+  --glass-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --glass-duration: 280ms;
+
   --bg-primary: var(--bmr-cream);
   --bg-elevated-1: var(--bmr-cream-2);
   --bg-elevated-2: #EADFC8;
@@ -147,66 +165,110 @@ h3,
   }
 }
 
-.filter-sidebar { position: relative; }
-.filter-group + .filter-group { margin-top: 36px; }
-.filter-title { margin-bottom: 14px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(15,15,30,.65); }
-.category-group { position: relative; display: grid; gap: 8px; }
-.active-indicator { position: absolute; left: -10px; top: 0; width: 2px; height: 18px; background: #C8A86B; border-radius: 99px; }
-.filter-item { position: relative; display:flex; align-items:center; justify-content:space-between; padding:10px 16px; border-radius:99px; font-size:14px; font-weight:500; color:rgba(15,15,30,.75); cursor:pointer; overflow:hidden; isolation:isolate; background:transparent; border:1px solid transparent; transition: color .25s ease, background .25s ease, border-color .25s ease; }
-.filter-item .count { font-size: 11px; color:#C8A86B; opacity:.7; font-variant-numeric: tabular-nums; }
-.filter-item:hover { color:#0F0F1E; background:rgba(245,239,224,.6); backdrop-filter:blur(16px) saturate(180%); -webkit-backdrop-filter:blur(16px) saturate(180%); border-color:rgba(200,168,107,.3); box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 4px 16px rgba(15,15,30,.05);}
-.filter-item.active { background:rgba(200,168,107,.85); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border-color:rgba(200,168,107,.5); color:#0F0F1E; box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 -1px 0 rgba(0,0,0,.08) inset,0 8px 24px rgba(200,168,107,.25); }
-.filter-item.active .count { color:#0F0F1E; opacity:1; }
-.filter-item__shimmer { position:absolute; inset:0; background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.5) 50%, transparent 70%); transform: translateX(-120%); pointer-events:none; }
 
-.product-card { position:relative; background:rgba(239,230,210,.72); backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border:1px solid rgba(200,168,107,.15); border-radius:18px; overflow:hidden; cursor:pointer; transform-style:preserve-3d; perspective:1200px; transition:border-color .4s ease, box-shadow .4s ease; box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 4px 16px rgba(15,15,30,.03);}
-.product-card:hover { border-color:rgba(200,168,107,.4); box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 24px 60px rgba(15,15,30,.12),0 8px 20px rgba(200,168,107,.08); }
-.product-card__media { position:relative; aspect-ratio:1/1; overflow:hidden; background: var(--bmr-cream-2); }
-.product-card__placeholder { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family: var(--font-cormorant), serif; font-size:28px; font-style:italic; color:#0F0F1E; opacity:.4; }
-.product-card__image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1); }
-.product-card__overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(15,15,30,0) 0%,rgba(15,15,30,0) 60%,rgba(15,15,30,.2) 100%); opacity:0; pointer-events:none; }
-.product-card__badge { position:absolute; top:14px; left:14px; background:rgba(200,168,107,.9); color:#0F0F1E; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:6px 12px; border-radius:99px; z-index:2; }
-.product-card__body { padding:20px 22px 22px; position:relative; }
-.product-card__name { font-family: var(--font-cormorant), serif; font-size:22px; font-weight:500; color:#0F0F1E; margin-bottom:4px; letter-spacing:-.3px; }
-.product-card__specs { font-size:13px; color:rgba(15,15,30,.75); margin-bottom:16px; }
-.product-card__cta { width:100%; }
+/* Superficie base — única para todo el sitio */
+.liquid-glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 999px;
+  color: var(--bmr-ink);
+  transition: background var(--glass-duration) var(--glass-ease), border-color var(--glass-duration) var(--glass-ease), box-shadow var(--glass-duration) var(--glass-ease), transform var(--glass-duration) var(--glass-ease);
+}
+
+.liquid-glass:hover { background: var(--glass-bg-hover); border-color: var(--glass-border-hover); }
+.liquid-glass--active { background: var(--glass-bg-active); border-color: var(--glass-border-active); box-shadow: var(--glass-shadow-active); font-weight: 500; }
+.liquid-glass--card { border-radius: 20px; }
+.liquid-glass--subtle { background: rgba(255, 251, 240, 0.25); border-color: rgba(60, 45, 20, 0.05); box-shadow: 0 2px 12px -6px rgba(60, 45, 20, 0.08); }
 
 
-.liquid-glass-btn {
+.tienda-shell { padding-inline: clamp(24px, 4vw, 64px); }
+
+.filter-sidebar {
+  position: sticky;
+  top: 96px;
+  width: 260px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.filter-group + .filter-group { margin-top: 40px; }
+.filter-title {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.45);
+}
+
+.category-group { position: relative; display: grid; gap: 6px; }
+.active-indicator { display: none; }
+
+.sidebar-pill {
+  background: rgba(255, 251, 240, 0.30);
+  border: 1px solid rgba(60, 45, 20, 0.04);
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  backdrop-filter: blur(12px) saturate(130%);
+  border-radius: 999px;
+  padding: 11px 22px;
+  font-size: 14px;
+  color: var(--bmr-ink);
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 280ms cubic-bezier(0.22, 1, 0.36, 1), border-color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sidebar-pill:hover { background: rgba(255, 251, 240, 0.45); border-color: rgba(60, 45, 20, 0.08); }
+.sidebar-pill--active { background: rgba(255, 251, 240, 0.55); border-color: rgba(60, 45, 20, 0.08); font-weight: 500; }
+.sidebar-pill__count { color: rgba(26, 26, 26, 0.40); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 1023px) { .filter-sidebar { width: 240px; } }
+
+/* Card de producto — superficie primaria, alta legibilidad */
+.product-card {
   position: relative;
+  background: rgba(255, 251, 240, 0.92);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(60, 45, 20, 0.10);
+  border-radius: 20px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 12px 32px -16px rgba(60, 45, 20, 0.14), 0 4px 12px -6px rgba(60, 45, 20, 0.08);
   overflow: hidden;
-  isolation: isolate;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(135deg, rgba(250, 244, 230, 0.45), rgba(240, 230, 208, 0.25));
-  border: 1px solid rgba(201, 169, 97, 0.45);
-  box-shadow: 0 10px 30px rgba(31, 66, 87, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  transition: transform 240ms ease, box-shadow 280ms ease, border-color 280ms ease, background 280ms ease;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1), border-color 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
+.product-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(60, 45, 20, 0.16);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 20px 40px -16px rgba(60, 45, 20, 0.18), 0 6px 16px -6px rgba(60, 45, 20, 0.10);
+}
+.product-card__media { position: relative; aspect-ratio: 4/5; overflow: hidden; background: rgba(245, 239, 226, 0.5); }
+.product-card__image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:1; transform:scale(1); }
+.product-card__overlay { position:absolute; inset:0; background:linear-gradient(180deg,rgba(26,26,26,0) 0%, rgba(26,26,26,.08) 70%, rgba(26,26,26,.25) 100%); opacity:0; pointer-events:none; }
+.product-card__badge { position:absolute; top:14px; left:14px; background: rgba(255, 251, 240, 0.85); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(60, 45, 20, 0.10); border-radius: 999px; padding: 5px 12px; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #1A1A1A; z-index:2; }
+.product-card__category { position:absolute; bottom:16px; left:0; right:0; text-align:center; font-family: var(--font-cormorant), Georgia, serif; font-style: italic; font-size: 18px; color: rgba(255, 251, 240, 0.95); text-shadow: 0 1px 8px rgba(60, 45, 20, 0.4); letter-spacing: 0.02em; z-index:2; }
+.product-card__body { padding: 20px 22px 22px; display:flex; flex-direction:column; gap:4px; position: relative; }
+.product-card__title { font-family: var(--font-cormorant), Georgia, serif; font-style: italic; font-size: 22px; font-weight: 400; color: #1A1A1A; line-height: 1.2; margin: 0; }
+.product-card__subtitle { font-size: 13px; color: rgba(26, 26, 26, 0.6); letter-spacing: 0.02em; margin: 0 0 14px; }
+.product-card__cta { width:100%; background: rgba(255, 251, 240, 0.55); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(60, 45, 20, 0.10) !important; border-radius: 999px; padding: 11px 18px; font-size: 13px; color: rgba(26, 26, 26, 0.7); display:flex; align-items:center; justify-content:center; gap:8px; cursor:not-allowed; opacity:0.85; }
 
-.liquid-glass-btn::before {
-  content: '';
-  position: absolute;
-  inset: -180% -35%;
-  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.5) 50%, transparent 66%);
-  transform: translateX(-60%) rotate(10deg);
-  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
-  pointer-events: none;
-  z-index: -1;
-}
+.liquid-glass-btn { position: relative; overflow: hidden; isolation: isolate; }
+.liquid-glass-btn::before { content: ''; position: absolute; inset: -180% -35%; background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.5) 50%, transparent 66%); transform: translateX(-60%) rotate(10deg); transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1); pointer-events: none; z-index: -1; }
+.liquid-glass-btn:hover::before { transform: translateX(48%) rotate(10deg); }
 
-.liquid-glass-btn:hover {
-  transform: translateY(-2px) scale(1.01);
-  border-color: rgba(201, 169, 97, 0.75);
-  box-shadow: 0 16px 34px rgba(31, 66, 87, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.65);
-}
-
-.liquid-glass-btn:hover::before {
-  transform: translateX(48%) rotate(10deg);
-}
-
-.liquid-glass-btn:active {
-  transform: translateY(0) scale(0.99);
-}
+@supports not (backdrop-filter: blur(1px)) { .liquid-glass { background: rgba(255, 251, 240, 0.92); } .liquid-glass--active { background: rgba(255, 251, 240, 0.98); } .product-card { background: rgba(255, 251, 240, 0.98); } .product-card__badge { background: rgba(255, 251, 240, 0.96); } .product-card__cta { background: rgba(255, 251, 240, 0.85); } }
+@media (prefers-reduced-motion: reduce) { .liquid-glass { transition: none; } }
 
 
 .text-white { color: var(--bmr-soft-white) !important; }

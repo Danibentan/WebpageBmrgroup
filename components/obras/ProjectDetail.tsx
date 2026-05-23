@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRef } from 'react';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from '@/lib/useGSAP';
 
 import type { Obra } from '@/content/obras';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
