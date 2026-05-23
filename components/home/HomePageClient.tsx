@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { FormEvent, useRef, useState } from 'react';
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from '@/lib/useGSAP';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
