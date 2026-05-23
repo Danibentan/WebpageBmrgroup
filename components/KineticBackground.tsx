@@ -16,7 +16,7 @@ const LAYERS: Layer[] = [
   { text: 'ABERTURAS · VIDRIO · ALUMINIO · MARCO · ', size: 200, top: '8%', speed: 0.3, opacity: 0.06, color: '#0F0F1E', italic: false },
   { text: 'CERRAMIENTOS · DVH · PVC · TEMPLADO · ', size: 140, top: '30%', speed: -0.5, opacity: 0.09, color: '#C8A86B', italic: true },
   { text: 'DISEÑO · OBRA · DETALLE · LUZ · ', size: 240, top: '55%', speed: 0.4, opacity: 0.05, color: '#0F0F1E', italic: false },
-  { text: 'BMR · 2026 · NEUQUÉN · ESCOBAR · ', size: 90, top: '78%', speed: -0.8, opacity: 0.14, color: '#C8A86B', italic: true }
+  { text: 'BMR ·  · BUENOS AIRES· ESCOBAR · ', size: 90, top: '78%', speed: -0.8, opacity: 0.14, color: '#C8A86B', italic: true }
 ];
 
 export default function KineticBackground() {
