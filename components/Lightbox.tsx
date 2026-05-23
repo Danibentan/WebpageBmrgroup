@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { useGSAP } from '@/lib/useGSAP';
 
 type LightboxImage = {
   src: string;
@@ -35,7 +35,6 @@ export function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProp
   const nextButtonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(useGSAP);
     setMounted(true);
   }, []);
 
