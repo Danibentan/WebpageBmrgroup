@@ -32,7 +32,7 @@ export default function TiendaPage() {
   return (
     <main className="min-h-screen bg-transparent pb-20">
       <ProfessionalHeader />
-      <div className="mx-auto max-w-7xl px-6 pt-12 md:px-10 md:pt-16">
+      <div className="tienda-shell mx-auto max-w-7xl pt-12 md:pt-16">
         <Suspense fallback={<ShopFallback />}>
           <ShopClient />
         </Suspense>
