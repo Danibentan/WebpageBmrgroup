@@ -15,7 +15,7 @@ export function FilterItem({ label, count, active, onClick }: Props) {
   return (
     <button
       ref={ref}
-      className={`filter-item ${active ? 'active' : ''}`}
+      className={`filter-item liquid-glass ${active ? 'active liquid-glass--active' : ''}`}
       aria-pressed={active}
       onMouseEnter={() => {
         if (reduced) return;
