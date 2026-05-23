@@ -20,6 +20,7 @@ export function ProductCard({ product }: { product: ShopProduct }) {
       <img ref={imageRef} className="product-card__image" src={product.image} alt={product.name} />
       <div ref={overlayRef} className="product-card__overlay" />
       {product.featured ? <div className="product-card__badge">Nuevo</div> : null}
+      <div className="product-card__category-overlay"><span className="product-card__category-overlay__main">BMR PREMIUM</span><span className="product-card__category-overlay__sub">BMR Premium</span></div>
     </div>
     <div className="product-card__body"><h3 className="product-card__title">{product.name}</h3><p className="product-card__subtitle">{product.description}</p><div style={{transform:'translateZ(20px)'}}><LiquidButton variant="outline" className="product-card__cta"><ShoppingBag size={14} /> {product.available ? 'Cotizar' : 'Próximamente'}</LiquidButton></div></div>
   </article>;
