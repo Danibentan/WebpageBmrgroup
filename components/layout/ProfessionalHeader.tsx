@@ -100,7 +100,7 @@ export function ProfessionalHeader() {
                 variant="ghost"
                 aria-current={active ? 'page' : undefined}
                 className={`site-nav-link-desktop pb-[3px] !px-3 !py-2 text-[13px] font-normal transition-all duration-200 ${
-                  active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-letter-blue)]' : 'text-[var(--bmr-letter-blue)] hover:text-[var(--bmr-letter-blue)]'
+                  active ? 'liquid-glass liquid-glass--active text-[var(--bmr-ink)]' : 'text-[var(--bmr-ink)] hover:opacity-80'
                 }`}
               >
                 {label}
@@ -112,7 +112,7 @@ export function ProfessionalHeader() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-[var(--bmr-letter-blue)] transition hover:text-[var(--bmr-letter-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-[var(--bmr-ink)] transition hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--glass-border-active)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)] md:hidden"
           aria-label={isMobileMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
           aria-expanded={isMobileMenuOpen}
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -136,7 +136,7 @@ export function ProfessionalHeader() {
             type="button"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Cerrar menú"
-            className="rounded-md border border-[var(--bmr-border)] bg-[var(--bmr-cream-2)] p-2 text-[var(--bmr-letter-blue)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--bmr-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
+            className="liquid-glass rounded-md p-2 text-[var(--bmr-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--glass-border-active)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-primary)]"
           >
             <X size={26} />
           </button>
@@ -154,7 +154,7 @@ export function ProfessionalHeader() {
                 variant="ghost"
                 aria-current={active ? 'page' : undefined}
                 className={`pb-1 font-editorial !text-3xl transition-colors duration-200 ${
-                  active ? 'border-b border-[var(--bmr-gold)] text-[var(--bmr-letter-blue)]' : 'text-[var(--bmr-letter-blue)] hover:text-[var(--bmr-letter-blue)]'
+                  active ? 'liquid-glass liquid-glass--active text-[var(--bmr-ink)]' : 'text-[var(--bmr-ink)] hover:opacity-80'
                 }`}
               >
                 {label}
