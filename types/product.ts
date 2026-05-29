@@ -35,8 +35,9 @@ export interface Product {
   imagenAlt: string;
   medidas?: ProductMeasure[];
   opcionales?: ProductOption[];
-  priceFrom: number;
+  priceFrom: number | null;
   priceUnit: 'm2' | 'unidad' | 'consultar';
+  disponibleParaCompra: boolean;
   image: string;
   featured?: boolean;
   variants: ProductVariant[];

@@ -29,6 +29,19 @@ export function ProductPurchaseControls({ product }: ProductPurchaseControlsProp
     );
   };
 
+  if (!product.disponible) {
+    return (
+      <div className="space-y-7">
+        <div className="rounded-3xl border border-[#14223D]/10 bg-[#EDE5D0]/50 p-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6B6655]">Estado</p>
+          <p className="mt-2 font-editorial text-3xl italic text-[#14223D]">Próximamente</p>
+          <p className="mt-2 text-xs leading-5 text-[#6B6655]">Este producto todavía no tiene precio publicado para compra online.</p>
+        </div>
+        <AddToCartButton product={product} selectedMeasure={selectedMeasure} selectedOptions={[]} />
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-7">
       <div className="rounded-3xl border border-[#14223D]/10 bg-[#EDE5D0]/50 p-5">

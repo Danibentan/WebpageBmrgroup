@@ -4,6 +4,7 @@ import { NextResponse } from 'next/server';
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 import { getZonaEnvio } from '@/lib/envio';
+import { products } from '@/lib/products';
 import { saveOrder } from '@/lib/order-storage';
 import type { CheckoutItem, CheckoutPayload, StoredOrder } from '@/lib/order-types';
 
@@ -38,6 +39,11 @@ function isValidItem(item: CheckoutItem): boolean {
 
 function onlyDigits(value: string) {
   return value.replace(/\D/g, '');
+}
+
+function isPurchasableCatalogItem(item: CheckoutItem): boolean {
+  const product = products.find((entry) => item.id === entry.id || item.id.startsWith(`${entry.id}-`));
+  return Boolean(product?.disponibleParaCompra && product.priceUnit !== 'consultar' && typeof product.priceFrom === 'number' && product.priceFrom > 0);
 }
 
 function validateCheckout(checkout: CheckoutPayload | undefined): string | null {
@@ -92,6 +98,11 @@ export async function POST(request: Request) {
         },
         { status: 400 }
       );
+    }
+
+    const blockedItem = items.find((item) => !isPurchasableCatalogItem(item));
+    if (blockedItem) {
+      return NextResponse.json({ error: 'El pedido contiene productos que todavía no están disponibles para compra online.' }, { status: 400 });
     }
 
     const checkoutError = validateCheckout(payload.checkout);

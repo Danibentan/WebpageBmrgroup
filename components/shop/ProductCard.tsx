@@ -8,6 +8,9 @@ import type { ShopProduct } from '@/lib/shop/product-types';
 import type { ProductVariant } from '@/types/product';
 import { SizeDropdown } from './SizeDropdown';
 
+const formatPrice = (price: number) =>
+  new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(price);
+
 export function ProductCard({ product }: { product: ShopProduct }) {
   const cardRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -18,6 +21,8 @@ export function ProductCard({ product }: { product: ShopProduct }) {
   const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouch = typeof window !== 'undefined' && !window.matchMedia('(hover: hover)').matches;
   const isCustom = selectedVariant.type === 'custom';
+  const displayPrice = typeof product.priceFrom === 'number' ? product.priceFrom : null;
+  const isPurchasable = Boolean(product.disponibleParaCompra && displayPrice && displayPrice > 0);
 
   const move = (event: MouseEvent<HTMLElement>) => {
     if (reduced || isTouch || !cardRef.current) return;
@@ -35,9 +40,14 @@ export function ProductCard({ product }: { product: ShopProduct }) {
     event.preventDefault();
     event.stopPropagation();
 
-    if (!isCustom) return;
+    if (isCustom && isPurchasable) {
+      window.location.href = `/contacto?producto=${product.id}&medida=custom`;
+      return;
+    }
 
-    window.location.href = `/contacto?producto=${product.id}&medida=custom`;
+    if (isPurchasable) {
+      window.location.href = `/tienda/${product.slug}`;
+    }
   };
 
   return (
@@ -87,13 +97,22 @@ export function ProductCard({ product }: { product: ShopProduct }) {
         <h3 className="product-card__title">{product.name}</h3>
         <p className="product-card__subtitle">{product.description}</p>
 
+        {isPurchasable ? (
+          <p className="mt-3 font-editorial text-2xl italic text-[#14223D]">{formatPrice(displayPrice ?? 0)}</p>
+        ) : null}
+
         <div className="relative z-[3]" onClick={(event) => event.stopPropagation()}>
           <SizeDropdown variants={product.variants} onChange={setSelectedVariant} />
         </div>
 
-        <button className={`product-card__cta ${isCustom ? 'product-card__cta--active' : ''}`} aria-disabled={!isCustom} onClick={handleCtaClick}>
-          <i className={`ti ${isCustom ? 'ti-mail' : 'ti-shopping-bag'}`} aria-hidden="true" />
-          {isCustom ? 'Solicitar cotización' : 'Próximamente'}
+        <button
+          className={`product-card__cta ${isPurchasable ? 'product-card__cta--active' : ''}`}
+          aria-disabled={!isPurchasable}
+          disabled={!isPurchasable}
+          onClick={handleCtaClick}
+        >
+          <i className={`ti ${isCustom && isPurchasable ? 'ti-mail' : 'ti-shopping-bag'}`} aria-hidden="true" />
+          {isPurchasable ? (isCustom ? 'Solicitar cotización' : 'Comprar') : 'Próximamente'}
         </button>
       </div>
     </article>

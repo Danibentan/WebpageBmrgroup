@@ -23,6 +23,19 @@ export function AddToCartButton({ product, selectedMeasure, selectedOptions }: A
   }, [status]);
 
   const selectedMeasurePrice = selectedMeasure.precio;
+  const canBuy = product.disponible && typeof selectedMeasurePrice === 'number' && selectedMeasurePrice > 0;
+
+  if (!product.disponible) {
+    return (
+      <button
+        type="button"
+        disabled
+        className="w-full cursor-not-allowed rounded-full border border-[#14223D]/15 bg-[#EDE5D0] px-6 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#6B6655]"
+      >
+        Próximamente
+      </button>
+    );
+  }
 
   if (selectedMeasurePrice === null) {
     return (
@@ -36,6 +49,8 @@ export function AddToCartButton({ product, selectedMeasure, selectedOptions }: A
   }
 
   const handleAdd = () => {
+    if (!canBuy) return;
+
     addItem({
       id: `${product.id}-${selectedMeasure.id}`,
       slug: product.slug,
@@ -71,7 +86,7 @@ export function AddToCartButton({ product, selectedMeasure, selectedOptions }: A
       className="w-full rounded-full bg-[#14223D] px-6 py-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#F4EEDE] transition hover:bg-[#1d3158] focus:outline-none focus:ring-2 focus:ring-[#B8924A] focus:ring-offset-2 focus:ring-offset-[#F4EEDE]"
       aria-label={`Agregar al carrito medida ${selectedMeasure.label} con ${selectedOptions.length} opcionales seleccionados`}
     >
-      {status === 'added' ? 'Agregado ✓' : 'Agregar al carrito'}
+      {status === 'added' ? 'Agregado ✓' : 'Comprar'}
     </button>
   );
 }

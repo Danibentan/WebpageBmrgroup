@@ -4,7 +4,11 @@ import { useShopFilters } from '@/lib/shop/useShopFilters';
 import { FilterSidebar } from '@/components/shop/FilterSidebar';
 import { ProductGrid } from '@/components/shop/ProductGrid';
 
-const shopProducts = products.map((p) => ({ ...p, available: false, specs: p.description }));
+const shopProducts = products.map((p) => ({
+  ...p,
+  available: Boolean(p.disponibleParaCompra && typeof p.priceFrom === 'number' && p.priceFrom > 0),
+  specs: p.description
+}));
 
 export function ShopClient() {
   const { category, materials, availability, filteredProducts, updateCategory, toggleMaterial, toggleAvailability } = useShopFilters(shopProducts);

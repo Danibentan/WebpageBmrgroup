@@ -1,5 +1,4 @@
 import { products } from '@/lib/products';
-import { SHOP_CHECKOUT_ENABLED } from '@/lib/feature-flags';
 import type { Product, ProductCategory, ProductMaterial } from '@/types/product';
 
 export type ProductMeasure = {
@@ -35,7 +34,7 @@ export type ProductDetail = {
   incluye: string[];
   especificaciones: ProductSpec[];
   disponible: boolean;
-  precio: number;
+  precio: number | null;
   imageAlt: string;
 };
 
@@ -69,7 +68,7 @@ function buildDefaultMeasures(product: Product): ProductMeasure[] {
     id: variant.id,
     label: variant.label,
     value: variant.id,
-    precio: variant.type === 'custom' ? null : product.priceFrom > 0 ? product.priceFrom : null,
+    precio: variant.type === 'custom' ? null : product.disponibleParaCompra && typeof product.priceFrom === 'number' && product.priceFrom > 0 ? product.priceFrom : null,
     esPersonalizada: variant.type === 'custom'
   }));
 
@@ -78,6 +77,7 @@ function buildDefaultMeasures(product: Product): ProductMeasure[] {
 
 function buildDefaultOptions(product: Product): ProductOption[] {
   if (product.opcionales) return product.opcionales;
+  if (!product.disponibleParaCompra) return [];
 
   // TODO ajustar a CMS: reemplazar estos opcionales por los configurados para cada producto.
   return [
@@ -123,7 +123,7 @@ export function adaptProductToDetail(product: Product): ProductDetail {
     opcionales: buildDefaultOptions(product),
     incluye: buildDefaultIncludes(product),
     especificaciones: buildDefaultSpecs(product),
-    disponible: SHOP_CHECKOUT_ENABLED && product.priceUnit !== 'consultar' && product.priceFrom > 0,
+    disponible: Boolean(product.disponibleParaCompra && product.priceUnit !== 'consultar' && typeof product.priceFrom === 'number' && product.priceFrom > 0),
     precio: product.priceFrom,
     imageAlt: product.imagenAlt
   };

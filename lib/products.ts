@@ -32,6 +32,7 @@ export const products: Product[] = [
     ],
     priceFrom: 2264000,
     priceUnit: 'unidad',
+    disponibleParaCompra: true,
     image: '/products/bmr-product-placeholder.svg',
     featured: true,
     variants: [
@@ -56,8 +57,9 @@ export const products: Product[] = [
       '/productos/puerta-pivot-3.webp'
     ],
     imagenAlt: 'Puerta Pivot de madera maciza instalada en acceso principal',
-    priceFrom: 1890000,
-    priceUnit: 'unidad',
+    priceFrom: null,
+    priceUnit: 'consultar',
+    disponibleParaCompra: false,
     image: '/products/bmr-product-placeholder.svg',
     variants: [
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
@@ -81,8 +83,9 @@ export const products: Product[] = [
       '/productos/oscilobatiente-3.webp'
     ],
     imagenAlt: 'Ventana oscilobatiente de PVC reforzado instalada en ambiente interior',
-    priceFrom: 320000,
-    priceUnit: 'm2',
+    priceFrom: null,
+    priceUnit: 'consultar',
+    disponibleParaCompra: false,
     image: '/products/bmr-product-placeholder.svg',
     variants: [
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
@@ -106,8 +109,9 @@ export const products: Product[] = [
       '/productos/frente-integral-3.webp'
     ],
     imagenAlt: 'Frente integral de aluminio y vidrio templado en fachada comercial',
-    priceFrom: 0,
+    priceFrom: null,
     priceUnit: 'consultar',
+    disponibleParaCompra: false,
     image: '/products/bmr-product-placeholder.svg',
     variants: [
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
@@ -131,8 +135,9 @@ export const products: Product[] = [
       '/productos/puerta-entrada-3.webp'
     ],
     imagenAlt: 'Puerta de entrada de madera y acero instalada en vivienda',
-    priceFrom: 1250000,
-    priceUnit: 'unidad',
+    priceFrom: null,
+    priceUnit: 'consultar',
+    disponibleParaCompra: false,
     image: '/products/bmr-product-placeholder.svg',
     variants: [
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
@@ -156,8 +161,9 @@ export const products: Product[] = [
       '/productos/mosquitero-3.webp'
     ],
     imagenAlt: 'Mosquitero de aluminio con tela instalado en ventana',
-    priceFrom: 95000,
-    priceUnit: 'm2',
+    priceFrom: null,
+    priceUnit: 'consultar',
+    disponibleParaCompra: false,
     image: '/products/bmr-product-placeholder.svg',
     variants: [
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
@@ -181,8 +187,9 @@ export const products: Product[] = [
       '/productos/ventana-minimal-3.webp'
     ],
     imagenAlt: 'Ventana Minimal de perfil ultrafino instalada en obra contemporánea',
-    priceFrom: 740000,
-    priceUnit: 'm2',
+    priceFrom: null,
+    priceUnit: 'consultar',
+    disponibleParaCompra: false,
     image: '/products/bmr-product-placeholder.svg',
     variants: [
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
@@ -206,8 +213,9 @@ export const products: Product[] = [
       '/productos/puerta-balcon-3.webp'
     ],
     imagenAlt: 'Puerta Balcón de PVC con hermeticidad superior instalada en living',
-    priceFrom: 680000,
-    priceUnit: 'unidad',
+    priceFrom: null,
+    priceUnit: 'consultar',
+    disponibleParaCompra: false,
     image: '/products/bmr-product-placeholder.svg',
     variants: [
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
