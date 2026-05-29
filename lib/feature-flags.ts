@@ -1,1 +1,1 @@
-export const SHOP_CHECKOUT_ENABLED = false;
+export const SHOP_CHECKOUT_ENABLED = true;
