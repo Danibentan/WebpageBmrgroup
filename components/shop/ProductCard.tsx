@@ -41,7 +41,7 @@ export function ProductCard({ product }: { product: ShopProduct }) {
   return (
     <article
       ref={cardRef}
-      className="product-card group"
+      className="product-card group h-full"
       onMouseMove={move}
       onMouseEnter={() => {
         if (!reduced) {
@@ -66,7 +66,7 @@ export function ProductCard({ product }: { product: ShopProduct }) {
         <div ref={overlayRef} className="product-card__overlay" />
         {product.featured ? <div className="product-card__badge">Nuevo</div> : null}
       </div>
-      <div className="product-card__body z-[2]">
+      <div className="product-card__body z-[2] flex-1">
         <h3 className="product-card__title">{product.name}</h3>
         <p className="product-card__subtitle">{product.description}</p>
 
