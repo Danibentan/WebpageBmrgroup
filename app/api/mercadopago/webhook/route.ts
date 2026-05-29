@@ -3,6 +3,9 @@ import crypto from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { MercadoPagoConfig, Payment } from 'mercadopago';
 
+import { getOrder, markOrderApproved, markOrderNotified } from '@/lib/order-storage';
+import { sendApprovedOrderEmail } from '@/lib/order-email';
+
 export const runtime = 'nodejs';
 
 type WebhookBody = {
@@ -85,6 +88,7 @@ export async function POST(request: Request) {
     }
 
     let paymentStatus = 'unknown';
+    let externalReference: string | undefined;
     const accessToken = process.env.MP_ACCESS_TOKEN;
 
     if (accessToken) {
@@ -92,7 +96,9 @@ export async function POST(request: Request) {
         const client = new MercadoPagoConfig({ accessToken });
         const paymentClient = new Payment(client);
         const payment = await paymentClient.get({ id: String(paymentId) });
-        paymentStatus = String(payment.status ?? 'unknown');
+        const paymentDetail = payment as { status?: string | null; external_reference?: string | null };
+        paymentStatus = String(paymentDetail.status ?? 'unknown');
+        externalReference = paymentDetail.external_reference ? String(paymentDetail.external_reference) : undefined;
       } catch (error) {
         console.error('[MP][webhook] Error retrieving payment detail', error);
       }
@@ -106,8 +112,30 @@ export async function POST(request: Request) {
       live_mode: payload.live_mode
     });
 
-    // TODO: persistir paymentId + status en base de datos para reconciliación de órdenes.
-    // TODO: implementar lógica idempotente de actualización de órdenes por paymentId.
+    if (paymentStatus === 'approved' && externalReference) {
+      const order = await getOrder(externalReference);
+
+      if (!order) {
+        console.warn('[MP][webhook] Approved payment without stored order', {
+          paymentId: String(paymentId),
+          externalReference
+        });
+      } else if (order.notificationSentAt) {
+        console.log('[MP][webhook] Approved order already notified, skipping email', {
+          paymentId: String(paymentId),
+          orderId: order.orderId
+        });
+      } else {
+        const approvedOrder = await markOrderApproved(order.orderId, String(paymentId));
+
+        try {
+          await sendApprovedOrderEmail(approvedOrder ?? order);
+          await markOrderNotified(order.orderId);
+        } catch (error) {
+          console.error('[MP][webhook] Error sending approved order email', error);
+        }
+      }
+    }
 
     return NextResponse.json({ received: true, paymentId: String(paymentId), status: paymentStatus }, { status: 200 });
   } catch (error) {
