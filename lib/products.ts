@@ -26,7 +26,6 @@ export const products: Product[] = [
     image: '/products/bmr-product-placeholder.svg',
     featured: true,
     variants: [
-      { id: '150x100', label: '150 × 100', type: 'standard', dimensions: { width: 150, height: 100, unit: 'cm' } },
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }
     ]
@@ -52,8 +51,7 @@ export const products: Product[] = [
     priceUnit: 'unidad',
     image: '/products/bmr-product-placeholder.svg',
     variants: [
-      { id: '120x120', label: '120 × 120', type: 'standard', dimensions: { width: 120, height: 120, unit: 'cm' } },
-      { id: '180x120', label: '180 × 120', type: 'standard', dimensions: { width: 180, height: 120, unit: 'cm' } },
+      { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }
     ]
   },
@@ -78,8 +76,7 @@ export const products: Product[] = [
     priceUnit: 'm2',
     image: '/products/bmr-product-placeholder.svg',
     variants: [
-      { id: '120x120', label: '120 × 120', type: 'standard', dimensions: { width: 120, height: 120, unit: 'cm' } },
-      { id: '180x120', label: '180 × 120', type: 'standard', dimensions: { width: 180, height: 120, unit: 'cm' } },
+      { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }
     ]
   },
@@ -104,8 +101,7 @@ export const products: Product[] = [
     priceUnit: 'consultar',
     image: '/products/bmr-product-placeholder.svg',
     variants: [
-      { id: '120x120', label: '120 × 120', type: 'standard', dimensions: { width: 120, height: 120, unit: 'cm' } },
-      { id: '180x120', label: '180 × 120', type: 'standard', dimensions: { width: 180, height: 120, unit: 'cm' } },
+      { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }
     ]
   },
@@ -130,8 +126,7 @@ export const products: Product[] = [
     priceUnit: 'unidad',
     image: '/products/bmr-product-placeholder.svg',
     variants: [
-      { id: '120x120', label: '120 × 120', type: 'standard', dimensions: { width: 120, height: 120, unit: 'cm' } },
-      { id: '180x120', label: '180 × 120', type: 'standard', dimensions: { width: 180, height: 120, unit: 'cm' } },
+      { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }
     ]
   },
@@ -156,8 +151,7 @@ export const products: Product[] = [
     priceUnit: 'm2',
     image: '/products/bmr-product-placeholder.svg',
     variants: [
-      { id: '120x120', label: '120 × 120', type: 'standard', dimensions: { width: 120, height: 120, unit: 'cm' } },
-      { id: '180x120', label: '180 × 120', type: 'standard', dimensions: { width: 180, height: 120, unit: 'cm' } },
+      { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }
     ]
   },
@@ -182,8 +176,7 @@ export const products: Product[] = [
     priceUnit: 'm2',
     image: '/products/bmr-product-placeholder.svg',
     variants: [
-      { id: '120x120', label: '120 × 120', type: 'standard', dimensions: { width: 120, height: 120, unit: 'cm' } },
-      { id: '180x120', label: '180 × 120', type: 'standard', dimensions: { width: 180, height: 120, unit: 'cm' } },
+      { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }
     ]
   },
@@ -208,8 +201,7 @@ export const products: Product[] = [
     priceUnit: 'unidad',
     image: '/products/bmr-product-placeholder.svg',
     variants: [
-      { id: '120x120', label: '120 × 120', type: 'standard', dimensions: { width: 120, height: 120, unit: 'cm' } },
-      { id: '180x120', label: '180 × 120', type: 'standard', dimensions: { width: 180, height: 120, unit: 'cm' } },
+      { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }
     ]
   }
