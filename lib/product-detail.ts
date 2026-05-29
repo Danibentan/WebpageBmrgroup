@@ -101,7 +101,7 @@ export function adaptProductToDetail(product: Product): ProductDetail {
     material: product.material,
     esNuevo: Boolean(product.featured),
     // TODO ajustar a CMS: usar product.descripcionLarga cuando exista en el modelo real.
-    descripcionLarga: buildDefaultDescription(product),
+    descripcionLarga: product.longDescription ?? buildDefaultDescription(product),
     // TODO ajustar a CMS: usar product.imagenes cuando exista en el modelo real.
     imagenes: [product.image].filter(Boolean),
     medidas: buildDefaultMeasures(product),
