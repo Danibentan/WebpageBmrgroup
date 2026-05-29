@@ -8,6 +8,7 @@ const nextConfig = {
       { source: '/index.html', destination: '/', permanent: true },
       { source: '/quienes-somos.html', destination: '/quienes-somos', permanent: true },
       { source: '/tienda.html', destination: '/tienda', permanent: true },
+      { source: '/tienda/ventana-modena-a30', destination: '/tienda/ventana-corrediza-a40', permanent: true },
       { source: '/nuestras-obras.html', destination: '/nuestras-obras', permanent: true },
       { source: '/nuestras-obras/Oficina%20Corporativa', destination: '/nuestras-obras/oficina-corporativa', permanent: true },
       { source: '/nuestras-obras/Oficina-Corporativa', destination: '/nuestras-obras/oficina-corporativa', permanent: true },
