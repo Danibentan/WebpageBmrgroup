@@ -17,14 +17,14 @@ const cardVariants = {
   }
 };
 
-const formatPrice = (price: number) => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(price);
-
 export function ProductCard({ product }: { product: Product; priority?: boolean }) {
   const reduceMotion = useReducedMotion();
   const { addItem, openCart } = useCart();
 
+  const canBuy = Boolean(SHOP_CHECKOUT_ENABLED && product.disponibleParaCompra && typeof product.priceFrom === 'number' && product.priceFrom > 0 && product.priceUnit !== 'consultar');
+
   const handleAdd = () => {
-    if (!SHOP_CHECKOUT_ENABLED) return;
+    if (!canBuy || typeof product.priceFrom !== 'number') return;
 
     addItem({
       id: product.id,
@@ -56,11 +56,11 @@ export function ProductCard({ product }: { product: Product; priority?: boolean 
         <button
           type="button"
           onClick={handleAdd}
-          disabled={!SHOP_CHECKOUT_ENABLED || product.priceUnit === 'consultar' || product.priceFrom <= 0}
+          disabled={!canBuy}
           className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-black/25 px-3 py-2 text-xs uppercase tracking-[0.12em] text-black transition hover:bg-black hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
         >
           <ShoppingBag size={14} />
-          {SHOP_CHECKOUT_ENABLED ? 'Agregar al carrito' : 'Próximamente'}
+          {canBuy ? 'Comprar' : 'Próximamente'}
         </button>
       </div>
     </motion.div>

@@ -54,7 +54,7 @@ export function useShopFilters(products: ShopProduct[]) {
     return products.filter((product) => {
       const categoryPass = category === 'all' || product.category === category;
       const materialPass = materials.size === 0 || materials.has(product.material as ShopMaterial);
-      const availabilityPass = availability.size === 0 || availability.has('coming-soon');
+      const availabilityPass = availability.size === 0 || (availability.has('coming-soon') && !product.available);
       return categoryPass && materialPass && availabilityPass;
     });
   }, [products, category, materials, availability]);

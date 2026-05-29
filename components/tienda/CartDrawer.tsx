@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Minus, Plus, Trash2, X } from 'lucide-react';
 import { useCart } from '@/lib/cart-store';
+import { CheckoutModal } from './CheckoutModal';
 import type { CartItem } from '@/types/product';
 
 const formatPrice = (price: number) =>
@@ -13,8 +14,7 @@ const formatPrice = (price: number) =>
 export function CartDrawer() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, updateMetros, clearCart, hasConsultaItems } = useCart();
   const [mounted, setMounted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
@@ -28,52 +28,30 @@ export function CartDrawer() {
     [items]
   );
 
-  const handleCheckout = async () => {
-    try {
-      setErrorMessage('');
-      setIsSubmitting(true);
+  const checkoutItems = useMemo(
+    () =>
+      items
+        .filter((item) => item.priceUnit !== 'consultar' && item.price > 0)
+        .map((item) => ({
+          id: item.id,
+          title: item.name,
+          description: item.description,
+          quantity: item.quantity,
+          unit_price: item.priceUnit === 'm2' ? item.price * (item.metros || 1) : item.price,
+          currency_id: 'ARS'
+        })),
+    [items]
+  );
 
-      const payload = {
-        items: items
-          .filter((item) => item.priceUnit !== 'consultar' && item.price > 0)
-          .map((item) => ({
-            id: item.id,
-            title: item.name,
-            description: item.description,
-            quantity: item.quantity,
-            unit_price: item.priceUnit === 'm2' ? item.price * (item.metros || 1) : item.price,
-            currency_id: 'ARS'
-          }))
-      };
-
-      const response = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      const data = (await response.json()) as { init_point?: string; sandbox_init_point?: string; error?: string };
-      if (!response.ok) {
-        throw new Error(data.error || 'No se pudo iniciar el checkout.');
-      }
-
-      const checkoutUrl = data.init_point || data.sandbox_init_point;
-      if (!checkoutUrl) {
-        throw new Error('Mercado Pago no devolvió URL de checkout.');
-      }
-
-      window.location.href = checkoutUrl;
-    } catch (error) {
-      console.error('[CHECKOUT] Error', error);
-      setErrorMessage(error instanceof Error ? error.message : 'No se pudo iniciar el pago.');
-      setIsSubmitting(false);
-    }
+  const handleCheckout = () => {
+    setIsCheckoutOpen(true);
   };
 
   if (!mounted) return null;
 
   return (
-    <AnimatePresence>
+    <>
+      <AnimatePresence>
       {isOpen ? (
         <>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={closeCart} className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm" />
@@ -156,14 +134,13 @@ export function CartDrawer() {
                   <span className="text-xs uppercase tracking-[0.2em] text-white/60">Total estimado</span>
                   <span className="font-editorial text-2xl text-[#c9a961]">{formatPrice(total)}</span>
                 </div>
-                {errorMessage ? <p className="text-xs text-red-300">{errorMessage}</p> : null}
                 <button
                   type="button"
                   onClick={handleCheckout}
-                  disabled={isSubmitting || total <= 0}
+                  disabled={total <= 0 || checkoutItems.length === 0}
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a961] py-3 text-sm font-medium tracking-wide text-[#0a1733] transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Redirigiendo...' : 'Pagar con Mercado Pago'}
+                  Comprar
                 </button>
                 <button type="button" onClick={clearCart} className="w-full text-[10px] uppercase tracking-[0.2em] text-white/40 transition-colors hover:text-white/70">
                   Vaciar carrito
@@ -173,6 +150,8 @@ export function CartDrawer() {
           </motion.aside>
         </>
       ) : null}
-    </AnimatePresence>
+      </AnimatePresence>
+      <CheckoutModal open={isCheckoutOpen} items={checkoutItems} onClose={() => setIsCheckoutOpen(false)} />
+    </>
   );
 }

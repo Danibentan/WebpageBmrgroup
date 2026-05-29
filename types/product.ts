@@ -9,6 +9,19 @@ export type ProductVariant = {
   dimensions?: { width: number; height: number; unit: 'cm' };
 };
 
+export type ProductMeasure = {
+  id: string;
+  label: string;
+  precio: number | null;
+  esPersonalizada?: boolean;
+};
+
+export type ProductOption = {
+  id: string;
+  nombre: string;
+  precio: number | null;
+};
+
 export interface Product {
   id: string;
   slug: string;
@@ -16,8 +29,15 @@ export interface Product {
   category: ProductCategory;
   material: ProductMaterial;
   description: string;
-  priceFrom: number;
+  longDescription?: string;
+  imagenPortada?: string;
+  imagenes?: string[];
+  imagenAlt: string;
+  medidas?: ProductMeasure[];
+  opcionales?: ProductOption[];
+  priceFrom: number | null;
   priceUnit: 'm2' | 'unidad' | 'consultar';
+  disponibleParaCompra: boolean;
   image: string;
   featured?: boolean;
   variants: ProductVariant[];
