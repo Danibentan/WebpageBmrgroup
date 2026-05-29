@@ -92,6 +92,7 @@ function buildDefaultIncludes(product: Product): string[] {
   return [
     'Asesoramiento técnico previo a la compra',
     `Producto en ${materialLabels[product.material].toLowerCase()} según configuración elegida`,
+    'Vidrio DVH de 3+3/9/3+3 de alta prestación',
     'Revisión de medidas y compatibilidad con obra',
     'Coordinación de entrega con el equipo comercial'
   ];
