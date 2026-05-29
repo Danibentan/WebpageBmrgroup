@@ -22,7 +22,7 @@ export const products: Product[] = [
     ],
     imagenAlt: 'Ventana Corrediza A40 de aluminio instalada en living',
     medidas: [
-      { id: '200x200', label: '200 × 200 cm', precio: 2226400 },
+      { id: '200x200', label: '200 × 200 cm', precio: 2264000 },
       { id: 'a-medida', label: 'A medida', precio: null, esPersonalizada: true }
     ],
     opcionales: [
@@ -30,7 +30,7 @@ export const products: Product[] = [
       { id: 'tapajuntas', nombre: 'Tapa Juntas', precio: 40000 },
       { id: 'mosquitero', nombre: 'Mosquitero', precio: 179000 }
     ],
-    priceFrom: 2226400,
+    priceFrom: 2264000,
     priceUnit: 'unidad',
     image: '/products/bmr-product-placeholder.svg',
     featured: true,

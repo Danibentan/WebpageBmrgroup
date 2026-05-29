@@ -36,7 +36,12 @@ export function ProductPurchaseControls({ product }: ProductPurchaseControlsProp
         <p className="mt-2 font-editorial text-3xl italic text-[#14223D]">
           {typeof selectedMeasure.precio === 'number' ? formatPrice(selectedMeasure.precio) : 'Precio a cotizar'}
         </p>
-        {typeof selectedMeasure.precio === 'number' ? <p className="mt-1 text-xs text-[#6B6655]">IVA incluido</p> : null}
+        {typeof selectedMeasure.precio === 'number' ? (
+          <div className="mt-1 space-y-1 text-xs text-[#6B6655]">
+            <p>IVA incluido</p>
+            <p>Pagando con Efectivo/Transferencia un 5% de descuento</p>
+          </div>
+        ) : null}
       </div>
 
       <SizeSelector measures={product.medidas} selectedMeasure={selectedMeasure} onChange={setSelectedMeasure} />
