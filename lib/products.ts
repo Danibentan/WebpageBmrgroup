@@ -2,7 +2,7 @@ import type { Product } from '@/types/product';
 
 // Precios internos en pesos argentinos (ARS). No se muestran públicamente hasta que la tienda esté disponible.
 export const products: Product[] = [
-  { id: '1', slug: 'ventana-modena-a30', name: 'Ventana Modena A30', category: 'ventanas', material: 'aluminio', description: 'Aluminio · DVH', priceFrom: 100, priceUnit: 'unidad', image: '/products/bmr-product-placeholder.svg', featured: true, variants: [
+  { id: '1', slug: 'ventana-corrediza-a40', name: 'Ventana Corrediza A40', category: 'ventanas', material: 'aluminio', description: 'Ventana Corrediza A40 de aluminio · DVH', longDescription: 'Ventana Corrediza A40 de aluminio pensada para obras residenciales y comerciales que buscan terminaciones premium, buena prestación térmica y una resolución prolija lista para coordinar con el equipo de BMR Group.', priceFrom: 100, priceUnit: 'unidad', image: '/products/bmr-product-placeholder.svg', featured: true, variants: [
       { id: '150x100', label: '150 × 100', type: 'standard', dimensions: { width: 150, height: 100, unit: 'cm' } },
       { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
       { id: 'custom', label: 'A medida', type: 'custom' }

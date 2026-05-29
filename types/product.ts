@@ -16,6 +16,7 @@ export interface Product {
   category: ProductCategory;
   material: ProductMaterial;
   description: string;
+  longDescription?: string;
   priceFrom: number;
   priceUnit: 'm2' | 'unidad' | 'consultar';
   image: string;
