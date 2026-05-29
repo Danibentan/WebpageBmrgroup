@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useRef, useState, type MouseEvent } from 'react';
 import { gsap } from '@/lib/gsap';
 import type { ShopProduct } from '@/lib/shop/product-types';
@@ -28,18 +29,19 @@ export function ProductCard({ product }: { product: ShopProduct }) {
     if (imageRef.current) gsap.to(imageRef.current, { x: -(x - cx) * 0.04, y: -(y - cy) * 0.04, duration: 0.5, ease: 'power2.out' });
   };
 
-  const handleCtaClick = (event: React.MouseEvent) => {
-    if (!isCustom) {
-      event.preventDefault();
-      return;
-    }
+  const handleCtaClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (!isCustom) return;
+
     window.location.href = `/contacto?producto=${product.id}&medida=custom`;
   };
 
   return (
     <article
       ref={cardRef}
-      className="product-card"
+      className="product-card group"
       onMouseMove={move}
       onMouseEnter={() => {
         if (!reduced) {
@@ -54,16 +56,23 @@ export function ProductCard({ product }: { product: ShopProduct }) {
       }}
       aria-label={product.name}
     >
-      <div className="product-card__image-wrapper">
+      <Link
+        href={`/tienda/${product.slug}`}
+        aria-label={`Ver detalle de ${product.name}`}
+        className="absolute inset-0 z-[1] rounded-[18px] focus:outline-none focus:ring-2 focus:ring-[#B8924A] focus:ring-offset-2 focus:ring-offset-[#F4EEDE]"
+      />
+      <div className="product-card__image-wrapper transition duration-300 group-hover:brightness-[1.03]">
         <img ref={imageRef} className="product-card__image" src={product.image} alt={product.name} />
         <div ref={overlayRef} className="product-card__overlay" />
         {product.featured ? <div className="product-card__badge">Nuevo</div> : null}
       </div>
-      <div className="product-card__body">
+      <div className="product-card__body z-[2]">
         <h3 className="product-card__title">{product.name}</h3>
         <p className="product-card__subtitle">{product.description}</p>
 
-        <SizeDropdown variants={product.variants} onChange={setSelectedVariant} />
+        <div className="relative z-[3]" onClick={(event) => event.stopPropagation()}>
+          <SizeDropdown variants={product.variants} onChange={setSelectedVariant} />
+        </div>
 
         <button className={`product-card__cta ${isCustom ? 'product-card__cta--active' : ''}`} aria-disabled={!isCustom} onClick={handleCtaClick}>
           <i className={`ti ${isCustom ? 'ti-mail' : 'ti-shopping-bag'}`} aria-hidden="true" />
