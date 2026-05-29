@@ -22,7 +22,9 @@ export function AddToCartButton({ product, selectedMeasure, selectedOptions }: A
     return () => window.clearTimeout(timeout);
   }, [status]);
 
-  if (selectedMeasure.precio === null) {
+  const selectedMeasurePrice = selectedMeasure.precio;
+
+  if (selectedMeasurePrice === null) {
     return (
       <a
         href={`/contacto?producto=${product.id}&medida=${selectedMeasure.id}`}
@@ -39,7 +41,7 @@ export function AddToCartButton({ product, selectedMeasure, selectedOptions }: A
       slug: product.slug,
       name: `${product.nombre} — ${selectedMeasure.label}`,
       description: `${product.descripcionLarga} Medida seleccionada: ${selectedMeasure.label}.`,
-      price: selectedMeasure.precio,
+      price: selectedMeasurePrice,
       priceUnit: 'unidad',
       image: product.imagenes[0] ?? '/products/bmr-product-placeholder.svg'
     });
