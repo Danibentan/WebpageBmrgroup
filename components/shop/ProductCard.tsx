@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRef, useState, type MouseEvent } from 'react';
 import { gsap } from '@/lib/gsap';
@@ -9,9 +10,10 @@ import { SizeDropdown } from './SizeDropdown';
 
 export function ProductCard({ product }: { product: ShopProduct }) {
   const cardRef = useRef<HTMLElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant>(product.variants[0]);
+  const [coverFailed, setCoverFailed] = useState(false);
 
   const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouch = typeof window !== 'undefined' && !window.matchMedia('(hover: hover)').matches;
@@ -62,7 +64,22 @@ export function ProductCard({ product }: { product: ShopProduct }) {
         className="absolute inset-0 z-[1] rounded-[18px] focus:outline-none focus:ring-2 focus:ring-[#B8924A] focus:ring-offset-2 focus:ring-offset-[#F4EEDE]"
       />
       <div className="product-card__image-wrapper transition duration-300 group-hover:brightness-[1.03]">
-        <img ref={imageRef} className="product-card__image" src={product.image} alt={product.name} />
+        {product.imagenPortada && !coverFailed ? (
+          <div ref={imageRef} className="product-card__image">
+            <Image
+              src={product.imagenPortada}
+              alt={product.imagenAlt}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+              onError={() => setCoverFailed(true)}
+            />
+          </div>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-[#14223D]" role="img" aria-label={`Imagen pendiente para ${product.name}`}>
+            <p className="font-editorial text-2xl text-[#F4EEDE]">Próximamente</p>
+          </div>
+        )}
         <div ref={overlayRef} className="product-card__overlay" />
         {product.featured ? <div className="product-card__badge">Nuevo</div> : null}
       </div>

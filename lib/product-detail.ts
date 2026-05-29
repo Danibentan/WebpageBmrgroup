@@ -103,14 +103,14 @@ export function adaptProductToDetail(product: Product): ProductDetail {
     // TODO ajustar a CMS: usar product.descripcionLarga cuando exista en el modelo real.
     descripcionLarga: product.longDescription ?? buildDefaultDescription(product),
     // TODO ajustar a CMS: usar product.imagenes cuando exista en el modelo real.
-    imagenes: [product.image].filter(Boolean),
+    imagenes: product.imagenes?.length ? product.imagenes : product.imagenPortada ? [product.imagenPortada] : [],
     medidas: buildDefaultMeasures(product),
     opcionales: buildDefaultOptions(product),
     incluye: buildDefaultIncludes(product),
     especificaciones: buildDefaultSpecs(product),
     disponible: SHOP_CHECKOUT_ENABLED && product.priceUnit !== 'consultar' && product.priceFrom > 0,
     precio: product.priceFrom,
-    imageAlt: product.name
+    imageAlt: product.imagenAlt
   };
 }
 

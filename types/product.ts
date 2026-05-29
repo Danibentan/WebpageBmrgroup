@@ -17,6 +17,9 @@ export interface Product {
   material: ProductMaterial;
   description: string;
   longDescription?: string;
+  imagenPortada?: string;
+  imagenes?: string[];
+  imagenAlt: string;
   priceFrom: number;
   priceUnit: 'm2' | 'unidad' | 'consultar';
   image: string;
