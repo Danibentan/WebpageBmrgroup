@@ -3,14 +3,17 @@ import { SHOP_CHECKOUT_ENABLED } from '@/lib/feature-flags';
 import type { Product, ProductCategory, ProductMaterial } from '@/types/product';
 
 export type ProductMeasure = {
+  id: string;
   label: string;
   value: string;
+  precio: number | null;
+  esPersonalizada?: boolean;
 };
 
 export type ProductOption = {
   id: string;
   nombre: string;
-  precio?: number | null;
+  precio: number | null;
 };
 
 export type ProductSpec = {
@@ -55,15 +58,27 @@ function buildDefaultDescription(product: Product) {
 }
 
 function buildDefaultMeasures(product: Product): ProductMeasure[] {
+  if (product.medidas?.length) {
+    return product.medidas.map((measure) => ({
+      ...measure,
+      value: measure.id
+    }));
+  }
+
   const measures = product.variants.map((variant) => ({
+    id: variant.id,
     label: variant.label,
-    value: variant.id
+    value: variant.id,
+    precio: variant.type === 'custom' ? null : product.priceFrom > 0 ? product.priceFrom : null,
+    esPersonalizada: variant.type === 'custom'
   }));
 
-  return measures.length > 0 ? measures : [{ label: 'A medida', value: 'custom' }];
+  return measures.length > 0 ? measures : [{ id: 'a-medida', label: 'A medida', value: 'a-medida', precio: null, esPersonalizada: true }];
 }
 
 function buildDefaultOptions(product: Product): ProductOption[] {
+  if (product.opcionales) return product.opcionales;
+
   // TODO ajustar a CMS: reemplazar estos opcionales por los configurados para cada producto.
   return [
     { id: `${product.id}-mosquitero`, nombre: 'Mosquitero reforzado', precio: product.category === 'ventanas' ? 95000 : null },

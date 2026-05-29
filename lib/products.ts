@@ -21,13 +21,22 @@ export const products: Product[] = [
       '/productos/ventana-corrediza-a40-3.webp'
     ],
     imagenAlt: 'Ventana Corrediza A40 de aluminio instalada en living',
-    priceFrom: 100,
+    medidas: [
+      { id: '200x200', label: '200 × 200 cm', precio: 2226400 },
+      { id: 'a-medida', label: 'A medida', precio: null, esPersonalizada: true }
+    ],
+    opcionales: [
+      { id: 'premarco', nombre: 'Premarco', precio: 55000 },
+      { id: 'tapajuntas', nombre: 'Tapa Juntas', precio: 40000 },
+      { id: 'mosquitero', nombre: 'Mosquitero', precio: 179000 }
+    ],
+    priceFrom: 2226400,
     priceUnit: 'unidad',
     image: '/products/bmr-product-placeholder.svg',
     featured: true,
     variants: [
-      { id: '200x200', label: '200 × 200', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
-      { id: 'custom', label: 'A medida', type: 'custom' }
+      { id: '200x200', label: '200 × 200 cm', type: 'standard', dimensions: { width: 200, height: 200, unit: 'cm' } },
+      { id: 'a-medida', label: 'A medida', type: 'custom' }
     ]
   },
   {

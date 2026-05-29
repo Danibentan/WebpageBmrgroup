@@ -9,6 +9,19 @@ export type ProductVariant = {
   dimensions?: { width: number; height: number; unit: 'cm' };
 };
 
+export type ProductMeasure = {
+  id: string;
+  label: string;
+  precio: number | null;
+  esPersonalizada?: boolean;
+};
+
+export type ProductOption = {
+  id: string;
+  nombre: string;
+  precio: number | null;
+};
+
 export interface Product {
   id: string;
   slug: string;
@@ -20,6 +33,8 @@ export interface Product {
   imagenPortada?: string;
   imagenes?: string[];
   imagenAlt: string;
+  medidas?: ProductMeasure[];
+  opcionales?: ProductOption[];
   priceFrom: number;
   priceUnit: 'm2' | 'unidad' | 'consultar';
   image: string;

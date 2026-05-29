@@ -12,9 +12,6 @@ type ProductPageProps = {
   params: { slug: string };
 };
 
-const formatPrice = (price: number) =>
-  new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(price);
-
 export function generateStaticParams() {
   return getProductDetailSlugs();
 }
@@ -85,13 +82,6 @@ export default function ProductPage({ params }: ProductPageProps) {
             <h1 className="mt-3 font-editorial text-5xl italic leading-[0.95] text-[#14223D] md:text-6xl">{product.nombre}</h1>
             <div className="mt-5 h-px w-full bg-[#14223D]/15" aria-hidden="true" />
             <p className="mt-6 text-base leading-8 text-[#6B6655]">{product.descripcionLarga}</p>
-
-            <div className="mt-6 rounded-3xl border border-[#14223D]/10 bg-[#EDE5D0]/50 p-5">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6B6655]">Precio base</p>
-              <p className="mt-2 font-editorial text-3xl italic text-[#14223D]">
-                {product.precio > 0 ? formatPrice(product.precio) : 'A consultar'}
-              </p>
-            </div>
 
             <div className="mt-8">
               <ProductPurchaseControls product={product} />
