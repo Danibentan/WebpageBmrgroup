@@ -1,13 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, MouseEvent, useRef, useState } from 'react';
 import { useGSAP } from '@/lib/useGSAP';
 
 import ImmersiveHero from '@/components/hero/ImmersiveHero';
 import { ProfessionalHeader } from '@/components/layout/ProfessionalHeader';
 import { InfiniteMarquee } from '@/components/marquee/InfiniteMarquee';
-import { gsap } from '@/lib/gsap';
+import { ScrollTrigger, gsap } from '@/lib/gsap';
 
 const caseStudies = [
   {
@@ -34,22 +34,128 @@ export function HomePageClient() {
     () => {
       if (!rootRef.current) return;
 
-      gsap.fromTo(
-        '.case-study-row, .reference-row',
-        { y: 22, autoAlpha: 0, scale: 0.985 },
-        {
-          y: 0,
-          autoAlpha: 1,
-          scale: 1,
-          duration: 0.6,
-          ease: 'power3.out',
-          stagger: 0.08,
-          clearProps: 'transform,opacity,visibility'
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const cards = gsap.utils.toArray<HTMLElement>('[data-gsap-card]');
+
+      if (prefersReducedMotion) {
+        gsap.set(cards, { y: 0, autoAlpha: 1, scale: 1, filter: 'none', clearProps: 'transform,opacity,visibility,filter' });
+        cards.forEach((card) => {
+          gsap.set(card.querySelectorAll('[data-gsap-child], [data-gsap-title], [data-gsap-number]'), {
+            y: 0,
+            yPercent: 0,
+            autoAlpha: 1,
+            scale: 1,
+            clearProps: 'transform,opacity,visibility'
+          });
+        });
+        return;
+      }
+
+      const cleanups = cards.map((card) => {
+        const children = card.querySelectorAll('[data-gsap-child]');
+        const number = card.querySelector('[data-gsap-number]');
+        const title = card.querySelector('[data-gsap-title]');
+
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            once: true,
+            toggleActions: 'play none none none'
+          }
+        });
+
+        timeline
+          .fromTo(
+            card,
+            { y: 60, autoAlpha: 0, scale: 0.97, filter: 'blur(6px)' },
+            {
+              y: 0,
+              autoAlpha: 1,
+              scale: 1,
+              filter: 'blur(0px)',
+              duration: 1,
+              ease: 'power3.out',
+              clearProps: 'transform,opacity,visibility,filter'
+            }
+          )
+          .fromTo(
+            children,
+            { y: 24, autoAlpha: 0 },
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 0.72,
+              ease: 'power2.out',
+              stagger: 0.08,
+              clearProps: 'transform,opacity,visibility'
+            },
+            0.2
+          );
+
+        if (number) {
+          timeline.fromTo(number, { scale: 0.86 }, { scale: 1, duration: 0.7, ease: 'back.out(1.7)', clearProps: 'transform' }, 0.28);
         }
-      );
+
+        if (title) {
+          gsap.to(title, {
+            yPercent: -7,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true
+            }
+          });
+        }
+
+        const handlePointerEnter = () => {
+          gsap.to(card, {
+            y: -6,
+            boxShadow: '0 24px 56px rgba(42, 36, 24, 0.18)',
+            duration: 0.4,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        };
+
+        const handlePointerLeave = () => {
+          gsap.to(card, {
+            y: 0,
+            boxShadow: '0 14px 30px rgba(42, 36, 24, 0.08)',
+            duration: 0.4,
+            ease: 'power2.out',
+            overwrite: 'auto'
+          });
+        };
+
+        card.addEventListener('pointerenter', handlePointerEnter);
+        card.addEventListener('pointerleave', handlePointerLeave);
+
+        return () => {
+          card.removeEventListener('pointerenter', handlePointerEnter);
+          card.removeEventListener('pointerleave', handlePointerLeave);
+        };
+      });
+
+      ScrollTrigger.refresh();
+
+      return () => {
+        cleanups.forEach((cleanup) => cleanup());
+      };
     },
     { scope: rootRef }
   );
+
+  const handleLiquidMouseMove = (event: MouseEvent<HTMLButtonElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    event.currentTarget.style.setProperty('--x', `${x}%`);
+    event.currentTarget.style.setProperty('--y', `${y}%`);
+  };
 
   const handleCorporateSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -105,15 +211,16 @@ export function HomePageClient() {
               key={item.id}
               href={href}
               aria-label={ariaLabel}
-              className="case-study-row block cursor-pointer opacity-100 rounded-2xl border border-[var(--bmr-border)] bg-[linear-gradient(135deg,var(--bg-elevated-2)_0%,var(--bg-elevated-1)_100%)] p-6 transition duration-300 hover:-translate-y-[2px] hover:border-[var(--bmr-gold)]/60 hover:shadow-[0_14px_30px_rgba(42,36,24,0.12)] md:p-10"
+              data-gsap-card
+              className="case-study-row block cursor-pointer rounded-2xl border border-[var(--bmr-border)] bg-[linear-gradient(135deg,var(--bg-elevated-2)_0%,var(--bg-elevated-1)_100%)] p-6 shadow-[0_14px_30px_rgba(42,36,24,0.08)] transition-colors duration-300 hover:border-[var(--bmr-gold)]/60 md:p-10"
             >
               <article>
                 <div className="grid gap-8 md:grid-cols-[120px,1fr]">
-                  <span className="text-7xl font-semibold leading-none text-[var(--bmr-slate)]/40 md:text-8xl">{item.id}</span>
+                  <span data-gsap-child data-gsap-number className="text-7xl font-semibold leading-none text-[var(--bmr-slate)]/40 md:text-8xl">{item.id}</span>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.32em] text-[var(--bmr-terracota)]">{item.subtitle}</p>
-                    <h3 className="mt-3 max-w-[16ch] text-4xl font-semibold leading-[1.02] text-[var(--bmr-slate)] md:text-5xl">{item.title}</h3>
-                    <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-[var(--bmr-text-muted)]">{item.text}</p>
+                    <p data-gsap-child className="text-xs uppercase tracking-[0.32em] text-[var(--bmr-terracota)]">{item.subtitle}</p>
+                    <h3 data-gsap-child data-gsap-title className="mt-3 max-w-[16ch] text-4xl font-semibold leading-[1.02] text-[var(--bmr-slate)] md:text-5xl">{item.title}</h3>
+                    <p data-gsap-child className="mt-6 max-w-[52ch] text-lg leading-relaxed text-[var(--bmr-text-muted)]">{item.text}</p>
                   </div>
                 </div>
               </article>
@@ -124,17 +231,23 @@ export function HomePageClient() {
       </section>
 
       <section className="mx-auto mb-12 max-w-7xl px-6 pt-8 md:pt-14">
-        <div className="reference-row rounded-2xl border border-[var(--bmr-border)] bg-[var(--bmr-cream-2)] p-8 md:flex md:items-end md:justify-between md:p-12">
+        <div
+          data-gsap-card
+          className="reference-row rounded-2xl border border-[var(--bmr-border)] bg-[var(--bmr-cream-2)] p-8 shadow-[0_14px_30px_rgba(42,36,24,0.08)] transition-colors duration-300 hover:border-[var(--bmr-gold)]/60 md:flex md:items-end md:justify-between md:p-12"
+        >
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-[var(--bmr-terracota)]">Canal exclusivo corporativos,Arquitectos,Constructoras.</p>
-            <h3 className="mt-4 max-w-[14ch] text-4xl font-semibold leading-[1.02] text-[var(--bmr-slate)] md:text-6xl">Iniciemos tu próximo caso de referencia.</h3>
+            <p data-gsap-child className="text-xs uppercase tracking-[0.3em] text-[var(--bmr-terracota)]">Canal exclusivo corporativos,Arquitectos,Constructoras.</p>
+            <h3 data-gsap-child data-gsap-title className="mt-4 max-w-[14ch] text-4xl font-semibold leading-[1.02] text-[var(--bmr-slate)] md:text-6xl">Iniciemos tu próximo caso de referencia.</h3>
           </div>
           <button
             type="button"
+            data-gsap-child
             onClick={() => setIsContactModalOpen(true)}
-            className="mt-6 inline-flex rounded-full border border-[#c6d4e6] px-7 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--bmr-slate)] transition hover:bg-[var(--bmr-slate)] hover:text-[var(--bmr-cream)] md:mt-0"
+            onMouseMove={handleLiquidMouseMove}
+            className="bmr-liquid-contact mt-6 md:mt-0"
           >
-            Contactanos
+            <span className="bmr-liquid-contact__sheen" aria-hidden="true" />
+            <span className="bmr-liquid-contact__label">CONTÁCTANOS</span>
           </button>
         </div>
       </section>

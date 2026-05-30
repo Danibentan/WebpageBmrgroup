@@ -343,3 +343,103 @@ h3,
   margin-top: 6px;
 }
 
+
+.bmr-liquid-contact {
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  background: radial-gradient(150px circle at var(--x) var(--y), rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.2) 34%, transparent 66%), linear-gradient(135deg, rgba(255, 255, 255, 0.46), rgba(255, 251, 240, 0.2));
+  -webkit-backdrop-filter: blur(18px) saturate(168%);
+  backdrop-filter: blur(18px) saturate(168%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78), inset 0 -1px 0 rgba(31, 66, 87, 0.08), 0 14px 30px rgba(31, 66, 87, 0.14);
+  color: var(--bmr-slate);
+  cursor: pointer;
+  padding: 0.84rem 1.85rem;
+  text-transform: uppercase;
+  transition: border-color 400ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 400ms cubic-bezier(0.22, 1, 0.36, 1), transform 400ms cubic-bezier(0.22, 1, 0.36, 1), background 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bmr-liquid-contact::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(100px circle at var(--x) var(--y), rgba(135, 167, 204, 0.26), transparent 70%), rgba(255, 251, 240, 0.42);
+  opacity: 0.92;
+}
+
+.bmr-liquid-contact::after {
+  content: '';
+  position: absolute;
+  inset: -45% -25%;
+  z-index: 1;
+  background: linear-gradient(115deg, transparent 31%, rgba(255, 255, 255, 0.64) 45%, rgba(255, 255, 255, 0.12) 54%, transparent 68%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translateX(-32%) rotate(8deg);
+  transition: opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.bmr-liquid-contact:hover {
+  border-color: rgba(255, 255, 255, 0.88);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), inset 0 -1px 0 rgba(31, 66, 87, 0.12), 0 18px 42px rgba(31, 66, 87, 0.2);
+  transform: scale(1.04);
+}
+
+.bmr-liquid-contact:hover::after {
+  opacity: 1;
+  transform: translateX(28%) rotate(8deg);
+}
+
+.bmr-liquid-contact:focus-visible {
+  outline: 3px solid rgba(194, 106, 61, 0.68);
+  outline-offset: 4px;
+}
+
+.bmr-liquid-contact__sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background: radial-gradient(80px circle at var(--x) var(--y), rgba(255, 255, 255, 0.8), transparent 64%);
+  mix-blend-mode: screen;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.bmr-liquid-contact__label {
+  position: relative;
+  z-index: 3;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+@supports not ((backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px))) {
+  .bmr-liquid-contact {
+    background: rgba(255, 251, 240, 0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bmr-liquid-contact,
+  .bmr-liquid-contact::after {
+    transition: none !important;
+  }
+
+  .bmr-liquid-contact:hover {
+    transform: none;
+  }
+}
